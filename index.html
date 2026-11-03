@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VocabMaster - Ứng Dụng Học Từ Vựng Tiếng Anh</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .card-3d-wrap {
+      perspective: 1200px;
+    }
+    .card-3d {
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+    .card-3d.is-flipped {
+      transform: rotateY(180deg);
+    }
+    .face-front, .face-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .face-back {
+      transform: rotateY(180deg);
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
+    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
+      
+      <!-- Brand & Deck selector -->
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-lg shadow-sm shadow-blue-200">
+          V
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base font-bold text-slate-900 leading-none">VocabMaster</h1>
+            <span class="text-[10px] bg-blue-50 text-blue-600 border border-blue-200 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">Quizlet Pro</span>
+          </div>
+          <!-- Deck Switcher -->
+          <div class="flex items-center gap-1.5 mt-1">
+            <span class="text-xs text-slate-400 font-medium">Bộ từ:</span>
+            <select id="deck-select" onchange="changeDeck(this.value)" class="text-xs font-semibold text-blue-700 bg-blue-50/60 hover:bg-blue-100/60 rounded px-2 py-0.5 border border-blue-200 focus:outline-none cursor-pointer max-w-[180px] sm:max-w-[260px] truncate">
+              <!-- Dynamically populated -->
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Controls -->
+      <div class="flex items-center space-x-2">
+        <button onclick="openNewDeckModal()" class="hidden sm:inline-flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 font-semibold text-slate-700 transition">
+          ➕ Bộ mới
+        </button>
+        <button id="btn-sound-toggle" onclick="toggleSound()" class="p-2 text-slate-500 hover:text-blue-600 hover:bg-slate-100 rounded-lg transition" title="Bật/Tắt âm thanh">
+          🔊
+        </button>
+        <button onclick="switchTab('manage')" id="tab-btn-manage" class="px-3 py-1.5 text-xs font-bold rounded-lg border border-slate-300 hover:bg-slate-50 text-slate-700 transition flex items-center gap-1.5">
+          <span>📝 Quản lý từ</span>
+          <span id="badge-total-vocab" class="bg-blue-600 text-white px-1.5 py-0.2 rounded-full text-[11px]">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= SUB HEADER / NAVIGATION TABS ================= -->
+  <nav class="bg-white border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 flex items-center justify-between overflow-x-auto py-2 gap-2 text-sm">
+      
+      <!-- Study Modes -->
+      <div class="flex items-center space-x-1 sm:space-x-2">
+        <button onclick="switchTab('mcq')" id="tab-btn-mcq" class="mode-tab-btn px-3 py-2 rounded-xl font-bold flex items-center gap-1.5 transition text-blue-600 bg-blue-50">
+          🔘 <span>Trắc nghiệm 4 đáp án</span>
+        </button>
+        <button onclick="switchTab('typing')" id="tab-btn-typing" class="mode-tab-btn px-3 py-2 rounded-xl font-semibold flex items-center gap-1.5 transition text-slate-600 hover:bg-slate-100">
+          ✍️ <span>Gõ từ / Điền từ</span>
+        </button>
+        <button onclick="switchTab('flashcard')" id="tab-btn-flashcard" class="mode-tab-btn px-3 py-2 rounded-xl font-semibold flex items-center gap-1.5 transition text-slate-600 hover:bg-slate-100">
+          🃏 <span>Thẻ lật Flashcard</span>
+        </button>
+        <button onclick="switchTab('match')" id="tab-btn-match" class="mode-tab-btn px-3 py-2 rounded-xl font-semibold flex items-center gap-1.5 transition text-slate-600 hover:bg-slate-100">
+          🧩 <span>Ghép thẻ nhanh</span>
+        </button>
+      </div>
+
+      <!-- Settings Dropdown (Direction) -->
+      <div class="flex items-center space-x-2 flex-shrink-0">
+        <select id="study-direction" onchange="changeDirection(this.value)" class="text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 py-1.5 px-2.5 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 cursor-pointer">
+          <option value="en-vi">Anh ➡️ Việt</option>
+          <option value="vi-en">Việt ➡️ Anh</option>
+        </select>
+        <button onclick="restartCurrentMode()" title="Trộn lại và học lại từ đầu" class="p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs font-semibold flex items-center gap-1 transition">
+          🔀 Trộn
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ================= MAIN APP BODY ================= -->
+  <main class="max-w-5xl mx-auto px-4 py-6 flex-1 w-full">
+
+    <!-- Progress Indicator (visible in study modes) -->
+    <div id="study-progress-card" class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-xs border border-slate-200 mb-6">
+      <div class="flex justify-between items-center text-xs font-bold text-slate-600 mb-2">
+        <div class="flex items-center gap-2">
+          <span>Tiến độ:</span>
+          <span id="study-progress-counter" class="text-blue-600 font-extrabold bg-blue-50 px-2 py-0.5 rounded-md">1 / 10</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span class="text-emerald-600 flex items-center gap-1 font-bold">✓ <span id="stat-correct">0</span> Đúng</span>
+          <span class="text-rose-600 flex items-center gap-1 font-bold">✗ <span id="stat-wrong">0</span> Cần ôn</span>
+        </div>
+      </div>
+      <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+        <div id="study-progress-fill" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+      </div>
+    </div>
+
+
+    <!-- ================= 1. TAB: TRẮC NGHIỆM 4 ĐÁP ÁN (MCQ) ================= -->
+    <section id="view-mcq" class="study-view space-y-4">
+      <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-xs border border-slate-200 text-center relative overflow-hidden">
+        
+        <!-- Question Area -->
+        <div class="py-4 border-b border-slate-100 relative">
+          <div class="flex justify-center items-center gap-2 mb-3">
+            <span id="mcq-badge-type" class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-50 text-blue-600 border border-blue-100">
+              Tiếng Anh
+            </span>
+            <button onclick="speakWord(currentWord.en)" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-600 flex items-center justify-center transition" title="Nghe phát âm">
+              🔊
+            </button>
+          </div>
+          <h2 id="mcq-prompt-text" class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight min-h-[50px] flex items-center justify-center">
+            ...
+          </h2>
+          <p id="mcq-example-text" class="text-xs text-slate-400 mt-1 italic hidden"></p>
+        </div>
+
+        <!-- 4 Multiple Choice Buttons -->
+        <div id="mcq-choices-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-8">
+          <!-- Dynamically populated via JS -->
+        </div>
+
+        <!-- Feedback & Action Bar -->
+        <div id="mcq-feedback-bar" class="mt-6 flex flex-col sm:flex-row items-center justify-between min-h-[48px] gap-3">
+          <div id="mcq-feedback-msg" class="text-sm font-semibold text-left"></div>
+          <button id="mcq-next-btn" onclick="nextQuestion()" class="hidden w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-md shadow-blue-200 transition">
+            Câu tiếp theo ➡️ (Space)
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= 2. TAB: GÕ TỪ (TYPING / FLASH-WRITE) ================= -->
+    <section id="view-typing" class="study-view hidden space-y-4">
+      <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-xs border border-slate-200 text-center">
+        
+        <!-- Prompt Box -->
+        <div class="py-4 border-b border-slate-100">
+          <div class="flex justify-center items-center gap-2 mb-3">
+            <span id="typing-badge-type" class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+              Điền nghĩa tiếng Anh
+            </span>
+            <button onclick="speakWord(currentWord.en)" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-600 flex items-center justify-center transition" title="Nghe phát âm">
+              🔊
+            </button>
+          </div>
+          <h2 id="typing-prompt-text" class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            ...
+          </h2>
+        </div>
+
+        <!-- Typing Input Form -->
+        <div class="max-w-md mx-auto mt-8">
+          <form onsubmit="handleTypingSubmit(event)" class="space-y-4">
+            <div class="relative">
+              <input type="text" id="typing-input-field" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                     placeholder="Gõ câu trả lời vào đây..."
+                     class="w-full text-center text-xl font-bold px-4 py-3.5 border-2 border-slate-200 rounded-2xl focus:border-blue-600 focus:ring-4 focus:ring-blue-100 focus:outline-none transition">
+            </div>
+
+            <div class="flex items-center justify-center gap-3">
+              <button type="button" onclick="triggerHint()" class="px-4 py-2 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition flex items-center gap-1">
+                💡 Gợi ý chữ cái
+              </button>
+              <button type="submit" id="typing-btn-check" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-md shadow-blue-200 transition">
+                Kiểm tra (Enter)
+              </button>
+            </div>
+          </form>
+
+          <!-- Typing Feedback Container -->
+          <div id="typing-feedback-box" class="hidden mt-5 p-4 rounded-2xl text-left text-sm font-semibold border"></div>
+
+          <button id="typing-btn-next" onclick="nextQuestion()" class="hidden mt-4 w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-md shadow-blue-200 transition">
+            Từ tiếp theo ➡️ (Enter)
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= 3. TAB: FLASHCARD 3D FLIP ================= -->
+    <section id="view-flashcard" class="study-view hidden flex flex-col items-center space-y-6">
+      
+      <div onclick="toggleFlashcardFlip()" class="card-3d-wrap w-full max-w-lg h-72 cursor-pointer select-none">
+        <div id="flashcard-element" class="card-3d relative w-full h-full bg-white rounded-3xl shadow-sm border border-slate-200">
+          
+          <!-- Front Face -->
+          <div class="face-front absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-white rounded-3xl">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3">
+              Mặt trước • Click hoặc bấm Space để lật
+            </span>
+            <h2 id="flashcard-front-content" class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              ...
+            </h2>
+            <button onclick="event.stopPropagation(); speakWord(currentWord.en)" class="mt-4 px-3 py-1 rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-600 text-xs font-semibold transition flex items-center gap-1">
+              🔊 Phát âm
+            </button>
+          </div>
+
+          <!-- Back Face -->
+          <div class="face-back absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-gradient-to-b from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-3xl">
+            <span class="text-[11px] font-bold text-blue-500 uppercase tracking-widest mb-3">
+              Nghĩa / Định nghĩa
+            </span>
+            <h2 id="flashcard-back-content" class="text-2xl sm:text-3xl font-extrabold text-blue-950">
+              ...
+            </h2>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Flashcard Controls -->
+      <div class="flex items-center gap-3">
+        <button onclick="prevQuestion()" class="px-4 py-2.5 bg-white border border-slate-200 hover:bg-slate-50 rounded-xl font-bold text-xs text-slate-700 transition">
+          ⬅️ Từ trước
+        </button>
+        <button onclick="toggleFlashcardFlip()" class="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-xs shadow-md transition">
+          🔄 Lật thẻ (Space)
+        </button>
+        <button onclick="nextQuestion()" class="px-4 py-2.5 bg-white border border-slate-200 hover:bg-slate-50 rounded-xl font-bold text-xs text-slate-700 transition">
+          Từ sau ➡️
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- ================= 4. TAB: GHÉP THẺ (MATCH GAME) ================= -->
+    <section id="view-match" class="study-view hidden space-y-4">
+      <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-xs border border-slate-200">
+        <div class="flex flex-col sm:flex-row items-center justify-between pb-4 border-b border-slate-100 gap-3">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+              <span>🧩 Nối từ nhanh (Match Game)</span>
+            </h2>
+            <p class="text-xs text-slate-500">Bấm chọn 1 thẻ Tiếng Anh và 1 thẻ Tiếng Việt tương ứng để làm biến mất các cặp từ!</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="text-xs font-bold bg-slate-100 px-3 py-1.5 rounded-lg text-slate-700">
+              ⏱ Thời gian: <span id="match-timer" class="text-blue-600 font-mono text-sm font-extrabold">0.0s</span>
+            </div>
+            <button onclick="initMatchGame()" class="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded-lg text-xs font-bold transition">
+              🔄 Ván mới
+            </button>
+          </div>
+        </div>
+
+        <!-- 12 Cards Grid -->
+        <div id="match-cards-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mt-6">
+          <!-- Populated via JS -->
+        </div>
+
+        <!-- Win screen for Match Game -->
+        <div id="match-win-box" class="hidden mt-8 text-center p-8 bg-emerald-50 border-2 border-emerald-200 rounded-2xl">
+          <span class="text-4xl">🏆</span>
+          <h3 class="text-xl font-extrabold text-emerald-900 mt-2">Tuyệt vời! Bạn đã ghép thành công!</h3>
+          <p class="text-sm text-emerald-700 mt-1">Thời gian hoàn thành: <strong id="match-final-time">0</strong> giây</p>
+          <button onclick="initMatchGame()" class="mt-4 px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold shadow-md shadow-emerald-200 transition">
+            Chơi lại ván khác
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= 5. TAB: QUẢN LÝ TỪ & NẠP DỮ LIỆU ================= -->
+    <section id="view-manage" class="study-view hidden space-y-6">
+      
+      <!-- Box 1: Quick Add or Paste Multi -->
+      <div class="bg-white p-6 rounded-3xl shadow-xs border border-slate-200">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-100 gap-3">
+          <div>
+            <h2 class="text-lg font-extrabold text-slate-900">Nạp dữ liệu từ vựng hàng loạt</h2>
+            <p class="text-xs text-slate-500">Paste trực tiếp từ Excel, Quizlet, ChatGPT theo định dạng: <code class="text-blue-600">từ - nghĩa</code> hoặc tab</p>
+          </div>
+          <div class="flex items-center space-x-2">
+            <button onclick="fillSampleToDeck()" class="text-xs px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-bold transition">
+              ✨ Nạp từ mẫu
+            </button>
+            <button onclick="exportDeckJson()" class="text-xs px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-bold transition">
+              📥 Xuất File Backup
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <textarea id="manage-paste-textarea" rows="8" class="w-full font-mono text-xs sm:text-sm p-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-slate-50 leading-relaxed" placeholder="Ví dụ dán vào đây:
+accomplish - hoàn thành, đạt được
+crucial - cực kỳ quan trọng, cốt yếu
+diligent - siêng năng, chăm chỉ
+persistent - kiên trì, bền bỉ"></textarea>
+        </div>
+
+        <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span id="manage-parsed-preview" class="text-xs font-bold text-slate-500">Đã nhận diện: 0 từ hợp lệ</span>
+          <div class="flex space-x-2 w-full sm:w-auto">
+            <button onclick="appendParsedWords()" class="flex-1 sm:flex-none px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-xs font-bold transition">
+              ➕ Thêm vào bộ từ hiện tại
+            </button>
+            <button onclick="replaceParsedWords()" class="flex-1 sm:flex-none px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-blue-200 transition">
+              💾 Thay thế toàn bộ
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Box 2: Vocabulary Table / Word List -->
+      <div class="bg-white p-6 rounded-3xl shadow-xs border border-slate-200">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+          <div>
+            <h3 class="text-base font-extrabold text-slate-900">Danh sách từ trong bộ: <span id="current-deck-name-display" class="text-blue-600"></span></h3>
+            <p class="text-xs text-slate-500">Tổng cộng: <strong id="manage-table-count">0</strong> từ</p>
+          </div>
+          <button onclick="deleteCurrentDeck()" class="text-xs px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg font-bold transition">
+            🗑 Xoá cả bộ từ này
+          </button>
+        </div>
+
+        <!-- Add Single Word Inline Form -->
+        <form onsubmit="handleAddSingleWord(event)" class="mt-4 grid grid-cols-1 sm:grid-cols-12 gap-2 bg-slate-50 p-3 rounded-2xl border border-slate-200">
+          <input type="text" id="add-en" placeholder="Từ tiếng Anh (VD: innovative)" required class="sm:col-span-5 px-3 py-2 text-xs font-semibold bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          <input type="text" id="add-vi" placeholder="Nghĩa tiếng Việt (VD: đổi mới, sáng tạo)" required class="sm:col-span-5 px-3 py-2 text-xs font-semibold bg-white border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+          <button type="submit" class="sm:col-span-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition">
+            ➕ Thêm 1 từ
+          </button>
+        </form>
+
+        <!-- Table -->
+        <div class="mt-4 overflow-x-auto max-h-96 overflow-y-auto border border-slate-200 rounded-2xl">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 border-b border-slate-200 text-slate-600 font-bold sticky top-0">
+              <tr>
+                <th class="py-3 px-4 w-12 text-center">#</th>
+                <th class="py-3 px-4">Tiếng Anh</th>
+                <th class="py-3 px-4">Nghĩa Tiếng Việt</th>
+                <th class="py-3 px-4 w-28 text-center">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="manage-table-body" class="divide-y divide-slate-100">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SUMMARY SCREEN (HOÀN THÀNH VÒNG HỌC) ================= -->
+    <div id="study-summary-modal" class="hidden bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-slate-200 text-center max-w-md mx-auto my-6">
+      <span class="text-6xl animate-bounce inline-block">🎉</span>
+      <h2 class="text-2xl font-extrabold text-slate-900 mt-2">Hoàn thành lượt học!</h2>
+      <p class="text-slate-500 text-xs mt-1">Bạn vừa ôn luyện xong danh sách từ của bộ này.</p>
+
+      <div class="grid grid-cols-2 gap-3 my-6">
+        <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl">
+          <span class="block text-3xl font-extrabold text-emerald-600" id="summary-correct-stat">0</span>
+          <span class="text-xs text-emerald-800 font-bold">Chính xác</span>
+        </div>
+        <div class="bg-rose-50 border border-rose-200 p-4 rounded-2xl">
+          <span class="block text-3xl font-extrabold text-rose-600" id="summary-wrong-stat">0</span>
+          <span class="text-xs text-rose-800 font-bold">Cần ôn lại</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2.5">
+        <button id="summary-btn-mistakes" onclick="studyMistakesOnly()" class="hidden w-full py-3 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold text-xs shadow-md shadow-rose-200 transition flex items-center justify-center gap-1.5">
+          <span>🔁 Chỉ học lại những từ làm sai</span>
+          <span id="summary-mistakes-badge" class="bg-white/20 px-2 py-0.5 rounded-full text-[10px]">0</span>
+        </button>
+        <button onclick="restartCurrentMode()" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs shadow-md shadow-blue-200 transition">
+          🔄 Học lại từ đầu toàn bộ
+        </button>
+        <button onclick="switchTab('manage')" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-xs transition">
+          📝 Quản lý từ vựng
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER / KEYBOARD SHORTCUT BAR ================= -->
+  <footer class="bg-white border-t border-slate-200 py-3 text-center text-[11px] text-slate-400 font-medium">
+    Phím tắt tiện lợi: 
+    <span class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-bold">[1, 2, 3, 4]</span> Chọn đáp án • 
+    <span class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-bold">[Enter]</span> Kiểm tra / Tiếp theo • 
+    <span class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 font-bold">[Space]</span> Lật thẻ Flashcard
+  </footer>
+
+  <!-- ================= MODAL: TẠO BỘ TỪ MỚI ================= -->
+  <div id="modal-new-deck" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-slate-200">
+      <h3 class="text-base font-extrabold text-slate-900">Tạo bộ từ vựng mới</h3>
+      <p class="text-xs text-slate-500 mt-1">Ví dụ: TOEIC 600, IELTS Writing, Giao tiếp hằng ngày...</p>
+      
+      <input type="text" id="new-deck-name-input" placeholder="Tên bộ từ..." class="w-full mt-4 px-3.5 py-2.5 text-sm font-semibold border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+
+      <div class="flex justify-end gap-2 mt-5">
+        <button onclick="closeNewDeckModal()" class="px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl transition">
+          Huỷ
+        </button>
+        <button onclick="confirmCreateDeck()" class="px-5 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-md transition">
+          Tạo ngay
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= APPLICATION LOGIC (JAVASCRIPT) ================= -->
+  <script>
+    // --- 1. DEFAULT DATASETS ---
+    const DEFAULT_DECKS = [
+      {
+        id: "deck_ielts_core",
+        name: "IELTS Core Vocab (15 từ mẫu)",
+        words: [
+          { id: 1, en: "persistent", vi: "kiên trì, bền bỉ" },
+          { id: 2, en: "crucial", vi: "vô cùng quan trọng, cốt yếu" },
+          { id: 3, en: "accomplish", vi: "hoàn thành, đạt được" },
+          { id: 4, en: "elaborate", vi: "tỉ mỉ, chi tiết, kỹ lưỡng" },
+          { id: 5, en: "inevitable", vi: "không thể tránh khỏi" },
+          { id: 6, en: "procrastinate", vi: "trì hoãn, chần chừ" },
+          { id: 7, en: "vulnerable", vi: "dễ bị tổn thương" },
+          { id: 8, en: "substantial", vi: "đáng kể, quan trọng" },
+          { id: 9, en: "comprehend", vi: "thấu hiểu, lĩnh hội" },
+          { id: 10, en: "diligent", vi: "siêng năng, chăm chỉ" },
+          { id: 11, en: "ambiguous", vi: "mơ hồ, nước đôi" },
+          { id: 12, en: "resilient", vi: "kiên cường, mau hồi phục" },
+          { id: 13, en: "prioritize", vi: "ưu tiên hàng đầu" },
+          { id: 14, en: "facilitate", vi: "tạo điều kiện thuận lợi" },
+          { id: 15, en: "authentic", vi: "chân thực, đáng tin cậy" }
+        ]
+      },
+      {
+        id: "deck_tech_dev",
+        name: "Từ vựng IT & Lập trình",
+        words: [
+          { id: 1, en: "repository", vi: "kho lưu trữ mã nguồn" },
+          { id: 2, en: "deprecated", vi: "không còn được khuyến nghị dùng, lỗi thời" },
+          { id: 3, en: "concurrency", vi: "tính đồng thời, đa luồng" },
+          { id: 4, en: "scalability", vi: "khả năng mở rộng hệ thống" },
+          { id: 5, en: "bottleneck", vi: "điểm nghẽn hiệu năng" },
+          { id: 6, en: "refactor", vi: "tái cấu trúc lại code" },
+          { id: 7, en: "asynchronous", vi: "bất đồng bộ" },
+          { id: 8, en: "deployment", vi: "triển khai ứng dụng lên server" }
+        ]
+      }
+    ];
+
+    // --- 2. STATE ---
+    let appState = {
+      decks: [],
+      currentDeckId: "",
+      currentTab: "mcq", // 'mcq', 'typing', 'flashcard', 'match', 'manage'
+      direction: "en-vi", // 'en-vi' (Ask EN -> Answer VI) or 'vi-en' (Ask VI -> Answer EN)
+      soundEnabled: true,
+      
+      // Study session state
+      studyList: [],
+      currentIndex: 0,
+      correctCount: 0,
+      wrongCount: 0,
+      mistakes: [],
+      isAnswered: false,
+
+      // Match game state
+      matchCards: [],
+      matchSelected: [],
+      matchTimerInterval: null,
+      matchStartTime: 0
+    };
+
+    // Synthesizer Audio Context (Tạo âm thanh chuẩn offline 100%)
+    let audioCtx = null;
+    function playTone(type) {
+      if (!appState.soundEnabled) return;
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        const now = audioCtx.currentTime;
+        if (type === 'correct') {
+          // Cheerful chime (C5 -> G5)
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(523.25, now); // C5
+          osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.15); // G5
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+          osc.start(now);
+          osc.stop(now + 0.3);
+        } else if (type === 'wrong') {
+          // Low buzz
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(180, now);
+          osc.frequency.linearRampToValueAtTime(110, now + 0.2);
+          gain.gain.setValueAtTime(0.2, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+          osc.start(now);
+          osc.stop(now + 0.25);
+        } else if (type === 'match') {
+          // Match bell
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(659.25, now); // E5
+          osc.frequency.setValueAtTime(880.00, now + 0.08); // A5
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
+          osc.start(now);
+          osc.stop(now + 0.25);
+        }
+      } catch (e) {
+        console.warn("Audio Context error:", e);
+      }
+    }
+
+    // Web Speech API (Phát âm tiếng Anh)
+    function speakWord(text) {
+      if (!('speechSynthesis' in window) || !appState.soundEnabled) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 0.9;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // --- 3. INITIALIZATION ---
+    window.addEventListener('DOMContentLoaded', () => {
+      loadStorage();
+      populateDeckDropdown();
+      setupKeyboardListeners();
+      switchTab('mcq');
+    });
+
+    function loadStorage() {
+      const savedDecks = localStorage.getItem('vocab_decks_v2');
+      if (savedDecks) {
+        try {
+          appState.decks = JSON.parse(savedDecks);
+        } catch (e) {
+          appState.decks = [];
+        }
+      }
+      if (!appState.decks || appState.decks.length === 0) {
+        appState.decks = JSON.parse(JSON.stringify(DEFAULT_DECKS));
+        saveStorage();
+      }
+
+      const lastDeckId = localStorage.getItem('vocab_last_deck_id');
+      if (lastDeckId && appState.decks.some(d => d.id === lastDeckId)) {
+        appState.currentDeckId = lastDeckId;
+      } else {
+        appState.currentDeckId = appState.decks[0].id;
+      }
+    }
+
+    function saveStorage() {
+      localStorage.setItem('vocab_decks_v2', JSON.stringify(appState.decks));
+      localStorage.setItem('vocab_last_deck_id', appState.currentDeckId);
+      updateBadgeCounts();
+    }
+
+    function getCurrentDeck() {
+      return appState.decks.find(d => d.id === appState.currentDeckId) || appState.decks[0];
+    }
+
+    function updateBadgeCounts() {
+      const deck = getCurrentDeck();
+      const count = deck && deck.words ? deck.words.length : 0;
+      document.getElementById('badge-total-vocab').textContent = count;
+      document.getElementById('manage-table-count').textContent = count;
+      document.getElementById('current-deck-name-display').textContent = deck ? deck.name : '';
+    }
+
+    function populateDeckDropdown() {
+      const select = document.getElementById('deck-select');
+      select.innerHTML = '';
+      appState.decks.forEach(deck => {
+        const opt = document.createElement('option');
+        opt.value = deck.id;
+        opt.textContent = `${deck.name} (${deck.words.length})`;
+        if (deck.id === appState.currentDeckId) opt.selected = true;
+        select.appendChild(opt);
+      });
+      updateBadgeCounts();
+    }
+
+    function changeDeck(deckId) {
+      appState.currentDeckId = deckId;
+      saveStorage();
+      populateDeckDropdown();
+      restartCurrentMode();
+      if (appState.currentTab === 'manage') renderManageTable();
+    }
+
+    function changeDirection(dir) {
+      appState.direction = dir;
+      restartCurrentMode();
+    }
+
+    function toggleSound() {
+      appState.soundEnabled = !appState.soundEnabled;
+      const btn = document.getElementById('btn-sound-toggle');
+      btn.textContent = appState.soundEnabled ? '🔊' : '🔇';
+      btn.title = appState.soundEnabled ? 'Đang bật âm thanh' : 'Đã tắt âm thanh';
+    }
+
+    // --- 4. TAB NAVIGATION ---
+    function switchTab(tabName) {
+      appState.currentTab = tabName;
+
+      // Update Tab Styles
+      const tabKeys = ['mcq', 'typing', 'flashcard', 'match', 'manage'];
+      tabKeys.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const view = document.getElementById(`view-${t}`);
+        if (btn) {
+          if (t === tabName) {
+            btn.className = "mode-tab-btn px-3 py-2 rounded-xl font-bold flex items-center gap-1.5 transition text-blue-600 bg-blue-50";
+          } else {
+            btn.className = "mode-tab-btn px-3 py-2 rounded-xl font-semibold flex items-center gap-1.5 transition text-slate-600 hover:bg-slate-100";
+          }
+        }
+        if (view) {
+          view.classList.toggle('hidden', t !== tabName);
+        }
+      });
+
+      // Progress bar visibility
+      const progressCard = document.getElementById('study-progress-card');
+      const isStudyTab = ['mcq', 'typing', 'flashcard'].includes(tabName);
+      progressCard.classList.toggle('hidden', !isStudyTab);
+
+      // Hide summary modal when changing tab
+      document.getElementById('study-summary-modal').classList.add('hidden');
+
+      if (tabName === 'manage') {
+        renderManageTable();
+      } else if (tabName === 'match') {
+        initMatchGame();
+      } else {
+        restartCurrentMode();
+      }
+    }
+
+    // --- 5. STUDY LOGIC (MCQ, TYPING, FLASHCARD) ---
+    let currentWord = null;
+
+    function restartCurrentMode(sourceList = null) {
+      const deck = getCurrentDeck();
+      if (!deck || deck.words.length === 0) {
+        if (appState.currentTab !== 'manage') {
+          switchTab('manage');
+        }
+        return;
+      }
+
+      appState.studyList = sourceList ? [...sourceList] : shuffleArray([...deck.words]);
+      appState.currentIndex = 0;
+      appState.correctCount = 0;
+      appState.wrongCount = 0;
+      appState.mistakes = [];
+      appState.isAnswered = false;
+
+      document.getElementById('study-summary-modal').classList.add('hidden');
+      document.getElementById(`view-${appState.currentTab}`).classList.remove('hidden');
+
+      renderCurrentStudyWord();
+    }
+
+    function renderCurrentStudyWord() {
+      const total = appState.studyList.length;
+      if (appState.currentIndex >= total) {
+        showStudySummary();
+        return;
+      }
+
+      appState.isAnswered = false;
+      currentWord = appState.studyList[appState.currentIndex];
+
+      // Update Progress UI
+      document.getElementById('study-progress-counter').textContent = `${appState.currentIndex + 1} / ${total}`;
+      document.getElementById('stat-correct').textContent = appState.correctCount;
+      document.getElementById('stat-wrong').textContent = appState.wrongCount;
+      const pct = (appState.currentIndex / total) * 100;
+      document.getElementById('study-progress-fill').style.width = `${pct}%`;
+
+      const promptText = appState.direction === 'en-vi' ? currentWord.en : currentWord.vi;
+      const answerText = appState.direction === 'en-vi' ? currentWord.vi : currentWord.en;
+
+      if (appState.currentTab === 'mcq') {
+        renderMCQ(promptText, answerText);
+      } else if (appState.currentTab === 'typing') {
+        renderTyping(promptText, answerText);
+      } else if (appState.currentTab === 'flashcard') {
+        renderFlashcard(currentWord);
+      }
+    }
+
+    // --- MCQ RENDER & INTERACTION ---
+    function renderMCQ(promptText, answerText) {
+      document.getElementById('mcq-prompt-text').textContent = promptText;
+      document.getElementById('mcq-badge-type').textContent = appState.direction === 'en-vi' ? 'Tiếng Anh' : 'Tiếng Việt';
+      document.getElementById('mcq-feedback-msg').textContent = '';
+      document.getElementById('mcq-next-btn').classList.add('hidden');
+
+      const deck = getCurrentDeck();
+      // Generate 3 distractors
+      const otherWords = deck.words.filter(w => w.id !== currentWord.id);
+      const distractors = shuffleArray(otherWords).slice(0, 3).map(w => appState.direction === 'en-vi' ? w.vi : w.en);
+
+      const options = shuffleArray([answerText, ...distractors]);
+      const container = document.getElementById('mcq-choices-container');
+      container.innerHTML = '';
+
+      options.forEach((opt, index) => {
+        const btn = document.createElement('button');
+        const keyNum = index + 1;
+        btn.id = `mcq-choice-${index}`;
+        btn.className = "flex items-center text-left p-4 sm:p-5 rounded-2xl border-2 border-slate-200 hover:border-blue-500 hover:bg-blue-50/40 font-semibold text-slate-800 text-sm transition group active:scale-[0.99]";
+        btn.innerHTML = `
+          <span class="w-7 h-7 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 group-hover:bg-blue-600 group-hover:text-white text-xs font-bold mr-3 transition">
+            ${keyNum}
+          </span>
+          <span class="flex-1">${opt}</span>
+        `;
+        btn.onclick = () => handleMCQSelection(btn, opt, answerText);
+        container.appendChild(btn);
+      });
+    }
+
+    function handleMCQSelection(buttonElem, selected, correct) {
+      if (appState.isAnswered) return;
+      appState.isAnswered = true;
+
+      const allBtns = document.querySelectorAll('#mcq-choices-container button');
+      allBtns.forEach(b => b.disabled = true);
+
+      const feedbackMsg = document.getElementById('mcq-feedback-msg');
+      const nextBtn = document.getElementById('mcq-next-btn');
+
+      if (selected.trim().toLowerCase() === correct.trim().toLowerCase()) {
+        appState.correctCount++;
+        playTone('correct');
+        buttonElem.classList.remove('border-slate-200');
+        buttonElem.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
+        feedbackMsg.innerHTML = `<span class="text-emerald-600 font-bold">✓ Tuyệt vời! Chính xác.</span>`;
+        speakWord(currentWord.en);
+
+        setTimeout(() => {
+          if (appState.isAnswered) nextQuestion();
+        }, 750);
+      } else {
+        appState.wrongCount++;
+        appState.mistakes.push(currentWord);
+        playTone('wrong');
+        buttonElem.classList.remove('border-slate-200');
+        buttonElem.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-950');
+
+        allBtns.forEach(b => {
+          if (b.textContent.includes(correct)) {
+            b.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
+          }
+        });
+
+        feedbackMsg.innerHTML = `<span class="text-rose-600 font-bold">✗ Sai rồi! Đáp án đúng: <u class="text-slate-900">${correct}</u></span>`;
+        nextBtn.classList.remove('hidden');
+      }
+
+      document.getElementById('stat-correct').textContent = appState.correctCount;
+      document.getElementById('stat-wrong').textContent = appState.wrongCount;
+    }
+
+    // --- TYPING RENDER & INTERACTION ---
+    function renderTyping(promptText, answerText) {
+      document.getElementById('typing-prompt-text').textContent = promptText;
+      document.getElementById('typing-badge-type').textContent = appState.direction === 'en-vi' ? 'Dịch sang Tiếng Việt' : 'Gõ từ Tiếng Anh';
+      
+      const input = document.getElementById('typing-input-field');
+      input.value = '';
+      input.disabled = false;
+      input.className = "w-full text-center text-xl font-bold px-4 py-3.5 border-2 border-slate-200 rounded-2xl focus:border-blue-600 focus:ring-4 focus:ring-blue-100 focus:outline-none transition";
+      input.focus();
+
+      document.getElementById('typing-feedback-box').classList.add('hidden');
+      document.getElementById('typing-btn-check').classList.remove('hidden');
+      document.getElementById('typing-btn-next').classList.add('hidden');
+    }
+
+    function handleTypingSubmit(e) {
+      if (e) e.preventDefault();
+      if (appState.isAnswered) {
+        nextQuestion();
+        return;
+      }
+
+      const input = document.getElementById('typing-input-field');
+      const userText = input.value.trim().toLowerCase();
+      if (!userText) {
+        input.focus();
+        return;
+      }
+
+      appState.isAnswered = true;
+      input.disabled = true;
+
+      const targetAnswer = appState.direction === 'en-vi' ? currentWord.vi : currentWord.en;
+      const cleanTarget = targetAnswer.toLowerCase().trim();
+
+      // Flexible matching: handles split meanings (e.g. "kiên trì, bền bỉ" matches "kiên trì" or "bền bỉ")
+      const matchesAnyPart = cleanTarget.split(/[,;\/]/).some(part => part.trim() === userText);
+      const isCorrect = matchesAnyPart || cleanTarget.includes(userText) || userText === cleanTarget;
+
+      const feedbackBox = document.getElementById('typing-feedback-box');
+      const checkBtn = document.getElementById('typing-btn-check');
+      const nextBtn = document.getElementById('typing-btn-next');
+
+      feedbackBox.classList.remove('hidden');
+      checkBtn.classList.add('hidden');
+      nextBtn.classList.remove('hidden');
+
+      if (isCorrect) {
+        appState.correctCount++;
+        playTone('correct');
+        input.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
+        feedbackBox.className = "mt-5 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm";
+        feedbackBox.innerHTML = `🎉 <strong>Chính xác!</strong> Đáp án chuẩn: <span class="font-bold underline">${targetAnswer}</span>`;
+        speakWord(currentWord.en);
+
+        setTimeout(() => {
+          if (appState.isAnswered) nextQuestion();
+        }, 850);
+      } else {
+        appState.wrongCount++;
+        appState.mistakes.push(currentWord);
+        playTone('wrong');
+        input.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-950');
+        feedbackBox.className = "mt-5 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-sm";
+        feedbackBox.innerHTML = `❌ <strong>Chưa chính xác!</strong><br>Đáp án đúng là: <span class="text-base font-extrabold text-rose-950">${targetAnswer}</span>`;
+        nextBtn.focus();
+      }
+
+      document.getElementById('stat-correct').textContent = appState.correctCount;
+      document.getElementById('stat-wrong').textContent = appState.wrongCount;
+    }
+
+    function triggerHint() {
+      const target = appState.direction === 'en-vi' ? currentWord.vi : currentWord.en;
+      const input = document.getElementById('typing-input-field');
+      if (target.length > 0) {
+        input.value = target.slice(0, 2) + "...";
+        input.focus();
+      }
+    }
+
+    // --- FLASHCARD LOGIC ---
+    function renderFlashcard(word) {
+      const front = appState.direction === 'en-vi' ? word.en : word.vi;
+      const back = appState.direction === 'en-vi' ? word.vi : word.en;
+
+      document.getElementById('flashcard-front-content').textContent = front;
+      document.getElementById('flashcard-back-content').textContent = back;
+      document.getElementById('flashcard-element').classList.remove('is-flipped');
+    }
+
+    function toggleFlashcardFlip() {
+      document.getElementById('flashcard-element').classList.toggle('is-flipped');
+    }
+
+    // --- NAVIGATION HELPERS ---
+    function nextQuestion() {
+      appState.currentIndex++;
+      renderCurrentStudyWord();
+    }
+
+    function prevQuestion() {
+      if (appState.currentIndex > 0) {
+        appState.currentIndex--;
+        renderCurrentStudyWord();
+      }
+    }
+
+    // --- SUMMARY & MISTAKES REVIEW ---
+    function showStudySummary() {
+      document.getElementById(`view-${appState.currentTab}`).classList.add('hidden');
+      const summaryModal = document.getElementById('study-summary-modal');
+      summaryModal.classList.remove('hidden');
+
+      document.getElementById('study-progress-fill').style.width = '100%';
+      document.getElementById('summary-correct-stat').textContent = appState.correctCount;
+      document.getElementById('summary-wrong-stat').textContent = appState.wrongCount;
+
+      const mistakeBtn = document.getElementById('summary-btn-mistakes');
+      if (appState.mistakes.length > 0) {
+        const uniqueMistakes = Array.from(new Set(appState.mistakes));
+        mistakeBtn.classList.remove('hidden');
+        document.getElementById('summary-mistakes-badge').textContent = uniqueMistakes.length;
+      } else {
+        mistakeBtn.classList.add('hidden');
+      }
+    }
+
+    function studyMistakesOnly() {
+      const uniqueMistakes = Array.from(new Set(appState.mistakes));
+      restartCurrentMode(uniqueMistakes);
+    }
+
+    // --- 6. MATCH GAME LOGIC ---
+    function initMatchGame() {
+      clearInterval(appState.matchTimerInterval);
+      const deck = getCurrentDeck();
+      if (!deck || deck.words.length < 2) {
+        alert("Bộ từ cần ít nhất 2 từ để chơi ghép thẻ!");
+        return;
+      }
+
+      document.getElementById('match-win-box').classList.add('hidden');
+      const grid = document.getElementById('match-cards-grid');
+      grid.innerHTML = '';
+
+      // Pick up to 6 words
+      const sample = shuffleArray([...deck.words]).slice(0, 6);
+      const cards = [];
+
+      sample.forEach(word => {
+        cards.push({ id: `en_${word.id}`, wordId: word.id, text: word.en, lang: 'en' });
+        cards.push({ id: `vi_${word.id}`, wordId: word.id, text: word.vi, lang: 'vi' });
+      });
+
+      appState.matchCards = shuffleArray(cards);
+      appState.matchSelected = [];
+
+      appState.matchCards.forEach(card => {
+        const btn = document.createElement('button');
+        btn.id = `match-card-${card.id}`;
+        btn.className = "h-24 sm:h-28 p-3 rounded-2xl border-2 border-slate-200 bg-white hover:border-blue-400 font-bold text-xs sm:text-sm text-slate-800 flex items-center justify-center text-center shadow-xs transition active:scale-95";
+        btn.textContent = card.text;
+        btn.onclick = () => handleMatchCardClick(card, btn);
+        grid.appendChild(btn);
+      });
+
+      // Start Timer
+      appState.matchStartTime = Date.now();
+      appState.matchTimerInterval = setInterval(() => {
+        const elapsed = ((Date.now() - appState.matchStartTime) / 1000).toFixed(1);
+        document.getElementById('match-timer').textContent = `${elapsed}s`;
+      }, 100);
+    }
+
+    function handleMatchCardClick(card, elem) {
+      if (elem.classList.contains('pointer-events-none') || appState.matchSelected.some(s => s.card.id === card.id)) return;
+
+      // Select card visual
+      elem.classList.remove('border-slate-200');
+      elem.classList.add('border-blue-600', 'bg-blue-50', 'text-blue-900');
+      appState.matchSelected.push({ card, elem });
+
+      if (appState.matchSelected.length === 2) {
+        const [first, second] = appState.matchSelected;
+
+        if (first.card.wordId === second.card.wordId && first.card.lang !== second.card.lang) {
+          // MATCH SUCCESS!
+          playTone('match');
+          if (first.card.lang === 'en') speakWord(first.card.text);
+          else speakWord(second.card.text);
+
+          first.elem.classList.replace('border-blue-600', 'border-emerald-500');
+          first.elem.classList.replace('bg-blue-50', 'bg-emerald-50');
+          second.elem.classList.replace('border-blue-600', 'border-emerald-500');
+          second.elem.classList.replace('bg-blue-50', 'bg-emerald-50');
+
+          setTimeout(() => {
+            first.elem.style.visibility = 'hidden';
+            second.elem.style.visibility = 'hidden';
+            first.elem.classList.add('pointer-events-none');
+            second.elem.classList.add('pointer-events-none');
+            checkMatchGameWin();
+          }, 350);
+
+        } else {
+          // MATCH FAIL
+          playTone('wrong');
+          first.elem.classList.replace('border-blue-600', 'border-rose-500');
+          second.elem.classList.replace('border-blue-600', 'border-rose-500');
+
+          setTimeout(() => {
+            first.elem.classList.remove('border-rose-500', 'bg-blue-50', 'text-blue-900');
+            first.elem.classList.add('border-slate-200');
+            second.elem.classList.remove('border-rose-500', 'bg-blue-50', 'text-blue-900');
+            second.elem.classList.add('border-slate-200');
+          }, 450);
+        }
+
+        appState.matchSelected = [];
+      }
+    }
+
+    function checkMatchGameWin() {
+      const remaining = document.querySelectorAll('#match-cards-grid button:not(.pointer-events-none)');
+      if (remaining.length === 0) {
+        clearInterval(appState.matchTimerInterval);
+        const finalTime = ((Date.now() - appState.matchStartTime) / 1000).toFixed(1);
+        playTone('correct');
+        document.getElementById('match-final-time').textContent = finalTime;
+        document.getElementById('match-win-box').classList.remove('hidden');
+      }
+    }
+
+    // --- 7. VOCABULARY MANAGEMENT TAB ---
+    function renderManageTable() {
+      const deck = getCurrentDeck();
+      updateBadgeCounts();
+
+      const tbody = document.getElementById('manage-table-body');
+      tbody.innerHTML = '';
+
+      if (!deck || deck.words.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" class="text-center py-8 text-slate-400">Bộ từ này chưa có từ nào. Hãy nạp từ ở khung trên nhé!</td></tr>`;
+        return;
+      }
+
+      deck.words.forEach((word, index) => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-50 transition";
+        tr.innerHTML = `
+          <td class="py-3 px-4 text-center text-slate-400 font-bold">${index + 1}</td>
+          <td class="py-3 px-4 font-bold text-slate-900 flex items-center gap-2">
+            <span>${word.en}</span>
+            <button onclick="speakWord('${word.en}')" class="text-slate-400 hover:text-blue-600">🔊</button>
+          </td>
+          <td class="py-3 px-4 text-slate-600 font-medium">${word.vi}</td>
+          <td class="py-3 px-4 text-center">
+            <button onclick="deleteSingleWord(${word.id})" class="text-rose-500 hover:text-rose-700 font-bold px-2 py-1 hover:bg-rose-50 rounded-md transition" title="Xoá từ này">
+              🗑 Xoá
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function handleAddSingleWord(e) {
+      e.preventDefault();
+      const enInput = document.getElementById('add-en');
+      const viInput = document.getElementById('add-vi');
+      const en = enInput.value.trim();
+      const vi = viInput.value.trim();
+
+      if (!en || !vi) return;
+
+      const deck = getCurrentDeck();
+      deck.words.push({ id: Date.now(), en, vi });
+      saveStorage();
+
+      enInput.value = '';
+      viInput.value = '';
+      enInput.focus();
+
+      renderManageTable();
+      populateDeckDropdown();
+    }
+
+    function deleteSingleWord(wordId) {
+      const deck = getCurrentDeck();
+      deck.words = deck.words.filter(w => w.id !== wordId);
+      saveStorage();
+      renderManageTable();
+      populateDeckDropdown();
+    }
+
+    // Parse Bulk Textarea
+    function parseBulkText(text) {
+      if (!text.trim()) return [];
+      const lines = text.split('\n');
+      const parsed = [];
+
+      for (let line of lines) {
+        line = line.trim();
+        if (!line) continue;
+
+        let delimiter = '';
+        if (line.includes('\t')) delimiter = '\t';
+        else if (line.includes(' - ')) delimiter = ' - ';
+        else if (line.includes('-')) delimiter = '-';
+        else if (line.includes(':')) delimiter = ':';
+        else if (line.includes('=')) delimiter = '=';
+        else if (line.includes(',')) delimiter = ',';
+
+        if (delimiter) {
+          const parts = line.split(delimiter);
+          const en = parts[0].trim();
+          const vi = parts.slice(1).join(delimiter).trim();
+          if (en && vi) {
+            parsed.push({ id: Date.now() + Math.random(), en, vi });
+          }
+        }
+      }
+      return parsed;
+    }
+
+    document.getElementById('manage-paste-textarea').addEventListener('input', (e) => {
+      const words = parseBulkText(e.target.value);
+      document.getElementById('manage-parsed-preview').textContent = `Đã nhận diện: ${words.length} từ hợp lệ`;
+    });
+
+    function appendParsedWords() {
+      const textarea = document.getElementById('manage-paste-textarea');
+      const words = parseBulkText(textarea.value);
+      if (words.length === 0) {
+        alert("Chưa nhận diện được từ nào. Hãy kiểm tra lại định dạng 'từ - nghĩa'!");
+        return;
+      }
+      const deck = getCurrentDeck();
+      deck.words.push(...words);
+      saveStorage();
+      textarea.value = '';
+      document.getElementById('manage-parsed-preview').textContent = `Đã thêm ${words.length} từ thành công!`;
+      renderManageTable();
+      populateDeckDropdown();
+    }
+
+    function replaceParsedWords() {
+      const textarea = document.getElementById('manage-paste-textarea');
+      const words = parseBulkText(textarea.value);
+      if (words.length === 0) {
+        alert("Chưa nhận diện được từ nào. Hãy kiểm tra lại định dạng 'từ - nghĩa'!");
+        return;
+      }
+      if (confirm(`Bạn có chắc muốn THAY THẾ toàn bộ từ trong bộ này bằng ${words.length} từ mới?`)) {
+        const deck = getCurrentDeck();
+        deck.words = words;
+        saveStorage();
+        textarea.value = '';
+        document.getElementById('manage-parsed-preview').textContent = `Đã thay thế ${words.length} từ thành công!`;
+        renderManageTable();
+        populateDeckDropdown();
+      }
+    }
+
+    function fillSampleToDeck() {
+      const textarea = document.getElementById('manage-paste-textarea');
+      textarea.value = `accomplish - hoàn thành, đạt được\ncrucial - vô cùng quan trọng, cốt yếu\ndiligent - siêng năng, chăm chỉ\npersistent - kiên trì, bền bỉ\ncomprehend - thấu hiểu, lĩnh hội\nfacilitate - tạo điều kiện thuận lợi\nresilient - kiên cường, mau hồi phục\ninnovative - đổi mới, sáng tạo`;
+      textarea.dispatchEvent(new Event('input'));
+    }
+
+    function exportDeckJson() {
+      const deck = getCurrentDeck();
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(deck, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `${deck.name.replace(/\s+/g, '_')}_backup.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    // --- 8. DECK MANAGEMENT (MODAL) ---
+    function openNewDeckModal() {
+      document.getElementById('modal-new-deck').classList.remove('hidden');
+      const input = document.getElementById('new-deck-name-input');
+      input.value = '';
+      input.focus();
+    }
+
+    function closeNewDeckModal() {
+      document.getElementById('modal-new-deck').classList.add('hidden');
+    }
+
+    function confirmCreateDeck() {
+      const input = document.getElementById('new-deck-name-input');
+      const name = input.value.trim();
+      if (!name) return;
+
+      const newDeck = {
+        id: `deck_${Date.now()}`,
+        name: name,
+        words: []
+      };
+
+      appState.decks.push(newDeck);
+      appState.currentDeckId = newDeck.id;
+      saveStorage();
+      closeNewDeckModal();
+      populateDeckDropdown();
+      switchTab('manage');
+    }
+
+    function deleteCurrentDeck() {
+      if (appState.decks.length <= 1) {
+        alert("Bạn phải giữ lại ít nhất 1 bộ từ vựng!");
+        return;
+      }
+      const deck = getCurrentDeck();
+      if (confirm(`Bạn có chắc chắn muốn xoá vĩnh viễn bộ từ "${deck.name}" không?`)) {
+        appState.decks = appState.decks.filter(d => d.id !== deck.id);
+        appState.currentDeckId = appState.decks[0].id;
+        saveStorage();
+        populateDeckDropdown();
+        renderManageTable();
+        restartCurrentMode();
+      }
+    }
+
+    // --- 9. KEYBOARD SHORTCUTS ---
+    function setupKeyboardListeners() {
+      window.addEventListener('keydown', (e) => {
+        // Skip if user is typing in textarea or inputs
+        const active = document.activeElement;
+        if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) {
+          if (appState.currentTab === 'typing' && active.id === 'typing-input-field' && e.key === 'Enter') {
+            // Typing enter handled by form submit
+            return;
+          }
+          return;
+        }
+
+        if (appState.currentTab === 'mcq') {
+          if (['1', '2', '3', '4'].includes(e.key)) {
+            const idx = parseInt(e.key) - 1;
+            const btn = document.getElementById(`mcq-choice-${idx}`);
+            if (btn && !appState.isAnswered) btn.click();
+          } else if (e.code === 'Space') {
+            const nextBtn = document.getElementById('mcq-next-btn');
+            if (!nextBtn.classList.contains('hidden')) {
+              e.preventDefault();
+              nextQuestion();
+            }
+          }
+        } else if (appState.currentTab === 'flashcard') {
+          if (e.code === 'Space') {
+            e.preventDefault();
+            toggleFlashcardFlip();
+          } else if (e.key === 'ArrowRight') {
+            nextQuestion();
+          } else if (e.key === 'ArrowLeft') {
+            prevQuestion();
+          }
+        }
+      });
+    }
+
+    // Utilities
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+  </script>
+</body>
+</html>
