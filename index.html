@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>StudyMaster - Luyện Từ Vựng Tiếng Anh & Trọn Bộ JLPT N4</title>
+  <title>StudyMaster - Luyện Thi TOEIC & JLPT N4 Toàn Diện</title>
+  
   <!-- Progressive Web App (PWA) Manifest & Meta Tags -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#e11d48">
@@ -43,17 +44,14 @@
     .face-back {
       transform: rotateY(180deg);
     }
-    /* Underline in JLPT exams */
     .jlpt-underline {
       text-decoration: underline;
       text-underline-offset: 6px;
       text-decoration-thickness: 3px;
     }
-    /* Touch optimization */
     button, input, select {
       touch-action: manipulation;
     }
-    /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 5px;
       height: 5px;
@@ -69,7 +67,7 @@
 </head>
 <body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-rose-500 selection:text-white">
 
-  <!-- ================= TOP HEADER (TỐI ƯU CHO IPHONE XS 375PX) ================= -->
+  <!-- ================= TOP HEADER (CHUẨN IPHONE XS 375PX) ================= -->
   <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
     <div class="max-w-4xl mx-auto px-3 sm:px-4 h-14 sm:h-16 flex items-center justify-between gap-1.5">
       
@@ -86,7 +84,7 @@
           <div class="flex items-center gap-1 mt-0.5">
             <div class="inline-flex p-0.5 bg-slate-100 rounded-lg border border-slate-200 text-[11px] sm:text-xs">
               <button onclick="switchLanguage('en')" id="btn-lang-en" class="px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 text-slate-600 hover:text-slate-900">
-                <span>🇬🇧</span> <span>Anh</span>
+                <span>🇬🇧</span> <span>TOEIC</span>
               </button>
               <button onclick="switchLanguage('ja')" id="btn-lang-ja" class="px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 bg-white text-rose-600 shadow-xs">
                 <span>🇯🇵</span> <span>Nhật N4</span>
@@ -96,9 +94,9 @@
         </div>
       </div>
 
-      <!-- Header Controls: Sound, Install App & Quick Modals -->
-      <div class="flex items-center space-x-1 sm:space-x-2">
-        <button id="btn-install-app" onclick="triggerInstallApp()" class="px-2 sm:px-2.5 py-1.5 text-xs font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 active:scale-95 rounded-lg border border-rose-200 transition flex items-center gap-1 shadow-2xs" title="Cài đặt App lên iPhone/máy tính">
+      <!-- Header Controls: Install, Sound & Topic -->
+      <div class="flex items-center space-x-1 sm:space-x-1.5">
+        <button id="btn-install-app" onclick="triggerInstallApp()" class="px-2 py-1.5 text-xs font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 active:scale-95 rounded-lg border border-rose-200 transition flex items-center gap-1 shadow-2xs">
           <span>📲</span> <span class="hidden sm:inline">Cài App</span>
         </button>
 
@@ -106,18 +104,15 @@
           🔊
         </button>
 
-        <!-- English Deck info -->
-        <div id="header-en-controls" class="hidden flex items-center space-x-1.5">
-          <select id="deck-select" onchange="changeEnDeck(this.value)" class="text-xs font-bold text-blue-700 bg-blue-50/70 hover:bg-blue-100 rounded-lg px-2 py-1.5 border border-blue-200 focus:outline-none cursor-pointer max-w-[130px] sm:max-w-[200px] truncate">
+        <!-- English Deck Picker -->
+        <div id="header-en-controls" class="hidden flex items-center space-x-1">
+          <select id="deck-select" onchange="changeEnDeck(this.value)" class="text-xs font-bold text-blue-700 bg-blue-50/80 hover:bg-blue-100 rounded-lg px-2 py-1.5 border border-blue-200 focus:outline-none cursor-pointer max-w-[130px] sm:max-w-[210px] truncate">
             <!-- Dynamically populated -->
           </select>
-          <button onclick="switchTabEn('manage')" class="hidden sm:flex px-2.5 py-1.5 text-xs font-bold rounded-lg border border-slate-300 hover:bg-slate-50 text-slate-700 transition items-center gap-1">
-            <span>📝 Nạp từ</span>
-          </button>
         </div>
 
-        <!-- Japanese Topic / Test info -->
-        <div id="header-ja-controls" class="flex items-center space-x-1.5">
+        <!-- Japanese Topic Picker Button -->
+        <div id="header-ja-controls" class="flex items-center space-x-1">
           <button onclick="openJaTopicModal()" class="px-2.5 py-1.5 text-xs font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 active:scale-95 rounded-lg border border-rose-200 transition flex items-center gap-1 shadow-2xs">
             <span>📚 Chủ đề</span>
             <span id="header-ja-topic-badge" class="bg-rose-600 text-white px-1.5 py-0.2 rounded-full text-[10px] font-mono">1/12</span>
@@ -127,6 +122,314 @@
 
     </div>
   </header>
+
+
+  <!-- ========================================================================= -->
+  <!-- ======================== PHÂN HỆ 1: TIẾNG ANH (TOEIC) =================== -->
+  <!-- ========================================================================= -->
+  <div id="section-english" class="hidden w-full flex-1 flex flex-col">
+    <!-- SUB HEADER / TOEIC STUDY MODES -->
+    <nav class="bg-white border-b border-slate-200">
+      <div class="max-w-4xl mx-auto px-3 sm:px-4 flex items-center justify-between overflow-x-auto py-2 gap-1.5 text-xs sm:text-sm">
+        
+        <div class="flex items-center space-x-1 flex-1 min-w-max">
+          <!-- Mode 1: MCQ -->
+          <button onclick="switchTabEn('mcq')" id="tab-btn-mcq" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-bold flex items-center gap-1 transition text-blue-600 bg-blue-50 border border-blue-200">
+            <span>🔘</span> <span>Trắc nghiệm</span>
+          </button>
+          <!-- Mode 2: Audio Only (NEW for Listening Part 1 & 2) -->
+          <button onclick="switchTabEn('audio')" id="tab-btn-audio" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
+            <span>🎧</span> <span>Luyện nghe ẩn chữ</span>
+          </button>
+          <!-- Mode 3: Collocations & Prepositions (Part 5) -->
+          <button onclick="switchTabEn('collocation')" id="tab-btn-collocation" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
+            <span>🧩</span> <span>Cụm từ Part 5</span>
+          </button>
+          <!-- Mode 4: Word Families (Part of speech N/V/Adj/Adv) -->
+          <button onclick="switchTabEn('wordform')" id="tab-btn-wordform" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
+            <span>🔤</span> <span>Từ loại N/V/Adj</span>
+          </button>
+          <!-- Mode 5: Flashcards -->
+          <button onclick="switchTabEn('flashcard')" id="tab-btn-flashcard" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
+            <span>🃏</span> <span>Flashcard</span>
+          </button>
+          <!-- Mode 6: Vocab Manage -->
+          <button onclick="switchTabEn('manage')" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
+            <span>📝</span> <span>Nạp từ</span>
+          </button>
+        </div>
+
+        <button onclick="restartCurrentEnMode()" title="Trộn lại câu hỏi" class="px-2 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold flex items-center gap-1 transition flex-shrink-0">
+          🔀 Trộn
+        </button>
+
+      </div>
+    </nav>
+
+    <!-- MAIN ENGLISH (TOEIC) CONTENT -->
+    <main class="max-w-2xl mx-auto px-3 sm:px-4 py-4 sm:py-6 flex-1 w-full">
+      
+      <!-- STREAK BANNER TIẾNG ANH (ĐỘC LẬP) -->
+      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 p-3 sm:p-3.5 rounded-2xl mb-4 flex items-center justify-between gap-2 shadow-2xs">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl animate-pulse">🔥</span>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-extrabold text-blue-900">Streak TOEIC:</span>
+              <span id="en-streak-badge" class="bg-blue-600 text-white font-extrabold text-xs px-2 py-0.2 rounded-full">1 ngày liên tiếp</span>
+            </div>
+            <p class="text-[11px] text-blue-700 font-medium mt-0.5">
+              Mục tiêu hôm nay: <strong id="en-daily-counter">0 / 10</strong> từ
+            </p>
+          </div>
+        </div>
+        <div class="w-24 sm:w-28 bg-white/80 h-2 rounded-full overflow-hidden border border-blue-200 flex-shrink-0">
+          <div id="en-daily-fill" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- Deck Info & Progress Card -->
+      <div id="en-progress-card" class="bg-white p-3 sm:p-4 rounded-2xl shadow-xs border border-slate-200 mb-4">
+        <div class="flex justify-between items-center text-xs font-bold text-slate-600 mb-2">
+          <div class="flex items-center gap-1.5">
+            <span id="en-active-deck-badge" class="text-blue-700 bg-blue-50 px-2 py-0.5 rounded font-bold text-[11px] truncate max-w-[170px]">
+              TOEIC 450+
+            </span>
+            <span id="study-progress-counter" class="text-slate-700 font-extrabold bg-slate-100 px-2 py-0.5 rounded text-[11px]">
+              1 / 10
+            </span>
+          </div>
+          <div class="flex items-center space-x-2 text-[11px]">
+            <span class="text-emerald-600 flex items-center gap-0.5 font-bold">✓ <span id="stat-correct">0</span> Đúng</span>
+            <span class="text-rose-600 flex items-center gap-0.5 font-bold">✗ <span id="stat-wrong">0</span> Cần ôn</span>
+          </div>
+        </div>
+        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+          <div id="study-progress-fill" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- 1. EN MCQ -->
+      <section id="view-mcq" class="en-view space-y-4">
+        <div class="bg-white p-4 sm:p-8 rounded-3xl shadow-xs border border-slate-200 text-center relative overflow-hidden">
+          <div class="py-3 border-b border-slate-100 relative">
+            <div class="flex justify-center items-center gap-2 mb-2">
+              <span id="mcq-badge-type" class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100">
+                Tiếng Anh
+              </span>
+              <button onclick="speakText(currentEnWord.en, 'en-US')" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-600 flex items-center justify-center transition text-xs" title="Nghe phát âm">
+                🔊
+              </button>
+            </div>
+            <h2 id="mcq-prompt-text" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight min-h-[44px] flex items-center justify-center">
+              ...
+            </h2>
+          </div>
+          
+          <div id="mcq-choices-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-5"></div>
+          
+          <div id="mcq-feedback-bar" class="mt-4 p-3 rounded-2xl hidden text-left text-xs sm:text-sm font-semibold border"></div>
+
+          <!-- Navigation Buttons: Chỉ [Trước] và [Tiếp theo] -->
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 font-sans">
+            <button id="en-btn-prev" onclick="prevEnQuestion()" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1 active:scale-95">
+              <span>⬅️</span> <span>Trước</span>
+            </button>
+            <button id="en-btn-next" onclick="nextEnQuestion()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-xs font-bold transition flex items-center gap-1 shadow-sm shadow-blue-200">
+              <span>Tiếp theo</span> <span>➡️</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. EN AUDIO-ONLY MODE (LUYỆN TAI NGHE PART 1 & 2) -->
+      <section id="view-audio" class="en-view hidden space-y-4">
+        <div class="bg-white p-5 sm:p-8 rounded-3xl shadow-xs border border-slate-200 text-center">
+          <div class="py-4 border-b border-slate-100">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+              🎧 Phản xạ nghe TOEIC (Ẩn chữ)
+            </span>
+            <p class="text-xs text-slate-500 mt-2">Bấm nghe âm thanh rồi chọn nghĩa tiếng Việt chính xác!</p>
+
+            <!-- Big Audio Play Button -->
+            <button onclick="speakText(currentEnWord.en, 'en-US')" class="mt-4 px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-base shadow-md shadow-blue-200 flex items-center justify-center gap-2.5 mx-auto active:scale-95 transition">
+              <span class="text-2xl">🔊</span> <span>Nghe phát âm</span>
+            </button>
+
+            <!-- Revealed Word Box (Only shown after answering) -->
+            <div id="audio-revealed-box" class="hidden mt-4 p-3 bg-slate-50 rounded-2xl border border-slate-200 animate-in fade-in">
+              <h3 id="audio-revealed-word" class="text-2xl font-extrabold text-blue-700">word</h3>
+              <p id="audio-revealed-meaning" class="text-xs text-slate-600 mt-0.5">nghĩa tiếng Việt</p>
+            </div>
+          </div>
+
+          <div id="audio-choices-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-5"></div>
+
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 font-sans">
+            <button onclick="prevEnQuestion()" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1">
+              <span>⬅️ Trước</span>
+            </button>
+            <button onclick="nextEnQuestion()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex items-center gap-1">
+              <span>Tiếp theo ➡️</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. EN COLLOCATIONS & PREPOSITIONS (PART 5 FILL-IN) -->
+      <section id="view-collocation" class="en-view hidden space-y-4">
+        <div class="bg-white p-5 sm:p-8 rounded-3xl shadow-xs border border-slate-200 text-center">
+          <div class="pb-3 border-b border-slate-100">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+              🧩 Cụm từ & Giới từ TOEIC Part 5
+            </span>
+            <p class="text-xs text-slate-500 mt-1">Chọn từ hoặc giới từ chính xác điền vào chỗ trống</p>
+          </div>
+
+          <div class="py-5 text-center">
+            <div class="inline-block bg-slate-50 p-4 rounded-2xl border border-slate-200 w-full">
+              <h3 id="colloc-prompt-sentence" class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
+                The company must comply <span class="text-blue-600 font-extrabold underline underline-offset-4">______</span> safety regulations.
+              </h3>
+              <p id="colloc-prompt-hint" class="text-xs text-slate-500 mt-1 italic">Nghĩa: tuân thủ quy định an toàn</p>
+            </div>
+          </div>
+
+          <div id="colloc-choices-container" class="grid grid-cols-2 gap-2.5 max-w-md mx-auto"></div>
+          <div id="colloc-feedback-box" class="hidden mt-4 p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold border"></div>
+
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 font-sans">
+            <button onclick="prevCollocQuestion()" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1">
+              <span>⬅️ Trước</span>
+            </button>
+            <button onclick="nextCollocQuestion()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex items-center gap-1">
+              <span>Tiếp theo ➡️</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. EN WORD FAMILIES (N/V/ADJ/ADV PART 5) -->
+      <section id="view-wordform" class="en-view hidden space-y-4">
+        <div class="bg-white p-5 sm:p-8 rounded-3xl shadow-xs border border-slate-200 text-center">
+          <div class="pb-3 border-b border-slate-100">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+              🔤 Nhận diện Từ Loại Part 5 (Word Form)
+            </span>
+            <p class="text-xs text-slate-500 mt-1">Xác định từ loại hoặc chọn dạng từ đúng (Noun / Verb / Adj / Adv)</p>
+          </div>
+
+          <div class="py-5 text-center">
+            <div class="inline-block bg-slate-50 p-4 rounded-2xl border border-slate-200 w-full">
+              <h3 id="wordform-sentence" class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
+                The manager plans to increase overall <span class="text-amber-600 font-extrabold underline underline-offset-4">______</span>.
+              </h3>
+              <p id="wordform-hint" class="text-xs text-slate-500 mt-1 italic">Cần điền một Danh từ (Noun) sau tính từ overall</p>
+            </div>
+          </div>
+
+          <div id="wordform-choices-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-w-md mx-auto"></div>
+          <div id="wordform-feedback-box" class="hidden mt-4 p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold border"></div>
+
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 font-sans">
+            <button onclick="prevWordformQuestion()" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1">
+              <span>⬅️ Trước</span>
+            </button>
+            <button onclick="nextWordformQuestion()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex items-center gap-1">
+              <span>Tiếp theo ➡️</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. EN FLASHCARD -->
+      <section id="view-flashcard" class="en-view hidden flex flex-col items-center space-y-4">
+        <div onclick="toggleFlashcardFlip()" class="card-3d-wrap w-full max-w-md h-64 cursor-pointer select-none">
+          <div id="flashcard-element" class="card-3d relative w-full h-full bg-white rounded-3xl shadow-sm border border-slate-200">
+            <div class="face-front absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-white rounded-3xl">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Mặt trước • Chạm để lật</span>
+              <h2 id="flashcard-front-content" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">...</h2>
+              <button onclick="event.stopPropagation(); speakText(currentEnWord.en, 'en-US')" class="mt-3 px-3 py-1 rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-600 text-xs font-semibold transition flex items-center gap-1">
+                🔊 Phát âm
+              </button>
+            </div>
+            <div class="face-back absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-3xl">
+              <span class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mb-2">Nghĩa / Định nghĩa</span>
+              <h2 id="flashcard-back-content" class="text-xl sm:text-2xl font-extrabold text-blue-950">...</h2>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="prevEnQuestion()" class="px-4 py-2 bg-white border border-slate-200 hover:bg-slate-50 rounded-xl font-bold text-xs text-slate-700 transition">
+            ⬅️ Trước
+          </button>
+          <button onclick="toggleFlashcardFlip()" class="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-xs shadow-md transition">
+            🔄 Lật thẻ
+          </button>
+          <button onclick="nextEnQuestion()" class="px-4 py-2 bg-white border border-slate-200 hover:bg-slate-50 rounded-xl font-bold text-xs text-slate-700 transition">
+            Tiếp ➡️
+          </button>
+        </div>
+      </section>
+
+      <!-- 6. EN VOCAB MANAGEMENT -->
+      <section id="view-manage" class="en-view hidden space-y-4">
+        <div class="bg-white p-4 rounded-3xl shadow-xs border border-slate-200">
+          <h2 class="text-sm font-extrabold text-slate-900 mb-1">Nạp dữ liệu từ vựng hàng loạt</h2>
+          <textarea id="manage-paste-textarea" rows="5" class="w-full font-mono text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-slate-50 leading-relaxed"></textarea>
+          <div class="mt-3 flex items-center justify-between gap-2">
+            <span id="manage-parsed-preview" class="text-[11px] font-bold text-slate-500">0 từ</span>
+            <div class="flex space-x-1.5">
+              <button onclick="appendParsedEnWords()" class="px-3 py-2 bg-slate-800 text-white rounded-xl text-xs font-bold">➕ Thêm</button>
+              <button onclick="replaceParsedEnWords()" class="px-3 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold">💾 Thay thế</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-3xl shadow-xs border border-slate-200">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <h3 class="text-xs font-extrabold text-slate-900">Danh sách từ (<span id="manage-table-count">0</span>)</h3>
+            <button onclick="openNewDeckModal()" class="text-xs px-2.5 py-1 bg-blue-50 text-blue-600 rounded-lg font-bold">➕ Bộ mới</button>
+          </div>
+          <form onsubmit="handleAddSingleEnWord(event)" class="mt-3 grid grid-cols-1 sm:grid-cols-12 gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+            <input type="text" id="add-en" placeholder="Tiếng Anh" required class="sm:col-span-5 px-3 py-1.5 text-xs font-semibold bg-white border border-slate-200 rounded-lg">
+            <input type="text" id="add-vi" placeholder="Tiếng Việt" required class="sm:col-span-5 px-3 py-1.5 text-xs font-semibold bg-white border border-slate-200 rounded-lg">
+            <button type="submit" class="sm:col-span-2 px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-bold">Thêm</button>
+          </form>
+          <div class="mt-3 overflow-x-auto max-h-72 overflow-y-auto border border-slate-200 rounded-xl">
+            <table class="w-full text-left text-xs">
+              <tbody id="manage-table-body" class="divide-y divide-slate-100"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- EN SUMMARY MODAL -->
+      <div id="en-summary-card" class="hidden bg-white p-6 rounded-3xl shadow-xl border border-slate-200 text-center max-w-sm mx-auto my-4">
+        <span class="text-4xl animate-bounce inline-block">🎉</span>
+        <h2 class="text-xl font-extrabold text-slate-900 mt-1">Hoàn thành bài học TOEIC!</h2>
+        <div class="grid grid-cols-2 gap-2.5 my-4">
+          <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-xl">
+            <span class="block text-2xl font-extrabold text-emerald-600" id="summary-correct-stat">0</span>
+            <span class="text-[11px] text-emerald-800 font-bold">Đúng</span>
+          </div>
+          <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl">
+            <span class="block text-2xl font-extrabold text-rose-600" id="summary-wrong-stat">0</span>
+            <span class="text-[11px] text-rose-800 font-bold">Cần ôn</span>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <button id="summary-btn-mistakes" onclick="studyEnMistakesOnly()" class="hidden w-full py-2.5 bg-rose-600 text-white rounded-xl font-bold text-xs shadow-md">
+            🔁 Luyện lại từ sai (<span id="summary-mistakes-badge">0</span>)
+          </button>
+          <button onclick="restartCurrentEnMode()" class="w-full py-2.5 bg-blue-600 text-white rounded-xl font-bold text-xs shadow-md">
+            🔄 Học lại từ đầu
+          </button>
+        </div>
+      </div>
+
+    </main>
+  </div>
 
 
   <!-- ========================================================================= -->
@@ -148,15 +451,34 @@
           </button>
         </div>
 
-        <button onclick="restartJaQuiz()" title="Trộn và làm lại từ đầu" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold flex items-center gap-1 transition flex-shrink-0">
-          🔀 Trộn câu
+        <button onclick="restartJaQuiz()" title="Trộn câu hỏi" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold flex items-center gap-1 transition flex-shrink-0">
+          🔀 Trộn
         </button>
 
       </div>
     </nav>
 
-    <!-- MAIN JAPANESE CONTENT (TỐI ƯU HOÀN TOÀN CHO IPHONE XS) -->
+    <!-- MAIN JAPANESE CONTENT -->
     <main class="max-w-2xl mx-auto px-3 sm:px-4 py-4 sm:py-6 flex-1 w-full font-japanese">
+
+      <!-- STREAK BANNER TIẾNG NHẬT (ĐỘC LẬP HOÀN TOÀN) -->
+      <div class="bg-gradient-to-r from-rose-50 to-pink-50 border border-rose-200/80 p-3 sm:p-3.5 rounded-2xl mb-4 flex items-center justify-between gap-2 shadow-2xs font-sans">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl animate-pulse">🔥</span>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xs font-extrabold text-rose-900">Streak Tiếng Nhật:</span>
+              <span id="ja-streak-badge" class="bg-rose-600 text-white font-extrabold text-xs px-2 py-0.2 rounded-full">1 ngày liên tiếp</span>
+            </div>
+            <p class="text-[11px] text-rose-700 font-medium mt-0.5">
+              Mục tiêu hôm nay: <strong id="ja-daily-counter">0 / 10</strong> câu N4
+            </p>
+          </div>
+        </div>
+        <div class="w-24 sm:w-28 bg-white/80 h-2 rounded-full overflow-hidden border border-rose-200 flex-shrink-0">
+          <div id="ja-daily-fill" class="bg-rose-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
 
       <!-- Active Topic Bar with Quick Selection Dropdown -->
       <div class="bg-white p-3 sm:p-4 rounded-2xl shadow-xs border border-slate-200 mb-4 font-sans flex items-center justify-between gap-2">
@@ -229,17 +551,13 @@
           </div>
         </div>
 
-        <!-- 4 Options Grid (Dễ bấm bằng tay trên iPhone XS) -->
-        <div id="ja-options-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5 mt-1">
-          <!-- Dynamically populated via JS -->
-        </div>
+        <!-- 4 Options Grid -->
+        <div id="ja-options-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5 mt-1"></div>
 
-        <!-- Feedback & Explanation Box (Dừng lại để người dùng xem khi chọn đúng/sai) -->
-        <div id="ja-feedback-box" class="hidden mt-4 p-4 rounded-2xl border text-left font-sans text-xs sm:text-sm">
-          <!-- Populated via JS -->
-        </div>
+        <!-- Feedback & Explanation Box (Đứng yên khi chọn xong) -->
+        <div id="ja-feedback-box" class="hidden mt-4 p-4 rounded-2xl border text-left font-sans text-xs sm:text-sm"></div>
 
-        <!-- Action Bar: Chỉ có [ ⬅️ Câu trước ] và [ Câu tiếp theo ➡️ ] -->
+        <!-- Action Bar: Chỉ có [ ⬅️ Trước ] và [ Tiếp theo ➡️ ] -->
         <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 font-sans">
           <button id="ja-btn-prev" onclick="prevJaQuestion()" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1 active:scale-95">
             <span>⬅️</span> <span>Trước</span>
@@ -287,260 +605,13 @@
   </div>
 
 
-  <!-- ========================================================================= -->
-  <!-- ======================== PHÂN HỆ 1: TIẾNG ANH =========================== -->
-  <!-- ========================================================================= -->
-  <div id="section-english" class="hidden w-full flex-1 flex flex-col">
-    <!-- SUB HEADER / ENGLISH TABS -->
-    <nav class="bg-white border-b border-slate-200">
-      <div class="max-w-4xl mx-auto px-3 sm:px-4 flex items-center justify-between overflow-x-auto py-2 gap-2 text-xs sm:text-sm">
-        
-        <div class="flex items-center space-x-1 sm:space-x-2 flex-1 min-w-max">
-          <button onclick="switchTabEn('mcq')" id="tab-btn-mcq" class="mode-tab-btn px-2.5 py-1.5 sm:py-2 rounded-xl font-bold flex items-center gap-1 transition text-blue-600 bg-blue-50">
-            🔘 <span>Trắc nghiệm</span>
-          </button>
-          <button onclick="switchTabEn('typing')" id="tab-btn-typing" class="mode-tab-btn px-2.5 py-1.5 sm:py-2 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
-            ✍️ <span>Gõ từ</span>
-          </button>
-          <button onclick="switchTabEn('flashcard')" id="tab-btn-flashcard" class="mode-tab-btn px-2.5 py-1.5 sm:py-2 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
-            🃏 <span>Flashcard</span>
-          </button>
-          <button onclick="switchTabEn('match')" id="tab-btn-match" class="mode-tab-btn px-2.5 py-1.5 sm:py-2 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
-            🧩 <span>Ghép thẻ</span>
-          </button>
-          <button onclick="switchTabEn('manage')" class="sm:hidden mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
-            📝 <span>Nạp từ</span>
-          </button>
-        </div>
-
-        <div class="flex items-center space-x-1.5 flex-shrink-0">
-          <select id="study-direction" onchange="changeDirectionEn(this.value)" class="text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 py-1 px-1.5 rounded-lg border-0 focus:ring-2 focus:ring-blue-500 cursor-pointer">
-            <option value="en-vi">Anh ➔ Việt</option>
-            <option value="vi-en">Việt ➔ Anh</option>
-          </select>
-          <button onclick="restartCurrentEnMode()" title="Trộn lại và học lại từ đầu" class="p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs font-semibold flex items-center gap-1 transition">
-            🔀
-          </button>
-        </div>
-
-      </div>
-    </nav>
-
-    <!-- MAIN ENGLISH CONTENT -->
-    <main class="max-w-2xl mx-auto px-3 sm:px-4 py-4 sm:py-6 flex-1 w-full">
-      <!-- Progress Indicator -->
-      <div id="en-progress-card" class="bg-white p-3 sm:p-4 rounded-2xl shadow-xs border border-slate-200 mb-4">
-        <div class="flex justify-between items-center text-xs font-bold text-slate-600 mb-2">
-          <div class="flex items-center gap-1.5">
-            <span>Tiến độ:</span>
-            <span id="study-progress-counter" class="text-blue-600 font-extrabold bg-blue-50 px-2 py-0.5 rounded">1 / 10</span>
-          </div>
-          <div class="flex items-center space-x-2 text-[11px]">
-            <span class="text-emerald-600 flex items-center gap-0.5 font-bold">✓ <span id="stat-correct">0</span> Đúng</span>
-            <span class="text-rose-600 flex items-center gap-0.5 font-bold">✗ <span id="stat-wrong">0</span> Cần ôn</span>
-          </div>
-        </div>
-        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-          <div id="study-progress-fill" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
-        </div>
-      </div>
-
-      <!-- 1. EN MCQ -->
-      <section id="view-mcq" class="en-view space-y-4">
-        <div class="bg-white p-4 sm:p-8 rounded-3xl shadow-xs border border-slate-200 text-center relative overflow-hidden">
-          <div class="py-3 border-b border-slate-100 relative">
-            <div class="flex justify-center items-center gap-2 mb-2">
-              <span id="mcq-badge-type" class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100">
-                Tiếng Anh
-              </span>
-              <button onclick="speakText(currentEnWord.en, 'en-US')" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-600 flex items-center justify-center transition text-xs" title="Nghe phát âm">
-                🔊
-              </button>
-            </div>
-            <h2 id="mcq-prompt-text" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight min-h-[44px] flex items-center justify-center">
-              ...
-            </h2>
-          </div>
-          
-          <div id="mcq-choices-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-5"></div>
-          
-          <div id="mcq-feedback-bar" class="mt-4 p-3 rounded-2xl hidden text-left text-xs sm:text-sm font-semibold border"></div>
-
-          <!-- Navigation Buttons -->
-          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 font-sans">
-            <button onclick="prevEnQuestion()" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1 active:scale-95">
-              <span>⬅️</span> <span>Trước</span>
-            </button>
-            <button onclick="nextEnQuestion()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-xs font-bold transition flex items-center gap-1 shadow-sm shadow-blue-200">
-              <span>Tiếp theo</span> <span>➡️</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- 2. EN TYPING -->
-      <section id="view-typing" class="en-view hidden space-y-4">
-        <div class="bg-white p-4 sm:p-8 rounded-3xl shadow-xs border border-slate-200 text-center">
-          <div class="py-3 border-b border-slate-100">
-            <div class="flex justify-center items-center gap-2 mb-2">
-              <span id="typing-badge-type" class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
-                Điền nghĩa tiếng Anh
-              </span>
-              <button onclick="speakText(currentEnWord.en, 'en-US')" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-600 flex items-center justify-center transition text-xs">
-                🔊
-              </button>
-            </div>
-            <h2 id="typing-prompt-text" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">...</h2>
-          </div>
-          <div class="max-w-md mx-auto mt-5">
-            <form onsubmit="handleEnTypingSubmit(event)" class="space-y-3">
-              <input type="text" id="typing-input-field" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                     placeholder="Gõ câu trả lời vào đây..."
-                     class="w-full text-center text-lg font-bold px-4 py-3 border-2 border-slate-200 rounded-2xl focus:border-blue-600 focus:outline-none transition">
-              <div class="flex items-center justify-center gap-2">
-                <button type="button" onclick="triggerEnHint()" class="px-3.5 py-2 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-xl transition">
-                  💡 Gợi ý
-                </button>
-                <button type="submit" id="typing-btn-check" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs shadow-md shadow-blue-200 transition">
-                  Kiểm tra
-                </button>
-              </div>
-            </form>
-            <div id="typing-feedback-box" class="hidden mt-4 p-3.5 rounded-2xl text-left text-xs sm:text-sm font-semibold border"></div>
-            
-            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 font-sans">
-              <button onclick="prevEnQuestion()" class="px-4 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1">
-                <span>⬅️ Trước</span>
-              </button>
-              <button onclick="nextEnQuestion()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex items-center gap-1">
-                <span>Tiếp ➡️</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. EN FLASHCARD -->
-      <section id="view-flashcard" class="en-view hidden flex flex-col items-center space-y-4">
-        <div onclick="toggleFlashcardFlip()" class="card-3d-wrap w-full max-w-md h-64 cursor-pointer select-none">
-          <div id="flashcard-element" class="card-3d relative w-full h-full bg-white rounded-3xl shadow-sm border border-slate-200">
-            <div class="face-front absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-white rounded-3xl">
-              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Mặt trước • Chạm để lật</span>
-              <h2 id="flashcard-front-content" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">...</h2>
-              <button onclick="event.stopPropagation(); speakText(currentEnWord.en, 'en-US')" class="mt-3 px-3 py-1 rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-600 text-xs font-semibold transition flex items-center gap-1">
-                🔊 Phát âm
-              </button>
-            </div>
-            <div class="face-back absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-3xl">
-              <span class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mb-2">Nghĩa / Định nghĩa</span>
-              <h2 id="flashcard-back-content" class="text-xl sm:text-2xl font-extrabold text-blue-950">...</h2>
-            </div>
-          </div>
-        </div>
-        <div class="flex items-center gap-2">
-          <button onclick="prevEnQuestion()" class="px-4 py-2 bg-white border border-slate-200 hover:bg-slate-50 rounded-xl font-bold text-xs text-slate-700 transition">
-            ⬅️ Trước
-          </button>
-          <button onclick="toggleFlashcardFlip()" class="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-xs shadow-md transition">
-            🔄 Lật thẻ
-          </button>
-          <button onclick="nextEnQuestion()" class="px-4 py-2 bg-white border border-slate-200 hover:bg-slate-50 rounded-xl font-bold text-xs text-slate-700 transition">
-            Tiếp ➡️
-          </button>
-        </div>
-      </section>
-
-      <!-- 4. EN MATCH GAME -->
-      <section id="view-match" class="en-view hidden space-y-3">
-        <div class="bg-white p-4 sm:p-6 rounded-3xl shadow-xs border border-slate-200">
-          <div class="flex items-center justify-between pb-3 border-b border-slate-100 gap-2">
-            <div>
-              <h2 class="text-sm sm:text-base font-extrabold text-slate-900">🧩 Ghép thẻ nhanh</h2>
-              <p class="text-[11px] text-slate-500">Chạm 1 thẻ Anh và 1 thẻ Việt tương ứng</p>
-            </div>
-            <div class="text-[11px] font-bold bg-slate-100 px-2.5 py-1 rounded-lg text-slate-700">
-              ⏱ <span id="match-timer" class="text-blue-600 font-mono font-extrabold">0.0s</span>
-            </div>
-          </div>
-          <div id="match-cards-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4"></div>
-          <div id="match-win-box" class="hidden mt-6 text-center p-6 bg-emerald-50 border-2 border-emerald-200 rounded-2xl">
-            <span class="text-3xl">🏆</span>
-            <h3 class="text-base font-extrabold text-emerald-900 mt-1">Hoàn thành ghép từ!</h3>
-            <p class="text-xs text-emerald-700 mt-0.5">Thời gian: <strong id="match-final-time">0</strong> giây</p>
-            <button onclick="initMatchGame()" class="mt-3 px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs transition">
-              Chơi lại
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. EN VOCAB MANAGEMENT -->
-      <section id="view-manage" class="en-view hidden space-y-4">
-        <div class="bg-white p-4 rounded-3xl shadow-xs border border-slate-200">
-          <h2 class="text-sm font-extrabold text-slate-900 mb-1">Nạp dữ liệu từ vựng hàng loạt</h2>
-          <textarea id="manage-paste-textarea" rows="5" class="w-full font-mono text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-slate-50 leading-relaxed"></textarea>
-          <div class="mt-3 flex items-center justify-between gap-2">
-            <span id="manage-parsed-preview" class="text-[11px] font-bold text-slate-500">0 từ</span>
-            <div class="flex space-x-1.5">
-              <button onclick="appendParsedEnWords()" class="px-3 py-2 bg-slate-800 text-white rounded-xl text-xs font-bold">➕ Thêm</button>
-              <button onclick="replaceParsedEnWords()" class="px-3 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold">💾 Thay thế</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white p-4 rounded-3xl shadow-xs border border-slate-200">
-          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-            <h3 class="text-xs font-extrabold text-slate-900">Danh sách từ (<span id="manage-table-count">0</span>)</h3>
-            <button onclick="openNewDeckModal()" class="text-xs px-2.5 py-1 bg-blue-50 text-blue-600 rounded-lg font-bold">➕ Bộ mới</button>
-          </div>
-          <form onsubmit="handleAddSingleEnWord(event)" class="mt-3 grid grid-cols-1 sm:grid-cols-12 gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-            <input type="text" id="add-en" placeholder="Tiếng Anh" required class="sm:col-span-5 px-3 py-1.5 text-xs font-semibold bg-white border border-slate-200 rounded-lg">
-            <input type="text" id="add-vi" placeholder="Tiếng Việt" required class="sm:col-span-5 px-3 py-1.5 text-xs font-semibold bg-white border border-slate-200 rounded-lg">
-            <button type="submit" class="sm:col-span-2 px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-bold">Thêm</button>
-          </form>
-          <div class="mt-3 overflow-x-auto max-h-72 overflow-y-auto border border-slate-200 rounded-xl">
-            <table class="w-full text-left text-xs">
-              <tbody id="manage-table-body" class="divide-y divide-slate-100"></tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- EN SUMMARY MODAL -->
-      <div id="en-summary-card" class="hidden bg-white p-6 rounded-3xl shadow-xl border border-slate-200 text-center max-w-sm mx-auto my-4">
-        <span class="text-4xl animate-bounce inline-block">🎉</span>
-        <h2 class="text-xl font-extrabold text-slate-900 mt-1">Hoàn thành lượt học!</h2>
-        <div class="grid grid-cols-2 gap-2.5 my-4">
-          <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-xl">
-            <span class="block text-2xl font-extrabold text-emerald-600" id="summary-correct-stat">0</span>
-            <span class="text-[11px] text-emerald-800 font-bold">Đúng</span>
-          </div>
-          <div class="bg-rose-50 border border-rose-200 p-3 rounded-xl">
-            <span class="block text-2xl font-extrabold text-rose-600" id="summary-wrong-stat">0</span>
-            <span class="text-[11px] text-rose-800 font-bold">Cần ôn</span>
-          </div>
-        </div>
-        <div class="flex flex-col gap-2">
-          <button id="summary-btn-mistakes" onclick="studyEnMistakesOnly()" class="hidden w-full py-2.5 bg-rose-600 text-white rounded-xl font-bold text-xs shadow-md">
-            🔁 Luyện lại từ sai (<span id="summary-mistakes-badge">0</span>)
-          </button>
-          <button onclick="restartCurrentEnMode()" class="w-full py-2.5 bg-blue-600 text-white rounded-xl font-bold text-xs shadow-md">
-            🔄 Học lại từ đầu
-          </button>
-        </div>
-      </div>
-
-    </main>
-  </div>
-
-
-  <!-- ================= FOOTER / KEYBOARD SHORTCUT BAR ================= -->
+  <!-- ================= FOOTER / SHORTCUT BAR ================= -->
   <footer class="bg-white border-t border-slate-200 py-2.5 text-center text-[11px] text-slate-400 font-medium px-4">
     Điều khiển: Chạm nút <strong class="text-slate-600">[Trước] / [Tiếp theo]</strong> trên màn hình hoặc dùng phím <span class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-bold">[ ← ]</span> <span class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-bold">[ → ]</span>
   </footer>
 
 
-  <!-- ================= MODAL: DANH SÁCH TOÀN BỘ CHỦ ĐỀ N4 (TỐI ƯU CHO MOBILE) ================= -->
+  <!-- ================= MODAL: DANH SÁCH 12 CHỦ ĐỀ N4 ================= -->
   <div id="modal-ja-topics" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div class="bg-white rounded-t-3xl sm:rounded-3xl p-5 sm:p-7 max-w-lg w-full shadow-2xl border border-slate-200 max-h-[85vh] flex flex-col animate-in slide-in-from-bottom sm:fade-in duration-200">
       <div class="flex items-center justify-between pb-3 border-b border-slate-100">
@@ -555,10 +626,7 @@
         </button>
       </div>
 
-      <!-- Topics Grid -->
-      <div id="ja-topics-grid-modal" class="grid grid-cols-1 gap-2.5 mt-3 overflow-y-auto pr-1 flex-1 py-1">
-        <!-- Rendered via JS -->
-      </div>
+      <div id="ja-topics-grid-modal" class="grid grid-cols-1 gap-2.5 mt-3 overflow-y-auto pr-1 flex-1 py-1"></div>
 
       <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-xs text-slate-400">
         <span>Tổng: <strong class="text-slate-700" id="ja-total-all-questions">0</strong> câu hỏi N4</span>
@@ -580,6 +648,17 @@
       <p class="text-xs text-slate-500 mt-1 mb-5">Bạn muốn bắt đầu học ngôn ngữ nào?</p>
 
       <div class="grid grid-cols-1 gap-3 text-left">
+        <button onclick="chooseLanguageOnboarding('en')" class="group p-4 rounded-2xl border-2 border-blue-500 bg-blue-50/50 transition flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl">🇬🇧</span>
+            <div>
+              <h3 class="font-bold text-slate-900 text-sm">Luyện Thi TOEIC</h3>
+              <p class="text-[11px] text-slate-500">Target 450/600, Luyện nghe ẩn chữ, Part 5...</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold text-blue-600">Vào ➔</span>
+        </button>
+
         <button onclick="chooseLanguageOnboarding('ja')" class="group p-4 rounded-2xl border-2 border-rose-500 bg-rose-50/50 transition flex items-center justify-between">
           <div class="flex items-center gap-3">
             <span class="text-3xl">🇯🇵</span>
@@ -590,33 +669,10 @@
           </div>
           <span class="text-xs font-bold text-rose-600">Vào ➔</span>
         </button>
-
-        <button onclick="chooseLanguageOnboarding('en')" class="group p-4 rounded-2xl border-2 border-slate-200 hover:border-blue-500 hover:bg-blue-50/40 transition flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <span class="text-3xl">🇬🇧</span>
-            <div>
-              <h3 class="font-bold text-slate-900 text-sm">Tiếng Anh</h3>
-              <p class="text-[11px] text-slate-500">Quizlet style: Trắc nghiệm, Gõ từ...</p>
-            </div>
-          </div>
-          <span class="text-xs font-bold text-blue-600">Vào ➔</span>
-        </button>
       </div>
     </div>
   </div>
 
-
-  <!-- ================= MODAL: TẠO BỘ TỪ TIẾNG ANH MỚI ================= -->
-  <div id="modal-new-deck" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl p-5 max-w-xs w-full shadow-2xl border border-slate-200">
-      <h3 class="text-sm font-extrabold text-slate-900">Tạo bộ từ mới</h3>
-      <input type="text" id="new-deck-name-input" placeholder="Tên bộ từ..." class="w-full mt-3 px-3 py-2 text-xs font-semibold border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
-      <div class="flex justify-end gap-2 mt-4">
-        <button onclick="closeNewDeckModal()" class="px-3 py-1.5 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-lg">Huỷ</button>
-        <button onclick="confirmCreateDeck()" class="px-4 py-1.5 text-xs font-bold text-white bg-blue-600 rounded-lg">Tạo</button>
-      </div>
-    </div>
-  </div>
 
   <!-- ================= MODAL: HƯỚNG DẪN CÀI ĐẶT APP (IPHONE & ANDROID) ================= -->
   <div id="modal-install-guide" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
@@ -637,25 +693,18 @@
         <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-100">
           <span class="w-6 h-6 flex-shrink-0 rounded-full bg-rose-100 text-rose-600 font-bold flex items-center justify-center text-xs">1</span>
           <div>
-            Chạm vào biểu tượng <strong>Chia sẻ (Share)</strong> <span class="inline-block p-1 bg-white border border-slate-200 rounded text-sm leading-none">⎋</span> ở thanh công cụ dưới cùng của trình duyệt Safari.
+            Chạm vào biểu tượng <strong>Chia sẻ (Share)</strong> <span class="inline-block p-1 bg-white border border-slate-200 rounded text-sm leading-none">⎋</span> ở thanh công cụ dưới cùng Safari.
           </div>
         </div>
         <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-100">
           <span class="w-6 h-6 flex-shrink-0 rounded-full bg-rose-100 text-rose-600 font-bold flex items-center justify-center text-xs">2</span>
           <div>
-            Cuộn xuống danh sách và chọn <strong>"Thêm vào MH chính" (Add to Home Screen)</strong> <span class="inline-block p-1 bg-white border border-slate-200 rounded text-sm leading-none">➕</span>.
+            Cuộn xuống và chọn <strong>"Thêm vào MH chính" (Add to Home Screen)</strong> <span class="inline-block p-1 bg-white border border-slate-200 rounded text-sm leading-none">➕</span>.
           </div>
         </div>
         <div class="p-3 bg-emerald-50 rounded-2xl border border-emerald-100 text-[11px] text-emerald-800 font-medium">
-          ✓ Sau đó App StudyMaster sẽ xuất hiện ngay ngoài màn hình chính iPhone của bạn, mở toàn màn hình không có thanh địa chỉ web, chạy siêu mượt!
+          ✓ Sau đó App StudyMaster sẽ xuất hiện ngoài màn hình chính iPhone của bạn, mở toàn màn hình siêu mượt!
         </div>
-      </div>
-
-      <div id="install-guide-other-content" class="hidden py-4 space-y-3 text-xs text-slate-700">
-        <p>Bấm nút bên dưới để cài đặt ứng dụng StudyMaster trực tiếp lên thiết bị của bạn:</p>
-        <button id="btn-trigger-pwa-prompt" onclick="execBrowserInstall()" class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-2xl shadow-md shadow-rose-200 transition text-sm flex items-center justify-center gap-2">
-          <span>📲 Cài Đặt Ngay</span>
-        </button>
       </div>
 
       <div class="pt-3 border-t border-slate-100 flex justify-end">
@@ -667,11 +716,179 @@
   </div>
 
 
-  <!-- ================= LOGIC TOÀN BỘ ỨNG DỤNG ================= -->
+  <!-- ================= MODAL: TẠO BỘ TỪ TIẾNG ANH MỚI ================= -->
+  <div id="modal-new-deck" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-5 max-w-xs w-full shadow-2xl border border-slate-200">
+      <h3 class="text-sm font-extrabold text-slate-900">Tạo bộ từ mới</h3>
+      <input type="text" id="new-deck-name-input" placeholder="Tên bộ từ..." class="w-full mt-3 px-3 py-2 text-xs font-semibold border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+      <div class="flex justify-end gap-2 mt-4">
+        <button onclick="closeNewDeckModal()" class="px-3 py-1.5 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-lg">Huỷ</button>
+        <button onclick="confirmCreateDeck()" class="px-4 py-1.5 text-xs font-bold text-white bg-blue-600 rounded-lg">Tạo</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
     /* =========================================================================
-       1. DATASETS TIẾNG NHẬT N4 (12 CHỦ ĐỀ TOÀN DIỆN)
+       1. DATASETS TOEIC (CHIA THEO MỤC TIÊU 450+, 600+, COLLOCATION, WORD FORM)
        ========================================================================= */
+    const TOEIC_TARGET_DECKS = [
+      {
+        id: "deck_toeic_450",
+        name: "🎯 TOEIC 450+ (Căn Bản Sống Còn)",
+        words: [
+          { id: 1, en: "contract", vi: "hợp đồng, giao kèo" },
+          { id: 2, en: "negotiate", vi: "đàm phán, thương lượng" },
+          { id: 3, en: "candidate", vi: "ứng viên xin việc" },
+          { id: 4, en: "submit", vi: "nộp, đệ trình (hồ sơ, báo cáo)" },
+          { id: 5, en: "deadline", vi: "hạn chót, thời hạn hoàn thành" },
+          { id: 6, en: "invoice", vi: "hoá đơn thanh toán" },
+          { id: 7, en: "refund", vi: "hoàn tiền, tiền trả lại" },
+          { id: 8, en: "warranty", vi: "bảo hành, phiếu bảo hành" },
+          { id: 9, en: "maintenance", vi: "bảo trì, bảo dưỡng thiết bị" },
+          { id: 10, en: "departure", vi: "sự khởi hành, giờ xuất phát" },
+          { id: 11, en: "passenger", vi: "hành khách" },
+          { id: 12, en: "luggage", vi: "hành lý, va li" },
+          { id: 13, en: "confirm", vi: "xác nhận, khẳng định" },
+          { id: 14, en: "appointment", vi: "cuộc hẹn, lịch hẹn gặp" },
+          { id: 15, en: "discount", vi: "giảm giá, chiết khấu" }
+        ]
+      },
+      {
+        id: "deck_toeic_600",
+        name: "🚀 TOEIC 600+ (Trọng Tâm Bứt Phá)",
+        words: [
+          { id: 21, en: "implement", vi: "triển khai, thi hành kế hoạch" },
+          { id: 22, en: "collaborate", vi: "hợp tác, phối hợp làm việc" },
+          { id: 23, en: "anticipate", vi: "dự đoán, lường trước" },
+          { id: 24, en: "feasible", vi: "khả thi, có thể thực hiện được" },
+          { id: 25, en: "confidential", vi: "bảo mật, tuyệt mật" },
+          { id: 26, en: "reimburse", vi: "hoàn trả chi phí, bồi hoàn" },
+          { id: 27, en: "discrepancy", vi: "sự sai lệch, khác biệt số liệu" },
+          { id: 28, en: "adhere", vi: "tuân thủ, gắn bó chặt chẽ" },
+          { id: 29, en: "renovate", vi: "cải tạo, nâng cấp công trình" },
+          { id: 30, en: "evaluate", vi: "đánh giá năng lực, hiệu quả" },
+          { id: 31, en: "revenue", vi: "doanh thu, lợi nhuận gộp" },
+          { id: 32, en: "vendor", vi: "nhà cung cấp, người bán hàng" }
+        ]
+      }
+    ];
+
+    // TOEIC Part 5 Collocations & Prepositions dataset
+    const TOEIC_COLLOCATIONS = [
+      {
+        id: 1,
+        sentence: "All employees must comply <span class='text-blue-600 font-extrabold underline'>______</span> safety regulations.",
+        correct: "with",
+        options: ["with", "to", "for", "at"],
+        hint: "comply with = tuân thủ theo (xuất hiện cực nhiều trong Part 5)",
+        fullMeaning: "Toàn bộ nhân viên phải tuân thủ các quy định an toàn."
+      },
+      {
+        id: 2,
+        sentence: "Ms. Sarah is responsible <span class='text-blue-600 font-extrabold underline'>______</span> organizing the annual conference.",
+        correct: "for",
+        options: ["for", "with", "of", "in"],
+        hint: "be responsible for = chịu trách nhiệm về việc gì",
+        fullMeaning: "Cô Sarah chịu trách nhiệm tổ chức hội nghị thường niên."
+      },
+      {
+        id: 3,
+        sentence: "We look forward <span class='text-blue-600 font-extrabold underline'>______</span> working with your company.",
+        correct: "to",
+        options: ["to", "for", "at", "in"],
+        hint: "look forward to + V-ing = rất mong đợi điều gì",
+        fullMeaning: "Chúng tôi rất mong đợi được hợp tác cùng quý công ty."
+      },
+      {
+        id: 4,
+        sentence: "Candidates who are interested <span class='text-blue-600 font-extrabold underline'>______</span> the position should apply online.",
+        correct: "in",
+        options: ["in", "on", "at", "for"],
+        hint: "be interested in = quan tâm, hứng thú với điều gì",
+        fullMeaning: "Ứng viên quan tâm đến vị trí này nên nộp hồ sơ trực tuyến."
+      },
+      {
+        id: 5,
+        sentence: "You must submit the report prior <span class='text-blue-600 font-extrabold underline'>______</span> the end of Friday.",
+        correct: "to",
+        options: ["to", "for", "from", "at"],
+        hint: "prior to = trước (trước thời điểm nào đó, = before)",
+        fullMeaning: "Bạn phải nộp báo cáo trước thời điểm kết thúc ngày thứ Sáu."
+      },
+      {
+        id: 6,
+        sentence: "The budget is subject <span class='text-blue-600 font-extrabold underline'>______</span> approval by the board of directors.",
+        correct: "to",
+        options: ["to", "for", "with", "by"],
+        hint: "be subject to = tuỳ thuộc vào sự phê duyệt",
+        fullMeaning: "Ngân sách còn tuỳ thuộc vào sự phê duyệt của ban giám đốc."
+      },
+      {
+        id: 7,
+        sentence: "Please take advantage <span class='text-blue-600 font-extrabold underline'>______</span> our seasonal discount offers.",
+        correct: "of",
+        options: ["of", "in", "for", "with"],
+        hint: "take advantage of = tận dụng, chớp lấy cơ hội",
+        fullMeaning: "Xin hãy tận dụng các ưu đãi giảm giá theo mùa của chúng tôi."
+      },
+      {
+        id: 8,
+        sentence: "Employees are eligible <span class='text-blue-600 font-extrabold underline'>______</span> health insurance after probation.",
+        correct: "for",
+        options: ["for", "to", "with", "of"],
+        hint: "be eligible for = đủ điều kiện, đủ tiêu chuẩn hưởng quyền lợi",
+        fullMeaning: "Nhân viên đủ điều kiện nhận bảo hiểm sức khoẻ sau thử việc."
+      }
+    ];
+
+    // TOEIC Part 5 Word Form (Từ loại N/V/Adj/Adv) dataset
+    const TOEIC_WORD_FAMILIES = [
+      {
+        id: 1,
+        sentence: "The director wants to improve overall factory <span class='text-amber-600 font-extrabold underline'>______</span>.",
+        correct: "productivity (Noun)",
+        options: ["productivity (Noun)", "produce (Verb)", "productive (Adj)", "productively (Adv)"],
+        explanation: "Sau tính từ 'overall' cần điền một Danh từ (Noun) mang đuôi -ity. Productivity = Năng suất.",
+        fullMeaning: "Giám đốc muốn cải thiện năng suất tổng thể của nhà máy."
+      },
+      {
+        id: 2,
+        sentence: "The marketing team worked <span class='text-amber-600 font-extrabold underline'>______</span> to launch the new campaign.",
+        correct: "effectively (Adv)",
+        options: ["effectively (Adv)", "effective (Adj)", "effect (Noun)", "effectiveness (Noun)"],
+        explanation: "Bổ nghĩa cho động từ 'worked' cần dùng một Trạng từ (Adverb) mang đuôi -ly. Effectively = Một cách hiệu quả.",
+        fullMeaning: "Đội ngũ tiếp thị đã làm việc một cách hiệu quả để tung ra chiến dịch mới."
+      },
+      {
+        id: 3,
+        sentence: "Please provide a <span class='text-amber-600 font-extrabold underline'>______</span> description of the damaged goods.",
+        correct: "detailed (Adj)",
+        options: ["detailed (Adj)", "detail (Noun)", "detailing (Verb)", "details (Noun số nhiều)"],
+        explanation: "Trước danh từ 'description' cần một Tính từ (Adjective) để bổ nghĩa. Detailed = Chi tiết.",
+        fullMeaning: "Vui lòng cung cấp một bản mô tả chi tiết về số hàng hoá bị hư hại."
+      },
+      {
+        id: 4,
+        sentence: "All attendees must show their <span class='text-amber-600 font-extrabold underline'>______</span> cards at the reception desk.",
+        correct: "identification (Noun)",
+        options: ["identification (Noun)", "identify (Verb)", "identifiable (Adj)", "identifying (Participle)"],
+        explanation: "Cụm danh từ 'identification card' = Thẻ căn cước / thẻ nhận diện.",
+        fullMeaning: "Tất cả khách tham dự phải xuất trình thẻ nhận diện tại bàn lễ tân."
+      },
+      {
+        id: 5,
+        sentence: "The flight was delayed due to <span class='text-amber-600 font-extrabold underline'>______</span> weather conditions.",
+        correct: "unfavorable (Adj)",
+        options: ["unfavorable (Adj)", "unfavorably (Adv)", "favor (Noun)", "favorite (Noun)"],
+        explanation: "Trước cụm danh từ 'weather conditions' cần một Tính từ (Adj). Unfavorable = Bất lợi, không thuận lợi.",
+        fullMeaning: "Chuyến bay bị hoãn lại do điều kiện thời tiết không thuận lợi."
+      }
+    ];
+
+    // JLPT N4 12 TOPICS
     const COMPREHENSIVE_N4_TOPICS = [
       {
         id: "topic_exam_official",
@@ -818,628 +1035,6 @@
             hira_options: ["かみ", "し", "てがみ", "おりがみ"],
             han_viet: "CHỈ",
             vi_meaning: "tờ giấy"
-          },
-          {
-            id: 206,
-            hira_target: "さいふ",
-            sentence_hira: "ポケットから <u>さいふ</u> を だしました。",
-            kanji_target: "財布",
-            sentence_kanji: "ポケットから <u>財布</u> を 出しました。",
-            kanji_options: ["財布", "才布", "材布", "財巾"],
-            hira_options: ["さいふ", "ざいふ", "さいほう", "ざいほう"],
-            han_viet: "TÀI BỐ",
-            vi_meaning: "ví tiền"
-          },
-          {
-            id: 207,
-            hira_target: "うわぎ",
-            sentence_hira: "さむいので <u>うわぎ</u> を きましょう。",
-            kanji_target: "上着",
-            sentence_kanji: "寒いので <u>上着</u> を 着ましょう。",
-            kanji_options: ["上着", "上き", "上服", "上著"],
-            hira_options: ["うわぎ", "じょうちゃく", "うえぎ", "うえき"],
-            han_viet: "THƯỢNG TRƯỚC",
-            vi_meaning: "áo khoác ngoài"
-          }
-        ]
-      },
-      {
-        id: "topic_daily_life",
-        name: "3. Đời Sống & Sinh Hoạt Gia Đình",
-        icon: "🏠",
-        desc: "Phòng ốc, dọn dẹp, giặt giũ, sinh hoạt mỗi ngày",
-        questions: [
-          {
-            id: 301,
-            hira_target: "へや",
-            sentence_hira: "じぶんの <u>へや</u> を そうじ しました。",
-            kanji_target: "部屋",
-            sentence_kanji: "自分の <u>部屋</u> を 掃除 しました。",
-            kanji_options: ["部室", "部屋", "都屋", "部居"],
-            hira_options: ["へや", "ぶや", "べや", "ぶしつ"],
-            han_viet: "BỘ ỐC",
-            vi_meaning: "căn phòng"
-          },
-          {
-            id: 302,
-            hira_target: "でんき",
-            sentence_hira: "へやの <u>でんき</u> を けして ください。",
-            kanji_target: "電気",
-            sentence_kanji: "部屋の <u>電気</u> を 消して ください。",
-            kanji_options: ["雷気", "電汽", "電気", "雨気"],
-            hira_options: ["でんき", "でんぎ", "てんき", "てんぎ"],
-            han_viet: "ĐIỆN KHÍ",
-            vi_meaning: "đèn điện, điện"
-          },
-          {
-            id: 303,
-            hira_target: "じゅんび",
-            sentence_hira: "りょこうの <u>じゅんび</u> を はじめます。",
-            kanji_target: "準備",
-            sentence_kanji: "旅行の <u>準備</u> を 始めます。",
-            kanji_options: ["準備", "準偏", "準得", "準備"],
-            hira_options: ["じゅんび", "じゅんぴ", "しゅんび", "じゅんべい"],
-            han_viet: "CHUẨN BỊ",
-            vi_meaning: "chuẩn bị"
-          },
-          {
-            id: 304,
-            hira_target: "まど",
-            sentence_hira: "かぜが つよいので <u>まど</u> を しめます。",
-            kanji_target: "窓",
-            sentence_kanji: "風が 強いので <u>窓</u> を 閉めます。",
-            kanji_options: ["窓", "究", "空", "門"],
-            hira_options: ["まど", "そう", "まんど", "と"],
-            han_viet: "SONG",
-            vi_meaning: "cửa sổ"
-          },
-          {
-            id: 305,
-            hira_target: "だいどころ",
-            sentence_hira: "ははは <u>だいどころ</u> で りょうりを しています。",
-            kanji_target: "台所",
-            sentence_kanji: "母は <u>台所</u> で 料理を しています。",
-            kanji_options: ["台所", "台処", "大所", "台場"],
-            hira_options: ["だいどころ", "たいどころ", "だいじょ", "たいじょ"],
-            han_viet: "ĐÀI SỞ",
-            vi_meaning: "nhà bếp"
-          },
-          {
-            id: 306,
-            hira_target: "おきて",
-            sentence_hira: "まいあさ 6じに <u>おきて</u> います。",
-            kanji_target: "起きて",
-            sentence_kanji: "毎朝 6時に <u>起きて</u> います。",
-            kanji_options: ["起きて", "超きて", "越きて", "赴きて"],
-            hira_options: ["おきて", "たって", "ねて", "あきて"],
-            han_viet: "KHỞI",
-            vi_meaning: "thức dậy"
-          }
-        ]
-      },
-      {
-        id: "topic_traffic_travel",
-        name: "4. Giao Thông & Đi Lại",
-        icon: "🚗",
-        desc: "Tàu điện, xe buýt, sân bay, vé tàu, đi lại",
-        questions: [
-          {
-            id: 401,
-            hira_target: "ちかてつ",
-            sentence_hira: "えきから <u>ちかてつ</u> に のります。",
-            kanji_target: "地下鉄",
-            sentence_kanji: "駅から <u>地下鉄</u> に 乗ります。",
-            kanji_options: ["地下鉄", "地下矢", "地化鉄", "地下線"],
-            hira_options: ["ちかてつ", "じかてつ", "ちげてつ", "ちかてつ"],
-            han_viet: "ĐỊA HẠ THIẾT",
-            vi_meaning: "tàu điện ngầm"
-          },
-          {
-            id: 402,
-            hira_target: "りょこう",
-            sentence_hira: "らいげつ かぞくと <u>りょこう</u> に いきます。",
-            kanji_target: "旅行",
-            sentence_kanji: "来月 家族と <u>旅行</u> に 行きます。",
-            kanji_options: ["旅団", "旅行", "旋行", "旅向"],
-            hira_options: ["りょこう", "りょぎょう", "ろこう", "たびゆき"],
-            han_viet: "LỮ HÀNH",
-            vi_meaning: "du lịch, chuyến đi"
-          },
-          {
-            id: 403,
-            hira_target: "きっぷ",
-            sentence_hira: "でんしゃの <u>きっぷ</u> を かいました。",
-            kanji_target: "切符",
-            sentence_kanji: "電車の <u>切符</u> を 買いました。",
-            kanji_options: ["切符", "切付", "初符", "切竹"],
-            hira_options: ["きっぷ", "きりふ", "きっぷう", "せっぷ"],
-            han_viet: "THIẾT PHÙ",
-            vi_meaning: "vé tàu, vé xe"
-          },
-          {
-            id: 404,
-            hira_target: "のりかえ",
-            sentence_hira: "つぎの えきで <u>のりかえ</u> ます。",
-            kanji_target: "乗り換え",
-            sentence_kanji: "次の 駅で <u>乗り換え</u> ます。",
-            kanji_options: ["乗り換え", "乗り代え", "乗り変え", "乗換へ"],
-            hira_options: ["のりかえ", "のりかへ", "のりへん", "のりか"],
-            han_viet: "THỪA HOÁN",
-            vi_meaning: "chuyển tàu, đổi xe"
-          },
-          {
-            id: 405,
-            hira_target: "どうろ",
-            sentence_hira: "ひろい <u>どうろ</u> を わたります。",
-            kanji_target: "道路",
-            sentence_kanji: "広い <u>道路</u> を 渡ります。",
-            kanji_options: ["道路", "道各", "通路", "道線"],
-            hira_options: ["どうろ", "とうろ", "みちろ", "みちじ"],
-            han_viet: "ĐẠO LỘ",
-            vi_meaning: "con đường, đường sá"
-          },
-          {
-            id: 406,
-            hira_target: "くうこう",
-            sentence_hira: "バスで <u>くうこう</u> へ むかいます。",
-            kanji_target: "空港",
-            sentence_kanji: "バスで <u>空港</u> へ 向かいます。",
-            kanji_options: ["空港", "空向", "空広", "深港"],
-            hira_options: ["くうこう", "そらみなと", "くうごう", "くこう"],
-            han_viet: "KHÔNG CẢNG",
-            vi_meaning: "sân bay"
-          }
-        ]
-      },
-      {
-        id: "topic_work_office",
-        name: "5. Công Việc & Công Sở",
-        icon: "💼",
-        desc: "Họp hành, hướng dẫn, đồng nghiệp, giám đốc, liên lạc",
-        questions: [
-          {
-            id: 501,
-            hira_target: "かいぎ",
-            sentence_hira: "3じから だいじな <u>かいぎ</u> が あります。",
-            kanji_target: "会議",
-            sentence_kanji: "3時から 大事な <u>会議</u> が あります。",
-            kanji_options: ["会議", "開議", "会義", "合議"],
-            hira_options: ["かいぎ", "かいき", "あいき", "えぎ"],
-            han_viet: "HỘI NGHỊ",
-            vi_meaning: "cuộc họp"
-          },
-          {
-            id: 502,
-            hira_target: "あんない",
-            sentence_hira: "おきゃくさまを <u>あんない</u> しました。",
-            kanji_target: "案内",
-            sentence_kanji: "お客様を <u>案内</u> しました。",
-            kanji_options: ["按内", "案肉", "安内", "案内"],
-            hira_options: ["あんない", "あんうち", "やすない", "あんな"],
-            han_viet: "ÁN NỘI",
-            vi_meaning: "hướng dẫn, dẫn đường"
-          },
-          {
-            id: 503,
-            hira_target: "しゃちょう",
-            sentence_hira: "あした <u>しゃちょう</u> と はなします。",
-            kanji_target: "社長",
-            sentence_kanji: "明日 <u>社長</u> と 話します。",
-            kanji_options: ["社長", "社頭", "社帳", "会長"],
-            hira_options: ["しゃちょう", "しゃちょ", "さちょう", "かいちょう"],
-            han_viet: "XÃ TRƯỜNG",
-            vi_meaning: "giám đốc công ty"
-          },
-          {
-            id: 504,
-            hira_target: "れんらく",
-            sentence_hira: "でんわで <u>れんらく</u> して ください。",
-            kanji_target: "連絡",
-            sentence_kanji: "電話で <u>連絡</u> して ください。",
-            kanji_options: ["連絡", "連各", "連格", "蓮絡"],
-            hira_options: ["れんらく", "れんろく", "れんらくう", "れんかく"],
-            han_viet: "LIÊN LẠC",
-            vi_meaning: "liên lạc, thông báo"
-          },
-          {
-            id: 505,
-            hira_target: "やくそく",
-            sentence_hira: "ともだちと <u>やくそく</u> を まもります。",
-            kanji_target: "約束",
-            sentence_kanji: "友達と <u>約束</u> を 守ります。",
-            kanji_options: ["約束", "条束", "約東", "糸束"],
-            hira_options: ["やくそく", "やくぞく", "やっそく", "やくそっ"],
-            han_viet: "ƯỚC THÚC",
-            vi_meaning: "lời hứa, hẹn ước"
-          },
-          {
-            id: 506,
-            hira_target: "しょるい",
-            sentence_hira: "この <u>しょるい</u> に サインを してください。",
-            kanji_target: "書類",
-            sentence_kanji: "この <u>書類</u> に サインを してください。",
-            kanji_options: ["書類", "書米", "諸類", "署類"],
-            hira_options: ["しょるい", "しょらい", "しょりゅう", "ちょるい"],
-            han_viet: "THƯ LOẠI",
-            vi_meaning: "tài liệu, giấy tờ"
-          }
-        ]
-      },
-      {
-        id: "topic_school_study",
-        name: "6. Trường Học & Thi Cử",
-        icon: "🏫",
-        desc: "Bài tập, thi cử, câu hỏi, từ điển, giáo viên",
-        questions: [
-          {
-            id: 601,
-            hira_target: "しけん",
-            sentence_hira: "らいしゅう <u>しけん</u> が あります。",
-            kanji_target: "試験",
-            sentence_kanji: "来週 <u>試験</u> が あります。",
-            kanji_options: ["試倹", "式験", "試検", "試験"],
-            hira_options: ["しけん", "じけん", "しげん", "じげん"],
-            han_viet: "THÍ NGHIỆM",
-            vi_meaning: "kỳ thi, bài kiểm tra"
-          },
-          {
-            id: 602,
-            hira_target: "しつもん",
-            sentence_hira: "せんせいに <u>しつもん</u> を しました。",
-            kanji_target: "質問",
-            sentence_kanji: "先生に <u>質問</u> を しました。",
-            kanji_options: ["質門", "質間", "質問", "賃問"],
-            hira_options: ["しつもん", "しつぶん", "しちもん", "じつもん"],
-            han_viet: "CHẤT VẤN",
-            vi_meaning: "câu hỏi, thắc mắc"
-          },
-          {
-            id: 603,
-            hira_target: "しゅくだい",
-            sentence_hira: "きのうの <u>しゅくだい</u> を だしました。",
-            kanji_target: "宿題",
-            sentence_kanji: "昨日の <u>宿題</u> を 出しました。",
-            kanji_options: ["宿題", "宿頁", "夜題", "宅題"],
-            hira_options: ["しゅくだい", "じゅくだい", "しゅくたい", "しくだい"],
-            han_viet: "TÚC ĐỀ",
-            vi_meaning: "bài tập về nhà"
-          },
-          {
-            id: 604,
-            hira_target: "じしょ",
-            sentence_hira: "ことばの いみを <u>じしょ</u> で ひきます。",
-            kanji_target: "辞書",
-            sentence_kanji: "言葉の 意味を <u>辞書</u> で 引きます。",
-            kanji_options: ["辞書", "乱書", "辛書", "辞昼"],
-            hira_options: ["じしょ", "じしょう", "ししょ", "じじょ"],
-            han_viet: "TỪ THƯ",
-            vi_meaning: "từ điển"
-          },
-          {
-            id: 605,
-            hira_target: "きょうしつ",
-            sentence_hira: "がくせいが <u>きょうしつ</u> に あつまります。",
-            kanji_target: "教室",
-            sentence_kanji: "学生が <u>教室</u> に 集まります。",
-            kanji_options: ["教室", "教屋", "孝室", "校室"],
-            hira_options: ["きょうしつ", "きょうじつ", "こうしつ", "きょうや"],
-            han_viet: "GIÁO THẤT",
-            vi_meaning: "phòng học, lớp học"
-          }
-        ]
-      },
-      {
-        id: "topic_food_dining",
-        name: "7. Ăn Uống & Thực Phẩm",
-        icon: "🍲",
-        desc: "Thịt cá, rau củ, gia vị, nấu ăn, gọi món",
-        questions: [
-          {
-            id: 701,
-            hira_target: "りょうり",
-            sentence_hira: "にほんの <u>りょうり</u> が すきです。",
-            kanji_target: "料理",
-            sentence_kanji: "日本の <u>料理</u> が 好きです。",
-            kanji_options: ["料理", "科理", "料里", "料埋"],
-            hira_options: ["りょうり", "りょり", "りょうれい", "りょうに"],
-            han_viet: "LIỆU LÝ",
-            vi_meaning: "món ăn, nấu ăn"
-          },
-          {
-            id: 702,
-            hira_target: "さかな",
-            sentence_hira: "かわで <u>さかな</u> を つりました。",
-            kanji_target: "魚",
-            sentence_kanji: "川で <u>魚</u> を 釣りました。",
-            kanji_options: ["魚", "角", "魯", "漁"],
-            hira_options: ["さかな", "うお", "ざかな", "ぎょ"],
-            han_viet: "NGƯ",
-            vi_meaning: "con cá"
-          },
-          {
-            id: 703,
-            hira_target: "にく",
-            sentence_hira: "ばんごはんに <u>にく</u> を やきます。",
-            kanji_target: "肉",
-            sentence_kanji: "晩ご飯に <u>肉</u> を 焼きます。",
-            kanji_options: ["肉", "内", "由", "丙"],
-            hira_options: ["にく", "じく", "にぐ", "ねく"],
-            han_viet: "NHỤC",
-            vi_meaning: "thịt"
-          },
-          {
-            id: 704,
-            hira_target: "ちゅうもん",
-            sentence_hira: "レストランで <u>ちゅうもん</u> します。",
-            kanji_target: "注文",
-            sentence_kanji: "レストランで <u>注文</u> します。",
-            kanji_options: ["注文", "注門", "主問", "注間"],
-            hira_options: ["ちゅうもん", "ちゅうぶん", "じゅうもん", "ちゅもん"],
-            han_viet: "CHÚ VĂN",
-            vi_meaning: "gọi món, đặt hàng"
-          },
-          {
-            id: 705,
-            hira_target: "あさごはん",
-            sentence_hira: "まいあさ <u>あさごはん</u> を たべます。",
-            kanji_target: "朝ご飯",
-            sentence_kanji: "毎朝 <u>朝ご飯</u> を 食べます。",
-            kanji_options: ["朝ご飯", "早ご飯", "朝御飯", "朝飯"],
-            hira_options: ["あさごはん", "あさはん", "ちょうはん", "あさめし"],
-            han_viet: "TRIÊU PHẠN",
-            vi_meaning: "bữa sáng"
-          }
-        ]
-      },
-      {
-        id: "topic_nature_weather",
-        name: "8. Thiên Nhiên & Thời Tiết",
-        icon: "🌤️",
-        desc: "Mưa tuyết, gió bão, mùa màng, biển rừng",
-        questions: [
-          {
-            id: 801,
-            hira_target: "ゆき",
-            sentence_hira: "やまの うえに <u>ゆき</u> が あります。",
-            kanji_target: "雪",
-            sentence_kanji: "山の 上に <u>雪</u> が あります。",
-            kanji_options: ["雪", "雷", "雲", "霜"],
-            hira_options: ["ゆき", "でん", "かみなり", "くも"],
-            han_viet: "TUYẾT",
-            vi_meaning: "tuyết"
-          },
-          {
-            id: 802,
-            hira_target: "かぜ",
-            sentence_hira: "きょうは つよい <u>かぜ</u> が ふいています。",
-            kanji_target: "風",
-            sentence_kanji: "今日は 強い <u>風</u> が 吹いています。",
-            kanji_options: ["風", "嵐", "気", "凪"],
-            hira_options: ["かぜ", "ふう", "かじ", "あめ"],
-            han_viet: "PHONG",
-            vi_meaning: "cơn gió"
-          },
-          {
-            id: 803,
-            hira_target: "たいふう",
-            sentence_hira: "あした <u>たいふう</u> が きます。",
-            kanji_target: "台風",
-            sentence_kanji: "明日 <u>台風</u> が 来ます。",
-            kanji_options: ["台風", "大風", "太嵐", "台気"],
-            hira_options: ["たいふう", "だいふう", "たいふ", "たいぶう"],
-            han_viet: "THAI PHONG",
-            vi_meaning: "bão biển"
-          },
-          {
-            id: 804,
-            hira_target: "きせつ",
-            sentence_hira: "にほんには よっつの <u>きせつ</u> が あります。",
-            kanji_target: "季節",
-            sentence_kanji: "日本には 4つの <u>季節</u> が あります。",
-            kanji_options: ["季節", "気節", "季折", "期節"],
-            hira_options: ["きせつ", "きせっ", "きぜつ", "きせち"],
-            han_viet: "QUÝ TIẾT",
-            vi_meaning: "mùa màng trong năm"
-          },
-          {
-            id: 805,
-            hira_target: "じしん",
-            sentence_hira: "きのう ちいさな <u>じしん</u> が ありました。",
-            kanji_target: "地震",
-            sentence_kanji: "昨日 小さな <u>地震</u> が ありました。",
-            kanji_options: ["地震", "地雷", "地震", "地振"],
-            hira_options: ["じしん", "ちしん", "じじん", "ちじん"],
-            han_viet: "ĐỊA CHẤN",
-            vi_meaning: "động đất"
-          }
-        ]
-      },
-      {
-        id: "topic_health_body",
-        name: "9. Sức Khỏe & Y Tế",
-        icon: "🏥",
-        desc: "Bệnh viện, uống thuốc, cảm sốt, cơ thể",
-        questions: [
-          {
-            id: 901,
-            hira_target: "びょういん",
-            sentence_hira: "からだが だるいので <u>びょういん</u> へ いきます。",
-            kanji_target: "病院",
-            sentence_kanji: "体が だるいので <u>病院</u> へ 行きます。",
-            kanji_options: ["病院", "病完", "病園", "病院"],
-            hira_options: ["びょういん", "びょうえん", "びょいん", "びょうかん"],
-            han_viet: "BỆNH VIỆN",
-            vi_meaning: "bệnh viện"
-          },
-          {
-            id: 902,
-            hira_target: "くすり",
-            sentence_hira: "しょくごに <u>くすり</u> を のんで ください。",
-            kanji_target: "薬",
-            sentence_kanji: "食後に <u>薬</u> を 飲んで ください。",
-            kanji_options: ["薬", "菜", "茶", "菓"],
-            hira_options: ["くすり", "ぐすり", "やく", "くす"],
-            han_viet: "DƯỢC",
-            vi_meaning: "thuốc men"
-          },
-          {
-            id: 903,
-            hira_target: "ねつ",
-            sentence_hira: "きのうから <u>ねつ</u> が あります。",
-            kanji_target: "熱",
-            sentence_kanji: "昨日から <u>熱</u> が あります。",
-            kanji_options: ["熱", "熟", "勢", "焼"],
-            hira_options: ["ねつ", "ねっ", "あつ", "ねづ"],
-            han_viet: "NHIỆT",
-            vi_meaning: "sốt, độ nóng"
-          },
-          {
-            id: 904,
-            hira_target: "かぜ",
-            sentence_hira: "ひどい <u>かぜ</u> を ひきました。",
-            kanji_target: "風邪",
-            sentence_kanji: "ひどい <u>風邪</u> を ひきました。",
-            kanji_options: ["風邪", "風邪", "風気", "風牙"],
-            hira_options: ["かぜ", "ふうじゃ", "ふうぜ", "かじ"],
-            han_viet: "PHONG TÀ",
-            vi_meaning: "cảm cúm, trúng gió"
-          },
-          {
-            id: 905,
-            hira_target: "あたま",
-            sentence_hira: "きょうは <u>あたま</u> が いたいです。",
-            kanji_target: "頭",
-            sentence_kanji: "今日は <u>頭</u> が 痛いです。",
-            kanji_options: ["頭", "顔", "首", "頂"],
-            hira_options: ["あたま", "ず", "とう", "かお"],
-            han_viet: "ĐẦU",
-            vi_meaning: "cái đầu, đầu óc"
-          }
-        ]
-      },
-      {
-        id: "topic_adjectives_feelings",
-        name: "10. Tính Từ, Trạng Thái & Cảm Xúc",
-        icon: "🧠",
-        desc: "Phức tạp, thân thiện, quan trọng, chú ý, vội vã",
-        questions: [
-          {
-            id: 1001,
-            hira_target: "ふくざつ",
-            sentence_hira: "この もんだいは <u>ふくざつ</u> です。",
-            kanji_target: "複雑",
-            sentence_kanji: "この 問題は <u>複雑</u> です。",
-            kanji_options: ["複維", "復雑", "複雑", "復維"],
-            hira_options: ["ふくざつ", "ふくさつ", "ふくぜつ", "ふくざっ"],
-            han_viet: "PHỨC TẠP",
-            vi_meaning: "phức tạp, rắc rối"
-          },
-          {
-            id: 1002,
-            hira_target: "しんせつ",
-            sentence_hira: "たなかさんは <u>しんせつ</u> な ひと です。",
-            kanji_target: "親切",
-            sentence_kanji: "田中さんは <u>親切</u> な 人 です。",
-            kanji_options: ["新切", "親折", "親切", "新折"],
-            hira_options: ["しんせつ", "しんせっ", "しんぜつ", "しんきり"],
-            han_viet: "THÂN THIẾT",
-            vi_meaning: "tốt bụng, thân thiện"
-          },
-          {
-            id: 1003,
-            hira_target: "ちゅうい",
-            sentence_hira: "くるまに <u>ちゅうい</u> して あるいて ください。",
-            kanji_target: "注意",
-            sentence_kanji: "車に <u>注意</u> して 歩いて ください。",
-            kanji_options: ["注心", "注思", "注意", "注急"],
-            hira_options: ["ちゅうい", "じゅうい", "しゅうい", "ちゅうえ"],
-            han_viet: "CHÚ Ý",
-            vi_meaning: "cẩn thận, lưu ý"
-          },
-          {
-            id: 1004,
-            hira_target: "いそいで",
-            sentence_hira: "じかんが ないので <u>いそいで</u> ください。",
-            kanji_target: "急いで",
-            sentence_kanji: "時間が ないので <u>急いで</u> ください。",
-            kanji_options: ["悪いで", "息いで", "急いで", "念いで"],
-            hira_options: ["いそいで", "おいそいで", "いそいて", "はしって"],
-            han_viet: "CẤP",
-            vi_meaning: "khẩn cấp, vội vàng"
-          },
-          {
-            id: 1005,
-            hira_target: "たいせつ",
-            sentence_hira: "これは わたしに とって <u>たいせつ</u> な もの です。",
-            kanji_target: "大切",
-            sentence_kanji: "これは 私に とって <u>大切</u> な もの です。",
-            kanji_options: ["大切", "大折", "太切", "犬切"],
-            hira_options: ["たいせつ", "だいせつ", "たいきり", "だいせっ"],
-            han_viet: "ĐẠI THIẾT",
-            vi_meaning: "quan trọng, quý giá"
-          }
-        ]
-      },
-      {
-        id: "topic_core_verbs",
-        name: "11. Động Từ N4 Then Chốt",
-        icon: "🏃",
-        desc: "Các động từ hành động xuất hiện nhiều nhất trong đề thi",
-        questions: [
-          {
-            id: 1101,
-            hira_target: "はこびました",
-            sentence_hira: "トラックで にもつを <u>はこびました</u>。",
-            kanji_target: "運びました",
-            sentence_kanji: "トラックで 荷物を <u>運びました</u>。",
-            kanji_options: ["運びました", "運ひました", "連びました", "軍びました"],
-            hira_options: ["はこびました", "うごびました", "はこひました", "つよびました"],
-            han_viet: "VẬN",
-            vi_meaning: "vận chuyển, dọn đồ"
-          },
-          {
-            id: 1102,
-            hira_target: "しらべて",
-            sentence_hira: "わからない ことばを ネットで <u>しらべて</u> ください。",
-            kanji_target: "調べて",
-            sentence_kanji: "わからない 言葉を ネットで <u>調べて</u> ください。",
-            kanji_options: ["調べて", "調へて", "請べて", "調へて"],
-            hira_options: ["しらべて", "ちょうべて", "ならべて", "くらべて"],
-            han_viet: "ĐIỀU / ĐIỆU",
-            vi_meaning: "tra cứu, tìm hiểu"
-          },
-          {
-            id: 1103,
-            hira_target: "なおして",
-            sentence_hira: "こわれた とけいを <u>なおして</u> もらいました。",
-            kanji_target: "直して",
-            sentence_kanji: "壊れた 時計を <u>直して</u> もらいました。",
-            kanji_options: ["直して", "真して", "植して", "置して"],
-            hira_options: ["なおして", "すなおして", "なおて", "ただして"],
-            han_viet: "TRỰC",
-            vi_meaning: "sửa chữa"
-          },
-          {
-            id: 1104,
-            hira_target: "かして",
-            sentence_hira: "ペンを 1ぽん <u>かして</u> ください。",
-            kanji_target: "貸して",
-            sentence_kanji: "ペンを 1本 <u>貸して</u> ください。",
-            kanji_options: ["貸して", "賃して", "借して", "資して"],
-            hira_options: ["かして", "かりて", "たいして", "かえして"],
-            han_viet: "THẢI",
-            vi_meaning: "cho mượn"
-          },
-          {
-            id: 1105,
-            hira_target: "おもいだして",
-            sentence_hira: "あの ひとの なまえを <u>おもいだして</u> ください。",
-            kanji_target: "思い出して",
-            sentence_kanji: "あの 人の 名前を <u>思い出して</u> ください。",
-            kanji_options: ["思い出して", "思比出して", "念い出して", "想い出して"],
-            hira_options: ["おもいだして", "おもいたして", "しだして", "おもでして"],
-            han_viet: "TƯ XUẤT",
-            vi_meaning: "nhớ ra, hồi tưởng"
           }
         ]
       },
@@ -1452,7 +1047,7 @@
       }
     ];
 
-    // Combine for All Topic
+    // Combine all topic questions
     (function initAllTopic() {
       const allTopic = COMPREHENSIVE_N4_TOPICS.find(t => t.id === 'topic_all_random');
       const otherQuestions = [];
@@ -1464,59 +1059,32 @@
 
 
     /* =========================================================================
-       2. DATASETS TIẾNG ANH
-       ========================================================================= */
-    const DEFAULT_EN_DECKS = [
-      {
-        id: "deck_ielts_core",
-        name: "IELTS Core Vocab (15 từ mẫu)",
-        words: [
-          { id: 1, en: "persistent", vi: "kiên trì, bền bỉ" },
-          { id: 2, en: "crucial", vi: "vô cùng quan trọng, cốt yếu" },
-          { id: 3, en: "accomplish", vi: "hoàn thành, đạt được" },
-          { id: 4, en: "elaborate", vi: "tỉ mỉ, chi tiết, kỹ lưỡng" },
-          { id: 5, en: "inevitable", vi: "không thể tránh khỏi" },
-          { id: 6, en: "procrastinate", vi: "trì hoãn, chần chừ" },
-          { id: 7, en: "vulnerable", vi: "dễ bị tổn thương" },
-          { id: 8, en: "substantial", vi: "đáng kể, quan trọng" },
-          { id: 9, en: "comprehend", vi: "thấu hiểu, lĩnh hội" },
-          { id: 10, en: "diligent", vi: "siêng năng, chăm chỉ" },
-          { id: 11, en: "ambiguous", vi: "mơ hồ, nước đôi" },
-          { id: 12, en: "resilient", vi: "kiên cường, mau hồi phục" },
-          { id: 13, en: "prioritize", vi: "ưu tiên hàng đầu" },
-          { id: 14, en: "facilitate", vi: "tạo điều kiện thuận lợi" },
-          { id: 15, en: "authentic", vi: "chân thực, đáng tin cậy" }
-        ]
-      },
-      {
-        id: "deck_tech_dev",
-        name: "Từ vựng IT & Lập trình",
-        words: [
-          { id: 1, en: "repository", vi: "kho lưu trữ mã nguồn" },
-          { id: 2, en: "deprecated", vi: "không còn được khuyến nghị dùng, lỗi thời" },
-          { id: 3, en: "concurrency", vi: "tính đồng thời, đa luồng" },
-          { id: 4, en: "scalability", vi: "khả năng mở rộng hệ thống" },
-          { id: 5, en: "bottleneck", vi: "điểm nghẽn hiệu năng" },
-          { id: 6, en: "refactor", vi: "tái cấu trúc lại code" },
-          { id: 7, en: "asynchronous", vi: "bất đồng bộ" },
-          { id: 8, en: "deployment", vi: "triển khai ứng dụng lên server" }
-        ]
-      }
-    ];
-
-
-    /* =========================================================================
-       3. GLOBAL STATE
+       2. GLOBAL STATE & 2 SEPARATE STREAKS
        ========================================================================= */
     let globalState = {
-      activeLang: 'ja',
+      activeLang: 'en',
       soundEnabled: true,
       
-      // English state
-      enDecks: [],
-      currentEnDeckId: '',
-      currentEnTab: 'mcq',
-      enDirection: 'en-vi',
+      // STREAK TIẾNG ANH (TOEIC)
+      enStreak: {
+        count: 1,
+        lastDate: '',
+        todayCount: 0,
+        target: 10
+      },
+
+      // STREAK TIẾNG NHẬT (N4 - ĐỘC LẬP)
+      jaStreak: {
+        count: 1,
+        lastDate: '',
+        todayCount: 0,
+        target: 10
+      },
+
+      // English TOEIC state
+      enDecks: TOEIC_TARGET_DECKS,
+      currentEnDeckId: 'deck_toeic_450',
+      currentEnTab: 'mcq', // 'mcq', 'audio', 'collocation', 'wordform', 'flashcard', 'manage'
       enStudyList: [],
       enIndex: 0,
       enCorrect: 0,
@@ -1524,16 +1092,18 @@
       enMistakes: [],
       enIsAnswered: false,
 
-      // Match game state
-      matchCards: [],
-      matchSelected: [],
-      matchTimerInterval: null,
-      matchStartTime: 0,
+      // Collocations state
+      collocIndex: 0,
+      collocIsAnswered: false,
+
+      // Word families state
+      wordformIndex: 0,
+      wordformIsAnswered: false,
 
       // Japanese JLPT state
       jaTopics: COMPREHENSIVE_N4_TOPICS,
       currentJaTopicId: 'topic_exam_official',
-      jaMondai: 'mondai2', // 'mondai2' or 'mondai1'
+      jaMondai: 'mondai2',
       jaQuizList: [],
       jaIndex: 0,
       jaCorrect: 0,
@@ -1548,7 +1118,7 @@
 
 
     /* =========================================================================
-       4. AUDIO & SPEECH
+       3. AUDIO SYNTHESIZER & SPEECH
        ========================================================================= */
     function playTone(type) {
       if (!globalState.soundEnabled) return;
@@ -1578,14 +1148,6 @@
           gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
           osc.start(now);
           osc.stop(now + 0.25);
-        } else if (type === 'match') {
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(659.25, now);
-          osc.frequency.setValueAtTime(880.00, now + 0.08);
-          gain.gain.setValueAtTime(0.25, now);
-          gain.gain.exponentialRampToValueAtTime(0.01, now + 0.25);
-          osc.start(now);
-          osc.stop(now + 0.25);
         }
       } catch (e) {
         console.warn("Audio error:", e);
@@ -1609,14 +1171,99 @@
 
 
     /* =========================================================================
+       4. SEPARATE STREAK SYSTEM (TIẾNG ANH & TIẾNG NHẬT ĐỘC LẬP)
+       ========================================================================= */
+    function getTodayString() {
+      const now = new Date();
+      return now.toISOString().split('T')[0]; // 'YYYY-MM-DD'
+    }
+
+    function loadStreakData() {
+      const today = getTodayString();
+
+      // Load English Streak
+      const savedEnStreak = localStorage.getItem('studymaster_en_streak');
+      if (savedEnStreak) {
+        try {
+          const parsed = JSON.parse(savedEnStreak);
+          globalState.enStreak = parsed;
+          if (parsed.lastDate !== today) {
+            globalState.enStreak.todayCount = 0; // reset today count for new day
+          }
+        } catch (e) {}
+      }
+
+      // Load Japanese Streak (SEPARATE)
+      const savedJaStreak = localStorage.getItem('studymaster_ja_streak');
+      if (savedJaStreak) {
+        try {
+          const parsed = JSON.parse(savedJaStreak);
+          globalState.jaStreak = parsed;
+          if (parsed.lastDate !== today) {
+            globalState.jaStreak.todayCount = 0; // reset today count for new day
+          }
+        } catch (e) {}
+      }
+
+      updateStreakUI('en');
+      updateStreakUI('ja');
+    }
+
+    function saveStreakData(lang) {
+      if (lang === 'en') {
+        localStorage.setItem('studymaster_en_streak', JSON.stringify(globalState.enStreak));
+      } else {
+        localStorage.setItem('studymaster_ja_streak', JSON.stringify(globalState.jaStreak));
+      }
+      updateStreakUI(lang);
+    }
+
+    function recordStreakProgress(lang) {
+      const today = getTodayString();
+      const streakObj = lang === 'en' ? globalState.enStreak : globalState.jaStreak;
+
+      streakObj.todayCount++;
+
+      // Check if target reached today
+      if (streakObj.todayCount === streakObj.target) {
+        // Increment streak count if this is first completion today
+        if (streakObj.lastDate !== today) {
+          streakObj.count++;
+          streakObj.lastDate = today;
+          playTone('correct');
+        }
+      }
+
+      saveStreakData(lang);
+    }
+
+    function updateStreakUI(lang) {
+      if (lang === 'en') {
+        const s = globalState.enStreak;
+        document.getElementById('en-streak-badge').textContent = `🔥 ${s.count} ngày liên tiếp`;
+        document.getElementById('en-daily-counter').textContent = `${Math.min(s.todayCount, s.target)} / ${s.target}`;
+        const pct = Math.min((s.todayCount / s.target) * 100, 100);
+        document.getElementById('en-daily-fill').style.width = `${pct}%`;
+      } else {
+        const s = globalState.jaStreak;
+        document.getElementById('ja-streak-badge').textContent = `🔥 ${s.count} ngày liên tiếp`;
+        document.getElementById('ja-daily-counter').textContent = `${Math.min(s.todayCount, s.target)} / ${s.target}`;
+        const pct = Math.min((s.todayCount / s.target) * 100, 100);
+        document.getElementById('ja-daily-fill').style.width = `${pct}%`;
+      }
+    }
+
+
+    /* =========================================================================
        5. INITIALIZATION & LANGUAGE SWITCHING
        ========================================================================= */
     window.addEventListener('DOMContentLoaded', () => {
       loadStorage();
+      loadStreakData();
       setupKeyboardListeners();
 
-      const hasChosenBefore = localStorage.getItem('vocab_has_chosen_lang');
-      if (!hasChosenBefore) {
+      const hasChosen = localStorage.getItem('vocab_has_chosen_lang');
+      if (!hasChosen) {
         showLangSelectModal();
       } else {
         applyLanguage(globalState.activeLang);
@@ -1626,14 +1273,10 @@
     function loadStorage() {
       const savedEn = localStorage.getItem('vocab_decks_v2');
       if (savedEn) {
-        try { globalState.enDecks = JSON.parse(savedEn); } catch (e) { globalState.enDecks = []; }
+        try { globalState.enDecks = JSON.parse(savedEn); } catch (e) { globalState.enDecks = TOEIC_TARGET_DECKS; }
       }
-      if (!globalState.enDecks || globalState.enDecks.length === 0) {
-        globalState.enDecks = JSON.parse(JSON.stringify(DEFAULT_EN_DECKS));
-      }
-      globalState.currentEnDeckId = localStorage.getItem('vocab_last_deck_id') || globalState.enDecks[0].id;
-
-      globalState.activeLang = localStorage.getItem('vocab_active_lang') || 'ja';
+      globalState.currentEnDeckId = localStorage.getItem('vocab_last_deck_id') || 'deck_toeic_450';
+      globalState.activeLang = localStorage.getItem('vocab_active_lang') || 'en';
       globalState.currentJaTopicId = localStorage.getItem('vocab_ja_topic_id') || 'topic_exam_official';
     }
 
@@ -1667,7 +1310,6 @@
       const secJa = document.getElementById('section-japanese');
       const headerEn = document.getElementById('header-en-controls');
       const headerJa = document.getElementById('header-ja-controls');
-      const brandBadge = document.getElementById('brand-sub-badge');
       const brandLogo = document.getElementById('brand-logo');
 
       if (lang === 'en') {
@@ -1677,10 +1319,6 @@
         secJa.classList.add('hidden');
         headerEn.classList.remove('hidden');
         headerJa.classList.add('hidden');
-        if (brandBadge) {
-          brandBadge.textContent = "Tiếng Anh";
-          brandBadge.className = "text-[10px] bg-blue-50 text-blue-600 border border-blue-200 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider";
-        }
         brandLogo.className = "w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-sm shadow-blue-200 cursor-pointer";
         
         populateEnDeckDropdown();
@@ -1692,10 +1330,6 @@
         secJa.classList.remove('hidden');
         headerEn.classList.add('hidden');
         headerJa.classList.remove('hidden');
-        if (brandBadge) {
-          brandBadge.textContent = "Tiếng Nhật (N4)";
-          brandBadge.className = "text-[10px] bg-rose-50 text-rose-600 border border-rose-200 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider";
-        }
         brandLogo.className = "w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-pink-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-sm shadow-rose-200 cursor-pointer";
 
         updateJaTopicInfoUI();
@@ -1706,7 +1340,553 @@
 
 
     /* =========================================================================
-       6. PHÂN HỆ TIẾNG NHẬT (JLPT N4)
+       6. PHÂN HỆ TIẾNG ANH (TOEIC: MCQ, AUDIO-ONLY, COLLOCATION, WORD FORM)
+       ========================================================================= */
+    function populateEnDeckDropdown() {
+      const select = document.getElementById('deck-select');
+      select.innerHTML = '';
+      globalState.enDecks.forEach(deck => {
+        const opt = document.createElement('option');
+        opt.value = deck.id;
+        opt.textContent = `${deck.name} (${deck.words.length})`;
+        if (deck.id === globalState.currentEnDeckId) opt.selected = true;
+        select.appendChild(opt);
+      });
+      const currentDeck = getCurrentEnDeck();
+      document.getElementById('en-active-deck-badge').textContent = currentDeck ? currentDeck.name : 'TOEIC';
+    }
+
+    function changeEnDeck(deckId) {
+      globalState.currentEnDeckId = deckId;
+      saveStorage();
+      populateEnDeckDropdown();
+      restartCurrentEnMode();
+    }
+
+    function getCurrentEnDeck() {
+      return globalState.enDecks.find(d => d.id === globalState.currentEnDeckId) || globalState.enDecks[0];
+    }
+
+    function switchTabEn(tabName) {
+      globalState.currentEnTab = tabName;
+      const tabKeys = ['mcq', 'audio', 'collocation', 'wordform', 'flashcard', 'manage'];
+      tabKeys.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const view = document.getElementById(`view-${t}`);
+        if (btn) {
+          if (t === tabName) {
+            btn.className = "mode-tab-btn px-2.5 py-1.5 rounded-xl font-bold flex items-center gap-1 transition text-blue-600 bg-blue-50 border border-blue-200";
+          } else {
+            btn.className = "mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100";
+          }
+        }
+        if (view) view.classList.toggle('hidden', t !== tabName);
+      });
+
+      const progressCard = document.getElementById('en-progress-card');
+      progressCard.classList.toggle('hidden', ['manage'].includes(tabName));
+      document.getElementById('en-summary-card').classList.add('hidden');
+
+      if (tabName === 'manage') renderEnManageTable();
+      else if (tabName === 'collocation') startCollocQuiz();
+      else if (tabName === 'wordform') startWordformQuiz();
+      else restartCurrentEnMode();
+    }
+
+    function restartCurrentEnMode(sourceList = null) {
+      const deck = getCurrentEnDeck();
+      if (!deck || deck.words.length === 0) {
+        if (globalState.currentEnTab !== 'manage') switchTabEn('manage');
+        return;
+      }
+
+      globalState.enStudyList = sourceList ? [...sourceList] : shuffleArray([...deck.words]);
+      globalState.enIndex = 0;
+      globalState.enCorrect = 0;
+      globalState.enWrong = 0;
+      globalState.enMistakes = [];
+      globalState.enIsAnswered = false;
+
+      document.getElementById('en-summary-card').classList.add('hidden');
+      document.getElementById(`view-${globalState.currentEnTab}`).classList.remove('hidden');
+
+      renderCurrentEnWord();
+    }
+
+    function renderCurrentEnWord() {
+      const total = globalState.enStudyList.length;
+      if (globalState.enIndex >= total) {
+        showEnSummary();
+        return;
+      }
+
+      globalState.enIsAnswered = false;
+      currentEnWord = globalState.enStudyList[globalState.enIndex];
+
+      document.getElementById('study-progress-counter').textContent = `${globalState.enIndex + 1} / ${total}`;
+      document.getElementById('stat-correct').textContent = globalState.enCorrect;
+      document.getElementById('stat-wrong').textContent = globalState.enWrong;
+      const pct = (globalState.enIndex / total) * 100;
+      document.getElementById('study-progress-fill').style.width = `${pct}%`;
+
+      const prevBtn = document.getElementById('en-btn-prev');
+      if (prevBtn) {
+        prevBtn.disabled = globalState.enIndex === 0;
+        prevBtn.classList.toggle('opacity-40', globalState.enIndex === 0);
+      }
+
+      if (globalState.currentEnTab === 'mcq') renderEnMCQ();
+      else if (globalState.currentEnTab === 'audio') renderEnAudioOnly();
+      else if (globalState.currentEnTab === 'flashcard') renderEnFlashcard(currentEnWord);
+    }
+
+    // MCQ
+    function renderEnMCQ() {
+      document.getElementById('mcq-prompt-text').textContent = currentEnWord.en;
+      document.getElementById('mcq-feedback-bar').classList.add('hidden');
+
+      const deck = getCurrentEnDeck();
+      const otherWords = deck.words.filter(w => w.id !== currentEnWord.id);
+      const distractors = shuffleArray(otherWords).slice(0, 3).map(w => w.vi);
+      const options = shuffleArray([currentEnWord.vi, ...distractors]);
+
+      const container = document.getElementById('mcq-choices-container');
+      container.innerHTML = '';
+
+      options.forEach((opt, index) => {
+        const btn = document.createElement('button');
+        btn.id = `mcq-choice-${index}`;
+        btn.className = "flex items-center text-left p-3.5 rounded-2xl border-2 border-slate-200 hover:border-blue-500 hover:bg-blue-50/40 font-semibold text-slate-800 text-xs sm:text-sm transition active:scale-[0.98] bg-white min-h-[48px]";
+        btn.innerHTML = `
+          <span class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 text-xs font-bold mr-2.5 font-sans">${index + 1}</span>
+          <span class="flex-1">${opt}</span>
+        `;
+        btn.onclick = () => handleEnMCQSelection(btn, opt, currentEnWord.vi);
+        container.appendChild(btn);
+      });
+    }
+
+    function handleEnMCQSelection(buttonElem, selected, correct) {
+      if (globalState.enIsAnswered) return;
+      globalState.enIsAnswered = true;
+
+      const allBtns = document.querySelectorAll('#mcq-choices-container button');
+      allBtns.forEach(b => b.disabled = true);
+
+      const feedbackBar = document.getElementById('mcq-feedback-bar');
+      feedbackBar.classList.remove('hidden');
+
+      recordStreakProgress('en'); // Update English Streak!
+
+      if (selected.trim().toLowerCase() === correct.trim().toLowerCase()) {
+        globalState.enCorrect++;
+        playTone('correct');
+        buttonElem.classList.remove('border-slate-200');
+        buttonElem.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
+        feedbackBar.className = "mt-4 p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm font-semibold";
+        feedbackBar.innerHTML = `✓ Tuyệt vời! Chính xác. Bấm [Tiếp theo ➡️] hoặc [ → ] để qua từ kế tiếp.`;
+        speakText(currentEnWord.en, 'en-US');
+      } else {
+        globalState.enWrong++;
+        globalState.enMistakes.push(currentEnWord);
+        playTone('wrong');
+        buttonElem.classList.remove('border-slate-200');
+        buttonElem.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-950');
+
+        allBtns.forEach(b => {
+          if (b.textContent.includes(correct)) {
+            b.classList.add('border-emerald-500', 'bg-emerald-50');
+          }
+        });
+
+        feedbackBar.className = "mt-4 p-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm font-semibold";
+        feedbackBar.innerHTML = `✗ Chưa chính xác! Đáp án đúng: <u class="text-slate-900">${correct}</u>`;
+      }
+
+      document.getElementById('stat-correct').textContent = globalState.enCorrect;
+      document.getElementById('stat-wrong').textContent = globalState.enWrong;
+    }
+
+    // AUDIO-ONLY (ẨN CHỮ, LUYỆN TAI NGHE)
+    function renderEnAudioOnly() {
+      document.getElementById('audio-revealed-box').classList.add('hidden');
+      speakText(currentEnWord.en, 'en-US'); // Auto-play audio
+
+      const deck = getCurrentEnDeck();
+      const otherWords = deck.words.filter(w => w.id !== currentEnWord.id);
+      const distractors = shuffleArray(otherWords).slice(0, 3).map(w => w.vi);
+      const options = shuffleArray([currentEnWord.vi, ...distractors]);
+
+      const container = document.getElementById('audio-choices-container');
+      container.innerHTML = '';
+
+      options.forEach((opt, index) => {
+        const btn = document.createElement('button');
+        btn.className = "flex items-center text-left p-4 rounded-2xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/40 font-semibold text-slate-800 text-xs sm:text-sm transition active:scale-[0.98] bg-white min-h-[50px]";
+        btn.innerHTML = `
+          <span class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 text-xs font-bold mr-2.5 font-sans">${index + 1}</span>
+          <span class="flex-1">${opt}</span>
+        `;
+        btn.onclick = () => handleEnAudioSelection(btn, opt, currentEnWord.vi);
+        container.appendChild(btn);
+      });
+    }
+
+    function handleEnAudioSelection(buttonElem, selected, correct) {
+      if (globalState.enIsAnswered) return;
+      globalState.enIsAnswered = true;
+
+      const allBtns = document.querySelectorAll('#audio-choices-container button');
+      allBtns.forEach(b => b.disabled = true);
+
+      // Reveal word and meaning
+      const revealBox = document.getElementById('audio-revealed-box');
+      document.getElementById('audio-revealed-word').textContent = currentEnWord.en;
+      document.getElementById('audio-revealed-meaning').textContent = currentEnWord.vi;
+      revealBox.classList.remove('hidden');
+
+      recordStreakProgress('en');
+
+      if (selected.trim().toLowerCase() === correct.trim().toLowerCase()) {
+        globalState.enCorrect++;
+        playTone('correct');
+        buttonElem.classList.remove('border-slate-200');
+        buttonElem.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
+      } else {
+        globalState.enWrong++;
+        globalState.enMistakes.push(currentEnWord);
+        playTone('wrong');
+        buttonElem.classList.remove('border-slate-200');
+        buttonElem.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-950');
+
+        allBtns.forEach(b => {
+          if (b.textContent.includes(correct)) {
+            b.classList.add('border-emerald-500', 'bg-emerald-50');
+          }
+        });
+      }
+
+      document.getElementById('stat-correct').textContent = globalState.enCorrect;
+      document.getElementById('stat-wrong').textContent = globalState.enWrong;
+    }
+
+    // COLLOCATIONS PART 5
+    function startCollocQuiz() {
+      globalState.collocIndex = 0;
+      renderCurrentColloc();
+    }
+
+    function renderCurrentColloc() {
+      const item = TOEIC_COLLOCATIONS[globalState.collocIndex];
+      globalState.collocIsAnswered = false;
+
+      document.getElementById('colloc-prompt-sentence').innerHTML = item.sentence;
+      document.getElementById('colloc-prompt-hint').textContent = `Nghĩa: ${item.hint}`;
+      document.getElementById('colloc-feedback-box').classList.add('hidden');
+
+      const container = document.getElementById('colloc-choices-container');
+      container.innerHTML = '';
+
+      item.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = "p-3 rounded-2xl border-2 border-slate-200 hover:border-blue-500 font-bold text-sm bg-white transition active:scale-95";
+        btn.textContent = `(${String.fromCharCode(65 + idx)}) ${opt}`;
+        btn.onclick = () => handleCollocSelect(btn, opt, item.correct, item.fullMeaning);
+        container.appendChild(btn);
+      });
+    }
+
+    function handleCollocSelect(btn, selected, correct, fullMeaning) {
+      if (globalState.collocIsAnswered) return;
+      globalState.collocIsAnswered = true;
+
+      const allBtns = document.querySelectorAll('#colloc-choices-container button');
+      allBtns.forEach(b => b.disabled = true);
+
+      const feedback = document.getElementById('colloc-feedback-box');
+      feedback.classList.remove('hidden');
+
+      recordStreakProgress('en');
+
+      if (selected === correct) {
+        playTone('correct');
+        btn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+        feedback.className = "mt-4 p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm font-semibold";
+        feedback.innerHTML = `✓ Chính xác! <strong>${correct}</strong><br><span class="text-xs text-emerald-700 font-normal mt-0.5 block">${fullMeaning}</span>`;
+      } else {
+        playTone('wrong');
+        btn.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
+        feedback.className = "mt-4 p-3.5 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm font-semibold";
+        feedback.innerHTML = `✗ Chưa đúng. Đáp án chuẩn là: <strong>${correct}</strong><br><span class="text-xs text-rose-700 font-normal mt-0.5 block">${fullMeaning}</span>`;
+      }
+    }
+
+    function nextCollocQuestion() {
+      if (globalState.collocIndex < TOEIC_COLLOCATIONS.length - 1) {
+        globalState.collocIndex++;
+        renderCurrentColloc();
+      } else {
+        alert("Bạn đã hoàn thành toàn bộ bài tập Cụm từ Collocations Part 5!");
+      }
+    }
+
+    function prevCollocQuestion() {
+      if (globalState.collocIndex > 0) {
+        globalState.collocIndex--;
+        renderCurrentColloc();
+      }
+    }
+
+    // WORD FAMILIES PART 5
+    function startWordformQuiz() {
+      globalState.wordformIndex = 0;
+      renderCurrentWordform();
+    }
+
+    function renderCurrentWordform() {
+      const item = TOEIC_WORD_FAMILIES[globalState.wordformIndex];
+      globalState.wordformIsAnswered = false;
+
+      document.getElementById('wordform-sentence').innerHTML = item.sentence;
+      document.getElementById('wordform-hint').textContent = item.explanation;
+      document.getElementById('wordform-feedback-box').classList.add('hidden');
+
+      const container = document.getElementById('wordform-choices-container');
+      container.innerHTML = '';
+
+      item.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = "p-3 rounded-2xl border-2 border-slate-200 hover:border-amber-500 font-bold text-xs sm:text-sm bg-white transition active:scale-95 text-left";
+        btn.textContent = `(${String.fromCharCode(65 + idx)}) ${opt}`;
+        btn.onclick = () => handleWordformSelect(btn, opt, item.correct, item.explanation);
+        container.appendChild(btn);
+      });
+    }
+
+    function handleWordformSelect(btn, selected, correct, exp) {
+      if (globalState.wordformIsAnswered) return;
+      globalState.wordformIsAnswered = true;
+
+      const allBtns = document.querySelectorAll('#wordform-choices-container button');
+      allBtns.forEach(b => b.disabled = true);
+
+      const feedback = document.getElementById('wordform-feedback-box');
+      feedback.classList.remove('hidden');
+
+      recordStreakProgress('en');
+
+      if (selected === correct) {
+        playTone('correct');
+        btn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+        feedback.className = "mt-4 p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm font-semibold";
+        feedback.innerHTML = `✓ Chính xác! <strong>${correct}</strong><br><span class="text-xs text-emerald-700 font-normal mt-0.5 block">${exp}</span>`;
+      } else {
+        playTone('wrong');
+        btn.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
+        feedback.className = "mt-4 p-3.5 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm font-semibold";
+        feedback.innerHTML = `✗ Chưa đúng. Đáp án là: <strong>${correct}</strong><br><span class="text-xs text-rose-700 font-normal mt-0.5 block">${exp}</span>`;
+      }
+    }
+
+    function nextWordformQuestion() {
+      if (globalState.wordformIndex < TOEIC_WORD_FAMILIES.length - 1) {
+        globalState.wordformIndex++;
+        renderCurrentWordform();
+      } else {
+        alert("Bạn đã hoàn thành bài tập Nhận diện Từ loại Part 5!");
+      }
+    }
+
+    function prevWordformQuestion() {
+      if (globalState.wordformIndex > 0) {
+        globalState.wordformIndex--;
+        renderCurrentWordform();
+      }
+    }
+
+    // Flashcard English
+    function renderEnFlashcard(word) {
+      document.getElementById('flashcard-front-content').textContent = word.en;
+      document.getElementById('flashcard-back-content').textContent = word.vi;
+      document.getElementById('flashcard-element').classList.remove('is-flipped');
+    }
+
+    function toggleFlashcardFlip() {
+      document.getElementById('flashcard-element').classList.toggle('is-flipped');
+    }
+
+    function nextEnQuestion() {
+      if (globalState.enIndex < globalState.enStudyList.length - 1) {
+        globalState.enIndex++;
+        renderCurrentEnWord();
+      } else {
+        showEnSummary();
+      }
+    }
+
+    function prevEnQuestion() {
+      if (globalState.enIndex > 0) {
+        globalState.enIndex--;
+        renderCurrentEnWord();
+      }
+    }
+
+    function showEnSummary() {
+      document.getElementById(`view-${globalState.currentEnTab}`).classList.add('hidden');
+      const summaryModal = document.getElementById('en-summary-card');
+      summaryModal.classList.remove('hidden');
+
+      document.getElementById('study-progress-fill').style.width = '100%';
+      document.getElementById('summary-correct-stat').textContent = globalState.enCorrect;
+      document.getElementById('summary-wrong-stat').textContent = globalState.enWrong;
+
+      const mistakeBtn = document.getElementById('summary-btn-mistakes');
+      if (globalState.enMistakes.length > 0) {
+        mistakeBtn.classList.remove('hidden');
+        document.getElementById('summary-mistakes-badge').textContent = Array.from(new Set(globalState.enMistakes)).length;
+      } else {
+        mistakeBtn.classList.add('hidden');
+      }
+    }
+
+    function studyEnMistakesOnly() {
+      const uniqueMistakes = Array.from(new Set(globalState.enMistakes));
+      restartCurrentEnMode(uniqueMistakes);
+    }
+
+    // English Management
+    function renderEnManageTable() {
+      const deck = getCurrentEnDeck();
+      const tbody = document.getElementById('manage-table-body');
+      tbody.innerHTML = '';
+
+      if (!deck || deck.words.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="3" class="text-center py-6 text-slate-400">Chưa có từ nào.</td></tr>`;
+        return;
+      }
+
+      deck.words.forEach((word) => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-50 transition";
+        tr.innerHTML = `
+          <td class="py-2.5 px-3 font-bold text-slate-900">${word.en}</td>
+          <td class="py-2.5 px-3 text-slate-600 font-medium">${word.vi}</td>
+          <td class="py-2.5 px-3 text-center">
+            <button onclick="deleteSingleEnWord(${word.id})" class="text-rose-500 hover:text-rose-700 font-bold px-2 py-1">Xoá</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function handleAddSingleEnWord(e) {
+      e.preventDefault();
+      const enInput = document.getElementById('add-en');
+      const viInput = document.getElementById('add-vi');
+      const en = enInput.value.trim();
+      const vi = viInput.value.trim();
+      if (!en || !vi) return;
+
+      const deck = getCurrentEnDeck();
+      deck.words.push({ id: Date.now(), en, vi });
+      saveStorage();
+
+      enInput.value = '';
+      viInput.value = '';
+      enInput.focus();
+      renderEnManageTable();
+      populateEnDeckDropdown();
+    }
+
+    function deleteSingleEnWord(wordId) {
+      const deck = getCurrentEnDeck();
+      deck.words = deck.words.filter(w => w.id !== wordId);
+      saveStorage();
+      renderEnManageTable();
+      populateEnDeckDropdown();
+    }
+
+    function parseBulkEnText(text) {
+      if (!text.trim()) return [];
+      const lines = text.split('\n');
+      const parsed = [];
+      for (let line of lines) {
+        line = line.trim();
+        if (!line) continue;
+        let delimiter = '';
+        if (line.includes('\t')) delimiter = '\t';
+        else if (line.includes(' - ')) delimiter = ' - ';
+        else if (line.includes('-')) delimiter = '-';
+        else if (line.includes(':')) delimiter = ':';
+
+        if (delimiter) {
+          const parts = line.split(delimiter);
+          const en = parts[0].trim();
+          const vi = parts.slice(1).join(delimiter).trim();
+          if (en && vi) parsed.push({ id: Date.now() + Math.random(), en, vi });
+        }
+      }
+      return parsed;
+    }
+
+    document.getElementById('manage-paste-textarea').addEventListener('input', (e) => {
+      const words = parseBulkEnText(e.target.value);
+      document.getElementById('manage-parsed-preview').textContent = `${words.length} từ hợp lệ`;
+    });
+
+    function appendParsedEnWords() {
+      const textarea = document.getElementById('manage-paste-textarea');
+      const words = parseBulkEnText(textarea.value);
+      if (words.length === 0) return;
+      const deck = getCurrentEnDeck();
+      deck.words.push(...words);
+      saveStorage();
+      textarea.value = '';
+      renderEnManageTable();
+      populateEnDeckDropdown();
+    }
+
+    function replaceParsedEnWords() {
+      const textarea = document.getElementById('manage-paste-textarea');
+      const words = parseBulkEnText(textarea.value);
+      if (words.length === 0) return;
+      if (confirm(`Thay thế toàn bộ bằng ${words.length} từ?`)) {
+        const deck = getCurrentEnDeck();
+        deck.words = words;
+        saveStorage();
+        textarea.value = '';
+        renderEnManageTable();
+        populateEnDeckDropdown();
+      }
+    }
+
+    function openNewDeckModal() {
+      document.getElementById('modal-new-deck').classList.remove('hidden');
+      const input = document.getElementById('new-deck-name-input');
+      input.value = '';
+      input.focus();
+    }
+
+    function closeNewDeckModal() {
+      document.getElementById('modal-new-deck').classList.add('hidden');
+    }
+
+    function confirmCreateDeck() {
+      const input = document.getElementById('new-deck-name-input');
+      const name = input.value.trim();
+      if (!name) return;
+      const newDeck = { id: `deck_${Date.now()}`, name: name, words: [] };
+      globalState.enDecks.push(newDeck);
+      globalState.currentEnDeckId = newDeck.id;
+      saveStorage();
+      closeNewDeckModal();
+      populateEnDeckDropdown();
+      switchTabEn('manage');
+    }
+
+
+    /* =========================================================================
+       7. PHÂN HỆ TIẾNG NHẬT (JLPT N4)
        ========================================================================= */
     function getCurrentJaTopic() {
       return globalState.jaTopics.find(t => t.id === globalState.currentJaTopicId) || globalState.jaTopics[0];
@@ -1748,7 +1928,7 @@
       grid.innerHTML = '';
 
       let totalCount = 0;
-      globalState.jaTopics.forEach((topic, idx) => {
+      globalState.jaTopics.forEach((topic) => {
         if (topic.id !== 'topic_all_random') totalCount += topic.questions.length;
         const isSelected = topic.id === globalState.currentJaTopicId;
 
@@ -1818,7 +1998,6 @@
       globalState.jaIsAnswered = false;
       currentJaItem = globalState.jaQuizList[globalState.jaIndex];
 
-      // Update progress
       document.getElementById('ja-progress-counter').textContent = `Câu ${globalState.jaIndex + 1} / ${total}`;
       document.getElementById('ja-stat-correct').textContent = globalState.jaCorrect;
       document.getElementById('ja-stat-wrong').textContent = globalState.jaWrong;
@@ -1835,15 +2014,6 @@
 
       feedbackBox.classList.add('hidden');
 
-      // Update Next Button style depending on index
-      const nextBtn = document.getElementById('ja-btn-next');
-      if (globalState.jaIndex === total - 1) {
-        nextBtn.innerHTML = `<span>Xem kết quả</span> <span>🏁</span>`;
-      } else {
-        nextBtn.innerHTML = `<span>Tiếp theo</span> <span>➡️</span>`;
-      }
-
-      // Prev Button disabled if at first question
       const prevBtn = document.getElementById('ja-btn-prev');
       prevBtn.disabled = globalState.jaIndex === 0;
       prevBtn.classList.toggle('opacity-40', globalState.jaIndex === 0);
@@ -1870,9 +2040,7 @@
         btn.id = `ja-opt-${idx}`;
         btn.className = "flex items-center text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-rose-500 hover:bg-rose-50/30 text-slate-800 transition active:scale-[0.98] bg-white min-h-[52px]";
         btn.innerHTML = `
-          <span class="w-7 h-7 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 text-xs font-bold mr-2.5 font-sans transition">
-            ${idx + 1}
-          </span>
+          <span class="w-7 h-7 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 text-xs font-bold mr-2.5 font-sans transition">${idx + 1}</span>
           <span class="text-lg sm:text-xl font-bold flex-1 text-slate-900">${opt}</span>
         `;
         btn.onclick = () => handleJaSelect(btn, opt, correctAnswer);
@@ -1880,7 +2048,7 @@
       });
     }
 
-    // XỬ LÝ CHỌN ĐÁP ÁN: ĐỨNG YÊN ĐỂ NGƯỜI DÙNG XEM (KHÔNG TỰ ĐỘNG CHUYỂN CÂU)
+    // CHỌN CÂU HỎI TIẾNG NHẬT: ĐỨNG YÊN ĐỂ COI (KHÔNG TỰ NHẢY CÂU)
     function handleJaSelect(buttonElem, selected, correct) {
       if (globalState.jaIsAnswered) return;
       globalState.jaIsAnswered = true;
@@ -1890,6 +2058,8 @@
 
       const feedbackBox = document.getElementById('ja-feedback-box');
       feedbackBox.classList.remove('hidden');
+
+      recordStreakProgress('ja'); // Update Japanese Streak!
 
       const isCorrect = selected.trim() === correct.trim();
 
@@ -1912,10 +2082,7 @@
             <button onclick="speakJaQuestion()" class="text-emerald-700 hover:text-emerald-900 text-base p-1">🔊</button>
           </div>
         `;
-
         speakText(currentJaItem.kanji_target, 'ja-JP');
-        // ĐỨNG YÊN ĐỂ COI: Không dùng setTimeout chuyển câu tự động nữa!
-
       } else {
         globalState.jaWrong++;
         globalState.jaMistakes.push(currentJaItem);
@@ -1958,7 +2125,6 @@
       speakText(text, 'ja-JP');
     }
 
-    // ĐIỀU HƯỚNG BẰNG NÚT BẤM HOẶC PHÍM -> VÀ <-
     function nextJaQuestion() {
       if (globalState.jaIndex < globalState.jaQuizList.length - 1) {
         globalState.jaIndex++;
@@ -2000,533 +2166,7 @@
 
 
     /* =========================================================================
-       7. PHÂN HỆ TIẾNG ANH
-       ========================================================================= */
-    function populateEnDeckDropdown() {
-      const select = document.getElementById('deck-select');
-      select.innerHTML = '';
-      globalState.enDecks.forEach(deck => {
-        const opt = document.createElement('option');
-        opt.value = deck.id;
-        opt.textContent = `${deck.name} (${deck.words.length})`;
-        if (deck.id === globalState.currentEnDeckId) opt.selected = true;
-        select.appendChild(opt);
-      });
-      updateEnDeckCounts();
-    }
-
-    function changeEnDeck(deckId) {
-      globalState.currentEnDeckId = deckId;
-      saveStorage();
-      populateEnDeckDropdown();
-      restartCurrentEnMode();
-      if (globalState.currentEnTab === 'manage') renderEnManageTable();
-    }
-
-    function getCurrentEnDeck() {
-      return globalState.enDecks.find(d => d.id === globalState.currentEnDeckId) || globalState.enDecks[0];
-    }
-
-    function updateEnDeckCounts() {
-      const deck = getCurrentEnDeck();
-      const count = deck && deck.words ? deck.words.length : 0;
-      const countElem = document.getElementById('manage-table-count');
-      if (countElem) countElem.textContent = count;
-    }
-
-    function changeDirectionEn(dir) {
-      globalState.enDirection = dir;
-      restartCurrentEnMode();
-    }
-
-    function switchTabEn(tabName) {
-      globalState.currentEnTab = tabName;
-      const tabKeys = ['mcq', 'typing', 'flashcard', 'match', 'manage'];
-      tabKeys.forEach(t => {
-        const btn = document.getElementById(`tab-btn-${t}`);
-        const view = document.getElementById(`view-${t}`);
-        if (btn) {
-          if (t === tabName) {
-            btn.className = "mode-tab-btn px-2.5 py-1.5 sm:py-2 rounded-xl font-bold flex items-center gap-1 transition text-blue-600 bg-blue-50";
-          } else {
-            btn.className = "mode-tab-btn px-2.5 py-1.5 sm:py-2 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100";
-          }
-        }
-        if (view) view.classList.toggle('hidden', t !== tabName);
-      });
-
-      const progressCard = document.getElementById('en-progress-card');
-      progressCard.classList.toggle('hidden', !['mcq', 'typing', 'flashcard'].includes(tabName));
-      document.getElementById('en-summary-card').classList.add('hidden');
-
-      if (tabName === 'manage') renderEnManageTable();
-      else if (tabName === 'match') initMatchGame();
-      else restartCurrentEnMode();
-    }
-
-    function restartCurrentEnMode(sourceList = null) {
-      const deck = getCurrentEnDeck();
-      if (!deck || deck.words.length === 0) {
-        if (globalState.currentEnTab !== 'manage') switchTabEn('manage');
-        return;
-      }
-
-      globalState.enStudyList = sourceList ? [...sourceList] : shuffleArray([...deck.words]);
-      globalState.enIndex = 0;
-      globalState.enCorrect = 0;
-      globalState.enWrong = 0;
-      globalState.enMistakes = [];
-      globalState.enIsAnswered = false;
-
-      document.getElementById('en-summary-card').classList.add('hidden');
-      document.getElementById(`view-${globalState.currentEnTab}`).classList.remove('hidden');
-
-      renderCurrentEnWord();
-    }
-
-    function renderCurrentEnWord() {
-      const total = globalState.enStudyList.length;
-      if (globalState.enIndex >= total) {
-        showEnSummary();
-        return;
-      }
-
-      globalState.enIsAnswered = false;
-      currentEnWord = globalState.enStudyList[globalState.enIndex];
-
-      document.getElementById('study-progress-counter').textContent = `${globalState.enIndex + 1} / ${total}`;
-      document.getElementById('stat-correct').textContent = globalState.enCorrect;
-      document.getElementById('stat-wrong').textContent = globalState.enWrong;
-      const pct = (globalState.enIndex / total) * 100;
-      document.getElementById('study-progress-fill').style.width = `${pct}%`;
-
-      const promptText = globalState.enDirection === 'en-vi' ? currentEnWord.en : currentEnWord.vi;
-      const answerText = globalState.enDirection === 'en-vi' ? currentEnWord.vi : currentEnWord.en;
-
-      if (globalState.currentEnTab === 'mcq') renderEnMCQ(promptText, answerText);
-      else if (globalState.currentEnTab === 'typing') renderEnTyping(promptText, answerText);
-      else if (globalState.currentEnTab === 'flashcard') renderEnFlashcard(currentEnWord);
-    }
-
-    // MCQ English
-    function renderEnMCQ(promptText, answerText) {
-      document.getElementById('mcq-prompt-text').textContent = promptText;
-      document.getElementById('mcq-badge-type').textContent = globalState.enDirection === 'en-vi' ? 'Tiếng Anh' : 'Tiếng Việt';
-      const feedbackBar = document.getElementById('mcq-feedback-bar');
-      feedbackBar.classList.add('hidden');
-
-      const deck = getCurrentEnDeck();
-      const otherWords = deck.words.filter(w => w.id !== currentEnWord.id);
-      const distractors = shuffleArray(otherWords).slice(0, 3).map(w => globalState.enDirection === 'en-vi' ? w.vi : w.en);
-      const options = shuffleArray([answerText, ...distractors]);
-
-      const container = document.getElementById('mcq-choices-container');
-      container.innerHTML = '';
-
-      options.forEach((opt, index) => {
-        const btn = document.createElement('button');
-        btn.id = `mcq-choice-${index}`;
-        btn.className = "flex items-center text-left p-3.5 rounded-2xl border-2 border-slate-200 hover:border-blue-500 hover:bg-blue-50/40 font-semibold text-slate-800 text-xs sm:text-sm transition active:scale-[0.98] bg-white min-h-[48px]";
-        btn.innerHTML = `
-          <span class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 text-xs font-bold mr-2.5 font-sans">
-            ${index + 1}
-          </span>
-          <span class="flex-1">${opt}</span>
-        `;
-        btn.onclick = () => handleEnMCQSelection(btn, opt, answerText);
-        container.appendChild(btn);
-      });
-    }
-
-    function handleEnMCQSelection(buttonElem, selected, correct) {
-      if (globalState.enIsAnswered) return;
-      globalState.enIsAnswered = true;
-
-      const allBtns = document.querySelectorAll('#mcq-choices-container button');
-      allBtns.forEach(b => b.disabled = true);
-
-      const feedbackBar = document.getElementById('mcq-feedback-bar');
-      feedbackBar.classList.remove('hidden');
-
-      if (selected.trim().toLowerCase() === correct.trim().toLowerCase()) {
-        globalState.enCorrect++;
-        playTone('correct');
-        buttonElem.classList.remove('border-slate-200');
-        buttonElem.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
-        feedbackBar.className = "mt-4 p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm font-semibold";
-        feedbackBar.innerHTML = `✓ Tuyệt vời! Chính xác. Bấm Tiếp theo để sang từ kế tiếp.`;
-        speakText(currentEnWord.en, 'en-US');
-        // ĐỨNG YÊN ĐỂ COI (không tự động nhảy)
-      } else {
-        globalState.enWrong++;
-        globalState.enMistakes.push(currentEnWord);
-        playTone('wrong');
-        buttonElem.classList.remove('border-slate-200');
-        buttonElem.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-950');
-
-        allBtns.forEach(b => {
-          if (b.textContent.includes(correct)) {
-            b.classList.add('border-emerald-500', 'bg-emerald-50');
-          }
-        });
-
-        feedbackBar.className = "mt-4 p-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm font-semibold";
-        feedbackBar.innerHTML = `✗ Chưa chính xác! Đáp án đúng: <u class="text-slate-900">${correct}</u>`;
-      }
-
-      document.getElementById('stat-correct').textContent = globalState.enCorrect;
-      document.getElementById('stat-wrong').textContent = globalState.enWrong;
-    }
-
-    // Typing English
-    function renderEnTyping(promptText, answerText) {
-      document.getElementById('typing-prompt-text').textContent = promptText;
-      document.getElementById('typing-badge-type').textContent = globalState.enDirection === 'en-vi' ? 'Dịch sang Tiếng Việt' : 'Gõ từ Tiếng Anh';
-      
-      const input = document.getElementById('typing-input-field');
-      input.value = '';
-      input.disabled = false;
-      input.className = "w-full text-center text-lg font-bold px-4 py-3 border-2 border-slate-200 rounded-2xl focus:border-blue-600 focus:outline-none transition";
-      input.focus();
-
-      document.getElementById('typing-feedback-box').classList.add('hidden');
-    }
-
-    function handleEnTypingSubmit(e) {
-      if (e) e.preventDefault();
-      if (globalState.enIsAnswered) {
-        nextEnQuestion();
-        return;
-      }
-
-      const input = document.getElementById('typing-input-field');
-      const userText = input.value.trim().toLowerCase();
-      if (!userText) { input.focus(); return; }
-
-      globalState.enIsAnswered = true;
-      input.disabled = true;
-
-      const targetAnswer = globalState.enDirection === 'en-vi' ? currentEnWord.vi : currentEnWord.en;
-      const cleanTarget = targetAnswer.toLowerCase().trim();
-      const matchesAnyPart = cleanTarget.split(/[,;\/]/).some(part => part.trim() === userText);
-      const isCorrect = matchesAnyPart || cleanTarget.includes(userText) || userText === cleanTarget;
-
-      const feedbackBox = document.getElementById('typing-feedback-box');
-      feedbackBox.classList.remove('hidden');
-
-      if (isCorrect) {
-        globalState.enCorrect++;
-        playTone('correct');
-        input.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
-        feedbackBox.className = "mt-4 p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm";
-        feedbackBox.innerHTML = `🎉 <strong>Chính xác!</strong> Chuẩn: <span class="font-bold underline">${targetAnswer}</span>`;
-        speakText(currentEnWord.en, 'en-US');
-      } else {
-        globalState.enWrong++;
-        globalState.enMistakes.push(currentEnWord);
-        playTone('wrong');
-        input.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-950');
-        feedbackBox.className = "mt-4 p-3.5 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm";
-        feedbackBox.innerHTML = `❌ <strong>Chưa chính xác!</strong><br>Đáp án đúng: <span class="font-extrabold text-rose-950">${targetAnswer}</span>`;
-      }
-
-      document.getElementById('stat-correct').textContent = globalState.enCorrect;
-      document.getElementById('stat-wrong').textContent = globalState.enWrong;
-    }
-
-    function triggerEnHint() {
-      const target = globalState.enDirection === 'en-vi' ? currentEnWord.vi : currentEnWord.en;
-      const input = document.getElementById('typing-input-field');
-      if (target.length > 0) {
-        input.value = target.slice(0, 2) + "...";
-        input.focus();
-      }
-    }
-
-    // Flashcard English
-    function renderEnFlashcard(word) {
-      const front = globalState.enDirection === 'en-vi' ? word.en : word.vi;
-      const back = globalState.enDirection === 'en-vi' ? word.vi : word.en;
-      document.getElementById('flashcard-front-content').textContent = front;
-      document.getElementById('flashcard-back-content').textContent = back;
-      document.getElementById('flashcard-element').classList.remove('is-flipped');
-    }
-
-    function toggleFlashcardFlip() {
-      document.getElementById('flashcard-element').classList.toggle('is-flipped');
-    }
-
-    function nextEnQuestion() {
-      if (globalState.enIndex < globalState.enStudyList.length - 1) {
-        globalState.enIndex++;
-        renderCurrentEnWord();
-      } else {
-        showEnSummary();
-      }
-    }
-
-    function prevEnQuestion() {
-      if (globalState.enIndex > 0) {
-        globalState.enIndex--;
-        renderCurrentEnWord();
-      }
-    }
-
-    function showEnSummary() {
-      document.getElementById(`view-${globalState.currentEnTab}`).classList.add('hidden');
-      const summaryModal = document.getElementById('en-summary-card');
-      summaryModal.classList.remove('hidden');
-
-      document.getElementById('study-progress-fill').style.width = '100%';
-      document.getElementById('summary-correct-stat').textContent = globalState.enCorrect;
-      document.getElementById('summary-wrong-stat').textContent = globalState.enWrong;
-
-      const mistakeBtn = document.getElementById('summary-btn-mistakes');
-      if (globalState.enMistakes.length > 0) {
-        mistakeBtn.classList.remove('hidden');
-        document.getElementById('summary-mistakes-badge').textContent = Array.from(new Set(globalState.enMistakes)).length;
-      } else {
-        mistakeBtn.classList.add('hidden');
-      }
-    }
-
-    function studyEnMistakesOnly() {
-      const uniqueMistakes = Array.from(new Set(globalState.enMistakes));
-      restartCurrentEnMode(uniqueMistakes);
-    }
-
-    // Match Game English
-    function initMatchGame() {
-      clearInterval(globalState.matchTimerInterval);
-      const deck = getCurrentEnDeck();
-      if (!deck || deck.words.length < 2) {
-        alert("Cần ít nhất 2 từ!");
-        return;
-      }
-
-      document.getElementById('match-win-box').classList.add('hidden');
-      const grid = document.getElementById('match-cards-grid');
-      grid.innerHTML = '';
-
-      const sample = shuffleArray([...deck.words]).slice(0, 6);
-      const cards = [];
-      sample.forEach(word => {
-        cards.push({ id: `en_${word.id}`, wordId: word.id, text: word.en, lang: 'en' });
-        cards.push({ id: `vi_${word.id}`, wordId: word.id, text: word.vi, lang: 'vi' });
-      });
-
-      globalState.matchCards = shuffleArray(cards);
-      globalState.matchSelected = [];
-
-      globalState.matchCards.forEach(card => {
-        const btn = document.createElement('button');
-        btn.id = `match-card-${card.id}`;
-        btn.className = "h-20 sm:h-24 p-2 rounded-2xl border-2 border-slate-200 bg-white hover:border-blue-400 font-bold text-xs text-slate-800 flex items-center justify-center text-center shadow-xs transition active:scale-95";
-        btn.textContent = card.text;
-        btn.onclick = () => handleMatchCardClick(card, btn);
-        grid.appendChild(btn);
-      });
-
-      globalState.matchStartTime = Date.now();
-      globalState.matchTimerInterval = setInterval(() => {
-        const elapsed = ((Date.now() - globalState.matchStartTime) / 1000).toFixed(1);
-        document.getElementById('match-timer').textContent = `${elapsed}s`;
-      }, 100);
-    }
-
-    function handleMatchCardClick(card, elem) {
-      if (elem.classList.contains('pointer-events-none') || globalState.matchSelected.some(s => s.card.id === card.id)) return;
-
-      elem.classList.remove('border-slate-200');
-      elem.classList.add('border-blue-600', 'bg-blue-50', 'text-blue-900');
-      globalState.matchSelected.push({ card, elem });
-
-      if (globalState.matchSelected.length === 2) {
-        const [first, second] = globalState.matchSelected;
-
-        if (first.card.wordId === second.card.wordId && first.card.lang !== second.card.lang) {
-          playTone('match');
-          if (first.card.lang === 'en') speakText(first.card.text, 'en-US');
-          else speakText(second.card.text, 'en-US');
-
-          first.elem.classList.replace('border-blue-600', 'border-emerald-500');
-          first.elem.classList.replace('bg-blue-50', 'bg-emerald-50');
-          second.elem.classList.replace('border-blue-600', 'border-emerald-500');
-          second.elem.classList.replace('bg-blue-50', 'bg-emerald-50');
-
-          setTimeout(() => {
-            first.elem.style.visibility = 'hidden';
-            second.elem.style.visibility = 'hidden';
-            first.elem.classList.add('pointer-events-none');
-            second.elem.classList.add('pointer-events-none');
-            checkMatchGameWin();
-          }, 350);
-
-        } else {
-          playTone('wrong');
-          first.elem.classList.replace('border-blue-600', 'border-rose-500');
-          second.elem.classList.replace('border-blue-600', 'border-rose-500');
-
-          setTimeout(() => {
-            first.elem.classList.remove('border-rose-500', 'bg-blue-50', 'text-blue-900');
-            first.elem.classList.add('border-slate-200');
-            second.elem.classList.remove('border-rose-500', 'bg-blue-50', 'text-blue-900');
-            second.elem.classList.add('border-slate-200');
-          }, 450);
-        }
-
-        globalState.matchSelected = [];
-      }
-    }
-
-    function checkMatchGameWin() {
-      const remaining = document.querySelectorAll('#match-cards-grid button:not(.pointer-events-none)');
-      if (remaining.length === 0) {
-        clearInterval(globalState.matchTimerInterval);
-        const finalTime = ((Date.now() - globalState.matchStartTime) / 1000).toFixed(1);
-        playTone('correct');
-        document.getElementById('match-final-time').textContent = finalTime;
-        document.getElementById('match-win-box').classList.remove('hidden');
-      }
-    }
-
-    // English Management
-    function renderEnManageTable() {
-      const deck = getCurrentEnDeck();
-      updateEnDeckCounts();
-      const tbody = document.getElementById('manage-table-body');
-      tbody.innerHTML = '';
-
-      if (!deck || deck.words.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="4" class="text-center py-6 text-slate-400">Chưa có từ nào.</td></tr>`;
-        return;
-      }
-
-      deck.words.forEach((word, index) => {
-        const tr = document.createElement('tr');
-        tr.className = "hover:bg-slate-50 transition";
-        tr.innerHTML = `
-          <td class="py-2.5 px-3 font-bold text-slate-900">${word.en}</td>
-          <td class="py-2.5 px-3 text-slate-600 font-medium">${word.vi}</td>
-          <td class="py-2.5 px-3 text-center">
-            <button onclick="deleteSingleEnWord(${word.id})" class="text-rose-500 hover:text-rose-700 font-bold px-2 py-1">Xoá</button>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    function handleAddSingleEnWord(e) {
-      e.preventDefault();
-      const enInput = document.getElementById('add-en');
-      const viInput = document.getElementById('add-vi');
-      const en = enInput.value.trim();
-      const vi = viInput.value.trim();
-      if (!en || !vi) return;
-
-      const deck = getCurrentEnDeck();
-      deck.words.push({ id: Date.now(), en, vi });
-      saveStorage();
-
-      enInput.value = '';
-      viInput.value = '';
-      enInput.focus();
-      renderEnManageTable();
-      populateEnDeckDropdown();
-    }
-
-    function deleteSingleEnWord(wordId) {
-      const deck = getCurrentEnDeck();
-      deck.words = deck.words.filter(w => w.id !== wordId);
-      saveStorage();
-      renderEnManageTable();
-      populateEnDeckDropdown();
-    }
-
-    function parseBulkEnText(text) {
-      if (!text.trim()) return [];
-      const lines = text.split('\n');
-      const parsed = [];
-      for (let line of lines) {
-        line = line.trim();
-        if (!line) continue;
-        let delimiter = '';
-        if (line.includes('\t')) delimiter = '\t';
-        else if (line.includes(' - ')) delimiter = ' - ';
-        else if (line.includes('-')) delimiter = '-';
-        else if (line.includes(':')) delimiter = ':';
-        else if (line.includes('=')) delimiter = '=';
-        else if (line.includes(',')) delimiter = ',';
-
-        if (delimiter) {
-          const parts = line.split(delimiter);
-          const en = parts[0].trim();
-          const vi = parts.slice(1).join(delimiter).trim();
-          if (en && vi) parsed.push({ id: Date.now() + Math.random(), en, vi });
-        }
-      }
-      return parsed;
-    }
-
-    document.getElementById('manage-paste-textarea').addEventListener('input', (e) => {
-      const words = parseBulkEnText(e.target.value);
-      document.getElementById('manage-parsed-preview').textContent = `${words.length} từ hợp lệ`;
-    });
-
-    function appendParsedEnWords() {
-      const textarea = document.getElementById('manage-paste-textarea');
-      const words = parseBulkEnText(textarea.value);
-      if (words.length === 0) return;
-      const deck = getCurrentEnDeck();
-      deck.words.push(...words);
-      saveStorage();
-      textarea.value = '';
-      renderEnManageTable();
-      populateEnDeckDropdown();
-    }
-
-    function replaceParsedEnWords() {
-      const textarea = document.getElementById('manage-paste-textarea');
-      const words = parseBulkEnText(textarea.value);
-      if (words.length === 0) return;
-      if (confirm(`Thay thế bằng ${words.length} từ?`)) {
-        const deck = getCurrentEnDeck();
-        deck.words = words;
-        saveStorage();
-        textarea.value = '';
-        renderEnManageTable();
-        populateEnDeckDropdown();
-      }
-    }
-
-    function openNewDeckModal() {
-      document.getElementById('modal-new-deck').classList.remove('hidden');
-      const input = document.getElementById('new-deck-name-input');
-      input.value = '';
-      input.focus();
-    }
-
-    function closeNewDeckModal() {
-      document.getElementById('modal-new-deck').classList.add('hidden');
-    }
-
-    function confirmCreateDeck() {
-      const input = document.getElementById('new-deck-name-input');
-      const name = input.value.trim();
-      if (!name) return;
-      const newDeck = { id: `deck_${Date.now()}`, name: name, words: [] };
-      globalState.enDecks.push(newDeck);
-      globalState.currentEnDeckId = newDeck.id;
-      saveStorage();
-      closeNewDeckModal();
-      populateEnDeckDropdown();
-      switchTabEn('manage');
-    }
-
-
-    /* =========================================================================
        8. ĐIỀU HƯỚNG BẰNG PHÍM: CHỈ DÙNG [ <- ] VÀ [ -> ]
-       (ĐÃ LOẠI BỎ HOÀN TOÀN CÁC PHÍM 1, 2, 3, 4, ENTER, SPACE)
        ========================================================================= */
     function setupKeyboardListeners() {
       window.addEventListener('keydown', (e) => {
@@ -2535,15 +2175,22 @@
           return;
         }
 
-        // CHỈ HỖ TRỢ PHÍM MŨI TÊN TRÁI [ <- ] VÀ MŨI TÊN PHẢI [ -> ]
         if (e.key === 'ArrowRight') {
           e.preventDefault();
           if (globalState.activeLang === 'ja') nextJaQuestion();
-          else nextEnQuestion();
+          else {
+            if (globalState.currentEnTab === 'collocation') nextCollocQuestion();
+            else if (globalState.currentEnTab === 'wordform') nextWordformQuestion();
+            else nextEnQuestion();
+          }
         } else if (e.key === 'ArrowLeft') {
           e.preventDefault();
           if (globalState.activeLang === 'ja') prevJaQuestion();
-          else prevEnQuestion();
+          else {
+            if (globalState.currentEnTab === 'collocation') prevCollocQuestion();
+            else if (globalState.currentEnTab === 'wordform') prevWordformQuestion();
+            else prevEnQuestion();
+          }
         }
       });
     }
@@ -2559,78 +2206,32 @@
 
 
     /* =========================================================================
-       9. PWA (PROGRESSIVE WEB APP) & INSTALLATION LOGIC
+       9. PWA & CÀI ĐẶT APP
        ========================================================================= */
     let deferredInstallPrompt = null;
 
-    // Register Service Worker for offline capability
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('Service Worker Registered!'))
-          .catch(err => console.log('Service Worker registration failed:', err));
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
       });
     }
 
-    // Capture standard install prompt (Chrome, Edge, Android)
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredInstallPrompt = e;
-      const btn = document.getElementById('btn-install-app');
-      if (btn) btn.classList.remove('hidden');
     });
 
-    function isRunningStandalone() {
-      return (window.matchMedia('(display-mode: standalone)').matches) || (window.navigator.standalone === true);
-    }
-
-    function isIosDevice() {
-      const ua = window.navigator.userAgent.toLowerCase();
-      return /iphone|ipad|ipod/.test(ua);
-    }
-
     function triggerInstallApp() {
-      if (isRunningStandalone()) {
-        alert("Ứng dụng StudyMaster đã được cài đặt trên thiết bị của bạn!");
-        return;
-      }
-
       if (deferredInstallPrompt) {
-        // Native install prompt available
         deferredInstallPrompt.prompt();
-        deferredInstallPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            console.log('User accepted install');
-          }
-          deferredInstallPrompt = null;
-        });
+        deferredInstallPrompt.userChoice.then(() => { deferredInstallPrompt = null; });
       } else {
-        // Show instructions modal (especially for iPhone Safari)
-        const modal = document.getElementById('modal-install-guide');
-        const iosContent = document.getElementById('install-guide-ios-content');
-        const otherContent = document.getElementById('install-guide-other-content');
-
-        if (isIosDevice()) {
-          iosContent.classList.remove('hidden');
-          otherContent.classList.add('hidden');
-        } else {
-          iosContent.classList.remove('hidden'); // Show clear instructions regardless
-          otherContent.classList.add('hidden');
-        }
-
-        modal.classList.remove('hidden');
+        document.getElementById('modal-install-guide').classList.remove('hidden');
       }
     }
 
     function closeInstallGuideModal() {
       document.getElementById('modal-install-guide').classList.add('hidden');
-    }
-
-    function execBrowserInstall() {
-      if (deferredInstallPrompt) {
-        deferredInstallPrompt.prompt();
-      }
-      closeInstallGuideModal();
     }
   </script>
 </body>

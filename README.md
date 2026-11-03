@@ -1,36 +1,45 @@
-# ⚡ StudyMaster - Web & App Luyện Từ Vựng Song Ngữ (Tiếng Anh & Trọn Bộ JLPT N4)
+# ⚡ StudyMaster - Web & App Luyện Thi TOEIC & JLPT N4 Toàn Diện
 
-Ứng dụng web học và ôn luyện từ vựng thông minh, hỗ trợ **CÀI ĐẶT TRỰC TIẾP LÀM APP (PWA)** lên điện thoại iPhone, Android hoặc máy tính.
+Ứng dụng web học và ôn luyện từ vựng thông minh, tối ưu cho iPhone XS và máy tính, hỗ trợ cài đặt làm App (PWA) và tích hợp chuỗi học tập **Streak 🔥 độc lập** cho cả Tiếng Anh và Tiếng Nhật.
 
 ![PWA](https://img.shields.io/badge/PWA-Ready-success?style=for-the-badge&logo=pwa&logoColor=white)
-![iOS](https://img.shields.io/badge/iOS-iPhone_XS_Optimized-000000?style=for-the-badge&logo=apple&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![TOEIC](https://img.shields.io/badge/TOEIC-450%2B_600%2B-blue?style=for-the-badge)
+![JLPT](https://img.shields.io/badge/JLPT-N4_12_Topics-rose?style=for-the-badge)
 
 ---
 
-## 📲 Hướng Dẫn Cài Đặt Làm App Trên Điện Thoại
-
-### 1. Trên iPhone (Safari - iPhone XS, 11, 12, 13, 14, 15, 16...):
-1. Mở trang web bằng trình duyệt **Safari**.
-2. Nhấn vào nút **Chia sẻ (Share)** biểu tượng ô vuông có mũi tên `⎋` ở thanh dưới cùng của Safari.
-3. Cuộn xuống và chọn dòng **"Thêm vào Màn hình chính" (Add to Home Screen)** `➕`.
-4. Nhấn **"Thêm" (Add)** ở góc trên bên phải.
-5. Ứng dụng **StudyMaster** sẽ xuất hiện trên màn hình chính như một App tải từ App Store, mở lên chạy toàn màn hình, mượt mà và không có thanh URL trình duyệt!
-
-### 2. Trên Android hoặc Máy Tính (Chrome / Edge):
-- Chỉ cần bấm vào nút **"📲 Cài App"** trên thanh tiêu đề của web hoặc chọn biểu tượng cài đặt ở thanh địa chỉ trình duyệt.
+## 🔥 Tính Năng Streak Độc Lập (Hai Chuỗi Riêng Biệt)
+1. **Streak Tiếng Anh (TOEIC):** Đếm số ngày học liên tục và thanh tiến độ hoàn thành mục tiêu 10 từ/ngày riêng của TOEIC.
+2. **Streak Tiếng Nhật (N4):** Đếm số ngày học liên tục và thanh tiến độ hoàn thành mục tiêu 10 câu/ngày riêng của Tiếng Nhật.
+- Hai hệ thống streak lưu trữ riêng biệt, không bị ảnh hưởng lẫn nhau!
 
 ---
 
-## 🇯🇵 Trọn Bộ 12 Chủ Đề Tiếng Nhật N4
-- **もんだい 2 (Hira ➔ Kanji):** Nhìn từ Hiragana gạch chân $\to$ Khoanh chữ Hán viết đúng.
-- **もんだい 1 (Kanji ➔ Hira):** Nhìn từ Kanji gạch chân $\to$ Khoanh cách đọc Hiragana đúng.
-- **Đầy đủ 12 chủ đề:** *Đề mẫu JLPT, Vật dụng & Trang phục, Đời sống gia đình, Giao thông & Đi lại, Công việc công sở, Trường học & Thi cử, Ăn uống, Thiên nhiên thời tiết, Y tế sức khỏe, Tính từ cảm xúc, Động từ then chốt, và Đề tổng hợp.*
-- **Đứng yên khi làm bài:** Khi chọn đáp án, màn hình đứng yên hiển thị chữ Kanji, âm Hán Việt và nghĩa để người học xem kĩ; chỉ qua câu khi bấm **[Tiếp theo ➡️]** hoặc phím **`→`**.
+## 🇬🇧 Phân Hệ Tiếng Anh (TOEIC Cực Kỳ Thực Chiến)
+
+1. **🎧 Luyện Nghe Ẩn Chữ (Audio-Only Mode):**
+   - Ẩn mặt chữ, chỉ phát âm thanh chuẩn bản xứ để luyện tai nghe phản xạ cho Part 1 & Part 2.
+   - Khi chọn xong mới hiện từ, phiên âm và nghĩa tiếng Việt.
+2. **🎯 Bộ từ chia theo Target Điểm:**
+   - **TOEIC 450+ Căn bản sống còn:** Các từ vựng then chốt xuất hiện 99% trong đề (*contract, negotiate, submit, deadline, invoice...*).
+   - **TOEIC 600+ Trọng tâm bứt phá:** Các từ vựng thương mại chuyên sâu (*implement, collaborate, feasible, confidential, discrepancy...*).
+3. **🧩 Luyện Cụm Từ & Giới Từ Part 5 (Collocations):**
+   - Luyện câu hỏi khuyết giới từ đi kèm: *comply with, be responsible for, look forward to, prior to, be subject to, take advantage of...*
+4. **🔤 Nhận diện Từ Loại Part 5 (Word Families):**
+   - Luyện phân biệt Noun, Verb, Adj, Adv để khoanh Part 5 trong 5 giây mà không cần dịch nghĩa.
+5. **🃏 Flashcard & Nạp dữ liệu:**
+   - Chế độ lật thẻ 3D và tự do nạp thêm từ vựng từ Excel.
 
 ---
 
-## ⌨️ Điều Khiển Tinh Gọn
-- Nút bấm trực tiếp trên màn hình: **`[ ⬅️ Trước ]`** và **`[ Tiếp theo ➡️ ]`**.
-- Phím trên bàn phím máy tính: **`←`** (Quay lại) và **`→`** (Tiếp theo).
+## 🇯🇵 Phân Hệ Tiếng Nhật (Trọn Bộ 12 Chủ Đề JLPT N4)
+- **もんだい 2:** Nhìn Hiragana gạch chân $\to$ Khoanh chữ Hán Kanji.
+- **もんだい 1:** Nhìn chữ Kanji gạch chân $\to$ Khoanh cách đọc Hiragana.
+- **Đầy đủ 12 chủ đề đời sống:** Vật dụng, Đời sống gia đình, Giao thông, Công sở, Trường học, Ăn uống, Thiên nhiên, Y tế, Tính từ, Động từ và Đề thi tổng hợp.
+
+---
+
+## 📱 Điều Khiển & Trải Nghiệm Chuẩn iPhone XS
+- **Đứng yên khi làm bài:** Không tự động nhảy câu để người học có thời gian xem kĩ chữ Hán và ngữ pháp.
+- **Phím điều khiển:** Dùng nút `[ ⬅️ Trước ]` và `[ Tiếp theo ➡️ ]` trên màn hình hoặc phím `←` / `→` trên bàn phím.
+- **Cài đặt App (PWA):** Bấm Share trên Safari iPhone $\to$ "Thêm vào Màn hình chính" để cài đặt thành App chạy toàn màn hình.
