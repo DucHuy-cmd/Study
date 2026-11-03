@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>StudyMaster - Luyện Từ Vựng Tiếng Anh & Trọn Bộ JLPT N4</title>
+  <!-- Progressive Web App (PWA) Manifest & Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#e11d48">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="StudyMaster">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Plus Jakarta Sans & Noto Serif JP -->
@@ -88,8 +96,12 @@
         </div>
       </div>
 
-      <!-- Header Controls: Sound & Quick Modals -->
+      <!-- Header Controls: Sound, Install App & Quick Modals -->
       <div class="flex items-center space-x-1 sm:space-x-2">
+        <button id="btn-install-app" onclick="triggerInstallApp()" class="px-2 sm:px-2.5 py-1.5 text-xs font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 active:scale-95 rounded-lg border border-rose-200 transition flex items-center gap-1 shadow-2xs" title="Cài đặt App lên iPhone/máy tính">
+          <span>📲</span> <span class="hidden sm:inline">Cài App</span>
+        </button>
+
         <button id="btn-sound-toggle" onclick="toggleSound()" class="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-slate-500 hover:text-rose-600 hover:bg-slate-100 rounded-lg transition text-sm sm:text-base" title="Bật/Tắt âm thanh">
           🔊
         </button>
@@ -602,6 +614,54 @@
       <div class="flex justify-end gap-2 mt-4">
         <button onclick="closeNewDeckModal()" class="px-3 py-1.5 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-lg">Huỷ</button>
         <button onclick="confirmCreateDeck()" class="px-4 py-1.5 text-xs font-bold text-white bg-blue-600 rounded-lg">Tạo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: HƯỚNG DẪN CÀI ĐẶT APP (IPHONE & ANDROID) ================= -->
+  <div id="modal-install-guide" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white rounded-t-3xl sm:rounded-3xl p-6 max-w-md w-full shadow-2xl border border-slate-200 animate-in slide-in-from-bottom sm:fade-in duration-200">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div class="flex items-center gap-2">
+          <img src="icons/icon-192.png" alt="StudyMaster" class="w-9 h-9 rounded-xl shadow-xs">
+          <div>
+            <h3 class="text-base font-extrabold text-slate-900">Cài đặt StudyMaster</h3>
+            <p class="text-[11px] text-slate-400">Dùng như một ứng dụng độc lập trên điện thoại</p>
+          </div>
+        </div>
+        <button onclick="closeInstallGuideModal()" class="text-slate-400 hover:text-slate-600 p-1.5 text-lg font-bold">✕</button>
+      </div>
+
+      <div id="install-guide-ios-content" class="py-4 space-y-3.5 text-xs text-slate-700">
+        <p class="font-bold text-rose-600">📱 Hướng dẫn cài trên iPhone Safari (chỉ 2 bước):</p>
+        <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-100">
+          <span class="w-6 h-6 flex-shrink-0 rounded-full bg-rose-100 text-rose-600 font-bold flex items-center justify-center text-xs">1</span>
+          <div>
+            Chạm vào biểu tượng <strong>Chia sẻ (Share)</strong> <span class="inline-block p-1 bg-white border border-slate-200 rounded text-sm leading-none">⎋</span> ở thanh công cụ dưới cùng của trình duyệt Safari.
+          </div>
+        </div>
+        <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-100">
+          <span class="w-6 h-6 flex-shrink-0 rounded-full bg-rose-100 text-rose-600 font-bold flex items-center justify-center text-xs">2</span>
+          <div>
+            Cuộn xuống danh sách và chọn <strong>"Thêm vào MH chính" (Add to Home Screen)</strong> <span class="inline-block p-1 bg-white border border-slate-200 rounded text-sm leading-none">➕</span>.
+          </div>
+        </div>
+        <div class="p-3 bg-emerald-50 rounded-2xl border border-emerald-100 text-[11px] text-emerald-800 font-medium">
+          ✓ Sau đó App StudyMaster sẽ xuất hiện ngay ngoài màn hình chính iPhone của bạn, mở toàn màn hình không có thanh địa chỉ web, chạy siêu mượt!
+        </div>
+      </div>
+
+      <div id="install-guide-other-content" class="hidden py-4 space-y-3 text-xs text-slate-700">
+        <p>Bấm nút bên dưới để cài đặt ứng dụng StudyMaster trực tiếp lên thiết bị của bạn:</p>
+        <button id="btn-trigger-pwa-prompt" onclick="execBrowserInstall()" class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-2xl shadow-md shadow-rose-200 transition text-sm flex items-center justify-center gap-2">
+          <span>📲 Cài Đặt Ngay</span>
+        </button>
+      </div>
+
+      <div class="pt-3 border-t border-slate-100 flex justify-end">
+        <button onclick="closeInstallGuideModal()" class="w-full sm:w-auto px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition">
+          Đã hiểu
+        </button>
       </div>
     </div>
   </div>
@@ -2495,6 +2555,82 @@
         [copy[i], copy[j]] = [copy[j], copy[i]];
       }
       return copy;
+    }
+
+
+    /* =========================================================================
+       9. PWA (PROGRESSIVE WEB APP) & INSTALLATION LOGIC
+       ========================================================================= */
+    let deferredInstallPrompt = null;
+
+    // Register Service Worker for offline capability
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('Service Worker Registered!'))
+          .catch(err => console.log('Service Worker registration failed:', err));
+      });
+    }
+
+    // Capture standard install prompt (Chrome, Edge, Android)
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      const btn = document.getElementById('btn-install-app');
+      if (btn) btn.classList.remove('hidden');
+    });
+
+    function isRunningStandalone() {
+      return (window.matchMedia('(display-mode: standalone)').matches) || (window.navigator.standalone === true);
+    }
+
+    function isIosDevice() {
+      const ua = window.navigator.userAgent.toLowerCase();
+      return /iphone|ipad|ipod/.test(ua);
+    }
+
+    function triggerInstallApp() {
+      if (isRunningStandalone()) {
+        alert("Ứng dụng StudyMaster đã được cài đặt trên thiết bị của bạn!");
+        return;
+      }
+
+      if (deferredInstallPrompt) {
+        // Native install prompt available
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted install');
+          }
+          deferredInstallPrompt = null;
+        });
+      } else {
+        // Show instructions modal (especially for iPhone Safari)
+        const modal = document.getElementById('modal-install-guide');
+        const iosContent = document.getElementById('install-guide-ios-content');
+        const otherContent = document.getElementById('install-guide-other-content');
+
+        if (isIosDevice()) {
+          iosContent.classList.remove('hidden');
+          otherContent.classList.add('hidden');
+        } else {
+          iosContent.classList.remove('hidden'); // Show clear instructions regardless
+          otherContent.classList.add('hidden');
+        }
+
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function closeInstallGuideModal() {
+      document.getElementById('modal-install-guide').classList.add('hidden');
+    }
+
+    function execBrowserInstall() {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+      }
+      closeInstallGuideModal();
     }
   </script>
 </body>

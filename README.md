@@ -1,36 +1,36 @@
-# ⚡ StudyMaster - Web Luyện Từ Vựng Song Ngữ (Tiếng Anh & Trọn Bộ JLPT N4)
+# ⚡ StudyMaster - Web & App Luyện Từ Vựng Song Ngữ (Tiếng Anh & Trọn Bộ JLPT N4)
 
-Ứng dụng web học và ôn luyện từ vựng thông minh, giao diện trực quan, dễ nhìn, tối ưu hoàn hảo cho cả máy tính và màn hình điện thoại (iPhone XS, 375px).
+Ứng dụng web học và ôn luyện từ vựng thông minh, hỗ trợ **CÀI ĐẶT TRỰC TIẾP LÀM APP (PWA)** lên điện thoại iPhone, Android hoặc máy tính.
 
+![PWA](https://img.shields.io/badge/PWA-Ready-success?style=for-the-badge&logo=pwa&logoColor=white)
+![iOS](https://img.shields.io/badge/iOS-iPhone_XS_Optimized-000000?style=for-the-badge&logo=apple&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ---
 
-## 📱 Điểm Tối Ưu Mới
+## 📲 Hướng Dẫn Cài Đặt Làm App Trên Điện Thoại
 
-1. **Giao diện chuẩn iPhone XS (375px x 812px):**
-   - Không bị tràn viền hay cụt chữ.
-   - Nút bấm to rõ, cảm ứng mượt mà (`min-height: 48px`).
-   - Modal danh sách 12 chủ đề trượt lên dạng Bottom Sheet rất thuận tiện cho thao tác một tay.
-2. **Dừng lại khi chọn câu hỏi (Không tự động nhảy câu):**
-   - Khi chọn đáp án (dù đúng hay sai), màn hình sẽ **đứng yên** hiển thị đầy đủ cách đọc, âm Hán Việt và nghĩa tiếng Việt để bạn xem kĩ.
-   - Chỉ chuyển câu khi bạn chủ động bấm nút **"Tiếp theo ➡️"** hoặc phím **`→`**.
-3. **Cơ chế điều khiển tinh gọn:**
-   - **Nút trên màn hình:** `[ ⬅️ Trước ]` và `[ Tiếp theo ➡️ ]`.
-   - **Phím trên máy tính:** Chỉ dùng phím **Mũi tên Trái `←`** (Quay lại) và **Mũi tên Phải `→`** (Tiếp theo).
-   - Đã loại bỏ hoàn toàn các phím `1`, `2`, `3`, `4`, `Enter`, `Space` để tránh bấm nhầm.
+### 1. Trên iPhone (Safari - iPhone XS, 11, 12, 13, 14, 15, 16...):
+1. Mở trang web bằng trình duyệt **Safari**.
+2. Nhấn vào nút **Chia sẻ (Share)** biểu tượng ô vuông có mũi tên `⎋` ở thanh dưới cùng của Safari.
+3. Cuộn xuống và chọn dòng **"Thêm vào Màn hình chính" (Add to Home Screen)** `➕`.
+4. Nhấn **"Thêm" (Add)** ở góc trên bên phải.
+5. Ứng dụng **StudyMaster** sẽ xuất hiện trên màn hình chính như một App tải từ App Store, mở lên chạy toàn màn hình, mượt mà và không có thanh URL trình duyệt!
+
+### 2. Trên Android hoặc Máy Tính (Chrome / Edge):
+- Chỉ cần bấm vào nút **"📲 Cài App"** trên thanh tiêu đề của web hoặc chọn biểu tượng cài đặt ở thanh địa chỉ trình duyệt.
 
 ---
 
 ## 🇯🇵 Trọn Bộ 12 Chủ Đề Tiếng Nhật N4
 - **もんだい 2 (Hira ➔ Kanji):** Nhìn từ Hiragana gạch chân $\to$ Khoanh chữ Hán viết đúng.
 - **もんだい 1 (Kanji ➔ Hira):** Nhìn từ Kanji gạch chân $\to$ Khoanh cách đọc Hiragana đúng.
-- Phân loại rõ ràng: *Đề mẫu JLPT, Vật dụng & Trang phục, Đời sống gia đình, Giao thông & Đi lại, Công việc công sở, Trường học & Thi cử, Ăn uống, Thiên nhiên thời tiết, Y tế sức khỏe, Tính từ cảm xúc, Động từ then chốt, và Đề tổng hợp toàn diện.*
+- **Đầy đủ 12 chủ đề:** *Đề mẫu JLPT, Vật dụng & Trang phục, Đời sống gia đình, Giao thông & Đi lại, Công việc công sở, Trường học & Thi cử, Ăn uống, Thiên nhiên thời tiết, Y tế sức khỏe, Tính từ cảm xúc, Động từ then chốt, và Đề tổng hợp.*
+- **Đứng yên khi làm bài:** Khi chọn đáp án, màn hình đứng yên hiển thị chữ Kanji, âm Hán Việt và nghĩa để người học xem kĩ; chỉ qua câu khi bấm **[Tiếp theo ➡️]** hoặc phím **`→`**.
 
 ---
 
-## 🚀 Hướng Dẫn Sử Dụng
-- Nhấp đúp vào file `start.bat` (hoặc mở trực tiếp file `index.html` bằng trình duyệt).
-- Hoặc mở link GitHub Pages trên iPhone XS để học mọi lúc mọi nơi!
+## ⌨️ Điều Khiển Tinh Gọn
+- Nút bấm trực tiếp trên màn hình: **`[ ⬅️ Trước ]`** và **`[ Tiếp theo ➡️ ]`**.
+- Phím trên bàn phím máy tính: **`←`** (Quay lại) và **`→`** (Tiếp theo).
