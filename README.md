@@ -1,6 +1,8 @@
-# ⚡ VocabMaster - Web Học Từ Vựng Tiếng Anh (Quizlet Lite)
+# ⚡ StudyMaster - Web Luyện Từ Vựng Song Ngữ (Tiếng Anh & Tiếng Nhật JLPT N4)
 
-Ứng dụng web học từ vựng tiếng Anh thông minh, giao diện trực quan, dễ nhìn, tập trung 100% vào việc ghi nhớ và phản xạ từ vựng như Quizlet.
+Ứng dụng web học và ôn luyện từ vựng thông minh, giao diện trực quan, dễ nhìn, tích hợp 2 phân hệ chuyên sâu:
+1. **🇬🇧 Tiếng Anh (Quizlet Style):** 4 chế độ học (Trắc nghiệm, Gõ từ, Flashcard, Ghép thẻ).
+2. **🇯🇵 Tiếng Nhật (JLPT N4 Mock Exam):** Mô phỏng đề thi thực tế JLPT N4 (Nhìn Hira khoanh Kanji / Nhìn Kanji khoanh Hira).
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -8,57 +10,35 @@
 
 ---
 
-## ✨ Tính Năng Nổi Bật
+## ✨ Điểm Nổi Bật
 
-### 1. 🎯 4 Chế độ học tập chuyên sâu
-- **🔘 Trắc nghiệm 4 đáp án (MCQ):**
-  - Tự động lấy 3 đáp án gây nhiễu từ bộ từ vựng.
-  - Hỗ trợ phím tắt số `1`, `2`, `3`, `4` để chọn câu trả lời nhanh mà không cần chạm chuột.
-  - Phím `Space` để chuyển câu tiếp theo.
-- **✍️ Gõ từ / Điền từ (Typing):**
-  - Hiện nghĩa tiếng Việt $\to$ Gõ tiếng Anh (hoặc ngược lại).
-  - Bấm `Enter` để kiểm tra.
-  - Nhận diện linh hoạt các từ đồng nghĩa (ngăn cách bởi dấu phẩy `,` hoặc `/`).
-  - Nút **Gợi ý** mở chữ cái đầu khi bí từ.
-- **🃏 Thẻ lật 3D Flashcard:**
-  - Bấm phím `Space` hoặc nhấp vào thẻ để lật mặt xem nghĩa.
-  - Bấm phím mũi tên `←` / `→` để chuyển qua lại các từ.
-- **🧩 Ghép thẻ nhanh (Match Game):**
-  - Trò chơi nối 6 cặp từ tiếng Anh với nghĩa tiếng Việt.
-  - Bấm chọn đúng cặp từ sẽ làm biến mất thẻ, có đồng hồ tính thời gian hoàn thành.
+### 🇯🇵 Phân Hệ Tiếng Nhật (JLPT N4)
+- **Chuẩn mẫu đề thi JLPT N4:**
+  - **もんだい 2:** ____ の ことばは どう かきますか (Nhìn từ Hiragana gạch chân trong câu $\to$ Khoanh chữ Kanji viết đúng).
+  - **もんだい 1:** ____ の ことばは どう よみますか (Nhìn chữ Kanji gạch chân trong câu $\to$ Khoanh cách đọc Hiragana đúng).
+- **Bộ đề N4 tích hợp sẵn:** Bao gồm các câu hỏi chuẩn đề thi mẫu (*青い, 場所, 歩いて, 便利, 眠かった, 雪, 送ります, 急いで, 案内, 注意...*).
+- **Giải nghĩa chi tiết:** Hiển thị âm Hán Việt và nghĩa tiếng Việt ngay khi chọn.
+- **Phát âm tiếng Nhật chuẩn (`ja-JP`)** qua Web Speech API.
+- **Luyện lại câu sai:** Nút ôn luyện riêng các câu làm sai cho đến khi đạt điểm tối đa.
 
-### 2. 🗂️ Quản lý nhiều bộ từ (Deck Management)
-- Tạo nhiều bộ từ theo chủ đề: *IELTS, TOEIC, IT & Lập trình, Giao tiếp hằng ngày...*
-- Chuyển đổi bộ từ nhanh chóng ngay tại header.
-- Tự động lưu dữ liệu vào `localStorage` của trình duyệt (không lo mất dữ liệu khi tắt trình duyệt).
+### 🇬🇧 Phân Hệ Tiếng Anh (Quizlet Style)
+- **4 Chế độ học tập:** Trắc nghiệm 4 đáp án, Gõ từ điền chữ (có gợi ý), Thẻ lật 3D Flashcard, Mini-game Nối từ nhanh.
+- **Quản lý nhiều bộ từ (Decks):** Tạo, sửa, xoá và nạp dữ liệu hàng loạt từ Excel/Google Sheets.
+- **Âm thanh chuẩn Offline:** Tự động tổng hợp âm thanh hiệu ứng bằng Web Audio API.
 
-### 3. 🔊 Phát âm & Âm thanh 100% Offline
-- Giọng đọc tiếng Anh chuẩn bản xứ qua **Web Speech API**.
-- Hiệu ứng âm thanh khi Đúng / Sai được tạo trực tiếp từ **Web Audio API Synthesizer** (chạy mượt mà, không phụ thuộc file âm thanh mạng).
-
-### 4. 📝 Nạp & Sao lưu dữ liệu tiện lợi
-- **Dán hàng loạt:** Hỗ trợ định dạng `từ - nghĩa`, `từ : nghĩa`, hoặc copy trực tiếp 2 cột từ **Excel / Google Sheets / Quizlet**.
-- **Luyện từ sai:** Sau mỗi lượt học, dễ dàng bấm nút **"Chỉ học lại những từ làm sai"** cho đến khi thuộc toàn bộ.
-- **Xuất / Nhập Backup:** Xuất file `.json` để lưu trữ hoặc chuyển sang máy khác.
+### 🔄 Chuyển Đổi Ngôn Ngữ Linh Hoạt
+- Màn hình chọn ngôn ngữ thân thiện khi vừa vào web.
+- Nút chuyển đổi nhanh `[ 🇬🇧 Tiếng Anh | 🇯🇵 Tiếng Nhật (N4) ]` luôn có sẵn trên Header.
 
 ---
 
 ## 🚀 Hướng Dẫn Sử Dụng
-
-### Cách 1: Chạy trực tiếp (Không cần cài đặt)
-1. Tải về hoặc clone repository:
-   ```bash
-   git clone https://github.com/DucHuy-cmd/Study.git
-   ```
-2. Nhấp đúp vào file `start.bat` (hoặc mở trực tiếp file `index.html` bằng trình duyệt Chrome, Edge, Cốc Cốc...).
+1. Nhấp đúp vào file `start.bat` (hoặc mở trực tiếp file `index.html` bằng trình duyệt).
+2. Chọn ngôn ngữ bạn muốn học và bắt đầu luyện tập!
 
 ---
 
-## ⌨️ Phím Tắt Thao Tác Nhanh
-
-| Phím tắt | Chức năng |
-| :--- | :--- |
-| `1`, `2`, `3`, `4` | Chọn đáp án trắc nghiệm |
-| `Enter` | Kiểm tra câu trả lời / Sang câu tiếp theo |
-| `Space` | Lật mặt thẻ Flashcard / Sang câu tiếp theo |
-| `←` / `→` | Chuyển từ trước / sau ở chế độ Flashcard |
+## ⌨️ Phím Tắt Tiện Lợi
+- `1`, `2`, `3`, `4`: Chọn đáp án trắc nghiệm.
+- `Enter` / `Space`: Kiểm tra hoặc chuyển sang câu hỏi tiếp theo.
+- `←` / `→`: Chuyển từ ở chế độ Flashcard.
