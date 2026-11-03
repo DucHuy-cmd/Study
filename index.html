@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StudyMaster - Luyện Từ Vựng Tiếng Anh & Tiếng Nhật JLPT</title>
+  <title>StudyMaster - Luyện Từ Vựng Tiếng Anh & Trọn Bộ JLPT N4</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Plus Jakarta Sans & Noto Serif JP -->
@@ -65,23 +65,23 @@
       
       <!-- Brand & Active Language Switcher -->
       <div class="flex items-center space-x-3">
-        <div id="brand-logo" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-lg shadow-sm shadow-blue-200 cursor-pointer" onclick="showLangSelectModal()">
+        <div id="brand-logo" class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-pink-600 flex items-center justify-center text-white font-extrabold text-lg shadow-sm shadow-rose-200 cursor-pointer" onclick="showLangSelectModal()">
           S
         </div>
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-base font-bold text-slate-900 leading-none">StudyMaster</h1>
-            <span id="brand-sub-badge" class="text-[10px] bg-blue-50 text-blue-600 border border-blue-200 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">
-              Tiếng Anh
+            <span id="brand-sub-badge" class="text-[10px] bg-rose-50 text-rose-600 border border-rose-200 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">
+              Tiếng Nhật (N4)
             </span>
           </div>
           <!-- Language Switcher Pill -->
           <div class="flex items-center gap-1 mt-1">
             <div class="inline-flex p-0.5 bg-slate-100 rounded-lg border border-slate-200 text-xs">
-              <button onclick="switchLanguage('en')" id="btn-lang-en" class="px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 bg-white text-blue-600 shadow-xs">
+              <button onclick="switchLanguage('en')" id="btn-lang-en" class="px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 text-slate-600 hover:text-slate-900">
                 <span>🇬🇧</span> <span class="hidden sm:inline">Tiếng Anh</span>
               </button>
-              <button onclick="switchLanguage('ja')" id="btn-lang-ja" class="px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 text-slate-600 hover:text-slate-900">
+              <button onclick="switchLanguage('ja')" id="btn-lang-ja" class="px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 bg-white text-rose-600 shadow-xs">
                 <span>🇯🇵</span> <span class="hidden sm:inline">Tiếng Nhật (N4)</span>
               </button>
             </div>
@@ -95,8 +95,8 @@
           🔊
         </button>
 
-        <!-- English Deck info or Japanese Test Info -->
-        <div id="header-en-controls" class="flex items-center space-x-2">
+        <!-- English Deck info -->
+        <div id="header-en-controls" class="hidden flex items-center space-x-2">
           <select id="deck-select" onchange="changeEnDeck(this.value)" class="text-xs font-semibold text-blue-700 bg-blue-50/70 hover:bg-blue-100/70 rounded-lg px-2.5 py-1.5 border border-blue-200 focus:outline-none cursor-pointer max-w-[150px] sm:max-w-[220px] truncate">
             <!-- Dynamically populated -->
           </select>
@@ -106,10 +106,12 @@
           </button>
         </div>
 
-        <div id="header-ja-controls" class="hidden flex items-center space-x-2">
-          <select id="ja-test-select" onchange="changeJaTest(this.value)" class="text-xs font-semibold text-rose-700 bg-rose-50/70 hover:bg-rose-100/70 rounded-lg px-2.5 py-1.5 border border-rose-200 focus:outline-none cursor-pointer max-w-[170px] sm:max-w-[240px] truncate font-japanese">
-            <!-- Dynamically populated -->
-          </select>
+        <!-- Japanese Topic / Test info (Fixed width & clean button) -->
+        <div id="header-ja-controls" class="flex items-center space-x-2">
+          <button onclick="openJaTopicModal()" class="px-3 py-1.5 text-xs font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 rounded-lg border border-rose-200 transition flex items-center gap-1.5 shadow-xs">
+            <span>📚 Chọn chủ đề N4</span>
+            <span id="header-ja-topic-badge" class="bg-rose-600 text-white px-1.5 py-0.2 rounded-full text-[10px] font-mono">1/12</span>
+          </button>
         </div>
       </div>
 
@@ -120,7 +122,7 @@
   <!-- ========================================================================= -->
   <!-- ======================== PHÂN HỆ 1: TIẾNG ANH =========================== -->
   <!-- ========================================================================= -->
-  <div id="section-english" class="w-full flex-1 flex flex-col">
+  <div id="section-english" class="hidden w-full flex-1 flex flex-col">
     <!-- SUB HEADER / ENGLISH TABS -->
     <nav class="bg-white border-b border-slate-200">
       <div class="max-w-5xl mx-auto px-4 flex items-center justify-between overflow-x-auto py-2 gap-2 text-sm">
@@ -394,7 +396,7 @@
   <!-- ========================================================================= -->
   <!-- ======================== PHÂN HỆ 2: TIẾNG NHẬT ========================== -->
   <!-- ========================================================================= -->
-  <div id="section-japanese" class="hidden w-full flex-1 flex flex-col">
+  <div id="section-japanese" class="w-full flex-1 flex flex-col">
     <!-- SUB HEADER / JAPANESE JLPT TABS -->
     <nav class="bg-white border-b border-slate-200">
       <div class="max-w-5xl mx-auto px-4 flex items-center justify-between overflow-x-auto py-2.5 gap-2 text-sm">
@@ -411,8 +413,11 @@
         </div>
 
         <div class="flex items-center space-x-2 flex-shrink-0">
-          <button onclick="restartJaQuiz()" title="Trộn và làm lại từ đầu" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold flex items-center gap-1 transition">
-            🔀 Đổi thứ tự câu
+          <button onclick="openJaTopicModal()" class="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-lg text-xs font-bold flex items-center gap-1 transition">
+            <span>🗂️ Đổi chủ đề</span>
+          </button>
+          <button onclick="restartJaQuiz()" title="Trộn và làm lại từ đầu" class="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold flex items-center gap-1 transition">
+            🔀 Trộn câu
           </button>
         </div>
 
@@ -422,6 +427,31 @@
     <!-- MAIN JAPANESE CONTENT (JLPT EXAM STYLE) -->
     <main class="max-w-5xl mx-auto px-4 py-6 flex-1 w-full font-japanese">
 
+      <!-- Active Topic Bar with Quick Selection Dropdown -->
+      <div class="bg-white p-4 rounded-2xl shadow-xs border border-slate-200 mb-6 font-sans flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <span id="ja-active-topic-icon" class="text-2xl p-2 bg-rose-50 rounded-xl">📚</span>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-bold text-rose-600 uppercase tracking-wider bg-rose-50 px-2 py-0.5 rounded">Chủ đề N4 hiện tại</span>
+              <span id="ja-active-topic-count" class="text-xs text-slate-400 font-semibold font-mono">12 câu</span>
+            </div>
+            <h3 id="ja-active-topic-name" class="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5">
+              1. Đề JLPT N4 Mẫu (Trong ảnh đề thi)
+            </h3>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <select id="ja-topic-select" onchange="changeJaTopic(this.value)" class="text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl px-3 py-2 border-0 focus:ring-2 focus:ring-rose-500 cursor-pointer max-w-full sm:max-w-[280px]">
+            <!-- Dynamically populated with all N4 topics -->
+          </select>
+          <button onclick="openJaTopicModal()" class="hidden sm:inline-flex px-3 py-2 text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 rounded-xl transition shadow-xs flex-shrink-0">
+            Xem tất cả
+          </button>
+        </div>
+      </div>
+
       <!-- Test Progress & Score Header -->
       <div class="bg-white p-4 rounded-2xl shadow-xs border border-slate-200 mb-6 font-sans">
         <div class="flex justify-between items-center text-xs font-bold text-slate-600 mb-2">
@@ -430,7 +460,7 @@
               JLPT N4 • 言語知識（文字・語彙）
             </span>
             <span id="ja-progress-counter" class="text-slate-700 font-extrabold bg-slate-100 px-2 py-0.5 rounded-md">
-              Câu 1 / 15
+              Câu 1 / 12
             </span>
           </div>
           <div class="flex items-center space-x-3">
@@ -496,7 +526,7 @@
       <div id="ja-summary-card" class="hidden bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-slate-200 text-center max-w-md mx-auto my-6 font-sans">
         <span class="text-6xl animate-bounce inline-block">🌸</span>
         <h2 class="text-2xl font-extrabold text-slate-900 mt-2 font-japanese">お疲れ様でした！</h2>
-        <p class="text-slate-500 text-xs mt-1">Bạn đã hoàn thành xong đề luyện thi N4 này.</p>
+        <p class="text-slate-500 text-xs mt-1">Bạn đã hoàn thành xong chủ đề này.</p>
 
         <div class="grid grid-cols-2 gap-3 my-6">
           <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl">
@@ -515,10 +545,10 @@
             <span id="ja-mistakes-badge" class="bg-white/20 px-2 py-0.5 rounded-full text-[10px]">0</span>
           </button>
           <button onclick="restartJaQuiz()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-xs shadow-md transition">
-            🔄 Làm lại từ đầu đề này
+            🔄 Làm lại từ đầu chủ đề này
           </button>
-          <button onclick="switchLanguage('en')" class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-xs transition">
-            🇬🇧 Chuyển sang học Tiếng Anh
+          <button onclick="openJaTopicModal()" class="w-full py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-700 rounded-xl font-bold text-xs transition">
+            📚 Chuyển sang chủ đề N4 khác
           </button>
         </div>
       </div>
@@ -535,7 +565,37 @@
   </footer>
 
 
-  <!-- ================= MODAL 1: CHỌN NGÔN NGỮ KHI VỪA VÀO WEB ================= -->
+  <!-- ================= MODAL: DANH SÁCH TOÀN BỘ CHỦ ĐỀ N4 ================= -->
+  <div id="modal-ja-topics" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl border border-slate-200 max-h-[88vh] flex flex-col animate-in fade-in duration-200">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div>
+          <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+            <span>📚 Trọn Bộ Chủ Đề Từ Vựng & Kanji N4</span>
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">Chọn một chủ đề để bắt đầu luyện đề trắc nghiệm JLPT</p>
+        </div>
+        <button onclick="closeJaTopicModal()" class="text-slate-400 hover:text-slate-600 p-2 rounded-xl text-lg font-bold">
+          ✕
+        </button>
+      </div>
+
+      <!-- Topics Grid -->
+      <div id="ja-topics-grid-modal" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-4 overflow-y-auto pr-1 flex-1 py-1">
+        <!-- Rendered via JS -->
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-400">
+        <span>Tổng cộng: <strong class="text-slate-700" id="ja-total-all-questions">0</strong> câu hỏi N4</span>
+        <button onclick="closeJaTopicModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= MODAL: CHỌN NGÔN NGỮ KHI VỪA VÀO WEB ================= -->
   <div id="modal-lang-select" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-200 text-center animate-in fade-in duration-200">
       <div class="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-tr from-blue-600 to-rose-600 flex items-center justify-center text-white text-2xl font-black mb-4 shadow-lg shadow-blue-100">
@@ -545,7 +605,6 @@
       <p class="text-xs text-slate-500 mt-1.5 mb-6">Bạn muốn bắt đầu học ngôn ngữ nào hôm nay? (Có thể đổi lại bất kỳ lúc nào)</p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-left">
-        <!-- Option English -->
         <button onclick="chooseLanguageOnboarding('en')" class="group p-5 rounded-2xl border-2 border-slate-200 hover:border-blue-500 hover:bg-blue-50/40 transition flex flex-col justify-between">
           <div class="text-3xl mb-2">🇬🇧</div>
           <div>
@@ -555,12 +614,11 @@
           <span class="mt-3 text-xs font-bold text-blue-600 flex items-center gap-1">Vào học ➔</span>
         </button>
 
-        <!-- Option Japanese -->
         <button onclick="chooseLanguageOnboarding('ja')" class="group p-5 rounded-2xl border-2 border-slate-200 hover:border-rose-500 hover:bg-rose-50/40 transition flex flex-col justify-between">
           <div class="text-3xl mb-2">🇯🇵</div>
           <div>
             <h3 class="font-bold text-slate-900 text-sm group-hover:text-rose-600 font-japanese">Tiếng Nhật (N4)</h3>
-            <p class="text-[11px] text-slate-500 mt-1">Luyện đề JLPT N4: Nhìn Hira khoanh Kanji / Nhìn Kanji khoanh Hira.</p>
+            <p class="text-[11px] text-slate-500 mt-1">Trọn bộ N4: Đời sống, vật dụng, giao thông, công sở theo đề JLPT.</p>
           </div>
           <span class="mt-3 text-xs font-bold text-rose-600 flex items-center gap-1">Vào luyện đề ➔</span>
         </button>
@@ -569,7 +627,7 @@
   </div>
 
 
-  <!-- ================= MODAL 2: TẠO BỘ TỪ TIẾNG ANH MỚI ================= -->
+  <!-- ================= MODAL: TẠO BỘ TỪ TIẾNG ANH MỚI ================= -->
   <div id="modal-new-deck" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-slate-200">
       <h3 class="text-base font-extrabold text-slate-900">Tạo bộ từ vựng mới</h3>
@@ -586,7 +644,803 @@
   <!-- ================= LOGIC TOÀN BỘ ỨNG DỤNG ================= -->
   <script>
     /* =========================================================================
-       1. DATASETS & DEFAULT CONTENT
+       1. TOÀN BỘ DỮ LIỆU TIẾNG NHẬT N4 THEO CHỦ ĐỀ CHI TIẾT
+       ========================================================================= */
+    const COMPREHENSIVE_N4_TOPICS = [
+      {
+        id: "topic_exam_official",
+        name: "1. Đề Mẫu Chuẩn JLPT N4 (Bộ đề trong ảnh)",
+        icon: "📝",
+        desc: "Các câu hỏi trong trang đề thi thực tế (青い, 場所, 歩いて, 便利...)",
+        questions: [
+          {
+            id: 101,
+            hira_target: "おくります",
+            sentence_hira: "ふねで にもつを <u>おくります</u>。",
+            kanji_target: "送ります",
+            sentence_kanji: "船で 荷物を <u>送ります</u>。",
+            kanji_options: ["近ります", "逆ります", "辺ります", "送ります"],
+            hira_options: ["おります", "おくれます", "おきます", "おくります"],
+            han_viet: "TỐNG",
+            vi_meaning: "gửi đồ, tiễn đưa"
+          },
+          {
+            id: 102,
+            hira_target: "あおい",
+            sentence_hira: "すずきさんは <u>あおい</u> シャツを きて います。",
+            kanji_target: "青い",
+            sentence_kanji: "鈴木さんは <u>青い</u> シャツを 着て います。",
+            kanji_options: ["青い", "黒い", "赤い", "白い"],
+            hira_options: ["あおい", "くろい", "あかい", "しろい"],
+            han_viet: "THANH",
+            vi_meaning: "màu xanh da trời"
+          },
+          {
+            id: 103,
+            hira_target: "ばしょ",
+            sentence_hira: "かいぎの <u>ばしょ</u> を おしえて ください。",
+            kanji_target: "場所",
+            sentence_kanji: "会議の <u>場所</u> を 教えて ください。",
+            kanji_options: ["揚炉", "場炉", "揚所", "場所"],
+            hira_options: ["ばしょ", "じょうしょ", "ばじょ", "じょうじょ"],
+            han_viet: "TRƯỜNG SỞ",
+            vi_meaning: "địa điểm, nơi chốn"
+          },
+          {
+            id: 104,
+            hira_target: "あるいて",
+            sentence_hira: "わたしの いえは えきから <u>あるいて</u> 5ふんです。",
+            kanji_target: "歩いて",
+            sentence_kanji: "私の 家は 駅から <u>歩いて</u> 5分です。",
+            kanji_options: ["走いて", "足いて", "止いて", "歩いて"],
+            hira_options: ["あるいて", "はしって", "およいで", "のぼって"],
+            han_viet: "BỘ",
+            vi_meaning: "đi bộ"
+          },
+          {
+            id: 105,
+            hira_target: "べんり",
+            sentence_hira: "ちかてつが できて <u>べんり</u> に なりました。",
+            kanji_target: "便利",
+            sentence_kanji: "地下鉄が できて <u>便利</u> に なりました。",
+            kanji_options: ["便利", "便理", "使利", "使理"],
+            hira_options: ["べんり", "びんり", "べんれい", "びんれい"],
+            han_viet: "TIỆN LỢI",
+            vi_meaning: "tiện lợi, thuận tiện"
+          },
+          {
+            id: 106,
+            hira_target: "ねむかった",
+            sentence_hira: "とても <u>ねむかった</u>ので、コーヒーを のみました。",
+            kanji_target: "眠かった",
+            sentence_kanji: "とても <u>眠かった</u>ので、コーヒーを 飲みました。",
+            kanji_options: ["眼かった", "瞑かった", "眠かった", "視かった"],
+            hira_options: ["ねむかった", "つかれた", "さむかった", "だるかった"],
+            han_viet: "MIÊN",
+            vi_meaning: "buồn ngủ"
+          },
+          {
+            id: 107,
+            hira_target: "ゆき",
+            sentence_hira: "きょうは <u>ゆき</u> が ふって います。",
+            kanji_target: "雪",
+            sentence_kanji: "今日は <u>雪</u> が 降って います。",
+            kanji_options: ["雪", "電", "雷", "雲"],
+            hira_options: ["ゆき", "でん", "かみなり", "くも"],
+            han_viet: "TUYẾT",
+            vi_meaning: "tuyết rơi"
+          }
+        ]
+      },
+      {
+        id: "topic_items_clothes",
+        name: "2. Vật Dụng, Đồ Đạc & Trang Phục",
+        icon: "🛋️",
+        desc: "Quần áo, túi xách, đồng hồ, giấy tờ, đồ dùng cá nhân",
+        questions: [
+          {
+            id: 201,
+            hira_target: "にもつ",
+            sentence_hira: "おもい <u>にもつ</u> を はこびました。",
+            kanji_target: "荷物",
+            sentence_kanji: "重い <u>荷物</u> を 運びました。",
+            kanji_options: ["何物", "荷物", "苛物", "荷料"],
+            hira_options: ["にもつ", "なにもつ", "にかぶつ", "にもの"],
+            han_viet: "HÀ VẬT",
+            vi_meaning: "hành lý, đồ đạc"
+          },
+          {
+            id: 202,
+            hira_target: "とけい",
+            sentence_hira: "あたらしい <u>とけい</u> を かいました。",
+            kanji_target: "時計",
+            sentence_kanji: "新しい <u>時計</u> を 買いました。",
+            kanji_options: ["時計", "時針", "寺計", "時言"],
+            hira_options: ["とけい", "じけい", "ときい", "じかん"],
+            han_viet: "THỜI KẾ",
+            vi_meaning: "đồng hồ"
+          },
+          {
+            id: 203,
+            hira_target: "ようふく",
+            sentence_hira: "デパートで <u>ようふく</u> を えらびます。",
+            kanji_target: "洋服",
+            sentence_kanji: "デパートで <u>洋服</u> を 選びます。",
+            kanji_options: ["羊服", "洋服", "様服", "洋腹"],
+            hira_options: ["ようふく", "よふく", "ようふぐ", "わふく"],
+            han_viet: "DƯƠNG PHỤC",
+            vi_meaning: "quần áo Tây / âu phục"
+          },
+          {
+            id: 204,
+            hira_target: "きもの",
+            sentence_hira: "おしょうがつに <u>きもの</u> を きます。",
+            kanji_target: "着物",
+            sentence_kanji: "お正月に <u>着物</u> を 着ます。",
+            kanji_options: ["着物", "看物", "着者", "差物"],
+            hira_options: ["きもの", "ちゃくもの", "ぎもの", "きぶつ"],
+            han_viet: "TRƯỚC VẬT",
+            vi_meaning: "kimono, trang phục truyền thống"
+          },
+          {
+            id: 205,
+            hira_target: "かみ",
+            sentence_hira: "しろい <u>かみ</u> に なまえを かいて ください。",
+            kanji_target: "紙",
+            sentence_kanji: "白い <u>紙</u> に 名前を 書いて ください。",
+            kanji_options: ["紙", "細", "組", "絵"],
+            hira_options: ["かみ", "し", "てがみ", "おりがみ"],
+            han_viet: "CHỈ",
+            vi_meaning: "tờ giấy"
+          },
+          {
+            id: 206,
+            hira_target: "さいふ",
+            sentence_hira: "ポケットから <u>さいふ</u> を だしました。",
+            kanji_target: "財布",
+            sentence_kanji: "ポケットから <u>財布</u> を 出しました。",
+            kanji_options: ["財布", "才布", "材布", "財巾"],
+            hira_options: ["さいふ", "ざいふ", "さいほう", "ざいほう"],
+            han_viet: "TÀI BỐ",
+            vi_meaning: "ví tiền"
+          },
+          {
+            id: 207,
+            hira_target: "うわぎ",
+            sentence_hira: "さむいので <u>うわぎ</u> を きましょう。",
+            kanji_target: "上着",
+            sentence_kanji: "寒いので <u>上着</u> を 着ましょう。",
+            kanji_options: ["上着", "上き", "上服", "上著"],
+            hira_options: ["うわぎ", "じょうちゃく", "うえぎ", "うえき"],
+            han_viet: "THƯỢNG TRƯỚC",
+            vi_meaning: "áo khoác ngoài"
+          }
+        ]
+      },
+      {
+        id: "topic_daily_life",
+        name: "3. Đời Sống & Sinh Hoạt Gia Đình",
+        icon: "🏠",
+        desc: "Phòng ốc, dọn dẹp, giặt giũ, sinh hoạt mỗi ngày",
+        questions: [
+          {
+            id: 301,
+            hira_target: "へや",
+            sentence_hira: "じぶんの <u>へや</u> を そうじ しました。",
+            kanji_target: "部屋",
+            sentence_kanji: "自分の <u>部屋</u> を 掃除 しました。",
+            kanji_options: ["部室", "部屋", "都屋", "部居"],
+            hira_options: ["へや", "ぶや", "べや", "ぶしつ"],
+            han_viet: "BỘ ỐC",
+            vi_meaning: "căn phòng"
+          },
+          {
+            id: 302,
+            hira_target: "でんき",
+            sentence_hira: "へやの <u>でんき</u> を けして ください。",
+            kanji_target: "電気",
+            sentence_kanji: "部屋の <u>電気</u> を 消して ください。",
+            kanji_options: ["雷気", "電汽", "電気", "雨気"],
+            hira_options: ["でんき", "でんぎ", "てんき", "てんぎ"],
+            han_viet: "ĐIỆN KHÍ",
+            vi_meaning: "đèn điện, điện"
+          },
+          {
+            id: 303,
+            hira_target: "じゅんび",
+            sentence_hira: "りょこうの <u>じゅんび</u> を はじめます。",
+            kanji_target: "準備",
+            sentence_kanji: "旅行の <u>準備</u> を 始めます。",
+            kanji_options: ["準備", "準偏", "準得", "準備"],
+            hira_options: ["じゅんび", "じゅんぴ", "しゅんび", "じゅんべい"],
+            han_viet: "CHUẨN BỊ",
+            vi_meaning: "chuẩn bị"
+          },
+          {
+            id: 304,
+            hira_target: "まど",
+            sentence_hira: "かぜが つよいので <u>まど</u> を しめます。",
+            kanji_target: "窓",
+            sentence_kanji: "風が 強いので <u>窓</u> を 閉めます。",
+            kanji_options: ["窓", "究", "空", "門"],
+            hira_options: ["まど", "そう", "まんど", "と"],
+            han_viet: "SONG",
+            vi_meaning: "cửa sổ"
+          },
+          {
+            id: 305,
+            hira_target: "だいどころ",
+            sentence_hira: "ははは <u>だいどころ</u> で りょうりを しています。",
+            kanji_target: "台所",
+            sentence_kanji: "母は <u>台所</u> で 料理を しています。",
+            kanji_options: ["台所", "台処", "大所", "台場"],
+            hira_options: ["だいどころ", "たいどころ", "だいじょ", "たいじょ"],
+            han_viet: "ĐÀI SỞ",
+            vi_meaning: "nhà bếp"
+          },
+          {
+            id: 306,
+            hira_target: "おきて",
+            sentence_hira: "まいあさ 6じに <u>おきて</u> います。",
+            kanji_target: "起きて",
+            sentence_kanji: "毎朝 6時に <u>起きて</u> います。",
+            kanji_options: ["起きて", "超きて", "越きて", "赴きて"],
+            hira_options: ["おきて", "たって", "ねて", "あきて"],
+            han_viet: "KHỞI",
+            vi_meaning: "thức dậy"
+          }
+        ]
+      },
+      {
+        id: "topic_traffic_travel",
+        name: "4. Giao Thông & Đi Lại",
+        icon: "🚗",
+        desc: "Tàu điện, xe buýt, sân bay, vé tàu, đi lại",
+        questions: [
+          {
+            id: 401,
+            hira_target: "ちかてつ",
+            sentence_hira: "えきから <u>ちかてつ</u> に のります。",
+            kanji_target: "地下鉄",
+            sentence_kanji: "駅から <u>地下鉄</u> に 乗ります。",
+            kanji_options: ["地下鉄", "地下矢", "地化鉄", "地下線"],
+            hira_options: ["ちかてつ", "じかてつ", "ちげてつ", "ちかてつ"],
+            han_viet: "ĐỊA HẠ THIẾT",
+            vi_meaning: "tàu điện ngầm"
+          },
+          {
+            id: 402,
+            hira_target: "りょこう",
+            sentence_hira: "らいげつ かぞくと <u>りょこう</u> に いきます。",
+            kanji_target: "旅行",
+            sentence_kanji: "来月 家族と <u>旅行</u> に 行きます。",
+            kanji_options: ["旅団", "旅行", "旋行", "旅向"],
+            hira_options: ["りょこう", "りょぎょう", "ろこう", "たびゆき"],
+            han_viet: "LỮ HÀNH",
+            vi_meaning: "du lịch, chuyến đi"
+          },
+          {
+            id: 403,
+            hira_target: "きっぷ",
+            sentence_hira: "でんしゃの <u>きっぷ</u> を かいました。",
+            kanji_target: "切符",
+            sentence_kanji: "電車の <u>切符</u> を 買いました。",
+            kanji_options: ["切符", "切付", "初符", "切竹"],
+            hira_options: ["きっぷ", "きりふ", "きっぷう", "せっぷ"],
+            han_viet: "THIẾT PHÙ",
+            vi_meaning: "vé tàu, vé xe"
+          },
+          {
+            id: 404,
+            hira_target: "のりかえ",
+            sentence_hira: "つぎの えきで <u>のりかえ</u> ます。",
+            kanji_target: "乗り換え",
+            sentence_kanji: "次の 駅で <u>乗り換え</u> ます。",
+            kanji_options: ["乗り換え", "乗り代え", "乗り変え", "乗換へ"],
+            hira_options: ["のりかえ", "のりかへ", "のりへん", "のりか"],
+            han_viet: "THỪA HOÁN",
+            vi_meaning: "chuyển tàu, đổi xe"
+          },
+          {
+            id: 405,
+            hira_target: "どうろ",
+            sentence_hira: "ひろい <u>どうろ</u> を わたります。",
+            kanji_target: "道路",
+            sentence_kanji: "広い <u>道路</u> を 渡ります。",
+            kanji_options: ["道路", "道各", "通路", "道線"],
+            hira_options: ["どうろ", "とうろ", "みちろ", "みちじ"],
+            han_viet: "ĐẠO LỘ",
+            vi_meaning: "con đường, đường sá"
+          },
+          {
+            id: 406,
+            hira_target: "くうこう",
+            sentence_hira: "バスで <u>くうこう</u> へ むかいます。",
+            kanji_target: "空港",
+            sentence_kanji: "バスで <u>空港</u> へ 向かいます。",
+            kanji_options: ["空港", "空向", "空広", "深港"],
+            hira_options: ["くうこう", "そらみなと", "くうごう", "くこう"],
+            han_viet: "KHÔNG CẢNG",
+            vi_meaning: "sân bay"
+          }
+        ]
+      },
+      {
+        id: "topic_work_office",
+        name: "5. Công Việc & Công Sở",
+        icon: "💼",
+        desc: "Họp hành, hướng dẫn, đồng nghiệp, giám đốc, liên lạc",
+        questions: [
+          {
+            id: 501,
+            hira_target: "かいぎ",
+            sentence_hira: "3じから だいじな <u>かいぎ</u> が あります。",
+            kanji_target: "会議",
+            sentence_kanji: "3時から 大事な <u>会議</u> が あります。",
+            kanji_options: ["会議", "開議", "会義", "合議"],
+            hira_options: ["かいぎ", "かいき", "あいき", "えぎ"],
+            han_viet: "HỘI NGHỊ",
+            vi_meaning: "cuộc họp"
+          },
+          {
+            id: 502,
+            hira_target: "あんない",
+            sentence_hira: "おきゃくさまを <u>あんない</u> しました。",
+            kanji_target: "案内",
+            sentence_kanji: "お客様を <u>案内</u> しました。",
+            kanji_options: ["按内", "案肉", "安内", "案内"],
+            hira_options: ["あんない", "あんうち", "やすない", "あんな"],
+            han_viet: "ÁN NỘI",
+            vi_meaning: "hướng dẫn, dẫn đường"
+          },
+          {
+            id: 503,
+            hira_target: "しゃちょう",
+            sentence_hira: "あした <u>しゃちょう</u> と はなします。",
+            kanji_target: "社長",
+            sentence_kanji: "明日 <u>社長</u> と 話します。",
+            kanji_options: ["社長", "社頭", "社帳", "会長"],
+            hira_options: ["しゃちょう", "しゃちょ", "さちょう", "かいちょう"],
+            han_viet: "XÃ TRƯỜNG",
+            vi_meaning: "giám đốc công ty"
+          },
+          {
+            id: 504,
+            hira_target: "れんらく",
+            sentence_hira: "でんわで <u>れんらく</u> して ください。",
+            kanji_target: "連絡",
+            sentence_kanji: "電話で <u>連絡</u> して ください。",
+            kanji_options: ["連絡", "連各", "連格", "蓮絡"],
+            hira_options: ["れんらく", "れんろく", "れんらくう", "れんかく"],
+            han_viet: "LIÊN LẠC",
+            vi_meaning: "liên lạc, thông báo"
+          },
+          {
+            id: 505,
+            hira_target: "やくそく",
+            sentence_hira: "ともだちと <u>やくそく</u> を まもります。",
+            kanji_target: "約束",
+            sentence_kanji: "友達と <u>約束</u> を 守ります。",
+            kanji_options: ["約束", "条束", "約東", "糸束"],
+            hira_options: ["やくそく", "やくぞく", "やっそく", "やくそっ"],
+            han_viet: "ƯỚC THÚC",
+            vi_meaning: "lời hứa, hẹn ước"
+          },
+          {
+            id: 506,
+            hira_target: "しょるい",
+            sentence_hira: "この <u>しょるい</u> に サインを してください。",
+            kanji_target: "書類",
+            sentence_kanji: "この <u>書類</u> に サインを してください。",
+            kanji_options: ["書類", "書米", "諸類", "署類"],
+            hira_options: ["しょるい", "しょらい", "しょりゅう", "ちょるい"],
+            han_viet: "THƯ LOẠI",
+            vi_meaning: "tài liệu, giấy tờ"
+          }
+        ]
+      },
+      {
+        id: "topic_school_study",
+        name: "6. Trường Học & Thi Cử",
+        icon: "🏫",
+        desc: "Bài tập, thi cử, câu hỏi, từ điển, giáo viên",
+        questions: [
+          {
+            id: 601,
+            hira_target: "しけん",
+            sentence_hira: "らいしゅう <u>しけん</u> が あります。",
+            kanji_target: "試験",
+            sentence_kanji: "来週 <u>試験</u> が あります。",
+            kanji_options: ["試倹", "式験", "試検", "試験"],
+            hira_options: ["しけん", "じけん", "しげん", "じげん"],
+            han_viet: "THÍ NGHIỆM",
+            vi_meaning: "kỳ thi, bài kiểm tra"
+          },
+          {
+            id: 602,
+            hira_target: "しつもん",
+            sentence_hira: "せんせいに <u>しつもん</u> を しました。",
+            kanji_target: "質問",
+            sentence_kanji: "先生に <u>質問</u> を しました。",
+            kanji_options: ["質門", "質間", "質問", "賃問"],
+            hira_options: ["しつもん", "しつぶん", "しちもん", "じつもん"],
+            han_viet: "CHẤT VẤN",
+            vi_meaning: "câu hỏi, thắc mắc"
+          },
+          {
+            id: 603,
+            hira_target: "しゅくだい",
+            sentence_hira: "きのうの <u>しゅくだい</u> を だしました。",
+            kanji_target: "宿題",
+            sentence_kanji: "昨日の <u>宿題</u> を 出しました。",
+            kanji_options: ["宿題", "宿頁", "夜題", "宅題"],
+            hira_options: ["しゅくだい", "じゅくだい", "しゅくたい", "しくだい"],
+            han_viet: "TÚC ĐỀ",
+            vi_meaning: "bài tập về nhà"
+          },
+          {
+            id: 604,
+            hira_target: "じしょ",
+            sentence_hira: "ことばの いみを <u>じしょ</u> で ひきます。",
+            kanji_target: "辞書",
+            sentence_kanji: "言葉の 意味を <u>辞書</u> で 引きます。",
+            kanji_options: ["辞書", "乱書", "辛書", "辞昼"],
+            hira_options: ["じしょ", "じしょう", "ししょ", "じじょ"],
+            han_viet: "TỪ THƯ",
+            vi_meaning: "từ điển"
+          },
+          {
+            id: 605,
+            hira_target: "きょうしつ",
+            sentence_hira: "がくせいが <u>きょうしつ</u> に あつまります。",
+            kanji_target: "教室",
+            sentence_kanji: "学生が <u>教室</u> に 集まります。",
+            kanji_options: ["教室", "教屋", "孝室", "校室"],
+            hira_options: ["きょうしつ", "きょうじつ", "こうしつ", "きょうや"],
+            han_viet: "GIÁO THẤT",
+            vi_meaning: "phòng học, lớp học"
+          }
+        ]
+      },
+      {
+        id: "topic_food_dining",
+        name: "7. Ăn Uống & Thực Phẩm",
+        icon: "🍲",
+        desc: "Thịt cá, rau củ, gia vị, nấu ăn, gọi món",
+        questions: [
+          {
+            id: 701,
+            hira_target: "りょうり",
+            sentence_hira: "にほんの <u>りょうり</u> が すきです。",
+            kanji_target: "料理",
+            sentence_kanji: "日本の <u>料理</u> が 好きです。",
+            kanji_options: ["料理", "科理", "料里", "料埋"],
+            hira_options: ["りょうり", "りょり", "りょうれい", "りょうに"],
+            han_viet: "LIỆU LÝ",
+            vi_meaning: "món ăn, nấu ăn"
+          },
+          {
+            id: 702,
+            hira_target: "さかな",
+            sentence_hira: "かわで <u>さかな</u> を つりました。",
+            kanji_target: "魚",
+            sentence_kanji: "川で <u>魚</u> を 釣りました。",
+            kanji_options: ["魚", "角", "魯", "漁"],
+            hira_options: ["さかな", "うお", "ざかな", "ぎょ"],
+            han_viet: "NGƯ",
+            vi_meaning: "con cá"
+          },
+          {
+            id: 703,
+            hira_target: "にく",
+            sentence_hira: "ばんごはんに <u>にく</u> を やきます。",
+            kanji_target: "肉",
+            sentence_kanji: "晩ご飯に <u>肉</u> を 焼きます。",
+            kanji_options: ["肉", "内", "由", "丙"],
+            hira_options: ["にく", "じく", "にぐ", "ねく"],
+            han_viet: "NHỤC",
+            vi_meaning: "thịt"
+          },
+          {
+            id: 704,
+            hira_target: "ちゅうもん",
+            sentence_hira: "レストランで <u>ちゅうもん</u> します。",
+            kanji_target: "注文",
+            sentence_kanji: "レストランで <u>注文</u> します。",
+            kanji_options: ["注文", "注門", "主問", "注間"],
+            hira_options: ["ちゅうもん", "ちゅうぶん", "じゅうもん", "ちゅもん"],
+            han_viet: "CHÚ VĂN",
+            vi_meaning: "gọi món, đặt hàng"
+          },
+          {
+            id: 705,
+            hira_target: "あさごはん",
+            sentence_hira: "まいあさ <u>あさごはん</u> を たべます。",
+            kanji_target: "朝ご飯",
+            sentence_kanji: "毎朝 <u>朝ご飯</u> を 食べます。",
+            kanji_options: ["朝ご飯", "早ご飯", "朝御飯", "朝飯"],
+            hira_options: ["あさごはん", "あさはん", "ちょうはん", "あさめし"],
+            han_viet: "TRIÊU PHẠN",
+            vi_meaning: "bữa sáng"
+          }
+        ]
+      },
+      {
+        id: "topic_nature_weather",
+        name: "8. Thiên Nhiên & Thời Tiết",
+        icon: "🌤️",
+        desc: "Mưa tuyết, gió bão, mùa màng, biển rừng",
+        questions: [
+          {
+            id: 801,
+            hira_target: "ゆき",
+            sentence_hira: "やまの うえに <u>ゆき</u> が あります。",
+            kanji_target: "雪",
+            sentence_kanji: "山の 上に <u>雪</u> が あります。",
+            kanji_options: ["雪", "雷", "雲", "霜"],
+            hira_options: ["ゆき", "でん", "かみなり", "くも"],
+            han_viet: "TUYẾT",
+            vi_meaning: "tuyết"
+          },
+          {
+            id: 802,
+            hira_target: "かぜ",
+            sentence_hira: "きょうは つよい <u>かぜ</u> が ふいています。",
+            kanji_target: "風",
+            sentence_kanji: "今日は 強い <u>風</u> が 吹いています。",
+            kanji_options: ["風", "嵐", "気", "凪"],
+            hira_options: ["かぜ", "ふう", "かじ", "あめ"],
+            han_viet: "PHONG",
+            vi_meaning: "cơn gió"
+          },
+          {
+            id: 803,
+            hira_target: "たいふう",
+            sentence_hira: "あした <u>たいふう</u> が きます。",
+            kanji_target: "台風",
+            sentence_kanji: "明日 <u>台風</u> が 来ます。",
+            kanji_options: ["台風", "大風", "太嵐", "台気"],
+            hira_options: ["たいふう", "だいふう", "たいふ", "たいぶう"],
+            han_viet: "THAI PHONG",
+            vi_meaning: "bão biển"
+          },
+          {
+            id: 804,
+            hira_target: "きせつ",
+            sentence_hira: "にほんには よっつの <u>きせつ</u> が あります。",
+            kanji_target: "季節",
+            sentence_kanji: "日本には 4つの <u>季節</u> が あります。",
+            kanji_options: ["季節", "気節", "季折", "期節"],
+            hira_options: ["きせつ", "きせっ", "きぜつ", "きせち"],
+            han_viet: "QUÝ TIẾT",
+            vi_meaning: "mùa màng trong năm"
+          },
+          {
+            id: 805,
+            hira_target: "じしん",
+            sentence_hira: "きのう ちいさな <u>じしん</u> が ありました。",
+            kanji_target: "地震",
+            sentence_kanji: "昨日 小さな <u>地震</u> が ありました。",
+            kanji_options: ["地震", "地雷", "地震", "地振"],
+            hira_options: ["じしん", "ちしん", "じじん", "ちじん"],
+            han_viet: "ĐỊA CHẤN",
+            vi_meaning: "động đất"
+          }
+        ]
+      },
+      {
+        id: "topic_health_body",
+        name: "9. Sức Khỏe & Y Tế",
+        icon: "🏥",
+        desc: "Bệnh viện, uống thuốc, cảm sốt, cơ thể",
+        questions: [
+          {
+            id: 901,
+            hira_target: "びょういん",
+            sentence_hira: "からだが だるいので <u>びょういん</u> へ いきます。",
+            kanji_target: "病院",
+            sentence_kanji: "体が だるいので <u>病院</u> へ 行きます。",
+            kanji_options: ["病院", "病完", "病園", "病院"],
+            hira_options: ["びょういん", "びょうえん", "びょいん", "びょうかん"],
+            han_viet: "BỆNH VIỆN",
+            vi_meaning: "bệnh viện"
+          },
+          {
+            id: 902,
+            hira_target: "くすり",
+            sentence_hira: "しょくごに <u>くすり</u> を のんで ください。",
+            kanji_target: "薬",
+            sentence_kanji: "食後に <u>薬</u> を 飲んで ください。",
+            kanji_options: ["薬", "菜", "茶", "菓"],
+            hira_options: ["くすり", "ぐすり", "やく", "くす"],
+            han_viet: "DƯỢC",
+            vi_meaning: "thuốc men"
+          },
+          {
+            id: 903,
+            hira_target: "ねつ",
+            sentence_hira: "きのうから <u>ねつ</u> が あります。",
+            kanji_target: "熱",
+            sentence_kanji: "昨日から <u>熱</u> が あります。",
+            kanji_options: ["熱", "熟", "勢", "焼"],
+            hira_options: ["ねつ", "ねっ", "あつ", "ねづ"],
+            han_viet: "NHIỆT",
+            vi_meaning: "sốt, độ nóng"
+          },
+          {
+            id: 904,
+            hira_target: "かぜ",
+            sentence_hira: "ひどい <u>かぜ</u> を ひきました。",
+            kanji_target: "風邪",
+            sentence_kanji: "ひどい <u>風邪</u> を ひきました。",
+            kanji_options: ["風邪", "風邪", "風気", "風牙"],
+            hira_options: ["かぜ", "ふうじゃ", "ふうぜ", "かじ"],
+            han_viet: "PHONG TÀ",
+            vi_meaning: "cảm cúm, trúng gió"
+          },
+          {
+            id: 905,
+            hira_target: "あたま",
+            sentence_hira: "きょうは <u>あたま</u> が いたいです。",
+            kanji_target: "頭",
+            sentence_kanji: "今日は <u>頭</u> が 痛いです。",
+            kanji_options: ["頭", "顔", "首", "頂"],
+            hira_options: ["あたま", "ず", "とう", "かお"],
+            han_viet: "ĐẦU",
+            vi_meaning: "cái đầu, đầu óc"
+          }
+        ]
+      },
+      {
+        id: "topic_adjectives_feelings",
+        name: "10. Tính Từ, Trạng Thái & Cảm Xúc",
+        icon: "🧠",
+        desc: "Phức tạp, thân thiện, quan trọng, chú ý, vội vã",
+        questions: [
+          {
+            id: 1001,
+            hira_target: "ふくざつ",
+            sentence_hira: "この もんだいは <u>ふくざつ</u> です。",
+            kanji_target: "複雑",
+            sentence_kanji: "この 問題は <u>複雑</u> です。",
+            kanji_options: ["複維", "復雑", "複雑", "復維"],
+            hira_options: ["ふくざつ", "ふくさつ", "ふくぜつ", "ふくざっ"],
+            han_viet: "PHỨC TẠP",
+            vi_meaning: "phức tạp, rắc rối"
+          },
+          {
+            id: 1002,
+            hira_target: "しんせつ",
+            sentence_hira: "たなかさんは <u>しんせつ</u> な ひと です。",
+            kanji_target: "親切",
+            sentence_kanji: "田中さんは <u>親切</u> な 人 です。",
+            kanji_options: ["新切", "親折", "親切", "新折"],
+            hira_options: ["しんせつ", "しんせっ", "しんぜつ", "しんきり"],
+            han_viet: "THÂN THIẾT",
+            vi_meaning: "tốt bụng, thân thiện"
+          },
+          {
+            id: 1003,
+            hira_target: "ちゅうい",
+            sentence_hira: "くるまに <u>ちゅうい</u> して あるいて ください。",
+            kanji_target: "注意",
+            sentence_kanji: "車に <u>注意</u> して 歩いて ください。",
+            kanji_options: ["注心", "注思", "注意", "注急"],
+            hira_options: ["ちゅうい", "じゅうい", "しゅうい", "ちゅうえ"],
+            han_viet: "CHÚ Ý",
+            vi_meaning: "cẩn thận, lưu ý"
+          },
+          {
+            id: 1004,
+            hira_target: "いそいで",
+            sentence_hira: "じかんが ないので <u>いそいで</u> ください。",
+            kanji_target: "急いで",
+            sentence_kanji: "時間が ないので <u>急いで</u> ください。",
+            kanji_options: ["悪いで", "息いで", "急いで", "念いで"],
+            hira_options: ["いそいで", "おいそいで", "いそいて", "はしって"],
+            han_viet: "CẤP",
+            vi_meaning: "khẩn cấp, vội vàng"
+          },
+          {
+            id: 1005,
+            hira_target: "たいせつ",
+            sentence_hira: "これは わたしに とって <u>たいせつ</u> な もの です。",
+            kanji_target: "大切",
+            sentence_kanji: "これは 私に とって <u>大切</u> な もの です。",
+            kanji_options: ["大切", "大折", "太切", "犬切"],
+            hira_options: ["たいせつ", "だいせつ", "たいきり", "だいせっ"],
+            han_viet: "ĐẠI THIẾT",
+            vi_meaning: "quan trọng, quý giá"
+          }
+        ]
+      },
+      {
+        id: "topic_core_verbs",
+        name: "11. Động Từ N4 Then Chốt",
+        icon: "🏃",
+        desc: "Các động từ hành động xuất hiện nhiều nhất trong đề thi",
+        questions: [
+          {
+            id: 1101,
+            hira_target: "はこびました",
+            sentence_hira: "トラックで にもつを <u>はこびました</u>。",
+            kanji_target: "運びました",
+            sentence_kanji: "トラックで 荷物を <u>運びました</u>。",
+            kanji_options: ["運びました", "運ひました", "連びました", "軍びました"],
+            hira_options: ["はこびました", "うごびました", "はこひました", "つよびました"],
+            han_viet: "VẬN",
+            vi_meaning: "vận chuyển, dọn đồ"
+          },
+          {
+            id: 1102,
+            hira_target: "しらべて",
+            sentence_hira: "わからない ことばを ネットで <u>しらべて</u> ください。",
+            kanji_target: "調べて",
+            sentence_kanji: "わからない 言葉を ネットで <u>調べて</u> ください。",
+            kanji_options: ["調べて", "調へて", "請べて", "調へて"],
+            hira_options: ["しらべて", "ちょうべて", "ならべて", "くらべて"],
+            han_viet: "ĐIỀU / ĐIỆU",
+            vi_meaning: "tra cứu, tìm hiểu"
+          },
+          {
+            id: 1103,
+            hira_target: "なおして",
+            sentence_hira: "こわれた とけいを <u>なおして</u> もらいました。",
+            kanji_target: "直して",
+            sentence_kanji: "壊れた 時計を <u>直して</u> もらいました。",
+            kanji_options: ["直して", "真して", "植して", "置して"],
+            hira_options: ["なおして", "すなおして", "なおて", "ただして"],
+            han_viet: "TRỰC",
+            vi_meaning: "sửa chữa"
+          },
+          {
+            id: 1104,
+            hira_target: "かして",
+            sentence_hira: "ペンを 1ぽん <u>かして</u> ください。",
+            kanji_target: "貸して",
+            sentence_kanji: "ペンを 1本 <u>貸して</u> ください。",
+            kanji_options: ["貸して", "賃して", "借して", "資して"],
+            hira_options: ["かして", "かりて", "たいして", "かえして"],
+            han_viet: "THẢI",
+            vi_meaning: "cho mượn"
+          },
+          {
+            id: 1105,
+            hira_target: "おもいだして",
+            sentence_hira: "あの ひとの なまえを <u>おもいだして</u> ください。",
+            kanji_target: "思い出して",
+            sentence_kanji: "あの 人の 名前を <u>思い出して</u> ください。",
+            kanji_options: ["思い出して", "思比出して", "念い出して", "想い出して"],
+            hira_options: ["おもいだして", "おもいたして", "しだして", "おもでして"],
+            han_viet: "TƯ XUẤT",
+            vi_meaning: "nhớ ra, hồi tưởng"
+          }
+        ]
+      },
+      {
+        id: "topic_all_random",
+        name: "12. 🎯 Đề Thi Tổng Hợp Toàn Bộ N4",
+        icon: "🏆",
+        desc: "Xáo trộn ngẫu nhiên tất cả các chủ đề để luyện thi toàn diện",
+        questions: [] // Populated dynamically by combining all
+      }
+    ];
+
+    // Build the "All" topic dynamically
+    (function initAllTopic() {
+      const allTopic = COMPREHENSIVE_N4_TOPICS.find(t => t.id === 'topic_all_random');
+      const otherQuestions = [];
+      COMPREHENSIVE_N4_TOPICS.forEach(t => {
+        if (t.id !== 'topic_all_random') {
+          otherQuestions.push(...t.questions);
+        }
+      });
+      allTopic.questions = otherQuestions;
+    })();
+
+
+    /* =========================================================================
+       2. DEFAULT ENGLISH DATASETS
        ========================================================================= */
     const DEFAULT_EN_DECKS = [
       {
@@ -626,216 +1480,12 @@
       }
     ];
 
-    // Authentic JLPT N4 Question Bank (Trích xuất chuẩn đề thi thực tế từ ảnh của bạn)
-    const DEFAULT_JA_TESTS = [
-      {
-        id: "n4_test_official",
-        name: "Đề JLPT N4 Số 1 (Bộ đề trong ảnh mẫu)",
-        questions: [
-          {
-            id: 101,
-            // Mondai 2 (Hira -> Kanji):
-            hira_target: "おくります",
-            sentence_hira: "ふねで にもつを <u>おくります</u>。",
-            kanji_target: "送ります",
-            sentence_kanji: "ふねで にもつを <u>送ります</u>。",
-            kanji_options: ["近ります", "逆ります", "辺ります", "送ります"],
-            hira_options: ["おります", "おくれます", "おきます", "おくります"],
-            han_viet: "TỐNG",
-            vi_meaning: "gửi đồ, tiễn đưa"
-          },
-          {
-            id: 102,
-            hira_target: "あおい",
-            sentence_hira: "すずきさんは <u>あおい</u> シャツを きて います。",
-            kanji_target: "青い",
-            sentence_kanji: "すずきさんは <u>青い</u> シャツを きて います。",
-            kanji_options: ["青い", "黒い", "赤い", "白い"],
-            hira_options: ["あおい", "くろい", "あかい", "しろい"],
-            han_viet: "THANH",
-            vi_meaning: "màu xanh da trời"
-          },
-          {
-            id: 103,
-            hira_target: "ばしょ",
-            sentence_hira: "かいぎの <u>ばしょ</u> を おしえて ください。",
-            kanji_target: "場所",
-            sentence_kanji: "かいぎの <u>場所</u> を おしえて ください。",
-            kanji_options: ["揚炉", "場炉", "揚所", "場所"],
-            hira_options: ["ばしょ", "じょうしょ", "ばじょ", "じょうじょ"],
-            han_viet: "TRƯỜNG SỞ",
-            vi_meaning: "địa điểm, nơi chốn"
-          },
-          {
-            id: 104,
-            hira_target: "あるいて",
-            sentence_hira: "わたしの いえは えきから <u>あるいて</u> 5ふんです。",
-            kanji_target: "歩いて",
-            sentence_kanji: "わたしの いえは えきから <u>歩いて</u> 5分です。",
-            kanji_options: ["走いて", "足いて", "止いて", "歩いて"],
-            hira_options: ["あるいて", "はしって", "およいで", "のぼって"],
-            han_viet: "BỘ",
-            vi_meaning: "đi bộ"
-          },
-          {
-            id: 105,
-            hira_target: "べんり",
-            sentence_hira: "ちかてつが できて <u>べんり</u> に なりました。",
-            kanji_target: "便利",
-            sentence_kanji: "地下鉄が できて <u>便利</u> に なりました。",
-            kanji_options: ["便利", "便理", "使利", "使理"],
-            hira_options: ["べんり", "びんり", "べんれい", "びんれい"],
-            han_viet: "TIỆN LỢI",
-            vi_meaning: "tiện lợi, thuận tiện"
-          },
-          {
-            id: 106,
-            hira_target: "ねむかった",
-            sentence_hira: "とても <u>ねむかった</u>ので、コーヒーを のみました。",
-            kanji_target: "眠かった",
-            sentence_kanji: "とても <u>眠かった</u>ので、コーヒーを 飲みました。",
-            kanji_options: ["眼かった", "瞑かった", "眠かった", "視かった"],
-            hira_options: ["ねむかった", "つかれた", "さむかった", "だるかった"],
-            han_viet: "MIÊN",
-            vi_meaning: "buồn ngủ"
-          },
-          {
-            id: 107,
-            hira_target: "ゆき",
-            sentence_hira: "きょうは <u>ゆき</u> が ふって います。",
-            kanji_target: "雪",
-            sentence_kanji: "今日は <u>雪</u> が 降って います。",
-            kanji_options: ["雪", "電", "雷", "雲"],
-            hira_options: ["ゆき", "でん", "かみなり", "くも"],
-            han_viet: "TUYẾT",
-            vi_meaning: "tuyết rơi"
-          },
-          {
-            id: 108,
-            hira_target: "いそいで",
-            sentence_hira: "じかんが ないので <u>いそいで</u> ください。",
-            kanji_target: "急いで",
-            sentence_kanji: "時間が ないので <u>急いで</u> ください。",
-            kanji_options: ["悪いで", "息いで", "急いで", "念いで"],
-            hira_options: ["いそいで", "おいそいで", "いそいて", "はしって"],
-            han_viet: "CẤP",
-            vi_meaning: "khẩn cấp, vội vã"
-          },
-          {
-            id: 109,
-            hira_target: "あんない",
-            sentence_hira: "まちを <u>あんない</u> して くれました。",
-            kanji_target: "案内",
-            sentence_kanji: "町を <u>案内</u> して くれました。",
-            kanji_options: ["按内", "案肉", "安内", "案内"],
-            hira_options: ["あんない", "あんうち", "やすない", "あんな"],
-            han_viet: "ÁN NỘI",
-            vi_meaning: "hướng dẫn, chỉ dẫn"
-          },
-          {
-            id: 110,
-            hira_target: "ちゅうい",
-            sentence_hira: "くるまに <u>ちゅうい</u> して あるいて ください。",
-            kanji_target: "注意",
-            sentence_kanji: "車に <u>注意</u> して 歩いて ください。",
-            kanji_options: ["注心", "注思", "注意", "注急"],
-            hira_options: ["ちゅうい", "じゅうい", "しゅうい", "ちゅうえ"],
-            han_viet: "CHÚ Ý",
-            vi_meaning: "cẩn thận, chú ý"
-          },
-          {
-            id: 111,
-            hira_target: "ふくざつ",
-            sentence_hira: "この もんだいは <u>ふくざつ</u> です。",
-            kanji_target: "複雑",
-            sentence_kanji: "この 問題は <u>複雑</u> です。",
-            kanji_options: ["複維", "復雑", "複雑", "復維"],
-            hira_options: ["ふくざつ", "ふくさつ", "ふくぜつ", "ふくざっ"],
-            han_viet: "PHỨC TẠP",
-            vi_meaning: "phức tạp, rắc rối"
-          },
-          {
-            id: 112,
-            hira_target: "しけん",
-            sentence_hira: "らいしゅう <u>しけん</u> が あります。",
-            kanji_target: "試験",
-            sentence_kanji: "来週 <u>試験</u> が あります。",
-            kanji_options: ["試倹", "式験", "試検", "試験"],
-            hira_options: ["しけん", "じけん", "しげん", "じげん"],
-            han_viet: "THÍ NGHIỆM",
-            vi_meaning: "kỳ thi, bài kiểm tra"
-          }
-        ]
-      },
-      {
-        id: "n4_test_daily",
-        name: "Đề JLPT N4 Số 2 (Đời sống & Giao thông)",
-        questions: [
-          {
-            id: 201,
-            hira_target: "りょこう",
-            sentence_hira: "らいげつ <u>りょこう</u> に いきます。",
-            kanji_target: "旅行",
-            sentence_kanji: "来月 <u>旅行</u> に 行きます。",
-            kanji_options: ["旅団", "旅行", "旋行", "旅向"],
-            hira_options: ["りょこう", "りょぎょう", "ろこう", "たびゆき"],
-            han_viet: "LỮ HÀNH",
-            vi_meaning: "du lịch, chuyến đi"
-          },
-          {
-            id: 202,
-            hira_target: "でんき",
-            sentence_hira: "へやの <u>でんき</u> を けして ください。",
-            kanji_target: "電気",
-            sentence_kanji: "部屋の <u>電気</u> を 消して ください。",
-            kanji_options: ["雷気", "電汽", "電気", "雨気"],
-            hira_options: ["でんき", "でんぎ", "てんき", "てんぎ"],
-            han_viet: "ĐIỆN KHÍ",
-            vi_meaning: "đèn điện, điện"
-          },
-          {
-            id: 203,
-            hira_target: "しつもん",
-            sentence_hira: "せんせいに <u>しつもん</u> を しました。",
-            kanji_target: "質問",
-            sentence_kanji: "先生に <u>質問</u> を しました。",
-            kanji_options: ["質門", "質間", "質問", "賃問"],
-            hira_options: ["しつもん", "しつぶん", "しちもん", "じつもん"],
-            han_viet: "CHẤT VẤN",
-            vi_meaning: "câu hỏi, thắc mắc"
-          },
-          {
-            id: 204,
-            hira_target: "しんせつ",
-            sentence_hira: "たなかさんは <u>しんせつ</u> な ひと です。",
-            kanji_target: "親切",
-            sentence_kanji: "田中さんは <u>親切</u> な 人 です。",
-            kanji_options: ["新切", "親折", "親切", "新折"],
-            hira_options: ["しんせつ", "しんせっ", "しんぜつ", "しんきり"],
-            han_viet: "THÂN THIẾT",
-            vi_meaning: "tốt bụng, thân thiện"
-          },
-          {
-            id: 205,
-            hira_target: "はこびました",
-            sentence_hira: "おもい にもつを <u>はこびました</u>。",
-            kanji_target: "運びました",
-            sentence_kanji: "重い 荷物を <u>運びました</u>。",
-            kanji_options: ["運びました", "運ひました", "連びました", "軍びました"],
-            hira_options: ["はこびました", "うごびました", "はこひました", "つよびました"],
-            han_viet: "VẬN",
-            vi_meaning: "vận chuyển, khiêng vác"
-          }
-        ]
-      }
-    ];
-
 
     /* =========================================================================
-       2. GLOBAL APP STATE
+       3. GLOBAL APP STATE
        ========================================================================= */
     let globalState = {
-      activeLang: 'en', // 'en' or 'ja'
+      activeLang: 'ja', // Default to Japanese as requested
       soundEnabled: true,
       
       // English state
@@ -857,9 +1507,9 @@
       matchStartTime: 0,
 
       // Japanese JLPT state
-      jaTests: [],
-      currentJaTestId: 'n4_test_official',
-      jaMondai: 'mondai2', // 'mondai2' (Hira -> Kanji, photo) or 'mondai1' (Kanji -> Hira)
+      jaTopics: COMPREHENSIVE_N4_TOPICS,
+      currentJaTopicId: 'topic_exam_official',
+      jaMondai: 'mondai2', // 'mondai2' (Hira -> Kanji, in photo) or 'mondai1' (Kanji -> Hira)
       jaQuizList: [],
       jaIndex: 0,
       jaCorrect: 0,
@@ -874,7 +1524,7 @@
 
 
     /* =========================================================================
-       3. SYNTH AUDIO & SPEECH SYNTHESIS
+       4. SYNTH AUDIO & SPEECH SYNTHESIS
        ========================================================================= */
     function playTone(type) {
       if (!globalState.soundEnabled) return;
@@ -935,7 +1585,7 @@
 
 
     /* =========================================================================
-       4. INITIALIZATION & LANGUAGE SWITCHING
+       5. INITIALIZATION & LANGUAGE SWITCHING
        ========================================================================= */
     window.addEventListener('DOMContentLoaded', () => {
       loadStorage();
@@ -961,19 +1611,16 @@
       }
       globalState.currentEnDeckId = localStorage.getItem('vocab_last_deck_id') || globalState.enDecks[0].id;
 
-      // Japanese storage
-      globalState.jaTests = JSON.parse(JSON.stringify(DEFAULT_JA_TESTS));
-      globalState.currentJaTestId = localStorage.getItem('vocab_ja_test_id') || globalState.jaTests[0].id;
-
-      // Active Language
-      globalState.activeLang = localStorage.getItem('vocab_active_lang') || 'en';
+      // Active Language & Japanese Topic
+      globalState.activeLang = localStorage.getItem('vocab_active_lang') || 'ja';
+      globalState.currentJaTopicId = localStorage.getItem('vocab_ja_topic_id') || 'topic_exam_official';
     }
 
     function saveStorage() {
       localStorage.setItem('vocab_decks_v2', JSON.stringify(globalState.enDecks));
       localStorage.setItem('vocab_last_deck_id', globalState.currentEnDeckId);
       localStorage.setItem('vocab_active_lang', globalState.activeLang);
-      localStorage.setItem('vocab_ja_test_id', globalState.currentJaTestId);
+      localStorage.setItem('vocab_ja_topic_id', globalState.currentJaTopicId);
     }
 
     function showLangSelectModal() {
@@ -1026,31 +1673,97 @@
         brandBadge.className = "text-[10px] bg-rose-50 text-rose-600 border border-rose-200 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider";
         brandLogo.className = "w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-pink-600 flex items-center justify-center text-white font-extrabold text-lg shadow-sm shadow-rose-200 cursor-pointer";
 
-        populateJaTestDropdown();
+        populateJaTopicDropdown();
+        renderJaTopicModalGrid();
         restartJaQuiz();
       }
     }
 
 
     /* =========================================================================
-       5. PHÂN HỆ TIẾNG NHẬT: JLPT N4 EXAM LOGIC
+       6. PHÂN HỆ TIẾNG NHẬT: TOÀN BỘ CHỦ ĐỀ N4 & JLPT EXAM
        ========================================================================= */
-    function populateJaTestDropdown() {
-      const select = document.getElementById('ja-test-select');
-      select.innerHTML = '';
-      globalState.jaTests.forEach(test => {
-        const opt = document.createElement('option');
-        opt.value = test.id;
-        opt.textContent = `${test.name} (${test.questions.length} câu)`;
-        if (test.id === globalState.currentJaTestId) opt.selected = true;
-        select.appendChild(opt);
-      });
+    function getCurrentJaTopic() {
+      return globalState.jaTopics.find(t => t.id === globalState.currentJaTopicId) || globalState.jaTopics[0];
     }
 
-    function changeJaTest(testId) {
-      globalState.currentJaTestId = testId;
+    function populateJaTopicDropdown() {
+      const select = document.getElementById('ja-topic-select');
+      select.innerHTML = '';
+      globalState.jaTopics.forEach((topic, idx) => {
+        const opt = document.createElement('option');
+        opt.value = topic.id;
+        opt.textContent = `${topic.name} (${topic.questions.length} câu)`;
+        if (topic.id === globalState.currentJaTopicId) opt.selected = true;
+        select.appendChild(opt);
+      });
+      updateJaTopicInfoUI();
+    }
+
+    function updateJaTopicInfoUI() {
+      const topic = getCurrentJaTopic();
+      const topicIndex = globalState.jaTopics.findIndex(t => t.id === topic.id) + 1;
+      
+      document.getElementById('header-ja-topic-badge').textContent = `${topicIndex}/${globalState.jaTopics.length}`;
+      document.getElementById('ja-active-topic-icon').textContent = topic.icon;
+      document.getElementById('ja-active-topic-name').textContent = topic.name;
+      document.getElementById('ja-active-topic-count').textContent = `${topic.questions.length} câu hỏi`;
+    }
+
+    function changeJaTopic(topicId) {
+      globalState.currentJaTopicId = topicId;
       saveStorage();
+      populateJaTopicDropdown();
       restartJaQuiz();
+    }
+
+    function openJaTopicModal() {
+      renderJaTopicModalGrid();
+      document.getElementById('modal-ja-topics').classList.remove('hidden');
+    }
+
+    function closeJaTopicModal() {
+      document.getElementById('modal-ja-topics').classList.add('hidden');
+    }
+
+    function selectTopicFromModal(topicId) {
+      changeJaTopic(topicId);
+      closeJaTopicModal();
+    }
+
+    function renderJaTopicModalGrid() {
+      const grid = document.getElementById('ja-topics-grid-modal');
+      grid.innerHTML = '';
+
+      let totalCount = 0;
+      globalState.jaTopics.forEach((topic, idx) => {
+        if (topic.id !== 'topic_all_random') totalCount += topic.questions.length;
+        const isSelected = topic.id === globalState.currentJaTopicId;
+
+        const btn = document.createElement('button');
+        btn.className = `text-left p-4 rounded-2xl border-2 transition flex items-start justify-between gap-3 ${
+          isSelected 
+            ? 'border-rose-500 bg-rose-50/60 shadow-xs' 
+            : 'border-slate-200 hover:border-rose-300 hover:bg-slate-50'
+        }`;
+        btn.innerHTML = `
+          <div class="flex items-start gap-3">
+            <span class="text-2xl p-2 rounded-xl bg-white border border-slate-100 shadow-2xs">${topic.icon}</span>
+            <div>
+              <h4 class="font-extrabold text-slate-900 text-sm ${isSelected ? 'text-rose-900' : ''}">${topic.name}</h4>
+              <p class="text-[11px] text-slate-500 mt-0.5 line-clamp-1">${topic.desc}</p>
+              <span class="inline-block mt-2 text-[10px] font-bold px-2 py-0.5 rounded-full ${isSelected ? 'bg-rose-600 text-white' : 'bg-slate-100 text-slate-600'}">
+                ${topic.questions.length} câu hỏi
+              </span>
+            </div>
+          </div>
+          ${isSelected ? '<span class="text-rose-600 font-bold text-xs">Đang chọn ✓</span>' : ''}
+        `;
+        btn.onclick = () => selectTopicFromModal(topic.id);
+        grid.appendChild(btn);
+      });
+
+      document.getElementById('ja-total-all-questions').textContent = totalCount;
     }
 
     function setJaMondai(mondai) {
@@ -1069,13 +1782,9 @@
       restartJaQuiz();
     }
 
-    function getCurrentJaTest() {
-      return globalState.jaTests.find(t => t.id === globalState.currentJaTestId) || globalState.jaTests[0];
-    }
-
     function restartJaQuiz(sourceList = null) {
-      const test = getCurrentJaTest();
-      globalState.jaQuizList = sourceList ? [...sourceList] : shuffleArray([...test.questions]);
+      const topic = getCurrentJaTopic();
+      globalState.jaQuizList = sourceList ? [...sourceList] : shuffleArray([...topic.questions]);
       globalState.jaIndex = 0;
       globalState.jaCorrect = 0;
       globalState.jaWrong = 0;
@@ -1105,11 +1814,9 @@
       const pct = (globalState.jaIndex / total) * 100;
       document.getElementById('ja-progress-fill').style.width = `${pct}%`;
 
-      document.getElementById('ja-current-number').textContent = globalState.jaIndex + 10; // Like exam index in image
+      document.getElementById('ja-current-number').textContent = globalState.jaIndex + 1;
 
       const isMondai2 = globalState.jaMondai === 'mondai2';
-      
-      // Instruction text
       const badge = document.getElementById('ja-mondai-badge');
       const instruction = document.getElementById('ja-instruction-text');
       const sentenceElem = document.getElementById('ja-question-sentence');
@@ -1120,7 +1827,7 @@
       nextBtn.classList.add('hidden');
 
       if (isMondai2) {
-        // MONDAI 2: Hiragana -> Choose Kanji (Exactly matching the photo!)
+        // MONDAI 2: Hiragana -> Choose Kanji (Exactly matching photo!)
         badge.textContent = "もんだい 2 (Cách viết chữ Hán)";
         instruction.textContent = "____ の ことばは どう かきますか。1・2・3・4 から いちばん いい ものを ひとつ えらんで ください。";
         sentenceElem.innerHTML = currentJaItem.sentence_hira;
@@ -1137,9 +1844,6 @@
     function renderJaOptions(options, correctAnswer) {
       const container = document.getElementById('ja-options-grid');
       container.innerHTML = '';
-
-      // Circled numbers matching JLPT answer sheet: ① ② ③ ④
-      const circleNums = ['①', '②', '③', '④'];
 
       options.forEach((opt, idx) => {
         const btn = document.createElement('button');
@@ -1270,7 +1974,7 @@
 
 
     /* =========================================================================
-       6. PHÂN HỆ TIẾNG ANH (QUIZLET STYLE: MCQ, TYPING, FLASHCARD, MATCH)
+       7. PHÂN HỆ TIẾNG ANH (QUIZLET STYLE)
        ========================================================================= */
     function populateEnDeckDropdown() {
       const select = document.getElementById('deck-select');
@@ -1830,7 +2534,7 @@
 
 
     /* =========================================================================
-       7. KEYBOARD SHORTCUTS
+       8. KEYBOARD SHORTCUTS
        ========================================================================= */
     function setupKeyboardListeners() {
       window.addEventListener('keydown', (e) => {

@@ -1,8 +1,8 @@
-# ⚡ StudyMaster - Web Luyện Từ Vựng Song Ngữ (Tiếng Anh & Tiếng Nhật JLPT N4)
+# ⚡ StudyMaster - Web Luyện Từ Vựng Song Ngữ (Tiếng Anh & Trọn Bộ JLPT N4)
 
 Ứng dụng web học và ôn luyện từ vựng thông minh, giao diện trực quan, dễ nhìn, tích hợp 2 phân hệ chuyên sâu:
-1. **🇬🇧 Tiếng Anh (Quizlet Style):** 4 chế độ học (Trắc nghiệm, Gõ từ, Flashcard, Ghép thẻ).
-2. **🇯🇵 Tiếng Nhật (JLPT N4 Mock Exam):** Mô phỏng đề thi thực tế JLPT N4 (Nhìn Hira khoanh Kanji / Nhìn Kanji khoanh Hira).
+1. **🇯🇵 Tiếng Nhật (JLPT N4 Comprehensive):** Trọn bộ từ vựng & Kanji N4 chia thành 12 chủ đề thực tế mô phỏng đề thi JLPT N4 (Nhìn Hira khoanh Kanji / Nhìn Kanji khoanh Hira).
+2. **🇬🇧 Tiếng Anh (Quizlet Style):** 4 chế độ học (Trắc nghiệm, Gõ từ, Flashcard, Ghép thẻ).
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -10,35 +10,38 @@
 
 ---
 
-## ✨ Điểm Nổi Bật
+## 🇯🇵 Trọn Bộ 12 Chủ Đề Tiếng Nhật N4 Đã Tích Hợp
 
-### 🇯🇵 Phân Hệ Tiếng Nhật (JLPT N4)
-- **Chuẩn mẫu đề thi JLPT N4:**
-  - **もんだい 2:** ____ の ことばは どう かきますか (Nhìn từ Hiragana gạch chân trong câu $\to$ Khoanh chữ Kanji viết đúng).
-  - **もんだい 1:** ____ の ことばは どう よみますか (Nhìn chữ Kanji gạch chân trong câu $\to$ Khoanh cách đọc Hiragana đúng).
-- **Bộ đề N4 tích hợp sẵn:** Bao gồm các câu hỏi chuẩn đề thi mẫu (*青い, 場所, 歩いて, 便利, 眠かった, 雪, 送ります, 急いで, 案内, 注意...*).
-- **Giải nghĩa chi tiết:** Hiển thị âm Hán Việt và nghĩa tiếng Việt ngay khi chọn.
-- **Phát âm tiếng Nhật chuẩn (`ja-JP`)** qua Web Speech API.
-- **Luyện lại câu sai:** Nút ôn luyện riêng các câu làm sai cho đến khi đạt điểm tối đa.
+Toàn bộ từ vựng và chữ Hán N4 được phân loại bài bản thành các nhóm chủ đề đời sống, có ngữ cảnh câu gạch chân và giải nghĩa Hán Việt:
 
-### 🇬🇧 Phân Hệ Tiếng Anh (Quizlet Style)
+1. **📝 Đề Mẫu Chuẩn JLPT N4 (Bộ đề trong ảnh):** 送ります, 青い, 場所, 歩いて, 便利, 眠かった, 雪...
+2. **🛋️ Vật Dụng, Đồ Đạc & Trang Phục:** 荷物, 時計, 洋服, 着物, 紙, 財布, 上着...
+3. **🏠 Đời Sống & Sinh Hoạt Gia Đình:** 部屋, 電気, 準備, 窓, 台所, 起きて...
+4. **🚗 Giao Thông & Đi Lại:** 地下鉄, 旅行, 切符, 乗り換え, 道路, 空港...
+5. **💼 Công Việc & Công Sở:** 会議, 案内, 社長, 連絡, 約束, 書類...
+6. **🏫 Trường Học & Thi Cử:** 試験, 質問, 宿題, 辞書, 教室...
+7. **🍲 Ăn Uống & Thực Phẩm:** 料理, 魚, 肉, 注文, 朝ご飯...
+8. **🌤️ Thiên Nhiên & Thời Tiết:** 雪, 風, 台風, 季節, 地震...
+9. **🏥 Sức Khỏe & Y Tế:** 病院, 薬, 熱, 風邪, 頭...
+10. **🧠 Tính Từ, Trạng Thái & Cảm Xúc:** 複雑, 親切, 注意, 急いで, 大切...
+11. **🏃 Động Từ N4 Then Chốt:** 運びました, 調べて, 直して, 貸して, 思い出して...
+12. **🎯 Đề Thi Tổng Hợp Toàn Bộ N4:** Trộn ngẫu nhiên tất cả các chủ đề để luyện thi toàn diện.
+
+### Dạng đề thi chuẩn JLPT:
+- **もんだい 2 (Nhìn Hira ➔ Khoanh Kanji):** Cho câu có chữ Hiragana gạch chân $\to$ Chọn chữ Hán đúng.
+- **もんだい 1 (Nhìn Kanji ➔ Khoanh Hira):** Cho câu có chữ Kanji gạch chân $\to$ Chọn cách đọc đúng.
+- **Phím tắt:** `1, 2, 3, 4` để khoanh đáp án, `Enter` / `Space` để qua câu tiếp theo.
+- **Giải nghĩa:** Hiển thị âm Hán Việt và nghĩa tiếng Việt đầy đủ sau mỗi câu.
+- **Vòng lặp làm lại câu sai:** Học lại riêng các câu làm sai cho đến khi thuộc.
+
+---
+
+## 🇬🇧 Phân Hệ Tiếng Anh (Quizlet Style)
 - **4 Chế độ học tập:** Trắc nghiệm 4 đáp án, Gõ từ điền chữ (có gợi ý), Thẻ lật 3D Flashcard, Mini-game Nối từ nhanh.
 - **Quản lý nhiều bộ từ (Decks):** Tạo, sửa, xoá và nạp dữ liệu hàng loạt từ Excel/Google Sheets.
-- **Âm thanh chuẩn Offline:** Tự động tổng hợp âm thanh hiệu ứng bằng Web Audio API.
-
-### 🔄 Chuyển Đổi Ngôn Ngữ Linh Hoạt
-- Màn hình chọn ngôn ngữ thân thiện khi vừa vào web.
-- Nút chuyển đổi nhanh `[ 🇬🇧 Tiếng Anh | 🇯🇵 Tiếng Nhật (N4) ]` luôn có sẵn trên Header.
 
 ---
 
 ## 🚀 Hướng Dẫn Sử Dụng
 1. Nhấp đúp vào file `start.bat` (hoặc mở trực tiếp file `index.html` bằng trình duyệt).
-2. Chọn ngôn ngữ bạn muốn học và bắt đầu luyện tập!
-
----
-
-## ⌨️ Phím Tắt Tiện Lợi
-- `1`, `2`, `3`, `4`: Chọn đáp án trắc nghiệm.
-- `Enter` / `Space`: Kiểm tra hoặc chuyển sang câu hỏi tiếp theo.
-- `←` / `→`: Chuyển từ ở chế độ Flashcard.
+2. Chọn chủ đề bạn muốn luyện tập và bấm bắt đầu!
