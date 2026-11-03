@@ -2274,12 +2274,7 @@
         badge.textContent = "もんだい 2 (Nhìn Hira ➔ Chọn chữ Hán Kanji)";
         instruction.textContent = "____ の ことばは どう かきますか。1・2・3・4 から いちばん いい ものを ひとつ えらんで ください。";
         sentenceElem.innerHTML = `
-          <div class="py-1">
-            <div class="text-xs sm:text-sm text-slate-500 font-sans font-semibold mb-1.5 flex items-center justify-center gap-1.5">
-              <span>Nghĩa tiếng Việt:</span>
-              <strong class="text-slate-800 bg-white px-2.5 py-0.5 rounded-lg border border-slate-200">${currentJaItem.vi_meaning}</strong>
-              ${currentJaItem.romaji ? `<span class="text-slate-400 font-mono">(${currentJaItem.romaji})</span>` : ''}
-            </div>
+          <div class="py-2 sm:py-3">
             <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-wider">
               「 <span class="jlpt-underline text-rose-600 font-extrabold">${currentJaItem.hira_target}</span> 」
             </div>
@@ -2290,12 +2285,7 @@
         badge.textContent = "もんだい 1 (Nhìn Kanji ➔ Chọn cách đọc Hiragana)";
         instruction.textContent = "____ の ことばは どう よみますか。1・2・3・4 から いちばん いい ものを ひとつ えらんで ください。";
         sentenceElem.innerHTML = `
-          <div class="py-1">
-            <div class="text-xs sm:text-sm text-slate-500 font-sans font-semibold mb-1.5 flex items-center justify-center gap-1.5">
-              <span>Nghĩa tiếng Việt:</span>
-              <strong class="text-slate-800 bg-white px-2.5 py-0.5 rounded-lg border border-slate-200">${currentJaItem.vi_meaning}</strong>
-              ${currentJaItem.romaji ? `<span class="text-slate-400 font-mono">(${currentJaItem.romaji})</span>` : ''}
-            </div>
+          <div class="py-2 sm:py-3">
             <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-wider font-japanese">
               「 <span class="jlpt-underline text-rose-600 font-extrabold">${currentJaItem.kanji_target}</span> 」
             </div>
