@@ -1,7 +1,8 @@
-const CACHE_NAME = 'studymaster-v3';
+const CACHE_NAME = 'studymaster-v4';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
+  './n4_quiz_data.js',
   './manifest.json',
   './icons/icon-192.png',
   './icons/icon-512.png',
