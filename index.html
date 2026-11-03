@@ -844,6 +844,44 @@
   </div>
 
 
+  <!-- ================= MODAL: THÔNG BÁO NHẮC HỌC & GIỮ CHUỖI ================= -->
+  <div id="modal-notification" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-5 sm:p-6 max-w-sm w-full shadow-2xl border border-slate-200 text-center animate-in fade-in duration-200">
+      <div class="w-12 h-12 mx-auto rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-3 shadow-xs">
+        🔔
+      </div>
+      <h3 class="text-base sm:text-lg font-extrabold text-slate-900">Thông Báo Nhắc Giữ Chuỗi</h3>
+      <p class="text-xs text-slate-500 mt-1">
+        Qua <strong>12h đêm</strong> chưa học là mất chuỗi! Bật thông báo để StudyMaster tự động nhắc bạn trước khi hết ngày.
+      </p>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 my-4 text-left">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-bold text-slate-700">Trạng thái quyền:</span>
+          <span id="notif-permission-status" class="text-xs font-extrabold px-2 py-0.5 rounded-full bg-slate-200 text-slate-700">Chưa kiểm tra</span>
+        </div>
+        <p class="text-[11px] text-slate-500 leading-relaxed" id="notif-guide-text">
+          Nhấn nút bên dưới để cấp quyền nhận thông báo trên máy tính hoặc điện thoại của bạn.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <button id="btn-request-notif" onclick="enableNotifications()" class="w-full py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold text-xs rounded-xl shadow-md transition active:scale-95 flex items-center justify-center gap-1.5">
+          <span>🔔</span> <span>Bật thông báo nhắc nhở</span>
+        </button>
+
+        <button onclick="testNotificationNow()" class="w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition flex items-center justify-center gap-1.5">
+          <span>🚀</span> <span>Gửi thử 1 thông báo ngay</span>
+        </button>
+
+        <button onclick="closeNotificationModal()" class="w-full py-2 text-slate-400 hover:text-slate-600 text-xs font-semibold">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
+
   <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
     /* =========================================================================
@@ -1704,38 +1742,83 @@
 
 
     /* =========================================================================
-       4. DUOLINGO MODAL & SEPARATE STREAK SYSTEM (≥ 15/20 CÂU ĐỂ TẠO CHUỖI)
+       4. DUOLINGO MODAL, NOTIFICATIONS & MIDNIGHT STREAK RESET
+          QUY TẮC NỬA ĐÊM: QUA 12H ĐÊM (24:00) CHƯA CÓ CHUỖI LÀ MẤT CHUỖI!
        ========================================================================= */
     function getTodayString() {
       const now = new Date();
-      return now.toISOString().split('T')[0]; // 'YYYY-MM-DD'
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    function getDaysDifference(fromDateStr, toDateStr) {
+      if (!fromDateStr || !toDateStr) return 999;
+      const from = new Date(fromDateStr + 'T00:00:00');
+      const to = new Date(toDateStr + 'T00:00:00');
+      const diffMs = to.getTime() - from.getTime();
+      return Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    }
+
+    function getTimeUntilMidnight() {
+      const now = new Date();
+      const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
+      const diffMs = Math.max(0, midnight.getTime() - now.getTime());
+      const hours = Math.floor(diffMs / (1000 * 60 * 60));
+      const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+      return { hours, minutes };
+    }
+
+    // KIỂM TRA MẤT CHUỖI: QUA 12H ĐÊM HÔM QUA CHƯA HỌC THÌ CÀI LẠI VỀ 0
+    function checkAndResetStreak(streakObj, lang) {
+      const today = getTodayString();
+      if (!streakObj.lastDate) {
+        streakObj.count = 0;
+        streakObj.todayCount = 0;
+        return false;
+      }
+
+      const diff = getDaysDifference(streakObj.lastDate, today);
+      if (diff === 0) {
+        // Đã hoàn thành trong ngày hôm nay
+        streakObj.todayCount = DAILY_STREAK_TARGET;
+        return false;
+      } else if (diff === 1) {
+        // Đã hoàn thành ngày hôm qua, hôm nay đang diễn ra (chờ người học trước 12h đêm)
+        streakObj.todayCount = 0;
+        return false;
+      } else {
+        // diff >= 2: Đã qua 12h đêm hôm qua mà chưa hoàn thành bài -> MẤT CHUỖI!
+        const wasActive = (streakObj.count || 0) > 0;
+        streakObj.count = 0;
+        streakObj.todayCount = 0;
+        saveStreakData(lang);
+        return wasActive;
+      }
     }
 
     function loadStreakData() {
-      const today = getTodayString();
-
       // Load English Streak
       const savedEnStreak = localStorage.getItem('studymaster_en_streak');
       if (savedEnStreak) {
-        try {
-          const parsed = JSON.parse(savedEnStreak);
-          globalState.enStreak = parsed;
-          if (parsed.lastDate !== today) {
-            globalState.enStreak.todayCount = 0;
-          }
-        } catch (e) {}
+        try { globalState.enStreak = JSON.parse(savedEnStreak); } catch (e) {}
       }
+      const lostEn = checkAndResetStreak(globalState.enStreak, 'en');
 
       // Load Japanese Streak (ĐỘC LẬP)
       const savedJaStreak = localStorage.getItem('studymaster_ja_streak');
       if (savedJaStreak) {
-        try {
-          const parsed = JSON.parse(savedJaStreak);
-          globalState.jaStreak = parsed;
-          if (parsed.lastDate !== today) {
-            globalState.jaStreak.todayCount = 0;
-          }
-        } catch (e) {}
+        try { globalState.jaStreak = JSON.parse(savedJaStreak); } catch (e) {}
+      }
+      const lostJa = checkAndResetStreak(globalState.jaStreak, 'ja');
+
+      if (lostEn || lostJa) {
+        const lostWhat = (lostEn && lostJa) ? 'cả TOEIC và Nhật N4' : (lostEn ? 'TOEIC' : 'Nhật N4');
+        sendAppNotification('⚠️ Chuỗi ngày đã bị mất!', {
+          body: `Do qua 12h đêm hôm qua chưa hoàn thành bài học ${lostWhat}, chuỗi đã bị cài lại về 0. Hãy làm 20 câu hôm nay để bắt đầu lại chuỗi mới nhé!`,
+          tag: 'studymaster-streak-lost'
+        });
       }
 
       updateStreakUI('en');
@@ -1753,21 +1836,34 @@
 
     function updateStreakUI(lang) {
       const today = getTodayString();
+      const timeLeft = getTimeUntilMidnight();
+
       if (lang === 'en') {
         const s = globalState.enStreak;
-        document.getElementById('en-streak-badge').textContent = `🔥 ${s.count} ngày liên tiếp`;
         const isDoneToday = s.lastDate === today;
+        const badge = document.getElementById('en-streak-badge');
         const subElem = document.getElementById('en-streak-subtext');
         const fillElem = document.getElementById('en-daily-fill');
+
+        if (badge) {
+          badge.textContent = (s.count && s.count > 0) ? `🔥 ${s.count} ngày liên tiếp` : `🔥 0 ngày (Chưa tạo chuỗi)`;
+          badge.className = (s.count && s.count > 0) 
+            ? 'bg-blue-600 text-white font-extrabold text-xs px-2 py-0.2 rounded-full' 
+            : 'bg-slate-200 text-slate-700 font-bold text-xs px-2 py-0.2 rounded-full';
+        }
+
         if (isDoneToday) {
-          if (subElem) subElem.innerHTML = `✅ <strong class="text-emerald-700 font-bold">Đã hoàn thành mục tiêu hôm nay! Chuỗi an toàn.</strong>`;
+          if (subElem) subElem.innerHTML = `✅ <strong class="text-emerald-700 font-bold">Đã hoàn thành hôm nay! Chuỗi an toàn đến 12h đêm mai.</strong>`;
           if (fillElem) {
             fillElem.style.width = '100%';
             fillElem.className = 'bg-emerald-500 h-2 rounded-full transition-all duration-300';
           }
         } else {
           const curIndex = Math.min((globalState.enIndex || 0) + 1, DAILY_STREAK_TARGET);
-          if (subElem) subElem.innerHTML = `Thử thách hôm nay: <strong id="en-daily-counter">${curIndex} / ${DAILY_STREAK_TARGET} câu (Cần đúng ≥ ${STREAK_PASS_THRESHOLD})</strong>`;
+          const deadlineNotice = `<span class="text-amber-800 text-[10px] block font-bold mt-0.5">⏰ Trước 12h đêm kẻo mất chuỗi (còn ${timeLeft.hours}h ${timeLeft.minutes}p)</span>`;
+          if (subElem) {
+            subElem.innerHTML = `Thử thách: <strong id="en-daily-counter">${curIndex} / ${DAILY_STREAK_TARGET} câu (≥ ${STREAK_PASS_THRESHOLD} câu đúng)</strong> ${deadlineNotice}`;
+          }
           const pct = Math.min(((globalState.enIndex || 0) / DAILY_STREAK_TARGET) * 100, 100);
           if (fillElem) {
             fillElem.style.width = `${pct}%`;
@@ -1776,19 +1872,30 @@
         }
       } else {
         const s = globalState.jaStreak;
-        document.getElementById('ja-streak-badge').textContent = `🔥 ${s.count} ngày liên tiếp`;
         const isDoneToday = s.lastDate === today;
+        const badge = document.getElementById('ja-streak-badge');
         const subElem = document.getElementById('ja-streak-subtext');
         const fillElem = document.getElementById('ja-daily-fill');
+
+        if (badge) {
+          badge.textContent = (s.count && s.count > 0) ? `🔥 ${s.count} ngày liên tiếp` : `🔥 0 ngày (Chưa tạo chuỗi)`;
+          badge.className = (s.count && s.count > 0) 
+            ? 'bg-rose-600 text-white font-extrabold text-xs px-2 py-0.2 rounded-full' 
+            : 'bg-slate-200 text-slate-700 font-bold text-xs px-2 py-0.2 rounded-full';
+        }
+
         if (isDoneToday) {
-          if (subElem) subElem.innerHTML = `✅ <strong class="text-rose-700 font-bold">Đã hoàn thành N4 hôm nay! Chuỗi an toàn.</strong>`;
+          if (subElem) subElem.innerHTML = `✅ <strong class="text-rose-700 font-bold">Đã hoàn thành N4 hôm nay! Chuỗi an toàn đến 12h đêm mai.</strong>`;
           if (fillElem) {
             fillElem.style.width = '100%';
             fillElem.className = 'bg-rose-500 h-2 rounded-full transition-all duration-300';
           }
         } else {
           const curIndex = Math.min((globalState.jaIndex || 0) + 1, DAILY_STREAK_TARGET);
-          if (subElem) subElem.innerHTML = `Thử thách hôm nay: <strong id="ja-daily-counter">${curIndex} / ${DAILY_STREAK_TARGET} câu (Cần đúng ≥ ${STREAK_PASS_THRESHOLD})</strong>`;
+          const deadlineNotice = `<span class="text-rose-800 text-[10px] block font-bold mt-0.5">⏰ Trước 12h đêm kẻo mất chuỗi (còn ${timeLeft.hours}h ${timeLeft.minutes}p)</span>`;
+          if (subElem) {
+            subElem.innerHTML = `Thử thách: <strong id="ja-daily-counter">${curIndex} / ${DAILY_STREAK_TARGET} câu (≥ ${STREAK_PASS_THRESHOLD} câu đúng)</strong> ${deadlineNotice}`;
+          }
           const pct = Math.min(((globalState.jaIndex || 0) / DAILY_STREAK_TARGET) * 100, 100);
           if (fillElem) {
             fillElem.style.width = `${pct}%`;
@@ -1811,6 +1918,154 @@
         `Bạn đã hoàn thành 20 câu và đạt <strong>${correctCount}/${totalQuestions} câu đúng</strong> (Đạt chuẩn ≥ ${STREAK_PASS_THRESHOLD} câu)!`;
       
       modal.classList.remove('hidden');
+    }
+
+    /* =========================================================================
+       HỆ THỐNG THÔNG BÁO BROWSER & NHẮC NHỞ QUA 12H ĐÊM
+       ========================================================================= */
+    function openNotificationModal() {
+      updateNotificationModalUI();
+      document.getElementById('modal-notification').classList.remove('hidden');
+    }
+
+    function closeNotificationModal() {
+      document.getElementById('modal-notification').classList.add('hidden');
+    }
+
+    function updateNotificationModalUI() {
+      const statusElem = document.getElementById('notif-permission-status');
+      const guideElem = document.getElementById('notif-guide-text');
+      const btn = document.getElementById('btn-request-notif');
+      
+      if (!('Notification' in window)) {
+        statusElem.textContent = 'Không hỗ trợ';
+        statusElem.className = 'text-xs font-extrabold px-2 py-0.5 rounded-full bg-slate-200 text-slate-500';
+        guideElem.textContent = 'Trình duyệt này không hỗ trợ Web Notification API.';
+        btn.disabled = true;
+        return;
+      }
+
+      if (Notification.permission === 'granted') {
+        statusElem.textContent = '✓ Đang bật';
+        statusElem.className = 'text-xs font-extrabold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800';
+        guideElem.textContent = 'StudyMaster sẽ nhắc bạn trước 12h đêm mỗi khi bạn chưa hoàn thành bài để bảo vệ chuỗi Streak.';
+        btn.innerHTML = '<span>🔔</span> <span>Đã bật thông báo</span>';
+        btn.classList.add('opacity-70');
+      } else if (Notification.permission === 'denied') {
+        statusElem.textContent = '✗ Đã chặn';
+        statusElem.className = 'text-xs font-extrabold px-2 py-0.5 rounded-full bg-rose-100 text-rose-800';
+        guideElem.textContent = 'Bạn đã chặn thông báo. Hãy bấm vào biểu tượng ổ khóa 🔒 trên thanh địa chỉ trình duyệt để Bật lại nhé.';
+      } else {
+        statusElem.textContent = 'Chưa bật';
+        statusElem.className = 'text-xs font-extrabold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800';
+        guideElem.textContent = 'Bấm nút bên dưới để cấp quyền nhận thông báo nhắc học trước 12h đêm kẻo mất chuỗi.';
+        btn.innerHTML = '<span>🔔</span> <span>Bật thông báo nhắc nhở</span>';
+        btn.classList.remove('opacity-70');
+      }
+      initNotificationStatus();
+    }
+
+    async function enableNotifications() {
+      if (!('Notification' in window)) {
+        alert('Trình duyệt của bạn không hỗ trợ Web Notification.');
+        return;
+      }
+      try {
+        const permission = await Notification.requestPermission();
+        updateNotificationModalUI();
+        if (permission === 'granted') {
+          sendAppNotification('🔔 Thông Báo Đã Bật Thành Công!', {
+            body: 'StudyMaster sẽ nhắc bạn trước 12h đêm mỗi ngày để không bao giờ bị đứt chuỗi Streak 🔥!',
+            tag: 'studymaster-welcome'
+          });
+        }
+      } catch (err) {
+        console.error('Lỗi cấp quyền thông báo:', err);
+      }
+    }
+
+    function testNotificationNow() {
+      if (!('Notification' in window) || Notification.permission !== 'granted') {
+        enableNotifications();
+        return;
+      }
+      sendAppNotification('🔥 Thử Nghiệm Thông Báo StudyMaster', {
+        body: 'Tuyệt vời! Thiết bị của bạn đã sẵn sàng nhận cảnh báo giữ chuỗi trước 12h đêm.',
+        tag: 'studymaster-test'
+      });
+    }
+
+    function sendAppNotification(title, options = {}) {
+      if (!('Notification' in window) || Notification.permission !== 'granted') return;
+      const defaultOptions = {
+        icon: './icons/icon-192.png',
+        badge: './icons/icon-192.png',
+        vibrate: [200, 100, 200],
+        ...options
+      };
+
+      if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.ready.then(reg => {
+          reg.showNotification(title, defaultOptions);
+        }).catch(() => {
+          try { new Notification(title, defaultOptions); } catch (e) {}
+        });
+      } else {
+        try { new Notification(title, defaultOptions); } catch (e) {}
+      }
+    }
+
+    function initNotificationStatus() {
+      const dot = document.getElementById('notif-badge-dot');
+      if ('Notification' in window && Notification.permission === 'granted') {
+        if (dot) dot.classList.remove('hidden');
+      } else {
+        if (dot) dot.classList.add('hidden');
+      }
+    }
+
+    // NHẮC NHỞ HỌC BUỔI TỐI NẾU CHƯA ĐẠT CHUỖI
+    function checkDailyStreakReminders() {
+      if (!('Notification' in window) || Notification.permission !== 'granted') return;
+      const today = getTodayString();
+      const now = new Date();
+      const currentHour = now.getHours();
+      
+      const isEnDone = globalState.enStreak && globalState.enStreak.lastDate === today;
+      const isJaDone = globalState.jaStreak && globalState.jaStreak.lastDate === today;
+
+      if (isEnDone && isJaDone) return; // Đã xong hết
+
+      const lastRemindDate = localStorage.getItem('studymaster_last_reminder_date');
+      const lastRemindHour = parseInt(localStorage.getItem('studymaster_last_reminder_hour') || '0', 10);
+
+      if (currentHour >= 20 && (lastRemindDate !== today || lastRemindHour < 20)) {
+        const unDoneText = (!isEnDone && !isJaDone) ? 'cả TOEIC và Nhật N4' : (!isEnDone ? 'TOEIC' : 'Nhật N4');
+        sendAppNotification('🔥 Nhắc Nhở Giữ Chuỗi StudyMaster!', {
+          body: `Bạn chưa hoàn thành thử thách ${unDoneText} hôm nay. Mau học trước 12h đêm kẻo mất chuỗi nhé!`,
+          tag: 'studymaster-evening-reminder'
+        });
+        localStorage.setItem('studymaster_last_reminder_date', today);
+        localStorage.setItem('studymaster_last_reminder_hour', currentHour.toString());
+      }
+    }
+
+    // GIÁM SÁT QUA 12H ĐÊM THỜI GIAN THỰC
+    let lastCheckedMidnightDate = getTodayString();
+
+    function startMidnightWatcher() {
+      setInterval(() => {
+        const today = getTodayString();
+        updateStreakUI('en');
+        updateStreakUI('ja');
+
+        if (today !== lastCheckedMidnightDate) {
+          lastCheckedMidnightDate = today;
+          // Qua 12h đêm: Tự động kiểm tra và cài lại chuỗi nếu hôm qua chưa hoàn thành
+          loadStreakData();
+          checkDailyStreakReminders();
+        }
+      }, 30000);
     }
 
     function closeDuolingoModal() {
@@ -1908,6 +2163,9 @@
       loadStorage();
       loadStreakData();
       setupKeyboardListeners();
+      initNotificationStatus();
+      startMidnightWatcher();
+      checkDailyStreakReminders();
 
       const hasChosen = localStorage.getItem('vocab_has_chosen_lang');
       if (!hasChosen) {
@@ -2376,6 +2634,10 @@
         `;
 
         showDuolingoStreakModal('en', globalState.enStreak.count, correct, total);
+        sendAppNotification('🔥 BẢO TOÀN CHUỖI TOEIC THÀNH CÔNG!', {
+          body: `Xuất sắc! Bạn vừa đạt chuỗi ${globalState.enStreak.count} ngày liên tiếp (${correct}/${total} câu đúng). Chuỗi an toàn đến 12h đêm mai!`,
+          tag: 'studymaster-streak-win-en'
+        });
       } else {
         // CHƯA ĐẠT CHUẨN (< 15 CÂU ĐÚNG)
         streakBanner.innerHTML = `
@@ -2839,6 +3101,10 @@
         `;
 
         showDuolingoStreakModal('ja', globalState.jaStreak.count, correct, total);
+        sendAppNotification('🔥 BẢO TOÀN CHUỖI TIẾNG NHẬT N4 THÀNH CÔNG!', {
+          body: `Xuất sắc! Bạn vừa đạt chuỗi ${globalState.jaStreak.count} ngày liên tiếp (${correct}/${total} câu đúng). Chuỗi an toàn đến 12h đêm mai!`,
+          tag: 'studymaster-streak-win-ja'
+        });
       } else {
         // CHƯA ĐẠT CHUẨN (< 15 CÂU ĐÚNG)
         streakBanner.innerHTML = `
