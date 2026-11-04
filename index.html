@@ -312,7 +312,6 @@
               <h3 id="colloc-prompt-sentence" class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
                 The company must comply <span class="text-blue-600 font-extrabold underline underline-offset-4">______</span> safety regulations.
               </h3>
-              <p id="colloc-prompt-hint" class="text-xs text-slate-500 mt-1 italic">Nghĩa: tuân thủ quy định an toàn</p>
             </div>
           </div>
 
@@ -2054,7 +2053,6 @@
       document.getElementById('study-progress-fill').style.width = `${pct}%`;
 
       document.getElementById('colloc-prompt-sentence').innerHTML = item.sentence;
-      document.getElementById('colloc-prompt-hint').textContent = `Nghĩa: ${item.hint}`;
       document.getElementById('colloc-feedback-box').classList.add('hidden');
 
       const container = document.getElementById('colloc-choices-container');
@@ -2064,14 +2062,14 @@
         const btn = document.createElement('button');
         btn.className = "p-3 rounded-2xl border-2 border-slate-200 hover:border-blue-500 font-bold text-sm bg-white transition active:scale-95";
         btn.textContent = `(${String.fromCharCode(65 + idx)}) ${opt}`;
-        btn.onclick = () => handleCollocSelect(btn, opt, item.correct, item.fullMeaning);
+        btn.onclick = () => handleCollocSelect(btn, opt, item.correct, item.fullMeaning, item.hint);
         container.appendChild(btn);
       });
 
       updateStreakUI('en');
     }
 
-    function handleCollocSelect(btn, selected, correct, fullMeaning) {
+    function handleCollocSelect(btn, selected, correct, fullMeaning, hint) {
       if (globalState.collocIsAnswered) return;
       globalState.collocIsAnswered = true;
 
@@ -2094,7 +2092,7 @@
         btn.style.backgroundColor = '#ecfdf5';
         btn.style.color = '#064e3b';
         feedback.className = "mt-4 p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm font-semibold";
-        feedback.innerHTML = `✓ Chính xác! <strong>${correct}</strong><br><span class="text-xs text-emerald-700 font-normal mt-0.5 block">${fullMeaning}</span>`;
+        feedback.innerHTML = `✓ Chính xác! <strong>${correct}</strong><br><span class="text-xs text-emerald-700 font-normal mt-1 block">📌 <strong>Nghĩa & Cụm từ:</strong> ${hint || fullMeaning}</span>`;
       } else {
         globalState.enWrong++;
         playTone('wrong');
@@ -2115,7 +2113,7 @@
         });
 
         feedback.className = "mt-4 p-3.5 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm font-semibold";
-        feedback.innerHTML = `✗ Chưa đúng. Đáp án chuẩn là: <strong>${correct}</strong><br><span class="text-xs text-rose-700 font-normal mt-0.5 block">${fullMeaning}</span>`;
+        feedback.innerHTML = `✗ Chưa đúng. Đáp án chuẩn là: <strong>${correct}</strong><br><span class="text-xs text-rose-700 font-normal mt-1 block">📌 <strong>Nghĩa & Cụm từ:</strong> ${hint || fullMeaning}</span>`;
       }
 
       document.getElementById('stat-correct').textContent = globalState.enCorrect;
