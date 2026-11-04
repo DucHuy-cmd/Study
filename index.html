@@ -1898,7 +1898,11 @@
       globalState.enIsAnswered = true;
 
       const allBtns = document.querySelectorAll('#mcq-choices-container button');
-      allBtns.forEach(b => b.disabled = true);
+      allBtns.forEach(b => {
+        b.disabled = true;
+        b.style.pointerEvents = 'none';
+        b.classList.remove('hover:border-indigo-500', 'hover:bg-indigo-50/40');
+      });
 
       const feedbackBar = document.getElementById('mcq-feedback-bar');
       feedbackBar.classList.remove('hidden');
@@ -1906,8 +1910,11 @@
       if (selected.trim().toLowerCase() === correct.trim().toLowerCase()) {
         globalState.enCorrect++;
         playTone('correct');
-        buttonElem.classList.remove('border-slate-200');
+        buttonElem.classList.remove('border-slate-200', 'bg-white');
         buttonElem.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
+        buttonElem.style.borderColor = '#10b981';
+        buttonElem.style.backgroundColor = '#ecfdf5';
+        buttonElem.style.color = '#064e3b';
         feedbackBar.className = "mt-4 p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm font-semibold";
         feedbackBar.innerHTML = `✓ Tuyệt vời! Chính xác. Bấm [Tiếp theo ➡️] hoặc [ → ] để qua từ kế tiếp.`;
         speakText(currentEnWord.en, 'en-US');
@@ -1915,17 +1922,24 @@
         globalState.enWrong++;
         globalState.enMistakes.push(currentEnWord);
         playTone('wrong');
-        buttonElem.classList.remove('border-slate-200');
+        buttonElem.classList.remove('border-slate-200', 'bg-white');
         buttonElem.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-950');
+        buttonElem.style.borderColor = '#f43f5e';
+        buttonElem.style.backgroundColor = '#fff1f2';
+        buttonElem.style.color = '#881337';
 
         allBtns.forEach(b => {
           if (b.textContent.includes(correct)) {
-            b.classList.add('border-emerald-500', 'bg-emerald-50');
+            b.classList.remove('border-slate-200', 'bg-white');
+            b.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
+            b.style.borderColor = '#10b981';
+            b.style.backgroundColor = '#ecfdf5';
+            b.style.color = '#064e3b';
           }
         });
 
         feedbackBar.className = "mt-4 p-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm font-semibold";
-        feedbackBar.innerHTML = `✗ Chưa chính xác! Đáp án đúng: <u class="text-slate-900">${correct}</u>`;
+        feedbackBar.innerHTML = `✗ Chưa chính xác! Đáp án đúng: <u class="text-emerald-700 font-bold">${correct}</u>`;
       }
 
       document.getElementById('stat-correct').textContent = globalState.enCorrect;
@@ -1962,7 +1976,11 @@
       globalState.enIsAnswered = true;
 
       const allBtns = document.querySelectorAll('#audio-choices-container button');
-      allBtns.forEach(b => b.disabled = true);
+      allBtns.forEach(b => {
+        b.disabled = true;
+        b.style.pointerEvents = 'none';
+        b.classList.remove('hover:border-indigo-500', 'hover:bg-indigo-50/40');
+      });
 
       const revealBox = document.getElementById('audio-revealed-box');
       document.getElementById('audio-revealed-word').textContent = currentEnWord.en;
@@ -1972,18 +1990,28 @@
       if (selected.trim().toLowerCase() === correct.trim().toLowerCase()) {
         globalState.enCorrect++;
         playTone('correct');
-        buttonElem.classList.remove('border-slate-200');
+        buttonElem.classList.remove('border-slate-200', 'bg-white');
         buttonElem.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
+        buttonElem.style.borderColor = '#10b981';
+        buttonElem.style.backgroundColor = '#ecfdf5';
+        buttonElem.style.color = '#064e3b';
       } else {
         globalState.enWrong++;
         globalState.enMistakes.push(currentEnWord);
         playTone('wrong');
-        buttonElem.classList.remove('border-slate-200');
+        buttonElem.classList.remove('border-slate-200', 'bg-white');
         buttonElem.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-950');
+        buttonElem.style.borderColor = '#f43f5e';
+        buttonElem.style.backgroundColor = '#fff1f2';
+        buttonElem.style.color = '#881337';
 
         allBtns.forEach(b => {
           if (b.textContent.includes(correct)) {
-            b.classList.add('border-emerald-500', 'bg-emerald-50');
+            b.classList.remove('border-slate-200', 'bg-white');
+            b.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
+            b.style.borderColor = '#10b981';
+            b.style.backgroundColor = '#ecfdf5';
+            b.style.color = '#064e3b';
           }
         });
       }
@@ -2048,7 +2076,11 @@
       globalState.collocIsAnswered = true;
 
       const allBtns = document.querySelectorAll('#colloc-choices-container button');
-      allBtns.forEach(b => b.disabled = true);
+      allBtns.forEach(b => {
+        b.disabled = true;
+        b.style.pointerEvents = 'none';
+        b.classList.remove('hover:border-blue-500');
+      });
 
       const feedback = document.getElementById('colloc-feedback-box');
       feedback.classList.remove('hidden');
@@ -2056,13 +2088,32 @@
       if (selected === correct) {
         globalState.enCorrect++;
         playTone('correct');
+        btn.classList.remove('border-slate-200', 'bg-white');
         btn.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+        btn.style.borderColor = '#10b981';
+        btn.style.backgroundColor = '#ecfdf5';
+        btn.style.color = '#064e3b';
         feedback.className = "mt-4 p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm font-semibold";
         feedback.innerHTML = `✓ Chính xác! <strong>${correct}</strong><br><span class="text-xs text-emerald-700 font-normal mt-0.5 block">${fullMeaning}</span>`;
       } else {
         globalState.enWrong++;
         playTone('wrong');
+        btn.classList.remove('border-slate-200', 'bg-white');
         btn.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-900');
+        btn.style.borderColor = '#f43f5e';
+        btn.style.backgroundColor = '#fff1f2';
+        btn.style.color = '#881337';
+
+        allBtns.forEach(b => {
+          if (b.textContent.includes(correct)) {
+            b.classList.remove('border-slate-200', 'bg-white');
+            b.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-900');
+            b.style.borderColor = '#10b981';
+            b.style.backgroundColor = '#ecfdf5';
+            b.style.color = '#064e3b';
+          }
+        });
+
         feedback.className = "mt-4 p-3.5 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm font-semibold";
         feedback.innerHTML = `✗ Chưa đúng. Đáp án chuẩn là: <strong>${correct}</strong><br><span class="text-xs text-rose-700 font-normal mt-0.5 block">${fullMeaning}</span>`;
       }
@@ -2485,7 +2536,8 @@
       options.forEach((opt, idx) => {
         const btn = document.createElement('button');
         btn.id = `ja-opt-${idx}`;
-        btn.className = "flex items-center text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-rose-500 hover:bg-rose-50/30 text-slate-800 transition active:scale-[0.98] bg-white min-h-[52px]";
+        btn.setAttribute('data-option', opt);
+        btn.className = "flex items-center text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-slate-400 hover:bg-slate-50 text-slate-800 transition active:scale-[0.98] bg-white min-h-[52px]";
         btn.innerHTML = `
           <span class="w-7 h-7 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 text-xs font-bold mr-2.5 font-sans transition">${idx + 1}</span>
           <span class="text-lg sm:text-xl font-bold flex-1 text-slate-900">${opt}</span>
@@ -2501,7 +2553,11 @@
       globalState.jaIsAnswered = true;
 
       const allBtns = document.querySelectorAll('#ja-options-grid button');
-      allBtns.forEach(b => b.disabled = true);
+      allBtns.forEach(b => {
+        b.disabled = true;
+        b.style.pointerEvents = 'none'; // Ngăn chặn sticky :hover trên màn hình cảm ứng điện thoại
+        b.classList.remove('hover:border-rose-500', 'hover:bg-rose-50/30', 'hover:border-slate-400', 'hover:bg-slate-50');
+      });
 
       const feedbackBox = document.getElementById('ja-feedback-box');
       feedbackBox.classList.remove('hidden');
@@ -2511,8 +2567,18 @@
       if (isCorrect) {
         globalState.jaCorrect++;
         playTone('correct');
-        buttonElem.classList.remove('border-slate-200');
+        
+        buttonElem.classList.remove('border-slate-200', 'bg-white', 'text-slate-800', 'hover:border-rose-500', 'hover:bg-rose-50/30');
         buttonElem.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
+        buttonElem.style.borderColor = '#10b981';
+        buttonElem.style.backgroundColor = '#ecfdf5';
+        buttonElem.style.color = '#064e3b';
+
+        const badgeSpan = buttonElem.querySelector('span');
+        if (badgeSpan) {
+          badgeSpan.style.backgroundColor = '#10b981';
+          badgeSpan.style.color = '#ffffff';
+        }
 
         feedbackBox.className = "mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-left font-sans";
         feedbackBox.innerHTML = `
@@ -2532,12 +2598,31 @@
         globalState.jaWrong++;
         globalState.jaMistakes.push(currentJaItem);
         playTone('wrong');
-        buttonElem.classList.remove('border-slate-200');
+        
+        buttonElem.classList.remove('border-slate-200', 'bg-white', 'text-slate-800', 'hover:border-rose-500', 'hover:bg-rose-50/30');
         buttonElem.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-950');
+        buttonElem.style.borderColor = '#f43f5e';
+        buttonElem.style.backgroundColor = '#fff1f2';
+        buttonElem.style.color = '#881337';
+
+        const wrongBadge = buttonElem.querySelector('span');
+        if (wrongBadge) {
+          wrongBadge.style.backgroundColor = '#f43f5e';
+          wrongBadge.style.color = '#ffffff';
+        }
 
         allBtns.forEach(b => {
-          if (b.textContent.includes(correct)) {
-            b.classList.add('border-emerald-500', 'bg-emerald-50');
+          if (b.getAttribute('data-option') === correct.trim()) {
+            b.classList.remove('border-slate-200', 'bg-white', 'text-slate-800');
+            b.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
+            b.style.borderColor = '#10b981';
+            b.style.backgroundColor = '#ecfdf5';
+            b.style.color = '#064e3b';
+            const cBadge = b.querySelector('span');
+            if (cBadge) {
+              cBadge.style.backgroundColor = '#10b981';
+              cBadge.style.color = '#ffffff';
+            }
           }
         });
 
@@ -2547,7 +2632,7 @@
             <div>
               <span class="text-[11px] font-bold text-rose-700 uppercase tracking-wider block">✗ Chưa đúng!</span>
               <h4 class="text-lg sm:text-xl font-extrabold text-rose-900 mt-1 font-japanese">
-                Đáp án đúng: <u class="text-slate-900 font-bold">${correct}</u>
+                Đáp án đúng: <u class="text-emerald-700 font-bold">${correct}</u>
               </h4>
               <p class="text-xs sm:text-sm font-semibold text-rose-800 mt-1">
                 Từ chuẩn: <strong>${currentJaItem.kanji_target}</strong> （${currentJaItem.hira_target}） • ${currentJaItem.romaji ? `Romaji: <strong>${currentJaItem.romaji}</strong> • ` : ''}Nghĩa: <strong>${currentJaItem.vi_meaning}</strong>
