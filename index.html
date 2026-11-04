@@ -2493,6 +2493,20 @@
       globalState.gapFillWrong = 0;
       globalState.gapFillMistakes = [];
 
+      globalState.enCorrect = 0;
+      globalState.enWrong = 0;
+      globalState.enMistakes = [];
+      globalState.gapFillIsAnswered = false;
+
+      document.getElementById('en-summary-card').classList.add('hidden');
+      document.getElementById('view-gapfill').classList.remove('hidden');
+
+      const badgeElem = document.getElementById('en-active-deck-badge');
+      if (badgeElem && deck) {
+        badgeElem.innerHTML = `${deck.icon || '📘'} ${deck.name} (Điền từ)`;
+      }
+
+      updateStreakUI('en');
       renderCurrentGapFill();
     }
 
@@ -2513,8 +2527,8 @@
       const item = globalState.gapFillList[globalState.gapFillIndex];
 
       document.getElementById('study-progress-counter').textContent = `${globalState.gapFillIndex + 1} / ${total}`;
-      document.getElementById('stat-correct').textContent = globalState.gapFillCorrect;
-      document.getElementById('stat-wrong').textContent = globalState.gapFillWrong;
+      document.getElementById('stat-correct').textContent = globalState.enCorrect;
+      document.getElementById('stat-wrong').textContent = globalState.enWrong;
       const pct = (globalState.gapFillIndex / total) * 100;
       document.getElementById('study-progress-fill').style.width = `${pct}%`;
 
@@ -2525,6 +2539,8 @@
 
       const feedback = document.getElementById('gapfill-feedback-box');
       feedback.classList.add('hidden');
+      feedback.innerHTML = '';
+      feedback.className = 'hidden';
 
       const prevBtn = document.getElementById('gapfill-btn-prev');
       prevBtn.disabled = globalState.gapFillIndex === 0;
@@ -2537,7 +2553,7 @@
         const btn = document.createElement('button');
         btn.id = `gapfill-opt-${idx}`;
         btn.setAttribute('data-option', opt);
-        btn.className = "flex items-center text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-blue-400 hover:bg-blue-50/40 text-slate-800 transition active:scale-[0.98] bg-white min-h-[52px]";
+        btn.className = "flex items-center text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-blue-400 hover:bg-blue-50/40 text-slate-800 transition active:scale-[0.98] bg-white min-h-[52px] cursor-pointer";
         btn.innerHTML = `
           <span class="w-7 h-7 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 text-xs font-bold mr-2.5 font-sans transition">${String.fromCharCode(65 + idx)}</span>
           <span class="text-base sm:text-lg font-bold flex-1 text-slate-900">${opt}</span>
@@ -2551,6 +2567,8 @@
       if (globalState.gapFillIsAnswered) return;
       globalState.gapFillIsAnswered = true;
 
+      const currentItem = globalState.gapFillList[globalState.gapFillIndex] || null;
+
       const allBtns = document.querySelectorAll('#gapfill-options-grid button');
       allBtns.forEach(b => {
         b.disabled = true;
@@ -2562,6 +2580,12 @@
       feedback.classList.remove('hidden');
 
       const isCorrect = selected.trim().toLowerCase() === correct.trim().toLowerCase();
+
+      // Look up word details from curriculum data
+      const wordsMap = getAllCourseWordsMap();
+      const targetWord = wordsMap.get(correct.trim().toLowerCase());
+      const wordVi = targetWord ? targetWord.vi : '';
+      const wordPos = targetWord ? targetWord.pos : '';
 
       if (isCorrect) {
         globalState.gapFillCorrect++;
@@ -2579,14 +2603,23 @@
           badge.style.color = '#ffffff';
         }
 
-        feedback.className = "mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-left font-sans";
+        // Cập nhật câu hoàn chỉnh với từ đúng màu xanh
+        if (currentItem && currentItem.sentence) {
+          const filledSentence = currentItem.sentence.replace(/_{3,}/g, `<span class="text-emerald-600 font-extrabold underline underline-offset-4 decoration-2">${correct}</span>`);
+          document.getElementById('gapfill-sentence').innerHTML = filledSentence;
+        }
+
+        feedback.className = "mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-left font-sans shadow-xs";
         feedback.innerHTML = `
           <div class="flex items-start justify-between">
             <div>
               <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block">✓ Chính xác!</span>
-              <h4 class="text-base sm:text-lg font-extrabold text-emerald-900 mt-0.5">Từ điền chuẩn: <strong class="underline">${correct}</strong></h4>
+              <h4 class="text-base sm:text-lg font-extrabold text-emerald-900 mt-0.5">
+                Từ điền chuẩn: <strong class="underline">${correct}</strong>
+                ${wordVi ? `<span class="text-xs sm:text-sm font-semibold text-emerald-800 ml-1">(${wordVi})</span>` : ''}
+              </h4>
             </div>
-            <button onclick="speakText('${correct}', 'en-US')" class="text-emerald-700 hover:text-emerald-900 text-base p-1">🔊</button>
+            <button onclick="speakText('${correct}', 'en-US')" class="text-emerald-700 hover:text-emerald-900 text-base p-1" title="Nghe phát âm">🔊</button>
           </div>
         `;
         speakText(correct, 'en-US');
@@ -2595,10 +2628,12 @@
         globalState.enWrong++;
         playTone('wrong');
 
-        globalState.gapFillMistakes.push(item);
-        const wordsMap = getAllCourseWordsMap();
-        const missedWord = wordsMap.get(correct.trim().toLowerCase());
-        if (missedWord) globalState.enMistakes.push(missedWord);
+        if (currentItem) {
+          globalState.gapFillMistakes.push(currentItem);
+        }
+        if (targetWord) {
+          globalState.enMistakes.push(targetWord);
+        }
 
         buttonElem.classList.remove('border-slate-200', 'bg-white');
         buttonElem.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-950');
@@ -2611,6 +2646,7 @@
           wrongBadge.style.color = '#ffffff';
         }
 
+        // Highlight đáp án đúng màu xanh
         allBtns.forEach(b => {
           if (b.getAttribute('data-option')?.trim().toLowerCase() === correct.trim().toLowerCase()) {
             b.classList.remove('border-slate-200', 'bg-white');
@@ -2626,16 +2662,23 @@
           }
         });
 
-        feedback.className = "mt-4 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-950 text-left font-sans";
+        // Cập nhật câu hoàn chỉnh với từ đúng
+        if (currentItem && currentItem.sentence) {
+          const filledSentence = currentItem.sentence.replace(/_{3,}/g, `<span class="text-emerald-600 font-extrabold underline underline-offset-4 decoration-2">${correct}</span>`);
+          document.getElementById('gapfill-sentence').innerHTML = filledSentence;
+        }
+
+        feedback.className = "mt-4 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-950 text-left font-sans shadow-xs";
         feedback.innerHTML = `
           <div class="flex items-start justify-between">
             <div>
               <span class="text-[11px] font-bold text-rose-700 uppercase tracking-wider block">✗ Chưa đúng!</span>
               <h4 class="text-base sm:text-lg font-extrabold text-rose-900 mt-0.5">
                 Đáp án chuẩn: <u class="text-emerald-700 font-bold">${correct}</u>
+                ${wordVi ? `<span class="text-xs sm:text-sm font-semibold text-rose-800 ml-1">(${wordVi})</span>` : ''}
               </h4>
             </div>
-            <button onclick="speakText('${correct}', 'en-US')" class="text-rose-700 hover:text-rose-900 text-base p-1">🔊</button>
+            <button onclick="speakText('${correct}', 'en-US')" class="text-rose-700 hover:text-rose-900 text-base p-1" title="Nghe phát âm">🔊</button>
           </div>
         `;
       }
