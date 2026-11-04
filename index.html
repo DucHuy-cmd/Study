@@ -7,7 +7,7 @@
   
   <!-- Progressive Web App (PWA) Manifest & Meta Tags -->
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#0284c7">
+  <meta name="theme-color" content="#ffffff">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="StudyMaster">
@@ -20,9 +20,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    html {
+      background-color: #ffffff;
+    }
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-tap-highlight-color: transparent;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
     }
     .font-japanese {
       font-family: 'Noto Serif JP', 'Yu Mincho', 'MS Mincho', serif;
@@ -1700,8 +1704,8 @@
       const brandLogo = document.getElementById('brand-logo');
 
       const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (metaTheme) metaTheme.setAttribute('content', '#ffffff');
       if (lang === 'en') {
-        if (metaTheme) metaTheme.setAttribute('content', '#2563eb');
         btnEn.className = "px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 bg-white text-blue-600 shadow-xs";
         btnJa.className = "px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 text-slate-600 hover:text-slate-900";
         secEn.classList.remove('hidden');
@@ -1713,7 +1717,6 @@
         populateEnDeckDropdown();
         restartCurrentEnMode();
       } else {
-        if (metaTheme) metaTheme.setAttribute('content', '#0284c7');
         btnEn.className = "px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 text-slate-600 hover:text-slate-900";
         btnJa.className = "px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 bg-white text-sky-600 shadow-xs";
         secEn.classList.add('hidden');

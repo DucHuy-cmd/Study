@@ -1,4 +1,4 @@
-const CACHE_NAME = 'studymaster-v7';
+const CACHE_NAME = 'studymaster-v8';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
