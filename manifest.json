@@ -4,8 +4,8 @@
   "description": "Ứng dụng luyện thi từ vựng Tiếng Anh Quizlet và Tiếng Nhật JLPT N4",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#f8fafc",
-  "theme_color": "#e11d48",
+  "background_color": "#ffffff",
+  "theme_color": "#0284c7",
   "orientation": "portrait",
   "icons": [
     {

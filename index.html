@@ -7,7 +7,7 @@
   
   <!-- Progressive Web App (PWA) Manifest & Meta Tags -->
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#e11d48">
+  <meta name="theme-color" content="#0284c7">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="StudyMaster">
@@ -86,7 +86,7 @@
     }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-rose-500 selection:text-white">
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
 
   <!-- ================= TOP HEADER (CHUẨN IPHONE XS 375PX) ================= -->
   <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
@@ -94,7 +94,7 @@
       
       <!-- Brand & Active Language Switcher -->
       <div class="flex items-center space-x-2">
-        <div id="brand-logo" class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-pink-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-sm shadow-rose-200 flex-shrink-0 cursor-pointer" onclick="showLangSelectModal()">
+        <div id="brand-logo" class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-blue-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-sm shadow-sky-200 flex-shrink-0 cursor-pointer" onclick="showLangSelectModal()">
           S
         </div>
         <div>
@@ -104,10 +104,10 @@
           <!-- Language Switcher Pill -->
           <div class="flex items-center gap-1 mt-0.5">
             <div class="inline-flex p-0.5 bg-slate-100 rounded-lg border border-slate-200 text-[11px] sm:text-xs">
-              <button onclick="switchLanguage('en')" id="btn-lang-en" class="px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 text-slate-600 hover:text-slate-900">
+              <button onclick="switchLanguage('en')" id="btn-lang-en" class="px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 bg-white text-blue-600 shadow-xs">
                 <span>🇬🇧</span> <span>TOEIC</span>
               </button>
-              <button onclick="switchLanguage('ja')" id="btn-lang-ja" class="px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 bg-white text-rose-600 shadow-xs">
+              <button onclick="switchLanguage('ja')" id="btn-lang-ja" class="px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 text-slate-600 hover:text-slate-900">
                 <span>🇯🇵</span> <span>Nhật N4</span>
               </button>
             </div>
@@ -121,11 +121,11 @@
           <span>☁️</span> <span class="hidden sm:inline">Đồng bộ</span>
         </button>
 
-        <button id="btn-install-app" onclick="triggerInstallApp()" class="px-2 py-1.5 text-xs font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 active:scale-95 rounded-lg border border-rose-200 transition flex items-center gap-1 shadow-2xs">
+        <button id="btn-install-app" onclick="triggerInstallApp()" class="px-2 py-1.5 text-xs font-bold text-sky-700 bg-sky-50 hover:bg-sky-100 active:scale-95 rounded-lg border border-sky-200 transition flex items-center gap-1 shadow-2xs">
           <span>📲</span> <span class="hidden sm:inline">Cài App</span>
         </button>
 
-        <button id="btn-sound-toggle" onclick="toggleSound()" class="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-slate-500 hover:text-rose-600 hover:bg-slate-100 rounded-lg transition text-sm sm:text-base" title="Bật/Tắt âm thanh">
+        <button id="btn-sound-toggle" onclick="toggleSound()" class="w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-slate-500 hover:text-sky-600 hover:bg-slate-100 rounded-lg transition text-sm sm:text-base" title="Bật/Tắt âm thanh">
           🔊
         </button>
 
@@ -138,9 +138,9 @@
 
         <!-- Japanese Topic Picker Button -->
         <div id="header-ja-controls" class="flex items-center space-x-1">
-          <button onclick="openJaTopicModal()" class="px-2.5 py-1.5 text-xs font-bold text-rose-700 bg-rose-50 hover:bg-rose-100 active:scale-95 rounded-lg border border-rose-200 transition flex items-center gap-1 shadow-2xs">
+          <button onclick="openJaTopicModal()" class="px-2.5 py-1.5 text-xs font-bold text-sky-700 bg-sky-50 hover:bg-sky-100 active:scale-95 rounded-lg border border-sky-200 transition flex items-center gap-1 shadow-2xs">
             <span>📚 Chủ đề</span>
-            <span id="header-ja-topic-badge" class="bg-rose-600 text-white px-1.5 py-0.2 rounded-full text-[10px] font-mono">1/10</span>
+            <span id="header-ja-topic-badge" class="bg-sky-600 text-white px-1.5 py-0.2 rounded-full text-[10px] font-mono">1/10</span>
           </button>
         </div>
       </div>
@@ -190,24 +190,7 @@
     <!-- MAIN ENGLISH (TOEIC) CONTENT -->
     <main class="max-w-2xl mx-auto px-3 sm:px-4 py-4 sm:py-6 flex-1 w-full">
       
-      <!-- STREAK BANNER TIẾNG ANH (ĐỘC LẬP) -->
-      <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 p-3 sm:p-3.5 rounded-2xl mb-4 flex items-center justify-between gap-2 shadow-2xs">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl animate-pulse">🔥</span>
-          <div>
-            <div class="flex items-center gap-1.5">
-              <span class="text-xs font-extrabold text-blue-900">Streak TOEIC:</span>
-              <span id="en-streak-badge" class="bg-blue-600 text-white font-extrabold text-xs px-2 py-0.2 rounded-full">1 ngày liên tiếp</span>
-            </div>
-            <p class="text-[11px] text-blue-700 font-medium mt-0.5" id="en-streak-subtext">
-              Thử thách hôm nay: <strong id="en-daily-counter">0 / 20 câu (Cần đúng ≥ 15)</strong>
-            </p>
-          </div>
-        </div>
-        <div class="w-24 sm:w-28 bg-white/80 h-2 rounded-full overflow-hidden border border-blue-200 flex-shrink-0">
-          <div id="en-daily-fill" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
-        </div>
-      </div>
+      <!-- STREAK BANNER TIẾNG ANH (Ẩn khỏi giao diện để mở rộng không gian học) -->
 
       <!-- Deck Info & Progress Card -->
       <div id="en-progress-card" class="bg-white p-3 sm:p-4 rounded-2xl shadow-xs border border-slate-200 mb-4">
@@ -433,7 +416,7 @@
         
         <div class="flex items-center space-x-1 sm:space-x-1.5 flex-1 min-w-max">
           <!-- Mondai 2: Hira -> Kanji -->
-          <button onclick="setJaMondai('mondai2')" id="btn-ja-mondai2" class="px-3 py-1.5 sm:py-2 rounded-xl font-bold flex items-center gap-1 transition text-rose-600 bg-rose-50 border border-rose-200">
+          <button onclick="setJaMondai('mondai2')" id="btn-ja-mondai2" class="px-3 py-1.5 sm:py-2 rounded-xl font-bold flex items-center gap-1 transition text-sky-700 bg-sky-50 border border-sky-300">
             <span>✍️</span> <span>もんだい 2 (Hira ➔ Kanji)</span>
           </button>
           <!-- Mondai 1: Kanji -> Hira -->
@@ -452,32 +435,15 @@
     <!-- MAIN JAPANESE CONTENT -->
     <main class="max-w-2xl mx-auto px-3 sm:px-4 py-4 sm:py-6 flex-1 w-full font-japanese">
 
-      <!-- STREAK BANNER TIẾNG NHẬT (ĐỘC LẬP HOÀN TOÀN) -->
-      <div class="bg-gradient-to-r from-rose-50 to-pink-50 border border-rose-200/80 p-3 sm:p-3.5 rounded-2xl mb-4 flex items-center justify-between gap-2 shadow-2xs font-sans">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl animate-pulse">🔥</span>
-          <div>
-            <div class="flex items-center gap-1.5">
-              <span class="text-xs font-extrabold text-rose-900">Streak Tiếng Nhật:</span>
-              <span id="ja-streak-badge" class="bg-rose-600 text-white font-extrabold text-xs px-2 py-0.2 rounded-full">1 ngày liên tiếp</span>
-            </div>
-            <p class="text-[11px] text-rose-700 font-medium mt-0.5" id="ja-streak-subtext">
-              Thử thách hôm nay: <strong id="ja-daily-counter">0 / 20 câu (Cần đúng ≥ 15)</strong>
-            </p>
-          </div>
-        </div>
-        <div class="w-24 sm:w-28 bg-white/80 h-2 rounded-full overflow-hidden border border-rose-200 flex-shrink-0">
-          <div id="ja-daily-fill" class="bg-rose-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
-        </div>
-      </div>
+      <!-- STREAK BANNER TIẾNG NHẬT (Ẩn khỏi giao diện để mở rộng không gian học) -->
 
       <!-- Active Topic Bar with Quick Selection Dropdown -->
       <div class="bg-white p-3 sm:p-4 rounded-2xl shadow-xs border border-slate-200 mb-4 font-sans flex items-center justify-between gap-2">
         <div class="flex items-center gap-2 min-w-0">
-          <span id="ja-active-topic-icon" class="text-xl p-2 bg-rose-50 rounded-xl flex-shrink-0">📝</span>
+          <span id="ja-active-topic-icon" class="text-xl p-2 bg-sky-50 text-sky-600 rounded-xl flex-shrink-0">📝</span>
           <div class="min-w-0">
             <div class="flex items-center gap-1.5">
-              <span class="text-[10px] font-bold text-rose-600 uppercase tracking-wider bg-rose-50 px-1.5 py-0.2 rounded">Chủ đề N4</span>
+              <span class="text-[10px] font-bold text-sky-700 uppercase tracking-wider bg-sky-50 px-1.5 py-0.2 rounded">Chủ đề N4</span>
               <span id="ja-active-topic-count" class="text-[11px] text-slate-400 font-semibold font-mono">155 câu</span>
             </div>
             <h3 id="ja-active-topic-name" class="text-xs sm:text-sm font-extrabold text-slate-900 truncate mt-0.5">
@@ -486,7 +452,7 @@
           </div>
         </div>
 
-        <button onclick="openJaTopicModal()" class="px-2.5 py-1.5 text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-xl transition flex-shrink-0">
+        <button onclick="openJaTopicModal()" class="px-2.5 py-1.5 text-xs font-bold text-sky-700 bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-xl transition flex-shrink-0">
           Đổi ➔
         </button>
       </div>
@@ -495,7 +461,7 @@
       <div class="bg-white p-3 sm:p-4 rounded-2xl shadow-xs border border-slate-200 mb-4 font-sans">
         <div class="flex justify-between items-center text-xs font-bold text-slate-600 mb-2">
           <div class="flex items-center gap-1.5">
-            <span class="text-rose-600 bg-rose-50 px-2 py-0.5 rounded font-bold text-[11px]">
+            <span class="text-sky-700 bg-sky-50 px-2 py-0.5 rounded font-bold text-[11px]">
               JLPT N4
             </span>
             <span id="ja-progress-counter" class="text-slate-700 font-extrabold bg-slate-100 px-2 py-0.5 rounded text-[11px]">
@@ -508,7 +474,7 @@
           </div>
         </div>
         <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-          <div id="ja-progress-fill" class="bg-rose-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+          <div id="ja-progress-fill" class="bg-sky-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
         </div>
       </div>
 
@@ -518,10 +484,10 @@
         <!-- Instruction Banner -->
         <div class="pb-3 border-b border-slate-100">
           <div class="flex items-center justify-between mb-1.5">
-            <span id="ja-mondai-badge" class="text-[11px] font-bold text-rose-700 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded font-sans">
+            <span id="ja-mondai-badge" class="text-[11px] font-bold text-sky-800 bg-sky-50 border border-sky-200 px-2 py-0.5 rounded font-sans">
               もんだい 2
             </span>
-            <button onclick="speakJaQuestion()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-rose-100 text-slate-600 hover:text-rose-600 flex items-center justify-center transition" title="Nghe câu tiếng Nhật">
+            <button onclick="speakJaQuestion()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-sky-100 text-slate-600 hover:text-sky-600 flex items-center justify-center transition" title="Nghe câu tiếng Nhật">
               🔊
             </button>
           </div>
@@ -537,7 +503,7 @@
               Câu hỏi số <span id="ja-current-number">1</span>
             </span>
             <h2 id="ja-question-sentence" class="text-xl sm:text-2xl font-bold text-slate-900 leading-relaxed sm:leading-loose tracking-wide break-words">
-              すずきさんは <span class="jlpt-underline text-rose-600 font-extrabold">あおい</span> シャツを きて います。
+              すずきさんは <span class="jlpt-underline text-sky-700 font-extrabold">あおい</span> シャツを きて います。
             </h2>
           </div>
         </div>
@@ -554,7 +520,7 @@
             <span>⬅️</span> <span>Trước</span>
           </button>
           
-          <button id="ja-btn-next" onclick="nextJaQuestion()" class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 active:scale-95 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm shadow-rose-200">
+          <button id="ja-btn-next" onclick="nextJaQuestion()" class="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 active:scale-95 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm shadow-sky-200">
             <span>Tiếp theo</span> <span>➡️</span>
           </button>
         </div>
@@ -582,11 +548,11 @@
         </div>
 
         <div class="flex flex-col gap-2">
-          <button id="ja-btn-mistakes" onclick="studyJaMistakesOnly()" class="hidden w-full py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5">
+          <button id="ja-btn-mistakes" onclick="studyJaMistakesOnly()" class="hidden w-full py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5">
             <span>🔁 Chỉ làm lại các câu bị sai</span>
             <span id="ja-mistakes-badge" class="bg-white/20 px-2 py-0.5 rounded-full text-[10px]">0</span>
           </button>
-          <button id="ja-btn-retry-streak" onclick="restartJaQuiz()" class="w-full py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl font-bold text-xs shadow-md transition">
+          <button id="ja-btn-retry-streak" onclick="restartJaQuiz()" class="w-full py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl font-bold text-xs shadow-md transition">
             🔄 Làm lại thử thách 20 câu N4
           </button>
           <button onclick="openJaTopicModal()" class="w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-xs transition">
@@ -599,10 +565,7 @@
   </div>
 
 
-  <!-- ================= FOOTER / SHORTCUT BAR ================= -->
-  <footer class="bg-white border-t border-slate-200 py-2.5 text-center text-[11px] text-slate-400 font-medium px-4">
-    Điều khiển: Chạm nút <strong class="text-slate-600">[Trước] / [Tiếp theo]</strong> trên màn hình hoặc dùng phím <span class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-bold">[ ← ]</span> <span class="bg-slate-100 px-1.5 py-0.5 rounded text-slate-700 font-bold">[ → ]</span>
-  </footer>
+  
 
 
   <!-- ================= MODAL: DANH SÁCH 12 CHỦ ĐỀ N4 ================= -->
@@ -635,7 +598,7 @@
   <!-- ================= MODAL: CHỌN NGÔN NGỮ KHI VỪA VÀO WEB ================= -->
   <div id="modal-lang-select" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
     <div class="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-slate-200 text-center animate-in fade-in duration-200">
-      <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-blue-600 to-rose-600 flex items-center justify-center text-white text-xl font-black mb-3 shadow-md shadow-rose-100">
+      <div class="w-12 h-12 mx-auto rounded-2xl bg-gradient-to-tr from-blue-600 to-sky-500 flex items-center justify-center text-white text-xl font-black mb-3 shadow-md shadow-sky-100">
         ⚡
       </div>
       <h2 class="text-lg font-extrabold text-slate-900">StudyMaster</h2>
@@ -653,7 +616,7 @@
           <span class="text-xs font-bold text-blue-600">Vào ➔</span>
         </button>
 
-        <button onclick="chooseLanguageOnboarding('ja')" class="group p-4 rounded-2xl border-2 border-rose-500 bg-rose-50/50 transition flex items-center justify-between">
+        <button onclick="chooseLanguageOnboarding('ja')" class="group p-4 rounded-2xl border-2 border-sky-500 bg-sky-50/50 transition flex items-center justify-between">
           <div class="flex items-center gap-3">
             <span class="text-3xl">🇯🇵</span>
             <div>
@@ -661,7 +624,7 @@
               <p class="text-[11px] text-slate-500">Trọn bộ 12 chủ đề theo đề thi thật</p>
             </div>
           </div>
-          <span class="text-xs font-bold text-rose-600">Vào ➔</span>
+          <span class="text-xs font-bold text-sky-600">Vào ➔</span>
         </button>
       </div>
     </div>
@@ -683,15 +646,15 @@
       </div>
 
       <div id="install-guide-ios-content" class="py-4 space-y-3.5 text-xs text-slate-700">
-        <p class="font-bold text-rose-600">📱 Hướng dẫn cài trên iPhone Safari (chỉ 2 bước):</p>
+        <p class="font-bold text-sky-600">📱 Hướng dẫn cài trên iPhone Safari (chỉ 2 bước):</p>
         <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-100">
-          <span class="w-6 h-6 flex-shrink-0 rounded-full bg-rose-100 text-rose-600 font-bold flex items-center justify-center text-xs">1</span>
+          <span class="w-6 h-6 flex-shrink-0 rounded-full bg-sky-100 text-sky-600 font-bold flex items-center justify-center text-xs">1</span>
           <div>
             Chạm vào biểu tượng <strong>Chia sẻ (Share)</strong> <span class="inline-block p-1 bg-white border border-slate-200 rounded text-sm leading-none">⎋</span> ở thanh công cụ dưới cùng Safari.
           </div>
         </div>
         <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-100">
-          <span class="w-6 h-6 flex-shrink-0 rounded-full bg-rose-100 text-rose-600 font-bold flex items-center justify-center text-xs">2</span>
+          <span class="w-6 h-6 flex-shrink-0 rounded-full bg-sky-100 text-sky-600 font-bold flex items-center justify-center text-xs">2</span>
           <div>
             Cuộn xuống và chọn <strong>"Thêm vào MH chính" (Add to Home Screen)</strong> <span class="inline-block p-1 bg-white border border-slate-200 rounded text-sm leading-none">➕</span>.
           </div>
@@ -1399,15 +1362,15 @@
         if (badge) {
           badge.textContent = (s.count && s.count > 0) ? `🔥 ${s.count} ngày liên tiếp` : `🔥 0 ngày (Chưa tạo chuỗi)`;
           badge.className = (s.count && s.count > 0) 
-            ? 'bg-rose-600 text-white font-extrabold text-xs px-2 py-0.2 rounded-full' 
+            ? 'bg-sky-600 text-white font-extrabold text-xs px-2 py-0.2 rounded-full' 
             : 'bg-slate-200 text-slate-700 font-bold text-xs px-2 py-0.2 rounded-full';
         }
 
         if (isDoneToday) {
-          if (subElem) subElem.innerHTML = `✅ <strong class="text-rose-700 font-bold">Đã hoàn thành N4 hôm nay! Chuỗi an toàn đến 12h đêm mai.</strong>`;
+          if (subElem) subElem.innerHTML = `✅ <strong class="text-sky-700 font-bold">Đã hoàn thành N4 hôm nay! Chuỗi an toàn đến 12h đêm mai.</strong>`;
           if (fillElem) {
             fillElem.style.width = '100%';
-            fillElem.className = 'bg-rose-500 h-2 rounded-full transition-all duration-300';
+            fillElem.className = 'bg-sky-500 h-2 rounded-full transition-all duration-300';
           }
         } else {
           const curIndex = Math.min((globalState.jaIndex || 0) + 1, DAILY_STREAK_TARGET);
@@ -1418,7 +1381,7 @@
           const pct = Math.min(((globalState.jaIndex || 0) / DAILY_STREAK_TARGET) * 100, 100);
           if (fillElem) {
             fillElem.style.width = `${pct}%`;
-            fillElem.className = 'bg-rose-600 h-2 rounded-full transition-all duration-300';
+            fillElem.className = 'bg-sky-600 h-2 rounded-full transition-all duration-300';
           }
         }
       }
@@ -1472,7 +1435,7 @@
         btn.classList.add('opacity-70');
       } else if (Notification.permission === 'denied') {
         statusElem.textContent = '✗ Đã chặn';
-        statusElem.className = 'text-xs font-extrabold px-2 py-0.5 rounded-full bg-rose-100 text-rose-800';
+        statusElem.className = 'text-xs font-extrabold px-2 py-0.5 rounded-full bg-sky-100 text-sky-800';
         guideElem.textContent = 'Bạn đã chặn thông báo. Hãy bấm vào biểu tượng ổ khóa 🔒 trên thanh địa chỉ trình duyệt để Bật lại nhé.';
       } else {
         statusElem.textContent = 'Chưa bật';
@@ -1736,7 +1699,9 @@
       const headerJa = document.getElementById('header-ja-controls');
       const brandLogo = document.getElementById('brand-logo');
 
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
       if (lang === 'en') {
+        if (metaTheme) metaTheme.setAttribute('content', '#2563eb');
         btnEn.className = "px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 bg-white text-blue-600 shadow-xs";
         btnJa.className = "px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 text-slate-600 hover:text-slate-900";
         secEn.classList.remove('hidden');
@@ -1748,13 +1713,14 @@
         populateEnDeckDropdown();
         restartCurrentEnMode();
       } else {
+        if (metaTheme) metaTheme.setAttribute('content', '#0284c7');
         btnEn.className = "px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 text-slate-600 hover:text-slate-900";
-        btnJa.className = "px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 bg-white text-rose-600 shadow-xs";
+        btnJa.className = "px-2 py-0.5 rounded-md font-bold transition flex items-center gap-1 bg-white text-sky-600 shadow-xs";
         secEn.classList.add('hidden');
         secJa.classList.remove('hidden');
         headerEn.classList.add('hidden');
         headerJa.classList.remove('hidden');
-        brandLogo.className = "w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-rose-600 to-pink-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-sm shadow-rose-200 cursor-pointer";
+        brandLogo.className = "w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-blue-600 flex items-center justify-center text-white font-extrabold text-base sm:text-lg shadow-sm shadow-sky-200 cursor-pointer";
 
         updateJaTopicInfoUI();
         renderJaTopicModalGrid();
@@ -2422,18 +2388,18 @@
         const btn = document.createElement('button');
         btn.className = `w-full text-left p-3 rounded-2xl border-2 transition flex items-center justify-between gap-2.5 active:scale-[0.98] ${
           isSelected 
-            ? 'border-rose-500 bg-rose-50/70 shadow-xs' 
-            : 'border-slate-200 hover:border-rose-300 hover:bg-slate-50 bg-white'
+            ? 'border-sky-500 bg-sky-50/70 shadow-xs' 
+            : 'border-slate-200 hover:border-sky-300 hover:bg-slate-50 bg-white'
         }`;
         btn.innerHTML = `
           <div class="flex items-center gap-2.5 min-w-0">
             <span class="text-xl p-1.5 rounded-xl bg-slate-50 border border-slate-100 flex-shrink-0">${topic.icon}</span>
             <div class="min-w-0">
-              <h4 class="font-bold text-slate-900 text-xs sm:text-sm truncate ${isSelected ? 'text-rose-900' : ''}">${topic.name}</h4>
+              <h4 class="font-bold text-slate-900 text-xs sm:text-sm truncate ${isSelected ? 'text-sky-900' : ''}">${topic.name}</h4>
               <p class="text-[10px] text-slate-400 truncate">${topic.desc}</p>
             </div>
           </div>
-          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${isSelected ? 'bg-rose-600 text-white' : 'bg-slate-100 text-slate-600'}">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${isSelected ? 'bg-sky-600 text-white' : 'bg-slate-100 text-slate-600'}">
             ${topic.questions.length} câu
           </span>
         `;
@@ -2450,11 +2416,11 @@
       const btnM1 = document.getElementById('btn-ja-mondai1');
 
       if (mondai === 'mondai2') {
-        btnM2.className = "px-3 py-1.5 sm:py-2 rounded-xl font-bold flex items-center gap-1 transition text-rose-600 bg-rose-50 border border-rose-200";
-        btnM1.className = "px-3 py-1.5 sm:py-2 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100";
+        btnM2.className = "px-3 py-1.5 sm:py-2 rounded-xl font-bold flex items-center gap-1 transition text-sky-700 bg-sky-50 border border-sky-300";
+        btnM1.className = "px-3 py-1.5 sm:py-2 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100 border border-transparent";
       } else {
-        btnM2.className = "px-3 py-1.5 sm:py-2 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100";
-        btnM1.className = "px-3 py-1.5 sm:py-2 rounded-xl font-bold flex items-center gap-1 transition text-rose-600 bg-rose-50 border border-rose-200";
+        btnM2.className = "px-3 py-1.5 sm:py-2 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100 border border-transparent";
+        btnM1.className = "px-3 py-1.5 sm:py-2 rounded-xl font-bold flex items-center gap-1 transition text-sky-700 bg-sky-50 border border-sky-300";
       }
 
       restartJaQuiz();
@@ -2535,7 +2501,7 @@
         const btn = document.createElement('button');
         btn.id = `ja-opt-${idx}`;
         btn.setAttribute('data-option', opt);
-        btn.className = "flex items-center text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-slate-400 hover:bg-slate-50 text-slate-800 transition active:scale-[0.98] bg-white min-h-[52px]";
+        btn.className = "flex items-center text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200 hover:border-sky-400 hover:bg-sky-50/40 text-slate-800 transition active:scale-[0.98] bg-white min-h-[52px]";
         btn.innerHTML = `
           <span class="w-7 h-7 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 text-xs font-bold mr-2.5 font-sans transition">${idx + 1}</span>
           <span class="text-lg sm:text-xl font-bold flex-1 text-slate-900">${opt}</span>
@@ -2696,11 +2662,11 @@
         saveStreakData('ja');
 
         streakBanner.innerHTML = `
-          <div class="bg-gradient-to-r from-rose-500 to-pink-600 text-white p-3.5 rounded-2xl text-left shadow-md flex items-center justify-between">
+          <div class="bg-gradient-to-r from-sky-500 to-blue-600 text-white p-3.5 rounded-2xl text-left shadow-md flex items-center justify-between">
             <div>
               <span class="text-[10px] font-black uppercase tracking-wider bg-black/20 px-2 py-0.5 rounded-full text-rose-100">🔥 ĐẠT CHUẨN CHUỖI N4</span>
               <h4 class="font-black text-sm mt-1">Đúng ${correct}/${total} câu (Vượt mốc ≥ ${STREAK_PASS_THRESHOLD}/20)</h4>
-              <p class="text-[11px] text-rose-100 mt-0.5">Chuỗi N4 hôm nay đã được bảo toàn & kích hoạt!</p>
+              <p class="text-[11px] text-sky-100 mt-0.5">Chuỗi N4 hôm nay đã được bảo toàn & kích hoạt!</p>
             </div>
             <span class="text-3xl animate-bounce">🔥</span>
           </div>
