@@ -2111,7 +2111,6 @@
       if (headerBadge) {
         headerBadge.textContent = globalState.enDecks.length;
       }
-      updateStarredCountBadge();
     }
 
     function changeEnDeck(deckId) {
@@ -2531,21 +2530,10 @@
       const deck = getCurrentEnDeck();
       if (deckBadge && deck) deckBadge.textContent = deck.name;
 
-      const starBtn = document.getElementById('fc-star-btn');
-      if (starBtn) {
-        const isStarred = isWordStarred(word.id || word.en);
-        starBtn.className = isStarred 
-          ? "text-lg p-1 text-amber-500 transition scale-110" 
-          : "text-lg p-1 text-slate-300 hover:text-amber-500 transition";
-      }
-
       document.getElementById('flashcard-element').classList.remove('is-flipped');
     }
 
     function rateFlashcard(isKnown) {
-      if (!isKnown && currentEnWord) {
-        starWord(currentEnWord);
-      }
       nextEnQuestion();
     }
 
