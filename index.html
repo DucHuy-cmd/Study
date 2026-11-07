@@ -250,7 +250,7 @@
               </span>
             </div>
             
-            <button onclick="toggleTypingDirection()" class="text-[11px] font-bold text-slate-600 hover:text-blue-600 bg-slate-50 hover:bg-slate-100 px-2.5 py-1 rounded-xl border border-slate-200 transition flex items-center gap-1 active:scale-95" title="Đổi giữa: Trộn ngẫu nhiên | Anh ➔ Việt | Việt ➔ Anh">
+            <button onclick="toggleTypingDirection()" class="text-[11px] font-bold text-slate-600 hover:text-blue-600 bg-slate-50 hover:bg-slate-100 px-2.5 py-1 rounded-xl border border-slate-200 transition flex items-center gap-1 active:scale-95 cursor-pointer" title="Đổi chiều: Anh sang Việt ⇄ Việt sang Anh">
               <span>🔄 Đổi chiều gõ</span>
             </button>
           </div>
@@ -294,10 +294,13 @@
 
             <!-- Action Buttons: Check Answer / Next Question / Give up -->
             <div class="flex items-center gap-2 pt-2">
-              <button id="typing-btn-skip" onclick="skipTypingQuestion()" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 text-xs font-bold transition flex-1 active:scale-95">
+              <button id="typing-btn-prev" onclick="prevTypingQuestion()" class="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1 active:scale-95 cursor-pointer">
+                ⬅ Trước
+              </button>
+              <button id="typing-btn-skip" onclick="skipTypingQuestion()" class="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 text-xs font-bold transition flex-1 active:scale-95 cursor-pointer">
                 🏳️ Xem đáp án
               </button>
-              <button id="typing-btn-submit" onclick="submitTypingAnswer()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-blue-200 active:scale-95">
+              <button id="typing-btn-submit" onclick="handleTypingAction()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-blue-200 active:scale-95 cursor-pointer">
                 Kiểm tra ↵
               </button>
             </div>
@@ -1996,40 +1999,48 @@
     });
 
     function loadStorage() {
-      // Load saved decks; if old dataset (< 20 decks), reset to TOEIC_TARGET_DECKS
-      const savedEn = localStorage.getItem('vocab_decks_v3');
-      if (savedEn) {
-        try {
-          const parsed = JSON.parse(savedEn);
-          if (Array.isArray(parsed) && parsed.length >= 20) {
-            globalState.enDecks = parsed;
-          } else {
-            globalState.enDecks = TOEIC_TARGET_DECKS;
-          }
-        } catch (e) {
-          globalState.enDecks = TOEIC_TARGET_DECKS;
+      // Purge old heavy 800KB dataset from localStorage if present to eliminate lag/freezing
+      try {
+        if (localStorage.getItem('vocab_decks_v3')) {
+          localStorage.removeItem('vocab_decks_v3');
         }
-      } else {
-        globalState.enDecks = TOEIC_TARGET_DECKS;
-      }
+      } catch (e) {}
+
+      // Official curriculum decks (28 units + Master Deck 575 words) loaded directly from toeic_course_data.js
+      globalState.enDecks = TOEIC_TARGET_DECKS;
+
+      // Restore custom decks if user added any custom words in Manage tab
+      try {
+        const savedCustomDecks = localStorage.getItem('vocab_custom_decks');
+        if (savedCustomDecks) {
+          const parsedCustom = JSON.parse(savedCustomDecks);
+          if (Array.isArray(parsedCustom) && parsedCustom.length > 0) {
+            globalState.enDecks = [...TOEIC_TARGET_DECKS, ...parsedCustom];
+          }
+        }
+      } catch (e) {}
 
       globalState.currentEnDeckId = localStorage.getItem('vocab_last_deck_id') || 'deck_all_toeic_575';
       globalState.activeLang = localStorage.getItem('vocab_active_lang') || 'en';
       globalState.currentJaTopicId = localStorage.getItem('vocab_ja_topic_id') || 'topic_01_life';
-
-      try {
-        globalState.starredWordIds = JSON.parse(localStorage.getItem('toeic_starred_ids') || '[]');
-      } catch (e) {
-        globalState.starredWordIds = [];
-      }
     }
 
     function saveStorage() {
-      localStorage.setItem('vocab_decks_v3', JSON.stringify(globalState.enDecks));
+      // Fast, lightweight save (under 100 bytes) - zero thread blocking
       localStorage.setItem('vocab_last_deck_id', globalState.currentEnDeckId);
       localStorage.setItem('vocab_active_lang', globalState.activeLang);
       localStorage.setItem('vocab_ja_topic_id', globalState.currentJaTopicId);
-      localStorage.setItem('toeic_starred_ids', JSON.stringify(globalState.starredWordIds));
+    }
+
+    function saveCustomDecks() {
+      try {
+        const customDecks = globalState.enDecks.filter(d => !d.id.startsWith('unit_') && d.id !== 'deck_all_toeic_575');
+        if (customDecks.length > 0) {
+          localStorage.setItem('vocab_custom_decks', JSON.stringify(customDecks));
+        } else {
+          localStorage.removeItem('vocab_custom_decks');
+        }
+      } catch (e) {}
     }
 
     function showLangSelectModal() {
@@ -2545,7 +2556,7 @@
     /* =========================================================================
        TYPING PRACTICE (LUYỆN GÕ TỪ VỰNG 2 CHIỀU: ANH ➔ VIỆT & VIỆT ➔ ANH)
        ========================================================================= */
-    let typingDirectionMode = 'mixed'; // 'mixed' | 'en_to_vi' | 'vi_to_en'
+    let typingDirectionMode = 'en_to_vi'; // 'en_to_vi' | 'vi_to_en'
     let currentTypingItem = null;
     let typingIsAnswered = false;
 
@@ -2579,14 +2590,18 @@
     }
 
     function toggleTypingDirection() {
-      if (typingDirectionMode === 'mixed') typingDirectionMode = 'en_to_vi';
-      else if (typingDirectionMode === 'en_to_vi') typingDirectionMode = 'vi_to_en';
-      else typingDirectionMode = 'mixed';
+      // 100% Instant 2-way toggle on every single click
+      if (currentTypingItem) {
+        currentTypingItem.currentDir = (currentTypingItem.currentDir === 'vi_to_en') ? 'en_to_vi' : 'vi_to_en';
+        typingDirectionMode = currentTypingItem.currentDir;
+      } else {
+        typingDirectionMode = (typingDirectionMode === 'vi_to_en') ? 'en_to_vi' : 'vi_to_en';
+      }
 
-      renderCurrentTypingWord();
+      renderCurrentTypingWord(true);
     }
 
-    function renderCurrentTypingWord() {
+    function renderCurrentTypingWord(isManualToggle = false) {
       const total = (globalState.typingList && globalState.typingList.length > 0) ? globalState.typingList.length : 0;
       if (total === 0) return;
 
@@ -2599,19 +2614,18 @@
       const word = globalState.typingList[globalState.typingIndex];
       currentTypingItem = word;
 
+      // Determine active direction
+      if (!isManualToggle || !currentTypingItem.currentDir) {
+        currentTypingItem.currentDir = typingDirectionMode || 'en_to_vi';
+      }
+      const activeDir = currentTypingItem.currentDir;
+
       // Update counters
       document.getElementById('study-progress-counter').textContent = `${globalState.typingIndex + 1} / ${total}`;
       document.getElementById('stat-correct').textContent = globalState.enCorrect;
       document.getElementById('stat-wrong').textContent = globalState.enWrong;
       const pct = (globalState.typingIndex / total) * 100;
       document.getElementById('study-progress-fill').style.width = `${pct}%`;
-
-      // Determine active direction for this question
-      let activeDir = typingDirectionMode;
-      if (activeDir === 'mixed') {
-        activeDir = (globalState.typingIndex % 2 === 0) ? 'en_to_vi' : 'vi_to_en';
-      }
-      currentTypingItem.currentDir = activeDir;
 
       // Update Badges & Labels
       const dirBadge = document.getElementById('typing-direction-badge');
@@ -2624,6 +2638,7 @@
       const feedbackBox = document.getElementById('typing-feedback-box');
       const submitBtn = document.getElementById('typing-btn-submit');
       const skipBtn = document.getElementById('typing-btn-skip');
+      const prevBtn = document.getElementById('typing-btn-prev');
       const sentBox = document.getElementById('typing-sentence-box');
       const sentText = document.getElementById('typing-sentence-text');
 
@@ -2635,9 +2650,14 @@
       inputElem.className = "w-full px-4 py-3.5 text-center text-lg sm:text-xl font-bold text-slate-800 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-blue-500 focus:bg-white focus:outline-none transition shadow-2xs";
 
       submitBtn.textContent = 'Kiểm tra ↵';
-      submitBtn.className = "px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-blue-200 active:scale-95";
+      submitBtn.className = "px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-blue-200 active:scale-95 cursor-pointer";
       skipBtn.textContent = '🏳️ Xem đáp án';
       skipBtn.disabled = false;
+
+      if (prevBtn) {
+        prevBtn.disabled = globalState.typingIndex === 0;
+        prevBtn.classList.toggle('opacity-40', globalState.typingIndex === 0);
+      }
 
       if (sentBox && sentText) {
         if (word.sentence) {
@@ -2656,13 +2676,11 @@
         subHint.textContent = word.ipa || '';
         audioBtn.classList.remove('hidden');
         inputElem.placeholder = 'Gõ nghĩa tiếng Việt rồi nhấn Enter...';
-        speakText(word.en, 'en-US');
       } else {
         // VI ➔ EN
         dirBadge.innerHTML = '🇻🇳 ➔ 🇬🇧 Việt sang Anh';
         promptLabel.textContent = 'Gõ từ tiếng Anh tương ứng:';
         promptWord.textContent = word.vi;
-        // Hint length of english word
         const hintMask = word.en.split(' ').map(part => '_ '.repeat(part.length).trim()).join('   ');
         subHint.textContent = `Gợi ý: ${hintMask} (${word.en.length} ký tự)`;
         audioBtn.classList.add('hidden');
@@ -2678,19 +2696,31 @@
       speakText(currentTypingItem.en, 'en-US');
     }
 
+    function handleTypingAction() {
+      if (!typingIsAnswered) {
+        submitTypingAnswer();
+      } else {
+        nextTypingQuestion();
+      }
+    }
+
     function handleTypingKeyDown(e) {
       if (e.key === 'Enter') {
         e.preventDefault();
-        if (!typingIsAnswered) {
-          submitTypingAnswer();
-        } else {
-          nextTypingQuestion();
-        }
+        handleTypingAction();
       }
     }
 
     function cleanTypingString(str) {
       return (str || '').trim().toLowerCase().replace(/[.,!?;:"'()\/]/g, '').replace(/\s+/g, ' ');
+    }
+
+    function removeVietnameseTones(str) {
+      return (str || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/đ/g, 'd')
+        .replace(/Đ/g, 'D');
     }
 
     function submitTypingAnswer() {
@@ -2709,11 +2739,21 @@
       let isCorrect = false;
 
       if (isEnToVi) {
-        // Check Vietnamese meanings
+        // Check Vietnamese meanings (support exact, partial & tone-free typing)
         const viRaw = currentTypingItem.vi || '';
         const branches = viRaw.split(/[,;\/\(\)]+/).map(cleanTypingString).filter(Boolean);
         const userClean = cleanTypingString(val);
-        isCorrect = branches.some(b => b === userClean || b.includes(userClean) || userClean.includes(b));
+        const userNoTone = removeVietnameseTones(userClean);
+        isCorrect = branches.some(b => {
+          const bClean = cleanTypingString(b);
+          const bNoTone = removeVietnameseTones(bClean);
+          return bClean === userClean || 
+                 bClean.includes(userClean) || 
+                 userClean.includes(bClean) ||
+                 bNoTone === userNoTone ||
+                 bNoTone.includes(userNoTone) ||
+                 userNoTone.includes(bNoTone);
+        });
       } else {
         // Check English target
         const enTarget = cleanTypingString(currentTypingItem.en);
@@ -2725,7 +2765,8 @@
 
       const submitBtn = document.getElementById('typing-btn-submit');
       submitBtn.textContent = 'Tiếp tục (Enter) ➔';
-      submitBtn.className = "px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex-1 shadow-sm active:scale-95";
+      submitBtn.className = "px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex-1 shadow-sm active:scale-95 cursor-pointer";
+      setTimeout(() => submitBtn.focus(), 60);
 
       if (isCorrect) {
         globalState.typingCorrect++;
@@ -2743,7 +2784,7 @@
               </h4>
               <p class="text-[11px] text-emerald-700 font-mono mt-0.5">${currentTypingItem.ipa || ''}</p>
             </div>
-            <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-emerald-100 text-emerald-800 text-sm" title="Nghe phát âm">🔊</button>
+            <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-emerald-100 text-emerald-800 text-sm cursor-pointer" title="Nghe phát âm">🔊</button>
           </div>
         `;
         speakText(currentTypingItem.en, 'en-US');
@@ -2766,7 +2807,7 @@
                 Từ vựng: <strong>${currentTypingItem.en}</strong> = <em>${currentTypingItem.vi}</em>
               </p>
             </div>
-            <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-rose-100 text-rose-800 text-sm" title="Nghe phát âm">🔊</button>
+            <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-rose-100 text-rose-800 text-sm cursor-pointer" title="Nghe phát âm">🔊</button>
           </div>
         `;
       }
@@ -2792,7 +2833,8 @@
 
       const submitBtn = document.getElementById('typing-btn-submit');
       submitBtn.textContent = 'Tiếp tục (Enter) ➔';
-      submitBtn.className = "px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex-1 shadow-sm active:scale-95";
+      submitBtn.className = "px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex-1 shadow-sm active:scale-95 cursor-pointer";
+      setTimeout(() => submitBtn.focus(), 60);
 
       feedbackBox.className = "p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 text-left font-sans shadow-xs";
       feedbackBox.innerHTML = `
@@ -2804,13 +2846,20 @@
             </h4>
             <p class="text-[11px] text-amber-800 font-mono mt-0.5">${currentTypingItem.ipa || ''}</p>
           </div>
-          <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-amber-100 text-amber-800 text-sm" title="Nghe phát âm">🔊</button>
+          <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-amber-100 text-amber-800 text-sm cursor-pointer" title="Nghe phát âm">🔊</button>
         </div>
       `;
       speakText(currentTypingItem.en, 'en-US');
 
       document.getElementById('stat-correct').textContent = globalState.enCorrect;
       document.getElementById('stat-wrong').textContent = globalState.enWrong;
+    }
+
+    function prevTypingQuestion() {
+      if (globalState.typingIndex > 0) {
+        globalState.typingIndex--;
+        renderCurrentTypingWord();
+      }
     }
 
     function nextTypingQuestion() {
@@ -3328,6 +3377,7 @@
 
       const deck = getCurrentEnDeck();
       deck.words.push({ id: Date.now(), en, vi });
+      saveCustomDecks();
       saveStorage();
 
       enInput.value = '';
@@ -3340,6 +3390,7 @@
     function deleteSingleEnWord(wordId) {
       const deck = getCurrentEnDeck();
       deck.words = deck.words.filter(w => w.id !== wordId);
+      saveCustomDecks();
       saveStorage();
       renderEnManageTable();
       populateEnDeckDropdown();
@@ -3379,6 +3430,7 @@
       if (words.length === 0) return;
       const deck = getCurrentEnDeck();
       deck.words.push(...words);
+      saveCustomDecks();
       saveStorage();
       textarea.value = '';
       renderEnManageTable();
@@ -3392,6 +3444,7 @@
       if (confirm(`Thay thế toàn bộ bằng ${words.length} từ?`)) {
         const deck = getCurrentEnDeck();
         deck.words = words;
+        saveCustomDecks();
         saveStorage();
         textarea.value = '';
         renderEnManageTable();
@@ -3417,6 +3470,7 @@
       const newDeck = { id: `deck_${Date.now()}`, name: name, words: [] };
       globalState.enDecks.push(newDeck);
       globalState.currentEnDeckId = newDeck.id;
+      saveCustomDecks();
       saveStorage();
       closeNewDeckModal();
       populateEnDeckDropdown();
@@ -3803,6 +3857,13 @@
        ========================================================================= */
     function setupKeyboardListeners() {
       window.addEventListener('keydown', (e) => {
+        // If Enter is pressed while in typing mode and answer has been checked, proceed to next
+        if (e.key === 'Enter' && globalState.activeLang === 'en' && globalState.currentEnTab === 'typing' && typingIsAnswered) {
+          e.preventDefault();
+          nextTypingQuestion();
+          return;
+        }
+
         const active = document.activeElement;
         if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) {
           return;
@@ -3813,6 +3874,8 @@
           if (globalState.activeLang === 'ja') nextJaQuestion();
           else {
             if (globalState.currentEnTab === 'collocation') nextCollocQuestion();
+            else if (globalState.currentEnTab === 'gapfill') nextGapFillQuestion();
+            else if (globalState.currentEnTab === 'typing') nextTypingQuestion();
             else nextEnQuestion();
           }
         } else if (e.key === 'ArrowLeft') {
@@ -3820,6 +3883,8 @@
           if (globalState.activeLang === 'ja') prevJaQuestion();
           else {
             if (globalState.currentEnTab === 'collocation') prevCollocQuestion();
+            else if (globalState.currentEnTab === 'gapfill') prevGapFillQuestion();
+            else if (globalState.currentEnTab === 'typing') prevTypingQuestion();
             else prevEnQuestion();
           }
         }
