@@ -1,5 +1,4 @@
-// StudyMaster - Dataset 575 Từ Vựng & 230+ Câu Bài Tập Vận Dụng TOEIC Lớp Học
-// Tự động trích xuất từ 28 file Word giáo trình
+/* TOEIC Course Data - 28 Units + Master Deck with 295 Cloze Exercises with Vietnamese Translations */
 var TOEIC_COURSE_DECKS = [
   {
     "id": "deck_all_toeic_575",
@@ -7,9 +6,9 @@ var TOEIC_COURSE_DECKS = [
     "category_name": "🏆 Đề Tổng Hợp",
     "name": "🎯 Toàn Bộ 575 Từ Vựng TOEIC (Kho Tổng Hợp)",
     "icon": "🏆",
-    "desc": "Kiểm tra ngẫu nhiên toàn diện từ kho 575 từ vựng giáo trình",
+    "desc": "Toàn bộ 575 từ vựng trọng tâm từ 28 bài học trên lớp kèm 295 câu bài tập vận dụng có dịch nghĩa",
     "word_count": 575,
-    "exercise_count": 232,
+    "exercise_count": 295,
     "words": [
       {
         "id": "deck_p3_day_1_w0",
@@ -6337,7 +6336,4433 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Unit 7.3"
       }
     ],
-    "exercises": []
+    "exercises": [
+      {
+        "id": "ex_1",
+        "num": 1,
+        "sentence": "The man is sitting on the _______ at the park, resting for a while.",
+        "target": "bench",
+        "full_sentence": "The man is sitting on the bench at the park, resting for a while.",
+        "translation": "Người đàn ông đang ngồi trên băng ghế ở công viên, nghỉ ngơi một lúc.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "bench",
+          "examine",
+          "ceiling",
+          "luggage"
+        ]
+      },
+      {
+        "id": "ex_2",
+        "num": 2,
+        "sentence": "The worker is adjusting the _______ on the wall.",
+        "target": "frame",
+        "full_sentence": "The worker is adjusting the frame on the wall.",
+        "translation": "Người công nhân đang điều chỉnh khung trên tường.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "cart",
+          "frame",
+          "purchase",
+          "gather"
+        ]
+      },
+      {
+        "id": "ex_3",
+        "num": 3,
+        "sentence": "The woman is placing her coat on the _______ by the door.",
+        "target": "rack",
+        "full_sentence": "The woman is placing her coat on the rack by the door.",
+        "translation": "Người phụ nữ đang đặt chiếc áo khoác của mình lên giá cạnh cửa.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "tie",
+          "ceiling",
+          "luggage",
+          "rack"
+        ]
+      },
+      {
+        "id": "ex_4",
+        "num": 4,
+        "sentence": "The children are carrying their luggage up the _______ to their rooms.",
+        "target": "stairs",
+        "full_sentence": "The children are carrying their luggage up the stairs to their rooms.",
+        "translation": "Bọn trẻ đang mang hành lý lên cầu thang về phòng của chúng.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "cart",
+          "suitcase",
+          "wear",
+          "stairs"
+        ]
+      },
+      {
+        "id": "ex_5",
+        "num": 5,
+        "sentence": "The man is packing his _______ for the upcoming trip.",
+        "target": "suitcase",
+        "full_sentence": "The man is packing his suitcase for the upcoming trip.",
+        "translation": "Người đàn ông đang thu dọn hành lý cho chuyến đi sắp tới.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "cart",
+          "frame",
+          "suitcase",
+          "push"
+        ]
+      },
+      {
+        "id": "ex_6",
+        "num": 6,
+        "sentence": "The traveler is carrying his _______ through the airport to catch his flight.",
+        "target": "luggage",
+        "full_sentence": "The traveler is carrying his luggage through the airport to catch his flight.",
+        "translation": "Người du lịch đang mang hành lý của mình qua sân bay để bắt chuyến bay.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "rack",
+          "cart",
+          "luggage",
+          "bench"
+        ]
+      },
+      {
+        "id": "ex_7",
+        "num": 7,
+        "sentence": "The person is loading the _______ with boxes at the store.",
+        "target": "cart",
+        "full_sentence": "The person is loading the cart with boxes at the store.",
+        "translation": "Người này đang chất các thùng hàng lên xe đẩy ở cửa hàng.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "pack",
+          "examine",
+          "cart",
+          "stairs"
+        ]
+      },
+      {
+        "id": "ex_8",
+        "num": 8,
+        "sentence": "The shopkeeper is standing behind the _______ to assist the customers.",
+        "target": "counter",
+        "full_sentence": "The shopkeeper is standing behind the counter to assist the customers.",
+        "translation": "Người bán hàng đứng sau quầy để hỗ trợ khách hàng.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "ceiling",
+          "counter",
+          "wear",
+          "luggage"
+        ]
+      },
+      {
+        "id": "ex_9",
+        "num": 9,
+        "sentence": "The woman is resting her head on a _______ while sitting on the bench.",
+        "target": "cushion",
+        "full_sentence": "The woman is resting her head on a cushion while sitting on the bench.",
+        "translation": "Người phụ nữ đang tựa đầu vào một chiếc đệm khi ngồi trên băng ghế.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "cushion",
+          "reach",
+          "gather",
+          "tie"
+        ]
+      },
+      {
+        "id": "ex_10",
+        "num": 10,
+        "sentence": "The child is looking up at the colorful lights on the _______",
+        "target": "ceiling",
+        "full_sentence": "The child is looking up at the colorful lights on the ceiling",
+        "translation": "Đứa trẻ đang nhìn lên những ánh đèn nhiều màu sắc trên trần nhà",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "pack",
+          "stairs",
+          "ceiling",
+          "bench"
+        ]
+      },
+      {
+        "id": "ex_11",
+        "num": 11,
+        "sentence": "He is _______ the shopping cart down the aisle in the supermarket.",
+        "target": "pushing",
+        "full_sentence": "He is pushing the shopping cart down the aisle in the supermarket.",
+        "translation": "Anh ấy đang đẩy xe đẩy hàng dọc lối đi trong siêu thị.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "suitcase",
+          "pushing",
+          "stairs",
+          "cart"
+        ]
+      },
+      {
+        "id": "ex_12",
+        "num": 12,
+        "sentence": "He is _______ his shoes before leaving the house.",
+        "target": "tying",
+        "full_sentence": "He is tying his shoes before leaving the house.",
+        "translation": "Anh ấy đang buộc dây giày trước khi ra khỏi nhà.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "tying",
+          "push",
+          "luggage",
+          "bench"
+        ]
+      },
+      {
+        "id": "ex_13",
+        "num": 13,
+        "sentence": "She is _______ the floor to clean the house.",
+        "target": "sweeping",
+        "full_sentence": "She is sweeping the floor to clean the house.",
+        "translation": "Cô ấy đang quét sàn để lau nhà.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "luggage",
+          "counter",
+          "sweeping",
+          "examine"
+        ]
+      },
+      {
+        "id": "ex_14",
+        "num": 14,
+        "sentence": "The child is _______ the top shelf to get his book.",
+        "target": "reaching",
+        "full_sentence": "The child is reaching the top shelf to get his book.",
+        "translation": "Đứa trẻ đang tiến tới kệ trên cùng để lấy cuốn sách của mình.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "reaching",
+          "plug",
+          "push",
+          "gather"
+        ]
+      },
+      {
+        "id": "ex_15",
+        "num": 15,
+        "sentence": "She is _______ her luggage for the trip tomorrow.",
+        "target": "packing",
+        "full_sentence": "She is packing her luggage for the trip tomorrow.",
+        "translation": "Cô ấy đang đóng gói hành lý cho chuyến đi ngày mai.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "pack",
+          "counter",
+          "stairs",
+          "packing"
+        ]
+      },
+      {
+        "id": "ex_16",
+        "num": 16,
+        "sentence": "The couple is _______ their bags together at the table.",
+        "target": "gathering",
+        "full_sentence": "The couple is gathering their bags together at the table.",
+        "translation": "Cặp đôi đang cùng nhau thu dọn túi xách tại bàn.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "reach",
+          "examine",
+          "plug",
+          "gathering"
+        ]
+      },
+      {
+        "id": "ex_17",
+        "num": 17,
+        "sentence": "He is _______ the headphone into his phone.",
+        "target": "plugging",
+        "full_sentence": "He is plugging the headphone into his phone.",
+        "translation": "Anh ấy đang cắm tai nghe vào điện thoại.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "frame",
+          "bench",
+          "plugging",
+          "sweep"
+        ]
+      },
+      {
+        "id": "ex_18",
+        "num": 18,
+        "sentence": "He is _______ a new phone at the store.",
+        "target": "purchasing",
+        "full_sentence": "He is purchasing a new phone at the store.",
+        "translation": "Anh ấy đang mua một chiếc điện thoại mới ở cửa hàng.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "suitcase",
+          "purchase",
+          "purchasing",
+          "bench"
+        ]
+      },
+      {
+        "id": "ex_19",
+        "num": 19,
+        "sentence": "The man is _______ a jacket because it is cold outside.",
+        "target": "wearing",
+        "full_sentence": "The man is wearing a jacket because it is cold outside.",
+        "translation": "Người đàn ông đang mặc áo khoác vì bên ngoài trời lạnh.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "bench",
+          "counter",
+          "wearing",
+          "tie"
+        ]
+      },
+      {
+        "id": "ex_20",
+        "num": 20,
+        "sentence": "She is carefully _______ the document to check for mistakes.",
+        "target": "examining",
+        "full_sentence": "She is carefully examining the document to check for mistakes.",
+        "translation": "Cô ấy đang cẩn thận kiểm tra tài liệu để kiểm tra lỗi.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "frame",
+          "cushion",
+          "examining",
+          "tie"
+        ]
+      },
+      {
+        "id": "ex_21",
+        "num": 1,
+        "sentence": "The light _______ in the living room gives off a warm light.",
+        "target": "fixture",
+        "full_sentence": "The light fixture in the living room gives off a warm light.",
+        "translation": "Chiếc đèn trong phòng khách tỏa ra ánh sáng ấm áp.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "fixture",
+          "lay",
+          "fence",
+          "drawer"
+        ]
+      },
+      {
+        "id": "ex_22",
+        "num": 2,
+        "sentence": "He sat comfortably on the _______ and read a book.",
+        "target": "couch",
+        "full_sentence": "He sat comfortably on the couch and read a book.",
+        "translation": "Anh ngồi thoải mái trên ghế sofa và đọc sách.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "line up",
+          "couch",
+          "pile",
+          "fence"
+        ]
+      },
+      {
+        "id": "ex_23",
+        "num": 3,
+        "sentence": "Can you help me _______ this picture on the wall?",
+        "target": "hang",
+        "full_sentence": "Can you help me hang this picture on the wall?",
+        "translation": "Bạn có thể giúp tôi treo bức tranh này lên tường được không?",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "trim",
+          "cover",
+          "hang",
+          "cabinet"
+        ]
+      },
+      {
+        "id": "ex_24",
+        "num": 4,
+        "sentence": "She opened the _______ to find her passport.",
+        "target": "drawer",
+        "full_sentence": "She opened the drawer to find her passport.",
+        "translation": "Cô mở ngăn kéo để tìm hộ chiếu của mình.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "line up",
+          "drawer",
+          "fence",
+          "hang"
+        ]
+      },
+      {
+        "id": "ex_25",
+        "num": 5,
+        "sentence": "The _______ in the kitchen is filled with plates and bowls.",
+        "target": "cabinet",
+        "full_sentence": "The cabinet in the kitchen is filled with plates and bowls.",
+        "translation": "Tủ trong bếp chứa đầy đĩa và bát.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "pile",
+          "utensil",
+          "spill",
+          "cabinet"
+        ]
+      },
+      {
+        "id": "ex_26",
+        "num": 6,
+        "sentence": "The carpet _______ the entire floor of the room.",
+        "target": "covers",
+        "full_sentence": "The carpet covers the entire floor of the room.",
+        "translation": "Tấm thảm bao phủ toàn bộ sàn của căn phòng.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "pile",
+          "covers",
+          "pile",
+          "cabinet"
+        ]
+      },
+      {
+        "id": "ex_27",
+        "num": 7,
+        "sentence": "Students are _______ to get their lunch.",
+        "target": "lining up",
+        "full_sentence": "Students are lining up to get their lunch.",
+        "translation": "Các em học sinh đang xếp hàng để nhận phần ăn trưa.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "pile",
+          "drawer",
+          "entrance",
+          "lining up"
+        ]
+      },
+      {
+        "id": "ex_28",
+        "num": 8,
+        "sentence": "There’s a _______ of laundry that needs to be folded.",
+        "target": "pile",
+        "full_sentence": "There’s a pile of laundry that needs to be folded.",
+        "translation": "Có một đống đồ giặt cần được gấp lại.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "entrance",
+          "fence",
+          "pile",
+          "umbrella"
+        ]
+      },
+      {
+        "id": "ex_29",
+        "num": 9,
+        "sentence": "They built a new wooden _______ around the garden.",
+        "target": "fence",
+        "full_sentence": "They built a new wooden fence around the garden.",
+        "translation": "Họ xây một hàng rào gỗ mới xung quanh khu vườn.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "pile",
+          "drawer",
+          "cover",
+          "fence"
+        ]
+      },
+      {
+        "id": "ex_30",
+        "num": 10,
+        "sentence": "Don’t forget your _______ before going out in the rain.",
+        "target": "umbrella",
+        "full_sentence": "Don’t forget your umbrella before going out in the rain.",
+        "translation": "Đừng quên ô trước khi ra ngoài trời mưa.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "cabinet",
+          "drawer",
+          "umbrella",
+          "pot"
+        ]
+      },
+      {
+        "id": "ex_31",
+        "num": 11,
+        "sentence": "The light fixture is _______ above the dining table.",
+        "target": "suspended",
+        "full_sentence": "The light fixture is suspended above the dining table.",
+        "translation": "Đèn chiếu sáng được treo phía trên bàn ăn.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "lay",
+          "fixture",
+          "suspended",
+          "line up"
+        ]
+      },
+      {
+        "id": "ex_32",
+        "num": 12,
+        "sentence": "She took out a _______ to stir the soup.",
+        "target": "utensil",
+        "full_sentence": "She took out a utensil to stir the soup.",
+        "translation": "Cô lấy ra một dụng cụ để khuấy súp.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "couch",
+          "drawer",
+          "utensil",
+          "line up"
+        ]
+      },
+      {
+        "id": "ex_33",
+        "num": 13,
+        "sentence": "A plastic _______ is used to store the leftovers.",
+        "target": "container",
+        "full_sentence": "A plastic container is used to store the leftovers.",
+        "translation": "Một hộp nhựa được sử dụng để lưu trữ thức ăn thừa.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "ladder",
+          "container",
+          "hang",
+          "spill"
+        ]
+      },
+      {
+        "id": "ex_34",
+        "num": 14,
+        "sentence": "He climbed the _______ to fix the roof.",
+        "target": "ladder",
+        "full_sentence": "He climbed the ladder to fix the roof.",
+        "translation": "Anh leo lên thang để sửa mái nhà.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "ladder",
+          "pot",
+          "cabinet",
+          "utensil"
+        ]
+      },
+      {
+        "id": "ex_35",
+        "num": 15,
+        "sentence": "From the _______ , you can see the entire city skyline.",
+        "target": "balcony",
+        "full_sentence": "From the balcony , you can see the entire city skyline.",
+        "translation": "Từ ban công, bạn có thể nhìn thấy toàn bộ đường chân trời của thành phố.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "hold",
+          "balcony",
+          "fixture",
+          "spill"
+        ]
+      },
+      {
+        "id": "ex_36",
+        "num": 16,
+        "sentence": "The gardener is _______ the bushes in the front yard.",
+        "target": "trimming",
+        "full_sentence": "The gardener is trimming the bushes in the front yard.",
+        "translation": "Người làm vườn đang cắt tỉa bụi cây ở sân trước.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "pile",
+          "drawer",
+          "trimming",
+          "lay"
+        ]
+      },
+      {
+        "id": "ex_37",
+        "num": 17,
+        "sentence": "The _______ to the building is beautifully decorated with flowers.",
+        "target": "entrance",
+        "full_sentence": "The entrance to the building is beautifully decorated with flowers.",
+        "translation": "Lối vào tòa nhà được trang trí đẹp mắt bằng hoa.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "fixture",
+          "couch",
+          "suspend",
+          "entrance"
+        ]
+      },
+      {
+        "id": "ex_38",
+        "num": 18,
+        "sentence": "Be careful not to _______ juice on the new carpet.",
+        "target": "spill",
+        "full_sentence": "Be careful not to spill juice on the new carpet.",
+        "translation": "Cẩn thận không làm đổ nước trái cây lên tấm thảm mới.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "spill",
+          "hold",
+          "pile",
+          "entrance"
+        ]
+      },
+      {
+        "id": "ex_39",
+        "num": 19,
+        "sentence": "She poured water into the _______ to boil noodles.",
+        "target": "pot",
+        "full_sentence": "She poured water into the pot to boil noodles.",
+        "translation": "Cô đổ nước vào nồi để luộc mì.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "cabinet",
+          "line up",
+          "pile",
+          "pot"
+        ]
+      },
+      {
+        "id": "ex_40",
+        "num": 20,
+        "sentence": "They are _______ the chairs up in the corner after the meeting.",
+        "target": "piling",
+        "full_sentence": "They are piling the chairs up in the corner after the meeting.",
+        "translation": "Họ đang xếp ghế vào góc sau cuộc họp.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "fence",
+          "trim",
+          "piling",
+          "utensil"
+        ]
+      },
+      {
+        "id": "ex_41",
+        "num": 1,
+        "sentence": "The airport’s international _______ was closed for renovation last week.",
+        "target": "terminal",
+        "full_sentence": "The airport’s international terminal was closed for renovation last week.",
+        "translation": "Nhà ga quốc tế của sân bay đã đóng cửa để cải tạo vào tuần trước.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "terminal",
+          "resume",
+          "be supposed to",
+          "ink cartridge"
+        ]
+      },
+      {
+        "id": "ex_42",
+        "num": 2,
+        "sentence": "She applied for the _______ of Marketing Manager at a well-known company.",
+        "target": "position",
+        "full_sentence": "She applied for the position of Marketing Manager at a well-known company.",
+        "translation": "Cô ứng tuyển vào vị trí Giám đốc Marketing tại một công ty nổi tiếng.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "prototype",
+          "employee",
+          "position",
+          "schedule"
+        ]
+      },
+      {
+        "id": "ex_43",
+        "num": 3,
+        "sentence": "I heard that you _______ the photography course. Are you planning to join it?",
+        "target": "are interested in",
+        "full_sentence": "I heard that you are interested in the photography course. Are you planning to join it?",
+        "translation": "Tôi nghe nói rằng bạn quan tâm đến khóa học nhiếp ảnh. Bạn có dự định tham gia nó không?",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "vegetarian",
+          "be interested in",
+          "terminal",
+          "are interested in"
+        ]
+      },
+      {
+        "id": "ex_44",
+        "num": 4,
+        "sentence": "The journalist wrote an _______ about the impact of AI on the job market.",
+        "target": "article",
+        "full_sentence": "The journalist wrote an article about the impact of AI on the job market.",
+        "translation": "Nhà báo đã viết một bài báo về tác động của AI đến thị trường việc làm.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "schedule",
+          "prototype",
+          "employee",
+          "article"
+        ]
+      },
+      {
+        "id": "ex_45",
+        "num": 5,
+        "sentence": "According to the project _______ , the final report is due next Monday.",
+        "target": "schedule",
+        "full_sentence": "According to the project schedule , the final report is due next Monday.",
+        "translation": "Theo tiến độ dự án, báo cáo cuối cùng sẽ được nộp vào thứ Hai tới.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "schedule",
+          "release",
+          "be supposed to",
+          "vegetarian"
+        ]
+      },
+      {
+        "id": "ex_46",
+        "num": 6,
+        "sentence": "Please send us a written _______ to verify your attendance at the event.",
+        "target": "confirmation",
+        "full_sentence": "Please send us a written confirmation to verify your attendance at the event.",
+        "translation": "Vui lòng gửi cho chúng tôi một văn bản xác nhận để xác minh sự tham dự của bạn tại sự kiện.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "resume",
+          "schedule",
+          "confirmation",
+          "pursue"
+        ]
+      },
+      {
+        "id": "ex_47",
+        "num": 7,
+        "sentence": "The company recently hired a new _______ to assist with administrative tasks.",
+        "target": "employee",
+        "full_sentence": "The company recently hired a new employee to assist with administrative tasks.",
+        "translation": "Công ty gần đây đã thuê một nhân viên mới để hỗ trợ các công việc hành chính.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "employee",
+          "merchandise",
+          "certificate",
+          "resume"
+        ]
+      },
+      {
+        "id": "ex_48",
+        "num": 8,
+        "sentence": "He presented his diploma and _______ as proof of his academic qualifications.",
+        "target": "certificate",
+        "full_sentence": "He presented his diploma and certificate as proof of his academic qualifications.",
+        "translation": "Anh ấy đã xuất trình bằng tốt nghiệp và chứng chỉ của mình để làm bằng chứng về trình độ học vấn của mình.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "certificate",
+          "article",
+          "prototype",
+          "release"
+        ]
+      },
+      {
+        "id": "ex_49",
+        "num": 9,
+        "sentence": "She decided to _______ her dream of becoming a professional dancer despite the challenges.",
+        "target": "pursue",
+        "full_sentence": "She decided to pursue her dream of becoming a professional dancer despite the challenges.",
+        "translation": "Cô quyết định theo đuổi ước mơ trở thành vũ công chuyên nghiệp bất chấp thử thách.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "cabinet",
+          "cater",
+          "pursue",
+          "resume"
+        ]
+      },
+      {
+        "id": "ex_50",
+        "num": 10,
+        "sentence": "The new product’s _______ will be held at the trade show next month.",
+        "target": "demonstration",
+        "full_sentence": "The new product’s demonstration will be held at the trade show next month.",
+        "translation": "Buổi giới thiệu sản phẩm mới sẽ được tổ chức tại triển lãm thương mại vào tháng tới.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "vegetarian",
+          "maintenance",
+          "resume",
+          "demonstration"
+        ]
+      },
+      {
+        "id": "ex_51",
+        "num": 11,
+        "sentence": "All confidential documents must be stored in the locked _______",
+        "target": "cabinet",
+        "full_sentence": "All confidential documents must be stored in the locked cabinet",
+        "translation": "Mọi tài liệu mật phải được cất giữ trong tủ có khóa",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "cabinet",
+          "vegetarian",
+          "be supposed to",
+          "schedule"
+        ]
+      },
+      {
+        "id": "ex_52",
+        "num": 12,
+        "sentence": "The engineers showcased the first _______ of the electric vehicle to the investors.",
+        "target": "prototype",
+        "full_sentence": "The engineers showcased the first prototype of the electric vehicle to the investors.",
+        "translation": "Các kỹ sư đã giới thiệu nguyên mẫu đầu tiên của xe điện cho các nhà đầu tư.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "prototype",
+          "position",
+          "be supposed to",
+          "schedule"
+        ]
+      },
+      {
+        "id": "ex_53",
+        "num": 13,
+        "sentence": "Regular _______ of office equipment is essential to ensure smooth operation.",
+        "target": "maintenance",
+        "full_sentence": "Regular maintenance of office equipment is essential to ensure smooth operation.",
+        "translation": "Bảo trì thường xuyên các thiết bị văn phòng là điều cần thiết để đảm bảo hoạt động trơn tru.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "merchandise",
+          "cabinet",
+          "pursue",
+          "maintenance"
+        ]
+      },
+      {
+        "id": "ex_54",
+        "num": 14,
+        "sentence": "The store is offering a 20% discount on all _______ this weekend.",
+        "target": "merchandise",
+        "full_sentence": "The store is offering a 20% discount on all merchandise this weekend.",
+        "translation": "Cuối tuần này shop đang có chương trình giảm giá 20% cho tất cả các mặt hàng.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "merchandise",
+          "release",
+          "release",
+          "cabinet"
+        ]
+      },
+      {
+        "id": "ex_55",
+        "num": 15,
+        "sentence": "Employees _______ clock in before starting their shifts.",
+        "target": "are supposed to",
+        "full_sentence": "Employees are supposed to clock in before starting their shifts.",
+        "translation": "Nhân viên phải bấm giờ trước khi bắt đầu ca làm việc của họ.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "resume",
+          "release",
+          "are supposed to",
+          "employee"
+        ]
+      },
+      {
+        "id": "ex_56",
+        "num": 16,
+        "sentence": "The catering service is prepared to _______ to guests with dietary restrictions.",
+        "target": "cater",
+        "full_sentence": "The catering service is prepared to cater to guests with dietary restrictions.",
+        "translation": "Dịch vụ ăn uống được chuẩn bị để phục vụ những khách hàng có chế độ ăn kiêng hạn chế.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "merchandise",
+          "certificate",
+          "cater",
+          "ink cartridge"
+        ]
+      },
+      {
+        "id": "ex_57",
+        "num": 17,
+        "sentence": "This restaurant offers a variety of _______ dishes for non-meat eaters.",
+        "target": "vegetarian",
+        "full_sentence": "This restaurant offers a variety of vegetarian dishes for non-meat eaters.",
+        "translation": "Nhà hàng này cung cấp nhiều món ăn chay cho những người không ăn thịt.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "maintenance",
+          "cater",
+          "pursue",
+          "vegetarian"
+        ]
+      },
+      {
+        "id": "ex_58",
+        "num": 18,
+        "sentence": "Please attach your updated _______ and a cover letter when applying for the job.",
+        "target": "resume",
+        "full_sentence": "Please attach your updated resume and a cover letter when applying for the job.",
+        "translation": "Vui lòng đính kèm sơ yếu lý lịch cập nhật của bạn và thư xin việc khi nộp đơn xin việc.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "be supposed to",
+          "be interested in",
+          "resume",
+          "release"
+        ]
+      },
+      {
+        "id": "ex_59",
+        "num": 19,
+        "sentence": "The printer is out of ink. Can you replace the _______ so we can continue printing?",
+        "target": "ink cartridge",
+        "full_sentence": "The printer is out of ink. Can you replace the ink cartridge so we can continue printing?",
+        "translation": "Máy in hết mực. Bạn có thể thay hộp mực để chúng tôi có thể tiếp tục in không?",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "release",
+          "demonstration",
+          "merchandise",
+          "ink cartridge"
+        ]
+      },
+      {
+        "id": "ex_60",
+        "num": 20,
+        "sentence": "The movie studio announced the _______ of their highly anticipated film next Friday.",
+        "target": "release",
+        "full_sentence": "The movie studio announced the release of their highly anticipated film next Friday.",
+        "translation": "Hãng phim đã thông báo phát hành bộ phim rất được mong đợi của họ vào thứ sáu tới.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "certificate",
+          "schedule",
+          "release",
+          "cater"
+        ]
+      },
+      {
+        "id": "ex_61",
+        "num": 21,
+        "sentence": "We need to _______ a meeting with the marketing team to discuss the new campaign.",
+        "target": "schedule",
+        "full_sentence": "We need to schedule a meeting with the marketing team to discuss the new campaign.",
+        "translation": "Chúng ta cần lên lịch một cuộc họp với nhóm tiếp thị để thảo luận về chiến dịch mới.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "schedule",
+          "position",
+          "release",
+          "prototype"
+        ]
+      },
+      {
+        "id": "ex_62",
+        "num": 22,
+        "sentence": "The company plans to _______ its latest smartphone model next month.",
+        "target": "release",
+        "full_sentence": "The company plans to release its latest smartphone model next month.",
+        "translation": "Công ty có kế hoạch phát hành mẫu điện thoại thông minh mới nhất của mình vào tháng tới.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "resume",
+          "release",
+          "demonstration",
+          "schedule"
+        ]
+      },
+      {
+        "id": "ex_63",
+        "num": 23,
+        "sentence": "After the power outage, the workers were able to _______ their tasks without much delay.",
+        "target": "resume",
+        "full_sentence": "After the power outage, the workers were able to resume their tasks without much delay.",
+        "translation": "Sau khi mất điện, các công nhân đã có thể tiếp tục công việc của mình mà không bị chậm trễ nhiều.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "schedule",
+          "terminal",
+          "ink cartridge",
+          "resume"
+        ]
+      },
+      {
+        "id": "ex_64",
+        "num": 1,
+        "sentence": "The weather _______ predicts heavy rain for the weekend, so the outdoor event may be postponed.",
+        "target": "forecast",
+        "full_sentence": "The weather forecast predicts heavy rain for the weekend, so the outdoor event may be postponed.",
+        "translation": "Dự báo thời tiết dự báo cuối tuần sẽ có mưa lớn nên sự kiện ngoài trời có thể bị hoãn lại.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "contract",
+          "chance",
+          "forecast",
+          "charge"
+        ]
+      },
+      {
+        "id": "ex_65",
+        "num": 2,
+        "sentence": "The HR _______ is responsible for handling all employee-related concerns.",
+        "target": "department",
+        "full_sentence": "The HR department is responsible for handling all employee-related concerns.",
+        "translation": "Bộ phận nhân sự chịu trách nhiệm giải quyết mọi vấn đề liên quan đến nhân viên.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "charge",
+          "department",
+          "concert",
+          "assignment"
+        ]
+      },
+      {
+        "id": "ex_66",
+        "num": 3,
+        "sentence": "Please confirm your table _______ at least 24 hours before your arrival.",
+        "target": "reservation",
+        "full_sentence": "Please confirm your table reservation at least 24 hours before your arrival.",
+        "translation": "Vui lòng xác nhận việc đặt bàn của bạn ít nhất 24 giờ trước khi bạn đến.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "contract",
+          "reservation",
+          "seminar",
+          "charge"
+        ]
+      },
+      {
+        "id": "ex_67",
+        "num": 4,
+        "sentence": "The marketing team is designing a new _______ to promote the company’s services.",
+        "target": "brochure",
+        "full_sentence": "The marketing team is designing a new brochure to promote the company’s services.",
+        "translation": "Đội ngũ tiếp thị đang thiết kế một tập tài liệu mới để quảng bá các dịch vụ của công ty.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "policy",
+          "reservation",
+          "brochure",
+          "department"
+        ]
+      },
+      {
+        "id": "ex_68",
+        "num": 5,
+        "sentence": "The property manager informed the _______ about the maintenance schedule for the building.",
+        "target": "tenant",
+        "full_sentence": "The property manager informed the tenant about the maintenance schedule for the building.",
+        "translation": "Người quản lý tài sản đã thông báo cho người thuê về lịch trình bảo trì tòa nhà.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "comedy",
+          "tenant",
+          "concert",
+          "policy"
+        ]
+      },
+      {
+        "id": "ex_69",
+        "num": 6,
+        "sentence": "We are excited to announce that the band will be performing a live _______ next month.",
+        "target": "concert",
+        "full_sentence": "We are excited to announce that the band will be performing a live concert next month.",
+        "translation": "Chúng tôi vui mừng thông báo rằng ban nhạc sẽ biểu diễn buổi hòa nhạc trực tiếp vào tháng tới.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "Personnel",
+          "policy",
+          "concert",
+          "department"
+        ]
+      },
+      {
+        "id": "ex_70",
+        "num": 7,
+        "sentence": "You will receive a _______ after completing your purchase for proof of payment.",
+        "target": "receipt",
+        "full_sentence": "You will receive a receipt after completing your purchase for proof of payment.",
+        "translation": "Bạn sẽ nhận được biên lai sau khi hoàn tất giao dịch mua hàng để làm bằng chứng thanh toán.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "policy",
+          "assignment",
+          "receipt",
+          "decision"
+        ]
+      },
+      {
+        "id": "ex_71",
+        "num": 8,
+        "sentence": "The professor encouraged students to attend the upcoming business _______ for networking opportunities.",
+        "target": "seminar",
+        "full_sentence": "The professor encouraged students to attend the upcoming business seminar for networking opportunities.",
+        "translation": "Giáo sư khuyến khích sinh viên tham dự hội thảo kinh doanh sắp tới để có cơ hội kết nối.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "seminar",
+          "presentation",
+          "receipt",
+          "specialist"
+        ]
+      },
+      {
+        "id": "ex_72",
+        "num": 9,
+        "sentence": "The company hired a cybersecurity _______ to enhance its data protection systems.",
+        "target": "specialist",
+        "full_sentence": "The company hired a cybersecurity specialist to enhance its data protection systems.",
+        "translation": "Công ty đã thuê một chuyên gia an ninh mạng để tăng cường hệ thống bảo vệ dữ liệu của mình.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "specialist",
+          "contract",
+          "policy",
+          "comedy"
+        ]
+      },
+      {
+        "id": "ex_73",
+        "num": 10,
+        "sentence": "The manager made a final _______ regarding the budget allocation for the project.",
+        "target": "decision",
+        "full_sentence": "The manager made a final decision regarding the budget allocation for the project.",
+        "translation": "Người quản lý đưa ra quyết định cuối cùng về việc phân bổ ngân sách cho dự án.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "decision",
+          "department",
+          "Personnel",
+          "chance"
+        ]
+      },
+      {
+        "id": "ex_74",
+        "num": 11,
+        "sentence": "A signed _______ is required before we can begin work on the project.",
+        "target": "contract",
+        "full_sentence": "A signed contract is required before we can begin work on the project.",
+        "translation": "Cần phải có hợp đồng đã ký trước khi chúng tôi có thể bắt đầu thực hiện dự án.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "contract",
+          "concert",
+          "chance",
+          "reservation"
+        ]
+      },
+      {
+        "id": "ex_75",
+        "num": 12,
+        "sentence": "Customers can refer to the instruction _______ for detailed product setup steps.",
+        "target": "manual",
+        "full_sentence": "Customers can refer to the instruction manual for detailed product setup steps.",
+        "translation": "Khách hàng có thể tham khảo sách hướng dẫn chi tiết các bước setup sản phẩm.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "manual",
+          "policy",
+          "charge",
+          "reservation"
+        ]
+      },
+      {
+        "id": "ex_76",
+        "num": 13,
+        "sentence": "The travel _______ specializes in planning luxurious international vacations.",
+        "target": "agency",
+        "full_sentence": "The travel agency specializes in planning luxurious international vacations.",
+        "translation": "Công ty du lịch chuyên tổ chức các kỳ nghỉ quốc tế sang trọng.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "charge",
+          "forecast",
+          "assignment",
+          "agency"
+        ]
+      },
+      {
+        "id": "ex_77",
+        "num": 14,
+        "sentence": "Employees are required to adhere strictly to the company’s new safety _______",
+        "target": "policy",
+        "full_sentence": "Employees are required to adhere strictly to the company’s new safety policy",
+        "translation": "Nhân viên được yêu cầu tuân thủ nghiêm ngặt chính sách an toàn mới của công ty",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "charge",
+          "tenant",
+          "policy",
+          "department"
+        ]
+      },
+      {
+        "id": "ex_78",
+        "num": 15,
+        "sentence": "The client requested a detailed _______ of the project proposal during the meeting.",
+        "target": "presentation",
+        "full_sentence": "The client requested a detailed presentation of the project proposal during the meeting.",
+        "translation": "Khách hàng yêu cầu trình bày chi tiết về đề xuất dự án trong cuộc họp.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "contract",
+          "chance",
+          "presentation",
+          "comedy"
+        ]
+      },
+      {
+        "id": "ex_79",
+        "num": 16,
+        "sentence": "The comedy club is hosting a stand-up _______ featuring several well-known comedians.",
+        "target": "comedy",
+        "full_sentence": "The comedy club is hosting a stand-up comedy featuring several well-known comedians.",
+        "translation": "Câu lạc bộ hài kịch đang tổ chức một vở hài kịch độc thoại có sự góp mặt của một số diễn viên hài nổi tiếng.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "seminar",
+          "decision",
+          "comedy",
+          "receipt"
+        ]
+      },
+      {
+        "id": "ex_80",
+        "num": 17,
+        "sentence": "You will be given a new _______ at the start of each week to complete by Friday.",
+        "target": "assignment",
+        "full_sentence": "You will be given a new assignment at the start of each week to complete by Friday.",
+        "translation": "Bạn sẽ được giao một nhiệm vụ mới vào đầu mỗi tuần và hoàn thành trước thứ Sáu.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "charge",
+          "charge",
+          "specialist",
+          "assignment"
+        ]
+      },
+      {
+        "id": "ex_81",
+        "num": 18,
+        "sentence": "The company is offering employees the _______ to transfer to other offices abroad.",
+        "target": "chance",
+        "full_sentence": "The company is offering employees the chance to transfer to other offices abroad.",
+        "translation": "Công ty đang tạo cơ hội cho nhân viên chuyển sang các văn phòng khác ở nước ngoài.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "agency",
+          "decision",
+          "chance",
+          "brochure"
+        ]
+      },
+      {
+        "id": "ex_82",
+        "num": 19,
+        "sentence": "The customer service _______ is available 24/7 to handle inquiries and complaints.",
+        "target": "personnel",
+        "full_sentence": "The customer service personnel is available 24/7 to handle inquiries and complaints.",
+        "translation": "Nhân viên dịch vụ khách hàng luôn sẵn sàng 24/7 để giải quyết các thắc mắc và khiếu nại.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "reservation",
+          "contract",
+          "personnel",
+          "specialist"
+        ]
+      },
+      {
+        "id": "ex_83",
+        "num": 20,
+        "sentence": "The hotel will _______ a fee for any cancellations made within 24 hours of the booking.",
+        "target": "charge",
+        "full_sentence": "The hotel will charge a fee for any cancellations made within 24 hours of the booking.",
+        "translation": "Khách sạn sẽ tính phí nếu khách hủy đặt phòng trong vòng 24 giờ kể từ khi đặt phòng.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "manual",
+          "charge",
+          "seminar",
+          "forecast"
+        ]
+      },
+      {
+        "id": "ex_84",
+        "num": 21,
+        "sentence": "The hotel will add an extra _______ for late check-out after 12:00 PM.",
+        "target": "charge",
+        "full_sentence": "The hotel will add an extra charge for late check-out after 12:00 PM.",
+        "translation": "Khách sạn sẽ tính thêm phụ phí nếu trả phòng trễ sau 12:00 trưa.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "concert",
+          "charge",
+          "reservation",
+          "chance"
+        ]
+      },
+      {
+        "id": "ex_85",
+        "num": 22,
+        "sentence": "You need to _______ your phone before leaving for the trip, as there might not be any charging stations.",
+        "target": "charge",
+        "full_sentence": "You need to charge your phone before leaving for the trip, as there might not be any charging stations.",
+        "translation": "Bạn cần sạc điện thoại trước khi lên đường vì có thể không có trạm sạc.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "policy",
+          "charge",
+          "reservation",
+          "tenant"
+        ]
+      },
+      {
+        "id": "ex_86",
+        "num": 1,
+        "sentence": "Please take a seat in the _______ while waiting for your appointment.",
+        "target": "lobby",
+        "full_sentence": "Please take a seat in the lobby while waiting for your appointment.",
+        "translation": "Vui lòng ngồi ở sảnh trong khi chờ cuộc hẹn.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "lobby",
+          "publisher",
+          "produce",
+          "request"
+        ]
+      },
+      {
+        "id": "ex_87",
+        "num": 2,
+        "sentence": "The company is opening a new _______ in another city to expand its market reach.",
+        "target": "branch",
+        "full_sentence": "The company is opening a new branch in another city to expand its market reach.",
+        "translation": "Công ty đang mở một chi nhánh mới ở một thành phố khác để mở rộng phạm vi tiếp cận thị trường.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "branch",
+          "deliver",
+          "pick up",
+          "cover"
+        ]
+      },
+      {
+        "id": "ex_88",
+        "num": 3,
+        "sentence": "The finance team is working on a report to finalize the annual _______",
+        "target": "budget",
+        "full_sentence": "The finance team is working on a report to finalize the annual budget",
+        "translation": "Nhóm tài chính đang làm việc trên một báo cáo để quyết toán ngân sách hàng năm",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "publisher",
+          "break",
+          "budget",
+          "request"
+        ]
+      },
+      {
+        "id": "ex_89",
+        "num": 4,
+        "sentence": "Customers can submit a formal _______ for refunds via our website.",
+        "target": "request",
+        "full_sentence": "Customers can submit a formal request for refunds via our website.",
+        "translation": "Khách hàng có thể gửi yêu cầu hoàn tiền chính thức thông qua trang web của chúng tôi.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "material",
+          "prefer",
+          "request",
+          "branch"
+        ]
+      },
+      {
+        "id": "ex_90",
+        "num": 5,
+        "sentence": "I usually _______ walking to work over taking the bus since it keeps me active.",
+        "target": "prefer",
+        "full_sentence": "I usually prefer walking to work over taking the bus since it keeps me active.",
+        "translation": "Tôi thường thích đi bộ đi làm hơn là đi xe buýt vì nó giúp tôi năng động hơn.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "warranty",
+          "prefer",
+          "solution",
+          "request"
+        ]
+      },
+      {
+        "id": "ex_91",
+        "num": 6,
+        "sentence": "The technical support team quickly found a _______ to the system malfunction.",
+        "target": "solution",
+        "full_sentence": "The technical support team quickly found a solution to the system malfunction.",
+        "translation": "Đội ngũ hỗ trợ kỹ thuật đã nhanh chóng tìm ra giải pháp khắc phục sự cố hệ thống.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "walk",
+          "cover",
+          "cover",
+          "solution"
+        ]
+      },
+      {
+        "id": "ex_92",
+        "num": 7,
+        "sentence": "Make sure to keep the receipt, as the product comes with a two-year _______",
+        "target": "warranty",
+        "full_sentence": "Make sure to keep the receipt, as the product comes with a two-year warranty",
+        "translation": "Hãy nhớ giữ lại biên lai vì sản phẩm được bảo hành hai năm",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "warranty",
+          "cover",
+          "material",
+          "downtown"
+        ]
+      },
+      {
+        "id": "ex_93",
+        "num": 8,
+        "sentence": "The insurance policy will _______ any damage caused by natural disasters.",
+        "target": "cover",
+        "full_sentence": "The insurance policy will cover any damage caused by natural disasters.",
+        "translation": "Hợp đồng bảo hiểm sẽ chi trả mọi thiệt hại do thiên tai gây ra.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "deliver",
+          "cover",
+          "publisher",
+          "solution"
+        ]
+      },
+      {
+        "id": "ex_94",
+        "num": 9,
+        "sentence": "The book’s _______ announced the release of its latest edition this morning.",
+        "target": "publisher",
+        "full_sentence": "The book’s publisher announced the release of its latest edition this morning.",
+        "translation": "Nhà xuất bản cuốn sách đã thông báo phát hành ấn bản mới nhất vào sáng nay.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "publisher",
+          "material",
+          "cafeteria",
+          "budget"
+        ]
+      },
+      {
+        "id": "ex_95",
+        "num": 10,
+        "sentence": "She bent down to _______ her phone that had fallen under the table.",
+        "target": "pick up",
+        "full_sentence": "She bent down to pick up her phone that had fallen under the table.",
+        "translation": "Cô cúi xuống nhặt chiếc điện thoại rơi dưới gầm bàn lên.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "break",
+          "pick up",
+          "request",
+          "publisher"
+        ]
+      },
+      {
+        "id": "ex_96",
+        "num": 11,
+        "sentence": "This company specializes in using eco-friendly methods to _______ high-quality organic vegetables.",
+        "target": "produce",
+        "full_sentence": "This company specializes in using eco-friendly methods to produce high-quality organic vegetables.",
+        "translation": "Công ty này chuyên sử dụng các phương pháp thân thiện với môi trường để sản xuất rau hữu cơ chất lượng cao.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "walk",
+          "produce",
+          "lobby",
+          "downtown"
+        ]
+      },
+      {
+        "id": "ex_97",
+        "num": 12,
+        "sentence": "The company decided to _______ the documents to the client instead of using email.",
+        "target": "deliver",
+        "full_sentence": "The company decided to deliver the documents to the client instead of using email.",
+        "translation": "Công ty quyết định gửi tài liệu cho khách hàng thay vì sử dụng email.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "branch",
+          "cover",
+          "deliver",
+          "warranty"
+        ]
+      },
+      {
+        "id": "ex_98",
+        "num": 13,
+        "sentence": "The new restaurant on Fifth _______ is known for its delicious desserts.",
+        "target": "avenue",
+        "full_sentence": "The new restaurant on Fifth avenue is known for its delicious desserts.",
+        "translation": "Nhà hàng mới trên đại lộ số 5 nổi tiếng với những món tráng miệng thơm ngon.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "downtown",
+          "pasta",
+          "avenue",
+          "prefer"
+        ]
+      },
+      {
+        "id": "ex_99",
+        "num": 14,
+        "sentence": "Workers are given a 15-minute _______ during the morning shift.",
+        "target": "break",
+        "full_sentence": "Workers are given a 15-minute break during the morning shift.",
+        "translation": "Công nhân được nghỉ 15 phút trong ca sáng.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "branch",
+          "break",
+          "avenue",
+          "lobby"
+        ]
+      },
+      {
+        "id": "ex_100",
+        "num": 15,
+        "sentence": "The factory uses eco-friendly _______ to create its packaging.",
+        "target": "material",
+        "full_sentence": "The factory uses eco-friendly material to create its packaging.",
+        "translation": "Nhà máy sử dụng vật liệu thân thiện với môi trường để sản xuất bao bì.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "branch",
+          "solution",
+          "break",
+          "material"
+        ]
+      },
+      {
+        "id": "ex_101",
+        "num": 16,
+        "sentence": "Many people prefer living _______ because of the proximity to offices and shops.",
+        "target": "downtown",
+        "full_sentence": "Many people prefer living downtown because of the proximity to offices and shops.",
+        "translation": "Nhiều người thích sống ở trung tâm thành phố vì gần các văn phòng và cửa hàng.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "cover",
+          "downtown",
+          "cover",
+          "break"
+        ]
+      },
+      {
+        "id": "ex_102",
+        "num": 17,
+        "sentence": "The sales _______ for the last quarter show a significant increase compared to the previous period.",
+        "target": "figure",
+        "full_sentence": "The sales figure for the last quarter show a significant increase compared to the previous period.",
+        "translation": "Số liệu bán hàng trong quý vừa qua cho thấy sự gia tăng đáng kể so với giai đoạn trước.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "figure",
+          "walk",
+          "budget",
+          "deliver"
+        ]
+      },
+      {
+        "id": "ex_103",
+        "num": 18,
+        "sentence": "I think I’ll have the chicken instead of _______ for lunch today.",
+        "target": "pasta",
+        "full_sentence": "I think I’ll have the chicken instead of pasta for lunch today.",
+        "translation": "Tôi nghĩ bữa trưa hôm nay tôi sẽ ăn thịt gà thay vì mì ống.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "lobby",
+          "cover",
+          "solution",
+          "pasta"
+        ]
+      },
+      {
+        "id": "ex_104",
+        "num": 19,
+        "sentence": "The staff gathered in the _______ for the monthly announcement.",
+        "target": "cafeteria",
+        "full_sentence": "The staff gathered in the cafeteria for the monthly announcement.",
+        "translation": "Các nhân viên tập trung tại căng tin để nghe thông báo hàng tháng.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "cafeteria",
+          "branch",
+          "cover",
+          "solution"
+        ]
+      },
+      {
+        "id": "ex_105",
+        "num": 20,
+        "sentence": "To get to the meeting venue, you’ll need to _______ about three blocks from here.",
+        "target": "walk",
+        "full_sentence": "To get to the meeting venue, you’ll need to walk about three blocks from here.",
+        "translation": "Để đến địa điểm họp, bạn sẽ phải đi bộ khoảng ba dãy nhà từ đây.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "branch",
+          "produce",
+          "walk",
+          "publisher"
+        ]
+      },
+      {
+        "id": "ex_106",
+        "num": 21,
+        "sentence": "The customer can _______ a refund if the product is defective within 30 days of purchase.",
+        "target": "request",
+        "full_sentence": "The customer can request a refund if the product is defective within 30 days of purchase.",
+        "translation": "Khách hàng có thể yêu cầu hoàn lại tiền nếu sản phẩm bị lỗi trong vòng 30 ngày kể từ ngày mua.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "request",
+          "material",
+          "walk",
+          "pasta"
+        ]
+      },
+      {
+        "id": "ex_107",
+        "num": 22,
+        "sentence": "The insurance policy will _______ all damages caused by natural disasters.",
+        "target": "cover",
+        "full_sentence": "The insurance policy will cover all damages caused by natural disasters.",
+        "translation": "Hợp đồng bảo hiểm sẽ chi trả mọi thiệt hại do thiên tai gây ra.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "branch",
+          "deliver",
+          "cover",
+          "break"
+        ]
+      },
+      {
+        "id": "ex_108",
+        "num": 1,
+        "sentence": "The job _______ must be completed online and submitted before the deadline.",
+        "target": "application",
+        "full_sentence": "The job application must be completed online and submitted before the deadline.",
+        "translation": "Đơn xin việc phải được hoàn thành trực tuyến và nộp trước thời hạn.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "hike",
+          "vendor",
+          "application",
+          "performance"
+        ]
+      },
+      {
+        "id": "ex_109",
+        "num": 2,
+        "sentence": "The _______ center is located in the basement, where employees can store their belongings.",
+        "target": "storage",
+        "full_sentence": "The storage center is located in the basement, where employees can store their belongings.",
+        "translation": "Trung tâm lưu trữ được đặt ở tầng hầm, nơi nhân viên có thể cất giữ đồ đạc của mình.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "storage",
+          "shipment",
+          "achieve",
+          "musician"
+        ]
+      },
+      {
+        "id": "ex_110",
+        "num": 3,
+        "sentence": "The guide suggested we _______ early in the morning to avoid the midday heat.",
+        "target": "hike",
+        "full_sentence": "The guide suggested we hike early in the morning to avoid the midday heat.",
+        "translation": "Hướng dẫn viên gợi ý chúng tôi nên đi bộ vào sáng sớm để tránh cái nóng giữa trưa.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "hike",
+          "award",
+          "vendor",
+          "storage"
+        ]
+      },
+      {
+        "id": "ex_111",
+        "num": 4,
+        "sentence": "We need to _______ the contract before sending it to the client for approval.",
+        "target": "revise",
+        "full_sentence": "We need to revise the contract before sending it to the client for approval.",
+        "translation": "Chúng ta cần phải sửa lại hợp đồng trước khi gửi cho khách hàng phê duyệt.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "application",
+          "shipment",
+          "revise",
+          "furniture"
+        ]
+      },
+      {
+        "id": "ex_112",
+        "num": 5,
+        "sentence": "The company confirmed that the _______ of goods would arrive by the end of the week.",
+        "target": "shipment",
+        "full_sentence": "The company confirmed that the shipment of goods would arrive by the end of the week.",
+        "translation": "Công ty xác nhận lô hàng sẽ về vào cuối tuần.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "shipment",
+          "renew",
+          "storage",
+          "achieve"
+        ]
+      },
+      {
+        "id": "ex_113",
+        "num": 6,
+        "sentence": "She has been _______ for the “Best Employee of the Year” for her outstanding contributions.",
+        "target": "nominated",
+        "full_sentence": "She has been nominated for the “Best Employee of the Year” for her outstanding contributions.",
+        "translation": "Cô đã được đề cử giải thưởng “Nhân viên xuất sắc nhất của năm” vì những đóng góp xuất sắc của mình.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "cable",
+          "nominated",
+          "furniture",
+          "stop by"
+        ]
+      },
+      {
+        "id": "ex_114",
+        "num": 7,
+        "sentence": "The concert features a talented _______ who specializes in jazz music.",
+        "target": "musician",
+        "full_sentence": "The concert features a talented musician who specializes in jazz music.",
+        "translation": "Buổi hòa nhạc có sự góp mặt của một nhạc sĩ tài năng chuyên về nhạc jazz.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "available",
+          "vendor",
+          "musician",
+          "property"
+        ]
+      },
+      {
+        "id": "ex_115",
+        "num": 8,
+        "sentence": "Many _______ will participate in the trade fair to showcase their products and services.",
+        "target": "vendors",
+        "full_sentence": "Many vendors will participate in the trade fair to showcase their products and services.",
+        "translation": "Nhiều nhà cung cấp sẽ tham gia hội chợ thương mại để giới thiệu sản phẩm và dịch vụ của họ.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "vendors",
+          "mostly",
+          "application",
+          "professional"
+        ]
+      },
+      {
+        "id": "ex_116",
+        "num": 9,
+        "sentence": "The projector and other presentation _______ are stored in the meeting room cabinet.",
+        "target": "equipment",
+        "full_sentence": "The projector and other presentation equipment are stored in the meeting room cabinet.",
+        "translation": "Máy chiếu và các thiết bị trình chiếu khác được cất giữ trong tủ phòng họp.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "shipment",
+          "equipment",
+          "cable",
+          "vendor"
+        ]
+      },
+      {
+        "id": "ex_117",
+        "num": 10,
+        "sentence": "The apartment comes fully furnished with modern _______ and appliances.",
+        "target": "furniture",
+        "full_sentence": "The apartment comes fully furnished with modern furniture and appliances.",
+        "translation": "Căn hộ được trang bị đầy đủ nội thất và thiết bị hiện đại.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "furniture",
+          "property",
+          "available",
+          "application"
+        ]
+      },
+      {
+        "id": "ex_118",
+        "num": 11,
+        "sentence": "Tickets for the event are still _______ online and at the box office.",
+        "target": "available",
+        "full_sentence": "Tickets for the event are still available online and at the box office.",
+        "translation": "Vé cho sự kiện vẫn có sẵn trực tuyến và tại phòng vé.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "hike",
+          "revise",
+          "award",
+          "available"
+        ]
+      },
+      {
+        "id": "ex_119",
+        "num": 12,
+        "sentence": "He hopes to _______ his sales target by the end of this quarter.",
+        "target": "achieve",
+        "full_sentence": "He hopes to achieve his sales target by the end of this quarter.",
+        "translation": "Ông hy vọng sẽ đạt được mục tiêu bán hàng vào cuối quý này.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "achieve",
+          "property",
+          "storage",
+          "cable"
+        ]
+      },
+      {
+        "id": "ex_120",
+        "num": 13,
+        "sentence": "The customers at this restaurant are _______ business professionals who work nearby.",
+        "target": "mostly",
+        "full_sentence": "The customers at this restaurant are mostly business professionals who work nearby.",
+        "translation": "Khách hàng tại nhà hàng này chủ yếu là các chuyên gia kinh doanh làm việc gần đó.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "available",
+          "shipment",
+          "cable",
+          "mostly"
+        ]
+      },
+      {
+        "id": "ex_121",
+        "num": 14,
+        "sentence": "Attending _______ development workshops can enhance your skills and career prospects.",
+        "target": "professional",
+        "full_sentence": "Attending professional development workshops can enhance your skills and career prospects.",
+        "translation": "Tham dự các hội thảo phát triển chuyên môn có thể nâng cao kỹ năng và triển vọng nghề nghiệp của bạn.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "professional",
+          "achieve",
+          "furniture",
+          "award"
+        ]
+      },
+      {
+        "id": "ex_122",
+        "num": 15,
+        "sentence": "You can _______ our office anytime during business hours to pick up the documents.",
+        "target": "stop by",
+        "full_sentence": "You can stop by our office anytime during business hours to pick up the documents.",
+        "translation": "Bạn có thể ghé qua văn phòng của chúng tôi bất cứ lúc nào trong giờ làm việc để nhận tài liệu.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "renew",
+          "professional",
+          "stop by",
+          "performance"
+        ]
+      },
+      {
+        "id": "ex_123",
+        "num": 16,
+        "sentence": "The theater’s _______ last night was exceptional, earning a standing ovation from the audience.",
+        "target": "performance",
+        "full_sentence": "The theater’s performance last night was exceptional, earning a standing ovation from the audience.",
+        "translation": "Buổi biểu diễn của nhà hát tối qua thật đặc biệt, nhận được sự hoan nghênh nhiệt liệt từ khán giả.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "professional",
+          "property",
+          "award",
+          "performance"
+        ]
+      },
+      {
+        "id": "ex_124",
+        "num": 17,
+        "sentence": "The _______ company offers high-speed internet services across the region.",
+        "target": "cable",
+        "full_sentence": "The cable company offers high-speed internet services across the region.",
+        "translation": "Công ty cáp cung cấp dịch vụ internet tốc độ cao trên toàn khu vực.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "cable",
+          "equipment",
+          "furniture",
+          "shipment"
+        ]
+      },
+      {
+        "id": "ex_125",
+        "num": 18,
+        "sentence": "The rental _______ includes access to the pool and gym facilities.",
+        "target": "property",
+        "full_sentence": "The rental property includes access to the pool and gym facilities.",
+        "translation": "Tài sản cho thuê bao gồm quyền sử dụng hồ bơi và phòng tập thể dục.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "professional",
+          "musician",
+          "property",
+          "application"
+        ]
+      },
+      {
+        "id": "ex_126",
+        "num": 19,
+        "sentence": "Employees are encouraged to _______ their membership to the fitness center annually.",
+        "target": "renew",
+        "full_sentence": "Employees are encouraged to renew their membership to the fitness center annually.",
+        "translation": "Nhân viên được khuyến khích gia hạn tư cách thành viên của họ tại trung tâm thể hình hàng năm.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "award",
+          "renew",
+          "storage",
+          "cable"
+        ]
+      },
+      {
+        "id": "ex_127",
+        "num": 20,
+        "sentence": "She received an _______ for her outstanding achievements in the technology sector.",
+        "target": "award",
+        "full_sentence": "She received an award for her outstanding achievements in the technology sector.",
+        "translation": "Cô nhận được giải thưởng cho thành tích xuất sắc trong lĩnh vực công nghệ.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "revise",
+          "achieve",
+          "musician",
+          "award"
+        ]
+      },
+      {
+        "id": "ex_128",
+        "num": 1,
+        "sentence": "Please ensure that all _______ communications are kept confidential.",
+        "target": "internal",
+        "full_sentence": "Please ensure that all internal communications are kept confidential.",
+        "translation": "Hãy đảm bảo rằng tất cả thông tin liên lạc nội bộ được giữ bí mật.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "facility",
+          "undergo",
+          "internal",
+          "draft"
+        ]
+      },
+      {
+        "id": "ex_129",
+        "num": 2,
+        "sentence": "The company plans to _______ the historic building to its original condition.",
+        "target": "restore",
+        "full_sentence": "The company plans to restore the historic building to its original condition.",
+        "translation": "Công ty có kế hoạch khôi phục tòa nhà lịch sử về tình trạng ban đầu.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "undergo",
+          "stairwell",
+          "issue",
+          "restore"
+        ]
+      },
+      {
+        "id": "ex_130",
+        "num": 3,
+        "sentence": "The manager decided to _______ Sarah as the team leader for the upcoming project.",
+        "target": "designate",
+        "full_sentence": "The manager decided to designate Sarah as the team leader for the upcoming project.",
+        "translation": "Người quản lý quyết định chỉ định Sarah làm trưởng nhóm cho dự án sắp tới.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "real estate",
+          "designate",
+          "administrative",
+          "undergo"
+        ]
+      },
+      {
+        "id": "ex_131",
+        "num": 4,
+        "sentence": "The report must _______ the key findings of the research for the board meeting.",
+        "target": "summarize",
+        "full_sentence": "The report must summarize the key findings of the research for the board meeting.",
+        "translation": "Báo cáo phải tóm tắt những phát hiện chính của nghiên cứu cho cuộc họp hội đồng quản trị.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "real estate",
+          "issue",
+          "summarize",
+          "restore"
+        ]
+      },
+      {
+        "id": "ex_132",
+        "num": 5,
+        "sentence": "The _______ to the conference hall is on the left side of the lobby.",
+        "target": "entrance",
+        "full_sentence": "The entrance to the conference hall is on the left side of the lobby.",
+        "translation": "Lối vào hội trường nằm ở phía bên trái của sảnh.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "entrance",
+          "undergo",
+          "draft",
+          "internal"
+        ]
+      },
+      {
+        "id": "ex_133",
+        "num": 6,
+        "sentence": "He has worked in the _______ industry for over a decade, specializing in property sales.",
+        "target": "real estate",
+        "full_sentence": "He has worked in the real estate industry for over a decade, specializing in property sales.",
+        "translation": "Ông đã làm việc trong lĩnh vực bất động sản hơn một thập kỷ, chuyên kinh doanh bất động sản.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "real estate",
+          "entrance",
+          "notify",
+          "colleague"
+        ]
+      },
+      {
+        "id": "ex_134",
+        "num": 7,
+        "sentence": "The document is still in the _______ stage and requires further review.",
+        "target": "draft",
+        "full_sentence": "The document is still in the draft stage and requires further review.",
+        "translation": "Tài liệu vẫn đang trong giai đoạn dự thảo và cần được xem xét thêm.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "issue",
+          "facility",
+          "issue",
+          "draft"
+        ]
+      },
+      {
+        "id": "ex_135",
+        "num": 8,
+        "sentence": "The maintenance team will _______ the broken lightbulbs in the office today.",
+        "target": "replace",
+        "full_sentence": "The maintenance team will replace the broken lightbulbs in the office today.",
+        "translation": "Hôm nay đội bảo trì sẽ thay thế những bóng đèn bị hỏng trong văn phòng.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "facility",
+          "entrance",
+          "issue",
+          "replace"
+        ]
+      },
+      {
+        "id": "ex_136",
+        "num": 9,
+        "sentence": "The _______ between the second and third floors is currently closed for repairs.",
+        "target": "stairwell",
+        "full_sentence": "The stairwell between the second and third floors is currently closed for repairs.",
+        "translation": "Cầu thang giữa tầng 2 và tầng 3 hiện đang đóng cửa để sửa chữa.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "colleague",
+          "draft",
+          "stairwell",
+          "replace"
+        ]
+      },
+      {
+        "id": "ex_137",
+        "num": 10,
+        "sentence": "You should _______ your manager immediately if there is an urgent problem.",
+        "target": "notify",
+        "full_sentence": "You should notify your manager immediately if there is an urgent problem.",
+        "translation": "Bạn nên thông báo ngay cho người quản lý của mình nếu có vấn đề khẩn cấp.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "draft",
+          "issue",
+          "adjacent",
+          "notify"
+        ]
+      },
+      {
+        "id": "ex_138",
+        "num": 11,
+        "sentence": "This fitness center is a state-of-the-art _______ that offers various wellness programs.",
+        "target": "facility",
+        "full_sentence": "This fitness center is a state-of-the-art facility that offers various wellness programs.",
+        "translation": "Trung tâm thể dục này là một cơ sở hiện đại cung cấp nhiều chương trình chăm sóc sức khỏe khác nhau.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "facility",
+          "stairwell",
+          "administrative",
+          "replace"
+        ]
+      },
+      {
+        "id": "ex_139",
+        "num": 12,
+        "sentence": "She asked her _______ for assistance with a complex project deadline.",
+        "target": "colleague",
+        "full_sentence": "She asked her colleague for assistance with a complex project deadline.",
+        "translation": "Cô nhờ đồng nghiệp của mình hỗ trợ về thời hạn dự án phức tạp.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "colleague",
+          "draft",
+          "stairwell",
+          "archive"
+        ]
+      },
+      {
+        "id": "ex_140",
+        "num": 13,
+        "sentence": "The apartment complex is _______ to a large shopping mall, making it a convenient location.",
+        "target": "adjacent",
+        "full_sentence": "The apartment complex is adjacent to a large shopping mall, making it a convenient location.",
+        "translation": "Khu chung cư nằm liền kề với một trung tâm mua sắm lớn nên rất thuận tiện.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "adjacent",
+          "stairwell",
+          "facility",
+          "colleague"
+        ]
+      },
+      {
+        "id": "ex_141",
+        "num": 14,
+        "sentence": "He was unable to _______ the client because their phone number was incorrect.",
+        "target": "reach",
+        "full_sentence": "He was unable to reach the client because their phone number was incorrect.",
+        "translation": "Anh ta không thể liên lạc được với khách hàng vì số điện thoại của họ không chính xác.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "summarize",
+          "archive",
+          "notify",
+          "reach"
+        ]
+      },
+      {
+        "id": "ex_142",
+        "num": 15,
+        "sentence": "The kitchen _______ needs to be tightened to stop the water from leaking.",
+        "target": "faucet",
+        "full_sentence": "The kitchen faucet needs to be tightened to stop the water from leaking.",
+        "translation": "Vòi bếp cần được vặn chặt để ngăn nước rò rỉ.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "adjacent",
+          "stairwell",
+          "designate",
+          "faucet"
+        ]
+      },
+      {
+        "id": "ex_143",
+        "num": 16,
+        "sentence": "The team is required to create an _______ of all past contracts for easier reference.",
+        "target": "archive",
+        "full_sentence": "The team is required to create an archive of all past contracts for easier reference.",
+        "translation": "Nhóm được yêu cầu tạo một kho lưu trữ tất cả các hợp đồng trước đây để tham khảo dễ dàng hơn.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "summarize",
+          "stairwell",
+          "archive",
+          "regular"
+        ]
+      },
+      {
+        "id": "ex_144",
+        "num": 17,
+        "sentence": "Employees must adhere to the _______ schedule for submitting their monthly reports.",
+        "target": "regular",
+        "full_sentence": "Employees must adhere to the regular schedule for submitting their monthly reports.",
+        "translation": "Nhân viên phải tuân thủ lịch trình thường xuyên để nộp báo cáo hàng tháng.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "designate",
+          "regular",
+          "archive",
+          "issue"
+        ]
+      },
+      {
+        "id": "ex_145",
+        "num": 18,
+        "sentence": "The building will _______ extensive renovations over the next six months.",
+        "target": "undergo",
+        "full_sentence": "The building will undergo extensive renovations over the next six months.",
+        "translation": "Tòa nhà sẽ được cải tạo rộng rãi trong sáu tháng tới.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "replace",
+          "designate",
+          "undergo",
+          "adjacent"
+        ]
+      },
+      {
+        "id": "ex_146",
+        "num": 19,
+        "sentence": "The meeting focused on resolving the most pressing _______ faced by the organization.",
+        "target": "issues",
+        "full_sentence": "The meeting focused on resolving the most pressing issues faced by the organization.",
+        "translation": "Cuộc họp tập trung vào việc giải quyết các vấn đề cấp bách nhất mà tổ chức phải đối mặt.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "issues",
+          "administrative",
+          "designate",
+          "stairwell"
+        ]
+      },
+      {
+        "id": "ex_147",
+        "num": 20,
+        "sentence": "The company is hiring additional staff to handle the growing _______ workload.",
+        "target": "administrative",
+        "full_sentence": "The company is hiring additional staff to handle the growing administrative workload.",
+        "translation": "Công ty đang tuyển thêm nhân viên để giải quyết khối lượng công việc hành chính ngày càng tăng.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "real estate",
+          "draft",
+          "undergo",
+          "administrative"
+        ]
+      },
+      {
+        "id": "ex_148",
+        "num": 21,
+        "sentence": "The marketing team was asked to _______ a proposal for the upcoming campaign.",
+        "target": "draft",
+        "full_sentence": "The marketing team was asked to draft a proposal for the upcoming campaign.",
+        "translation": "Nhóm tiếp thị được yêu cầu soạn thảo một đề xuất cho chiến dịch sắp tới.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "internal",
+          "issue",
+          "draft",
+          "entrance"
+        ]
+      },
+      {
+        "id": "ex_149",
+        "num": 22,
+        "sentence": "The latest _______ of the magazine features an in-depth interview with a famous author.",
+        "target": "issue",
+        "full_sentence": "The latest issue of the magazine features an in-depth interview with a famous author.",
+        "translation": "Số mới nhất của tạp chí có bài phỏng vấn chuyên sâu với một tác giả nổi tiếng.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "draft",
+          "internal",
+          "notify",
+          "issue"
+        ]
+      },
+      {
+        "id": "ex_150",
+        "num": 1,
+        "sentence": "The chef shared the secret _______ that makes her signature dish unique.",
+        "target": "ingredient",
+        "full_sentence": "The chef shared the secret ingredient that makes her signature dish unique.",
+        "translation": "Đầu bếp đã chia sẻ nguyên liệu bí mật tạo nên sự độc đáo cho món ăn đặc trưng của cô.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "revolution",
+          "ingredient",
+          "discover",
+          "feature"
+        ]
+      },
+      {
+        "id": "ex_151",
+        "num": 2,
+        "sentence": "The company is planning a _______ to mark its 50th anniversary.",
+        "target": "celebration",
+        "full_sentence": "The company is planning a celebration to mark its 50th anniversary.",
+        "translation": "Công ty đang lên kế hoạch tổ chức lễ kỷ niệm 50 năm thành lập.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "celebration",
+          "revolution",
+          "handle",
+          "ingredient"
+        ]
+      },
+      {
+        "id": "ex_152",
+        "num": 3,
+        "sentence": "The new smartphone _______ several cutting-edge technologies, including facial recognition.",
+        "target": "features",
+        "full_sentence": "The new smartphone features several cutting-edge technologies, including facial recognition.",
+        "translation": "Điện thoại thông minh mới có một số công nghệ tiên tiến, bao gồm cả nhận dạng khuôn mặt.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "benefit",
+          "features",
+          "celebration",
+          "In honor of"
+        ]
+      },
+      {
+        "id": "ex_153",
+        "num": 4,
+        "sentence": "The staff gathered _______ the CEO's 30 years of service to the company.",
+        "target": "in honor of",
+        "full_sentence": "The staff gathered in honor of the CEO's 30 years of service to the company.",
+        "translation": "Các nhân viên tập trung lại để vinh danh 30 năm cống hiến của CEO cho công ty.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "benefit",
+          "revolution",
+          "in honor of",
+          "celebration"
+        ]
+      },
+      {
+        "id": "ex_154",
+        "num": 5,
+        "sentence": "The accountant is responsible for managing the company’s _______ records.",
+        "target": "financial",
+        "full_sentence": "The accountant is responsible for managing the company’s financial records.",
+        "translation": "Kế toán viên chịu trách nhiệm quản lý hồ sơ tài chính của công ty.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "handle",
+          "financial",
+          "device",
+          "retire"
+        ]
+      },
+      {
+        "id": "ex_155",
+        "num": 6,
+        "sentence": "The latest _______ of the popular TV show received rave reviews from critics.",
+        "target": "episode",
+        "full_sentence": "The latest episode of the popular TV show received rave reviews from critics.",
+        "translation": "Tập mới nhất của bộ phim truyền hình nổi tiếng đã nhận được nhiều lời khen ngợi từ giới phê bình.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "episode",
+          "proceed",
+          "feature",
+          "handle"
+        ]
+      },
+      {
+        "id": "ex_156",
+        "num": 7,
+        "sentence": "Please _______ to the next counter if you need assistance with your payment.",
+        "target": "proceed",
+        "full_sentence": "Please proceed to the next counter if you need assistance with your payment.",
+        "translation": "Vui lòng đến quầy tiếp theo nếu bạn cần hỗ trợ thanh toán.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "retire",
+          "proceed",
+          "discover",
+          "revolution"
+        ]
+      },
+      {
+        "id": "ex_157",
+        "num": 8,
+        "sentence": "Please double-check the report to ensure there is no _______ in the calculations.",
+        "target": "error",
+        "full_sentence": "Please double-check the report to ensure there is no error in the calculations.",
+        "translation": "Vui lòng kiểm tra lại báo cáo để đảm bảo không có sai sót trong tính toán.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "display",
+          "financial",
+          "error",
+          "revolution"
+        ]
+      },
+      {
+        "id": "ex_158",
+        "num": 9,
+        "sentence": "After the final act, the audience gave the performers a round of _______ for their excellent show.",
+        "target": "applause",
+        "full_sentence": "After the final act, the audience gave the performers a round of applause for their excellent show.",
+        "translation": "Sau tiết mục cuối cùng, khán giả đã dành cho các nghệ sĩ một tràng pháo tay vì màn trình diễn xuất sắc của họ.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "ingredient",
+          "feature",
+          "retire",
+          "applause"
+        ]
+      },
+      {
+        "id": "ex_159",
+        "num": 10,
+        "sentence": "The new mobile _______ has a larger screen and longer battery life compared to the previous model.",
+        "target": "device",
+        "full_sentence": "The new mobile device has a larger screen and longer battery life compared to the previous model.",
+        "translation": "Thiết bị di động mới có màn hình lớn hơn và thời lượng pin dài hơn so với mẫu trước đó.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "device",
+          "display",
+          "handle",
+          "encourage"
+        ]
+      },
+      {
+        "id": "ex_160",
+        "num": 11,
+        "sentence": "The new system will _______ the process of updating client information.",
+        "target": "handle",
+        "full_sentence": "The new system will handle the process of updating client information.",
+        "translation": "Hệ thống mới sẽ xử lý quá trình cập nhật thông tin khách hàng.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "financial",
+          "broadcast",
+          "feature",
+          "handle"
+        ]
+      },
+      {
+        "id": "ex_161",
+        "num": 12,
+        "sentence": "The book explores the technological _______ that transformed the way we communicate.",
+        "target": "revolution",
+        "full_sentence": "The book explores the technological revolution that transformed the way we communicate.",
+        "translation": "Cuốn sách khám phá cuộc cách mạng công nghệ đã thay đổi cách chúng ta giao tiếp.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "encourage",
+          "distinguish",
+          "device",
+          "revolution"
+        ]
+      },
+      {
+        "id": "ex_162",
+        "num": 13,
+        "sentence": "The company is launching a new program to _______ employees to participate in volunteer work.",
+        "target": "encourage",
+        "full_sentence": "The company is launching a new program to encourage employees to participate in volunteer work.",
+        "translation": "Công ty đang triển khai một chương trình mới nhằm khuyến khích nhân viên tham gia công việc tình nguyện.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "encourage",
+          "broadcast",
+          "discover",
+          "financial"
+        ]
+      },
+      {
+        "id": "ex_163",
+        "num": 14,
+        "sentence": "The report tracks the long-term _______ of investing in renewable energy.",
+        "target": "benefits",
+        "full_sentence": "The report tracks the long-term benefits of investing in renewable energy.",
+        "translation": "Báo cáo theo dõi lợi ích lâu dài của việc đầu tư vào năng lượng tái tạo.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "display",
+          "celebration",
+          "applause",
+          "benefits"
+        ]
+      },
+      {
+        "id": "ex_164",
+        "num": 15,
+        "sentence": "The evening news _______ will start at 7 PM and cover today's top stories.",
+        "target": "broadcast",
+        "full_sentence": "The evening news broadcast will start at 7 PM and cover today's top stories.",
+        "translation": "Bản tin buổi tối sẽ bắt đầu lúc 7 giờ tối và bao gồm những tin tức nổi bật nhất ngày hôm nay.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "broadcast",
+          "ingredient",
+          "distinguish",
+          "In honor of"
+        ]
+      },
+      {
+        "id": "ex_165",
+        "num": 16,
+        "sentence": "After decades of hard work, she decided to _______ and spend more time with her family.",
+        "target": "retire",
+        "full_sentence": "After decades of hard work, she decided to retire and spend more time with her family.",
+        "translation": "Sau hàng chục năm làm việc vất vả, bà quyết định nghỉ hưu và dành nhiều thời gian hơn cho gia đình.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "retire",
+          "financial",
+          "proceed",
+          "In honor of"
+        ]
+      },
+      {
+        "id": "ex_166",
+        "num": 17,
+        "sentence": "You can _______ the differences between the original and updated designs by looking closely at the details.",
+        "target": "distinguish",
+        "full_sentence": "You can distinguish the differences between the original and updated designs by looking closely at the details.",
+        "translation": "Bạn có thể phân biệt sự khác biệt giữa thiết kế ban đầu và thiết kế cập nhật bằng cách xem xét kỹ các chi tiết.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "distinguish",
+          "display",
+          "feature",
+          "track"
+        ]
+      },
+      {
+        "id": "ex_167",
+        "num": 18,
+        "sentence": "The art gallery will _______ rare pieces from renowned artists this weekend.",
+        "target": "display",
+        "full_sentence": "The art gallery will display rare pieces from renowned artists this weekend.",
+        "translation": "Phòng trưng bày nghệ thuật sẽ trưng bày những tác phẩm quý hiếm của các nghệ sĩ nổi tiếng vào cuối tuần này.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "display",
+          "distinguish",
+          "feature",
+          "broadcast"
+        ]
+      },
+      {
+        "id": "ex_168",
+        "num": 19,
+        "sentence": "The explorer hopes to _______ a hidden temple during his next expedition.",
+        "target": "discover",
+        "full_sentence": "The explorer hopes to discover a hidden temple during his next expedition.",
+        "translation": "Nhà thám hiểm hy vọng sẽ khám phá được một ngôi đền ẩn giấu trong chuyến thám hiểm tiếp theo của mình.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "discover",
+          "proceed",
+          "In honor of",
+          "applause"
+        ]
+      },
+      {
+        "id": "ex_169",
+        "num": 20,
+        "sentence": "The company uses software to _______ the progress of each project and ensure deadlines are met.",
+        "target": "track",
+        "full_sentence": "The company uses software to track the progress of each project and ensure deadlines are met.",
+        "translation": "Công ty sử dụng phần mềm để theo dõi tiến độ của từng dự án và đảm bảo đúng thời hạn.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "track",
+          "feature",
+          "revolution",
+          "broadcast"
+        ]
+      },
+      {
+        "id": "ex_170",
+        "num": 21,
+        "sentence": "The store set up an impressive _______ of their latest products near the entrance.",
+        "target": "display",
+        "full_sentence": "The store set up an impressive display of their latest products near the entrance.",
+        "translation": "Cửa hàng đã bố trí một khu trưng bày ấn tượng các sản phẩm mới nhất của họ gần lối vào.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "display",
+          "feature",
+          "encourage",
+          "handle"
+        ]
+      },
+      {
+        "id": "ex_171",
+        "num": 22,
+        "sentence": "The new smartphone model includes a unique _______ that allows users to unlock it with facial recognition.",
+        "target": "feature",
+        "full_sentence": "The new smartphone model includes a unique feature that allows users to unlock it with facial recognition.",
+        "translation": "Mẫu điện thoại thông minh mới có một tính năng độc đáo cho phép người dùng mở khóa bằng nhận dạng khuôn mặt.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "feature",
+          "track",
+          "discover",
+          "handle"
+        ]
+      },
+      {
+        "id": "ex_172",
+        "num": 1,
+        "sentence": "The museum will _______ the 100th anniversary of the city's founding with a special exhibition.",
+        "target": "commemorate",
+        "full_sentence": "The museum will commemorate the 100th anniversary of the city's founding with a special exhibition.",
+        "translation": "Bảo tàng sẽ kỷ niệm 100 năm thành lập thành phố bằng một triển lãm đặc biệt.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "commemorate",
+          "botanist",
+          "texture",
+          "sculpture"
+        ]
+      },
+      {
+        "id": "ex_173",
+        "num": 2,
+        "sentence": "The _______ style of the ancient temple has influenced many buildings in the region.",
+        "target": "architectural",
+        "full_sentence": "The architectural style of the ancient temple has influenced many buildings in the region.",
+        "translation": "Phong cách kiến ​​trúc của ngôi chùa cổ đã ảnh hưởng đến nhiều tòa nhà trong khu vực.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "architectural",
+          "texture",
+          "souvenir",
+          "preserve"
+        ]
+      },
+      {
+        "id": "ex_174",
+        "num": 3,
+        "sentence": "The museum’s new exhibit features a collection of contemporary _______ from renowned artists.",
+        "target": "sculptures",
+        "full_sentence": "The museum’s new exhibit features a collection of contemporary sculptures from renowned artists.",
+        "translation": "Triển lãm mới của bảo tàng trưng bày bộ sưu tập các tác phẩm điêu khắc đương đại của các nghệ sĩ nổi tiếng.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "sculptures",
+          "variety",
+          "renovate",
+          "gallery"
+        ]
+      },
+      {
+        "id": "ex_175",
+        "num": 4,
+        "sentence": "The wildlife _______ is located in the northern part of the country and is home to many rare species.",
+        "target": "preserve",
+        "full_sentence": "The wildlife preserve is located in the northern part of the country and is home to many rare species.",
+        "translation": "Khu bảo tồn động vật hoang dã nằm ở phía bắc của đất nước và là nơi sinh sống của nhiều loài quý hiếm.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "preserve",
+          "botanist",
+          "wonder",
+          "community"
+        ]
+      },
+      {
+        "id": "ex_176",
+        "num": 5,
+        "sentence": "They decided to _______ the old library, making it more accessible and modern.",
+        "target": "renovate",
+        "full_sentence": "They decided to renovate the old library, making it more accessible and modern.",
+        "translation": "Họ quyết định cải tạo thư viện cũ để nó trở nên hiện đại và dễ tiếp cận hơn.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "correspondence",
+          "surround",
+          "botanist",
+          "renovate"
+        ]
+      },
+      {
+        "id": "ex_177",
+        "num": 6,
+        "sentence": "The science _______ was happy to share her research on endangered plant species.",
+        "target": "botanist",
+        "full_sentence": "The science botanist was happy to share her research on endangered plant species.",
+        "translation": "Nhà thực vật học khoa học vui mừng chia sẻ nghiên cứu của mình về các loài thực vật có nguy cơ tuyệt chủng.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "botanist",
+          "souvenir",
+          "wonder",
+          "exhibit"
+        ]
+      },
+      {
+        "id": "ex_178",
+        "num": 7,
+        "sentence": "I bought a _______ from my trip to Paris, which I keep as a reminder of the city.",
+        "target": "souvenir",
+        "full_sentence": "I bought a souvenir from my trip to Paris, which I keep as a reminder of the city.",
+        "translation": "Tôi đã mua một món quà lưu niệm từ chuyến đi Paris và tôi giữ nó như một vật kỷ niệm về thành phố.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "gallery",
+          "souvenir",
+          "surround",
+          "exhibit"
+        ]
+      },
+      {
+        "id": "ex_179",
+        "num": 8,
+        "sentence": "The restaurant offers a wide _______ of dishes, including vegetarian, vegan, and gluten-free options.",
+        "target": "variety",
+        "full_sentence": "The restaurant offers a wide variety of dishes, including vegetarian, vegan, and gluten-free options.",
+        "translation": "Nhà hàng cung cấp nhiều món ăn đa dạng, bao gồm các lựa chọn ăn chay, thuần chay và không chứa gluten.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "community",
+          "monitor",
+          "preserve",
+          "variety"
+        ]
+      },
+      {
+        "id": "ex_180",
+        "num": 9,
+        "sentence": "The local _______ is hosting an event to raise funds for environmental protection.",
+        "target": "community",
+        "full_sentence": "The local community is hosting an event to raise funds for environmental protection.",
+        "translation": "Cộng đồng địa phương đang tổ chức một sự kiện để gây quỹ bảo vệ môi trường.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "texture",
+          "monitor",
+          "community",
+          "correspondence"
+        ]
+      },
+      {
+        "id": "ex_181",
+        "num": 10,
+        "sentence": "She is a talented artist who creates _______ works that engage the audience.",
+        "target": "interactive",
+        "full_sentence": "She is a talented artist who creates interactive works that engage the audience.",
+        "translation": "Cô là một nghệ sĩ tài năng, người tạo ra những tác phẩm tương tác thu hút khán giả.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "variety",
+          "interactive",
+          "sculpture",
+          "preserve"
+        ]
+      },
+      {
+        "id": "ex_182",
+        "num": 11,
+        "sentence": "Please make sure all your _______ with clients is properly documented for future reference.",
+        "target": "correspondence",
+        "full_sentence": "Please make sure all your correspondence with clients is properly documented for future reference.",
+        "translation": "Vui lòng đảm bảo rằng tất cả thư từ của bạn với khách hàng đều được ghi lại đúng cách để tham khảo trong tương lai.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "architectural",
+          "conservatory",
+          "correspondence",
+          "variety"
+        ]
+      },
+      {
+        "id": "ex_183",
+        "num": 12,
+        "sentence": "The _______ of this region has increased significantly over the past decade.",
+        "target": "population",
+        "full_sentence": "The population of this region has increased significantly over the past decade.",
+        "translation": "Dân số của khu vực này đã tăng đáng kể trong thập kỷ qua.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "architectural",
+          "variety",
+          "botanist",
+          "population"
+        ]
+      },
+      {
+        "id": "ex_184",
+        "num": 13,
+        "sentence": "They installed a system to _______ the temperature and humidity levels in the warehouse.",
+        "target": "monitor",
+        "full_sentence": "They installed a system to monitor the temperature and humidity levels in the warehouse.",
+        "translation": "Họ lắp đặt một hệ thống để theo dõi nhiệt độ và độ ẩm trong nhà kho.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "monitor",
+          "conservatory",
+          "botanist",
+          "gallery"
+        ]
+      },
+      {
+        "id": "ex_185",
+        "num": 14,
+        "sentence": "The hotel offers a beautiful view, with gardens that _______ the building.",
+        "target": "surround",
+        "full_sentence": "The hotel offers a beautiful view, with gardens that surround the building.",
+        "translation": "Khách sạn có tầm nhìn đẹp, có vườn bao quanh tòa nhà.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "monitor",
+          "variety",
+          "surround",
+          "community"
+        ]
+      },
+      {
+        "id": "ex_186",
+        "num": 15,
+        "sentence": "The company is hosting a new _______ of innovative products at the trade fair next month.",
+        "target": "exhibit",
+        "full_sentence": "The company is hosting a new exhibit of innovative products at the trade fair next month.",
+        "translation": "Công ty sẽ tổ chức một cuộc triển lãm mới về các sản phẩm sáng tạo tại hội chợ thương mại vào tháng tới.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "conservatory",
+          "exhibit",
+          "surround",
+          "gallery"
+        ]
+      },
+      {
+        "id": "ex_187",
+        "num": 16,
+        "sentence": "We can’t wait to visit the art _______ and see the latest contemporary pieces.",
+        "target": "gallery",
+        "full_sentence": "We can’t wait to visit the art gallery and see the latest contemporary pieces.",
+        "translation": "Chúng tôi nóng lòng được ghé thăm phòng trưng bày nghệ thuật và xem những tác phẩm đương đại mới nhất.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "variety",
+          "population",
+          "gallery",
+          "monitor"
+        ]
+      },
+      {
+        "id": "ex_188",
+        "num": 17,
+        "sentence": "The botanical garden includes a large _______ where exotic plants are carefully nurtured and displayed.",
+        "target": "conservatory",
+        "full_sentence": "The botanical garden includes a large conservatory where exotic plants are carefully nurtured and displayed.",
+        "translation": "Vườn thực vật bao gồm một nhà kính lớn, nơi các loài thực vật ngoại lai được chăm sóc và trưng bày cẩn thận.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "botanist",
+          "conservatory",
+          "architectural",
+          "souvenir"
+        ]
+      },
+      {
+        "id": "ex_189",
+        "num": 18,
+        "sentence": "The hotel room featured soft linens with a luxurious _______ that felt very comfortable.",
+        "target": "texture",
+        "full_sentence": "The hotel room featured soft linens with a luxurious texture that felt very comfortable.",
+        "translation": "Phòng khách sạn có khăn trải giường mềm mại với kết cấu sang trọng tạo cảm giác rất thoải mái.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "wonder",
+          "surround",
+          "texture",
+          "preserve"
+        ]
+      },
+      {
+        "id": "ex_190",
+        "num": 19,
+        "sentence": "I often _______ if I made the right decision when I accepted this job offer.",
+        "target": "wonder",
+        "full_sentence": "I often wonder if I made the right decision when I accepted this job offer.",
+        "translation": "Tôi thường tự hỏi liệu mình có quyết định đúng đắn khi nhận lời mời làm việc này hay không.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "exhibit",
+          "gallery",
+          "conservatory",
+          "wonder"
+        ]
+      },
+      {
+        "id": "ex_191",
+        "num": 20,
+        "sentence": "The hiring _______ takes about two weeks, from reviewing applications to conducting interviews.",
+        "target": "process",
+        "full_sentence": "The hiring process takes about two weeks, from reviewing applications to conducting interviews.",
+        "translation": "Quá trình tuyển dụng mất khoảng hai tuần, từ khi xem xét đơn đăng ký đến tiến hành phỏng vấn.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "population",
+          "process",
+          "surround",
+          "correspondence"
+        ]
+      },
+      {
+        "id": "ex_192",
+        "num": 1,
+        "sentence": "The company is looking to hire a new _______ to oversee the day-to-day operations of the team.",
+        "target": "supervisor",
+        "full_sentence": "The company is looking to hire a new supervisor to oversee the day-to-day operations of the team.",
+        "translation": "Công ty đang tìm cách thuê một giám sát viên mới để giám sát hoạt động hàng ngày của nhóm.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "convenient",
+          "affiliation",
+          "supervisor",
+          "inspect"
+        ]
+      },
+      {
+        "id": "ex_193",
+        "num": 2,
+        "sentence": "The store has a wide range of _______ , including TVs, sound systems, and gaming consoles.",
+        "target": "electronics",
+        "full_sentence": "The store has a wide range of electronics , including TVs, sound systems, and gaming consoles.",
+        "translation": "Cửa hàng có nhiều loại đồ điện tử, bao gồm TV, hệ thống âm thanh và máy chơi game.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "contractor",
+          "electronics",
+          "revenue",
+          "corporate"
+        ]
+      },
+      {
+        "id": "ex_194",
+        "num": 3,
+        "sentence": "The new software update will _______ the performance of the device and fix several problems.",
+        "target": "enhance",
+        "full_sentence": "The new software update will enhance the performance of the device and fix several problems.",
+        "translation": "Bản cập nhật phần mềm mới sẽ nâng cao hiệu suất của thiết bị và khắc phục một số vấn đề.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "enhance",
+          "affiliation",
+          "relocate",
+          "analyst"
+        ]
+      },
+      {
+        "id": "ex_195",
+        "num": 4,
+        "sentence": "The engineering team has been asked to _______ the quality of the materials before production begins.",
+        "target": "inspect",
+        "full_sentence": "The engineering team has been asked to inspect the quality of the materials before production begins.",
+        "translation": "Đội ngũ kỹ thuật đã được yêu cầu kiểm tra chất lượng vật liệu trước khi bắt đầu sản xuất.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "catalog",
+          "component",
+          "inspect",
+          "job opening"
+        ]
+      },
+      {
+        "id": "ex_196",
+        "num": 5,
+        "sentence": "The company’s _______ has been steadily increasing over the last few years, reaching new heights.",
+        "target": "revenue",
+        "full_sentence": "The company’s revenue has been steadily increasing over the last few years, reaching new heights.",
+        "translation": "Doanh thu của công ty đã tăng đều đặn trong vài năm qua, đạt đến những tầm cao mới.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "convenient",
+          "enhance",
+          "revenue",
+          "electronics"
+        ]
+      },
+      {
+        "id": "ex_197",
+        "num": 6,
+        "sentence": "As a leading _______ of household appliances, the company is known for its innovative designs.",
+        "target": "manufacturer",
+        "full_sentence": "As a leading manufacturer of household appliances, the company is known for its innovative designs.",
+        "translation": "Là nhà sản xuất thiết bị gia dụng hàng đầu, công ty được biết đến với những thiết kế sáng tạo.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "revenue",
+          "affiliation",
+          "electronics",
+          "manufacturer"
+        ]
+      },
+      {
+        "id": "ex_198",
+        "num": 7,
+        "sentence": "There is a _______ in the marketing department that we need to fill immediately.",
+        "target": "vacant",
+        "full_sentence": "There is a vacant in the marketing department that we need to fill immediately.",
+        "translation": "Có một chỗ trống trong bộ phận tiếp thị mà chúng tôi cần lấp đầy ngay lập tức.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "revenue",
+          "inspect",
+          "vacant",
+          "manufacturer"
+        ]
+      },
+      {
+        "id": "ex_199",
+        "num": 8,
+        "sentence": "The _______ was praised for completing the project on time and within budget.",
+        "target": "contractor",
+        "full_sentence": "The contractor was praised for completing the project on time and within budget.",
+        "translation": "Nhà thầu được khen ngợi vì đã hoàn thành dự án đúng thời hạn và trong ngân sách.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "contractor",
+          "affiliation",
+          "enhance",
+          "efficient"
+        ]
+      },
+      {
+        "id": "ex_200",
+        "num": 9,
+        "sentence": "The new software includes several important _______ that will improve user experience and functionality.",
+        "target": "component",
+        "full_sentence": "The new software includes several important component that will improve user experience and functionality.",
+        "translation": "Phần mềm mới bao gồm một số thành phần quan trọng sẽ cải thiện trải nghiệm và chức năng của người dùng.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "electronics",
+          "component",
+          "contribute",
+          "contractor"
+        ]
+      },
+      {
+        "id": "ex_201",
+        "num": 10,
+        "sentence": "We offer a detailed product _______ that outlines all available models and features.",
+        "target": "catalog",
+        "full_sentence": "We offer a detailed product catalog that outlines all available models and features.",
+        "translation": "Chúng tôi cung cấp một danh mục sản phẩm chi tiết phác thảo tất cả các mẫu và tính năng có sẵn.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "enhance",
+          "catalog",
+          "vacant",
+          "enact"
+        ]
+      },
+      {
+        "id": "ex_202",
+        "num": 11,
+        "sentence": "The CEO will _______ to the new office in the city center to be closer to key clients.",
+        "target": "relocate",
+        "full_sentence": "The CEO will relocate to the new office in the city center to be closer to key clients.",
+        "translation": "CEO sẽ chuyển đến văn phòng mới ở trung tâm thành phố để gần gũi hơn với các khách hàng quan trọng.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "relocate",
+          "job opening",
+          "catalog",
+          "contractor"
+        ]
+      },
+      {
+        "id": "ex_203",
+        "num": 12,
+        "sentence": "The company has a strong _______ with local suppliers to ensure the best materials are used.",
+        "target": "affiliation",
+        "full_sentence": "The company has a strong affiliation with local suppliers to ensure the best materials are used.",
+        "translation": "Công ty có mối liên kết chặt chẽ với các nhà cung cấp địa phương để đảm bảo sử dụng những vật liệu tốt nhất.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "affiliation",
+          "enact",
+          "electronics",
+          "efficient"
+        ]
+      },
+      {
+        "id": "ex_204",
+        "num": 13,
+        "sentence": "The manager was impressed with how the team was able to work together and _______ to the project’s success.",
+        "target": "contribute",
+        "full_sentence": "The manager was impressed with how the team was able to work together and contribute to the project’s success.",
+        "translation": "Người quản lý rất ấn tượng với cách nhóm có thể làm việc cùng nhau và đóng góp vào sự thành công của dự án.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "supervisor",
+          "catalog",
+          "revenue",
+          "contribute"
+        ]
+      },
+      {
+        "id": "ex_205",
+        "num": 14,
+        "sentence": "The new office location is much more _______ for employees, as it is closer to public transportation.",
+        "target": "convenient",
+        "full_sentence": "The new office location is much more convenient for employees, as it is closer to public transportation.",
+        "translation": "Vị trí văn phòng mới thuận tiện hơn nhiều cho nhân viên vì gần giao thông công cộng hơn.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "corporate",
+          "supervisor",
+          "promptly",
+          "convenient"
+        ]
+      },
+      {
+        "id": "ex_206",
+        "num": 15,
+        "sentence": "As a market _______ , she is responsible for studying consumer trends and competitor strategies.",
+        "target": "analyst",
+        "full_sentence": "As a market analyst , she is responsible for studying consumer trends and competitor strategies.",
+        "translation": "Là một nhà phân tích thị trường, cô chịu trách nhiệm nghiên cứu xu hướng tiêu dùng và chiến lược của đối thủ cạnh tranh.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "relocate",
+          "analyst",
+          "efficient",
+          "corporate"
+        ]
+      },
+      {
+        "id": "ex_207",
+        "num": 16,
+        "sentence": "Many companies organize _______ events to strengthen teamwork and improve employee morale.",
+        "target": "corporate",
+        "full_sentence": "Many companies organize corporate events to strengthen teamwork and improve employee morale.",
+        "translation": "Nhiều công ty tổ chức các sự kiện của công ty để tăng cường tinh thần đồng đội và nâng cao tinh thần nhân viên.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "promptly",
+          "revenue",
+          "affiliation",
+          "corporate"
+        ]
+      },
+      {
+        "id": "ex_208",
+        "num": 17,
+        "sentence": "Please make sure to respond to customer inquiries _______ to ensure high satisfaction.",
+        "target": "promptly",
+        "full_sentence": "Please make sure to respond to customer inquiries promptly to ensure high satisfaction.",
+        "translation": "Hãy đảm bảo phản hồi kịp thời các thắc mắc của khách hàng để đảm bảo sự hài lòng cao.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "promptly",
+          "contribute",
+          "contractor",
+          "affiliation"
+        ]
+      },
+      {
+        "id": "ex_209",
+        "num": 18,
+        "sentence": "The company posted a _______ on their website for an experienced software developer.",
+        "target": "job opening",
+        "full_sentence": "The company posted a job opening on their website for an experienced software developer.",
+        "translation": "Công ty đã đăng tin tuyển dụng trên trang web của họ cho một nhà phát triển phần mềm có kinh nghiệm.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "enact",
+          "efficient",
+          "supervisor",
+          "job opening"
+        ]
+      },
+      {
+        "id": "ex_210",
+        "num": 19,
+        "sentence": "The government is preparing to _______ new legislation to protect consumers.",
+        "target": "enact",
+        "full_sentence": "The government is preparing to enact new legislation to protect consumers.",
+        "translation": "Chính phủ đang chuẩn bị ban hành luật mới để bảo vệ người tiêu dùng.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "component",
+          "enact",
+          "analyst",
+          "contribute"
+        ]
+      },
+      {
+        "id": "ex_211",
+        "num": 20,
+        "sentence": "The new software has made our team much more _______ , allowing us to complete tasks in half the time.",
+        "target": "efficient",
+        "full_sentence": "The new software has made our team much more efficient , allowing us to complete tasks in half the time.",
+        "translation": "Phần mềm mới đã giúp nhóm của chúng tôi làm việc hiệu quả hơn nhiều, cho phép chúng tôi hoàn thành nhiệm vụ trong một nửa thời gian.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "analyst",
+          "relocate",
+          "component",
+          "efficient"
+        ]
+      },
+      {
+        "id": "ex_212",
+        "num": 1,
+        "sentence": "The company provides financial _______ to its employees to help with unexpected expenses.",
+        "target": "assistance",
+        "full_sentence": "The company provides financial assistance to its employees to help with unexpected expenses.",
+        "translation": "Công ty cung cấp hỗ trợ tài chính cho nhân viên của mình để giúp đỡ những chi phí bất ngờ.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "accompany",
+          "refrigerator",
+          "accommodate",
+          "assistance"
+        ]
+      },
+      {
+        "id": "ex_213",
+        "num": 2,
+        "sentence": "The hotel can _______ up to 200 guests in its banquet hall for large events.",
+        "target": "accommodate",
+        "full_sentence": "The hotel can accommodate up to 200 guests in its banquet hall for large events.",
+        "translation": "Khách sạn có thể chứa tới 200 khách trong phòng tiệc cho các sự kiện lớn.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "sudden",
+          "accommodate",
+          "strategy",
+          "transfer"
+        ]
+      },
+      {
+        "id": "ex_214",
+        "num": 3,
+        "sentence": "To _______ accidents in the workplace, all employees are required to attend safety training sessions.",
+        "target": "prevent",
+        "full_sentence": "To prevent accidents in the workplace, all employees are required to attend safety training sessions.",
+        "translation": "Để ngăn ngừa tai nạn tại nơi làm việc, tất cả nhân viên phải tham gia các buổi huấn luyện an toàn.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "wrap",
+          "prevent",
+          "transfer",
+          "permanently"
+        ]
+      },
+      {
+        "id": "ex_215",
+        "num": 4,
+        "sentence": "They are working on a _______ solution for the project until the permanent system is implemented.",
+        "target": "temporary",
+        "full_sentence": "They are working on a temporary solution for the project until the permanent system is implemented.",
+        "translation": "Họ đang nghiên cứu giải pháp tạm thời cho dự án cho đến khi hệ thống lâu dài được triển khai.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "original",
+          "permanently",
+          "temporary",
+          "wrap"
+        ]
+      },
+      {
+        "id": "ex_216",
+        "num": 5,
+        "sentence": "I will _______ you to the meeting later today.",
+        "target": "accompany",
+        "full_sentence": "I will accompany you to the meeting later today.",
+        "translation": "Tôi sẽ đi cùng bạn đến cuộc họp sau ngày hôm nay.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "accompany",
+          "accommodate",
+          "annual",
+          "reminder"
+        ]
+      },
+      {
+        "id": "ex_217",
+        "num": 6,
+        "sentence": "We need to _______ the important files to the new system before the end of the month.",
+        "target": "transfer",
+        "full_sentence": "We need to transfer the important files to the new system before the end of the month.",
+        "translation": "Chúng tôi cần chuyển các tập tin quan trọng sang hệ thống mới trước cuối tháng.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "excavation",
+          "senior",
+          "transfer",
+          "strategy"
+        ]
+      },
+      {
+        "id": "ex_218",
+        "num": 7,
+        "sentence": "The marketing team needs to come up with a new _______ to increase brand awareness.",
+        "target": "strategy",
+        "full_sentence": "The marketing team needs to come up with a new strategy to increase brand awareness.",
+        "translation": "Đội ngũ tiếp thị cần đưa ra một chiến lược mới để nâng cao nhận thức về thương hiệu.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "accompany",
+          "strategy",
+          "transfer",
+          "period"
+        ]
+      },
+      {
+        "id": "ex_219",
+        "num": 8,
+        "sentence": "The construction team is currently working on the _______ of the building foundation.",
+        "target": "excavation",
+        "full_sentence": "The construction team is currently working on the excavation of the building foundation.",
+        "translation": "Hiện tại, đội thi công đang tiến hành đào móng công trình.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "sudden",
+          "excavation",
+          "original",
+          "negotiate"
+        ]
+      },
+      {
+        "id": "ex_220",
+        "num": 9,
+        "sentence": "The client requested an _______ copy of the contract before signing.",
+        "target": "original",
+        "full_sentence": "The client requested an original copy of the contract before signing.",
+        "translation": "Khách hàng yêu cầu bản gốc hợp đồng trước khi ký.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "negotiate",
+          "permanently",
+          "original",
+          "transfer"
+        ]
+      },
+      {
+        "id": "ex_221",
+        "num": 10,
+        "sentence": "Our company hosts an _______ conference every year to bring together industry professionals.",
+        "target": "annual",
+        "full_sentence": "Our company hosts an annual conference every year to bring together industry professionals.",
+        "translation": "Công ty chúng tôi tổ chức hội nghị thường niên hàng năm để quy tụ các chuyên gia trong ngành.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "accompany",
+          "annual",
+          "reminder",
+          "accommodate"
+        ]
+      },
+      {
+        "id": "ex_222",
+        "num": 11,
+        "sentence": "The amount of paperwork required for the project was _______ , making it difficult to finish on time.",
+        "target": "overwhelming",
+        "full_sentence": "The amount of paperwork required for the project was overwhelming , making it difficult to finish on time.",
+        "translation": "Số lượng giấy tờ cần thiết cho dự án quá nhiều, khiến việc hoàn thành đúng hạn trở nên khó khăn.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "accommodate",
+          "overwhelming",
+          "temporary",
+          "wrap"
+        ]
+      },
+      {
+        "id": "ex_223",
+        "num": 12,
+        "sentence": "The CEO’s _______ experience in the industry has made him an invaluable asset to the company.",
+        "target": "senior",
+        "full_sentence": "The CEO’s senior experience in the industry has made him an invaluable asset to the company.",
+        "translation": "Kinh nghiệm cấp cao của vị CEO này trong ngành đã giúp ông trở thành tài sản vô giá đối với công ty.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "permanently",
+          "senior",
+          "temporary",
+          "assistance"
+        ]
+      },
+      {
+        "id": "ex_224",
+        "num": 13,
+        "sentence": "The contract is valid for a _______ of three years, after which it will be reviewed.",
+        "target": "period",
+        "full_sentence": "The contract is valid for a period of three years, after which it will be reviewed.",
+        "translation": "Hợp đồng có thời hạn 3 năm, sau đó sẽ được xem xét lại.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "period",
+          "sudden",
+          "wrap",
+          "reminder"
+        ]
+      },
+      {
+        "id": "ex_225",
+        "num": 14,
+        "sentence": "Please take a moment to read this _______ about the upcoming team-building event.",
+        "target": "reminder",
+        "full_sentence": "Please take a moment to read this reminder about the upcoming team-building event.",
+        "translation": "Vui lòng dành chút thời gian để đọc lời nhắc này về sự kiện xây dựng đội nhóm sắp tới.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "reminder",
+          "refrigerator",
+          "transfer",
+          "negotiate"
+        ]
+      },
+      {
+        "id": "ex_226",
+        "num": 15,
+        "sentence": "There was a _______ change in the meeting schedule, so we had to adjust our plans.",
+        "target": "sudden",
+        "full_sentence": "There was a sudden change in the meeting schedule, so we had to adjust our plans.",
+        "translation": "Có sự thay đổi đột ngột trong lịch họp nên chúng tôi phải điều chỉnh kế hoạch.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "investment",
+          "sudden",
+          "permanently",
+          "strategy"
+        ]
+      },
+      {
+        "id": "ex_227",
+        "num": 16,
+        "sentence": "She decided to move to another city and stay there _______ for better career opportunities.",
+        "target": "permanently",
+        "full_sentence": "She decided to move to another city and stay there permanently for better career opportunities.",
+        "translation": "Cô quyết định chuyển đến một thành phố khác và ở lại đó lâu dài để có cơ hội nghề nghiệp tốt hơn.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "permanently",
+          "original",
+          "accommodate",
+          "transfer"
+        ]
+      },
+      {
+        "id": "ex_228",
+        "num": 17,
+        "sentence": "The sales manager will _______ the terms of the contract with the supplier next week.",
+        "target": "negotiate",
+        "full_sentence": "The sales manager will negotiate the terms of the contract with the supplier next week.",
+        "translation": "Giám đốc bán hàng sẽ đàm phán các điều khoản của hợp đồng với nhà cung cấp vào tuần tới.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "original",
+          "negotiate",
+          "accompany",
+          "reminder"
+        ]
+      },
+      {
+        "id": "ex_229",
+        "num": 18,
+        "sentence": "The ice cream was stored in the _______ to keep it cold during the event.",
+        "target": "refrigerator",
+        "full_sentence": "The ice cream was stored in the refrigerator to keep it cold during the event.",
+        "translation": "Kem được bảo quản trong tủ lạnh để giữ lạnh trong thời gian diễn ra sự kiện.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "overwhelming",
+          "refrigerator",
+          "assistance",
+          "negotiate"
+        ]
+      },
+      {
+        "id": "ex_230",
+        "num": 19,
+        "sentence": "The board is planning to make a major _______ in expanding the company’s operations.",
+        "target": "investment",
+        "full_sentence": "The board is planning to make a major investment in expanding the company’s operations.",
+        "translation": "Hội đồng quản trị đang có kế hoạch đầu tư lớn vào việc mở rộng hoạt động của công ty.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "reminder",
+          "excavation",
+          "accompany",
+          "investment"
+        ]
+      },
+      {
+        "id": "ex_231",
+        "num": 20,
+        "sentence": "Don’t forget to _______ the gifts before the party begins.",
+        "target": "wrap",
+        "full_sentence": "Don’t forget to wrap the gifts before the party begins.",
+        "translation": "Đừng quên gói quà trước khi bữa tiệc bắt đầu.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "assistance",
+          "refrigerator",
+          "wrap",
+          "negotiate"
+        ]
+      },
+      {
+        "id": "ex_232",
+        "num": 21,
+        "sentence": "The new office building is designed to _______ the needs of a growing workforce.",
+        "target": "accommodate",
+        "full_sentence": "The new office building is designed to accommodate the needs of a growing workforce.",
+        "translation": "Tòa nhà văn phòng mới được thiết kế để đáp ứng nhu cầu của lực lượng lao động ngày càng tăng.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "accommodate",
+          "period",
+          "reminder",
+          "annual"
+        ]
+      },
+      {
+        "id": "ex_233",
+        "num": 1,
+        "sentence": "The marketing team plans to _______ the new product line at the upcoming trade fair.",
+        "target": "launch",
+        "full_sentence": "The marketing team plans to launch the new product line at the upcoming trade fair.",
+        "translation": "Đội ngũ tiếp thị dự định ra mắt dòng sản phẩm mới tại hội chợ thương mại sắp tới.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "admission",
+          "launch",
+          "consumption",
+          "yield"
+        ]
+      },
+      {
+        "id": "ex_234",
+        "num": 2,
+        "sentence": "The company has committed to improving the _______ of its supply chain by reducing waste and emissions.",
+        "target": "sustainability",
+        "full_sentence": "The company has committed to improving the sustainability of its supply chain by reducing waste and emissions.",
+        "translation": "Công ty đã cam kết cải thiện tính bền vững của chuỗi cung ứng bằng cách giảm chất thải và khí thải.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "inquiry",
+          "memorable",
+          "carpet",
+          "sustainability"
+        ]
+      },
+      {
+        "id": "ex_235",
+        "num": 3,
+        "sentence": "Please _______ a copy of your identification with the application form.",
+        "target": "enclose",
+        "full_sentence": "Please enclose a copy of your identification with the application form.",
+        "translation": "Vui lòng gửi kèm bản sao giấy tờ tùy thân của bạn cùng với mẫu đơn.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "memorable",
+          "yield",
+          "enclose",
+          "identify"
+        ]
+      },
+      {
+        "id": "ex_236",
+        "num": 4,
+        "sentence": "The architect is working to design _______ housing options for low-income families.",
+        "target": "affordable",
+        "full_sentence": "The architect is working to design affordable housing options for low-income families.",
+        "translation": "Kiến trúc sư đang làm việc để thiết kế các lựa chọn nhà ở giá cả phải chăng cho các gia đình có thu nhập thấp.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "imagine",
+          "affordable",
+          "consultant",
+          "assurance"
+        ]
+      },
+      {
+        "id": "ex_237",
+        "num": 5,
+        "sentence": "The financial _______ was hired to provide advice on investment opportunities.",
+        "target": "consultant",
+        "full_sentence": "The financial consultant was hired to provide advice on investment opportunities.",
+        "translation": "Nhà tư vấn tài chính được thuê để đưa ra lời khuyên về các cơ hội đầu tư.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "enclose",
+          "memorable",
+          "inquiry",
+          "consultant"
+        ]
+      },
+      {
+        "id": "ex_238",
+        "num": 6,
+        "sentence": "The _______ of sugar in processed foods has raised concerns about health risks.",
+        "target": "consumption",
+        "full_sentence": "The consumption of sugar in processed foods has raised concerns about health risks.",
+        "translation": "Việc tiêu thụ đường trong thực phẩm chế biến sẵn đã làm dấy lên mối lo ngại về nguy cơ sức khỏe.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "consumption",
+          "substantial",
+          "dedicate",
+          "enclose"
+        ]
+      },
+      {
+        "id": "ex_239",
+        "num": 7,
+        "sentence": "The accountant requested the latest financial _______ to prepare the company’s annual report.",
+        "target": "statement",
+        "full_sentence": "The accountant requested the latest financial statement to prepare the company’s annual report.",
+        "translation": "Kế toán yêu cầu báo cáo tài chính mới nhất để lập báo cáo thường niên của công ty.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "carpet",
+          "facilitator",
+          "assurance",
+          "statement"
+        ]
+      },
+      {
+        "id": "ex_240",
+        "num": 8,
+        "sentence": "The soft _______ in the living room was replaced with hardwood flooring last week.",
+        "target": "carpet",
+        "full_sentence": "The soft carpet in the living room was replaced with hardwood flooring last week.",
+        "translation": "Tấm thảm mềm trong phòng khách đã được thay thế bằng sàn gỗ cứng vào tuần trước.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "sustainability",
+          "consumption",
+          "imagine",
+          "carpet"
+        ]
+      },
+      {
+        "id": "ex_241",
+        "num": 9,
+        "sentence": "Employees are required to adhere to the safety _______ established by the company.",
+        "target": "regulation",
+        "full_sentence": "Employees are required to adhere to the safety regulation established by the company.",
+        "translation": "Nhân viên được yêu cầu phải tuân thủ các quy định an toàn do công ty thiết lập.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "regulation",
+          "facilitator",
+          "consumption",
+          "carpet"
+        ]
+      },
+      {
+        "id": "ex_242",
+        "num": 10,
+        "sentence": "The technician was able to _______ the problem with the machine and fix it quickly.",
+        "target": "identify",
+        "full_sentence": "The technician was able to identify the problem with the machine and fix it quickly.",
+        "translation": "Kỹ thuật viên đã xác định được vấn đề của máy và khắc phục nhanh chóng.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "carpet",
+          "assurance",
+          "consumption",
+          "identify"
+        ]
+      },
+      {
+        "id": "ex_243",
+        "num": 11,
+        "sentence": "The workshop _______ ensured that all participants had a chance to share their ideas.",
+        "target": "facilitator",
+        "full_sentence": "The workshop facilitator ensured that all participants had a chance to share their ideas.",
+        "translation": "Người điều hành hội thảo đảm bảo rằng tất cả những người tham gia đều có cơ hội chia sẻ ý tưởng của mình.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "statement",
+          "dedicate",
+          "facilitator",
+          "launch"
+        ]
+      },
+      {
+        "id": "ex_244",
+        "num": 12,
+        "sentence": "We are conducting an _______ to determine the cause of the delay in production.",
+        "target": "inquiry",
+        "full_sentence": "We are conducting an inquiry to determine the cause of the delay in production.",
+        "translation": "Chúng tôi đang tiến hành một cuộc điều tra để xác định nguyên nhân gây ra sự chậm trễ trong sản xuất.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "inquiry",
+          "consultant",
+          "imagine",
+          "substantial"
+        ]
+      },
+      {
+        "id": "ex_245",
+        "num": 13,
+        "sentence": "The _______ profit from the investment has exceeded initial expectations.",
+        "target": "substantial",
+        "full_sentence": "The substantial profit from the investment has exceeded initial expectations.",
+        "translation": "Lợi nhuận đáng kể từ khoản đầu tư đã vượt quá mong đợi ban đầu.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "substantial",
+          "yield",
+          "identify",
+          "imagine"
+        ]
+      },
+      {
+        "id": "ex_246",
+        "num": 14,
+        "sentence": "The museum offers free _______ on the first Sunday of every month.",
+        "target": "admission",
+        "full_sentence": "The museum offers free admission on the first Sunday of every month.",
+        "translation": "Bảo tàng cung cấp vé vào cửa miễn phí vào Chủ nhật đầu tiên hàng tháng.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "consultant",
+          "inquiry",
+          "affordable",
+          "admission"
+        ]
+      },
+      {
+        "id": "ex_247",
+        "num": 15,
+        "sentence": "The CEO promised to _______ more resources to improving employee training programs.",
+        "target": "dedicate",
+        "full_sentence": "The CEO promised to dedicate more resources to improving employee training programs.",
+        "translation": "Giám đốc điều hành hứa sẽ dành nhiều nguồn lực hơn để cải thiện các chương trình đào tạo nhân viên.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "consultant",
+          "inquiry",
+          "dedicate",
+          "enclose"
+        ]
+      },
+      {
+        "id": "ex_248",
+        "num": 16,
+        "sentence": "It’s hard to _______ the impact this breakthrough technology will have on our daily lives.",
+        "target": "imagine",
+        "full_sentence": "It’s hard to imagine the impact this breakthrough technology will have on our daily lives.",
+        "translation": "Thật khó để tưởng tượng tác động của công nghệ đột phá này đối với cuộc sống hàng ngày của chúng ta.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "consultant",
+          "admission",
+          "imagine",
+          "enclose"
+        ]
+      },
+      {
+        "id": "ex_249",
+        "num": 17,
+        "sentence": "The advertisement had a strong _______ on public opinion about the product.",
+        "target": "influence",
+        "full_sentence": "The advertisement had a strong influence on public opinion about the product.",
+        "translation": "Quảng cáo đã có tác động mạnh mẽ đến dư luận về sản phẩm.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "influence",
+          "sustainability",
+          "dedicate",
+          "substantial"
+        ]
+      },
+      {
+        "id": "ex_250",
+        "num": 18,
+        "sentence": "The team worked hard to make the event a truly _______ experience for all the attendees.",
+        "target": "memorable",
+        "full_sentence": "The team worked hard to make the event a truly memorable experience for all the attendees.",
+        "translation": "Nhóm đã làm việc chăm chỉ để biến sự kiện thành một trải nghiệm thực sự đáng nhớ cho tất cả những người tham dự.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "consultant",
+          "imagine",
+          "affordable",
+          "memorable"
+        ]
+      },
+      {
+        "id": "ex_251",
+        "num": 19,
+        "sentence": "Farmers hope that this season’s harvest will _______ enough to cover their expenses.",
+        "target": "yield",
+        "full_sentence": "Farmers hope that this season’s harvest will yield enough to cover their expenses.",
+        "translation": "Nông dân hy vọng vụ thu hoạch mùa này sẽ đủ năng suất để trang trải chi phí.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "affordable",
+          "yield",
+          "substantial",
+          "statement"
+        ]
+      },
+      {
+        "id": "ex_252",
+        "num": 20,
+        "sentence": "The manager gave her _______ that the project would be completed on time.",
+        "target": "assurance",
+        "full_sentence": "The manager gave her assurance that the project would be completed on time.",
+        "translation": "Người quản lý đã đảm bảo với cô rằng dự án sẽ được hoàn thành đúng thời hạn.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "regulation",
+          "identify",
+          "assurance",
+          "admission"
+        ]
+      },
+      {
+        "id": "ex_253",
+        "num": 1,
+        "sentence": "The new _______ was designed to efficiently transport goods between floors of the building.",
+        "target": "elevator",
+        "full_sentence": "The new elevator was designed to efficiently transport goods between floors of the building.",
+        "translation": "Thang máy mới được thiết kế để vận chuyển hàng hóa giữa các tầng của tòa nhà một cách hiệu quả.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "cashier",
+          "propose",
+          "retail",
+          "elevator"
+        ]
+      },
+      {
+        "id": "ex_254",
+        "num": 2,
+        "sentence": "The manager was quick to _______ her outstanding performance during the meeting.",
+        "target": "recognize",
+        "full_sentence": "The manager was quick to recognize her outstanding performance during the meeting.",
+        "translation": "Người quản lý đã nhanh chóng nhận ra thành tích xuất sắc của cô trong cuộc họp.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "neglect",
+          "recognize",
+          "sponsor",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_255",
+        "num": 3,
+        "sentence": "Our magazine offers a one-year _______ that includes access to exclusive content.",
+        "target": "subscription",
+        "full_sentence": "Our magazine offers a one-year subscription that includes access to exclusive content.",
+        "translation": "Tạp chí của chúng tôi cung cấp gói đăng ký một năm bao gồm quyền truy cập vào nội dung độc quyền.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "neglect",
+          "propose",
+          "freight",
+          "subscription"
+        ]
+      },
+      {
+        "id": "ex_256",
+        "num": 4,
+        "sentence": "The _______ thanked the customer for paying promptly at the checkout counter.",
+        "target": "cashier",
+        "full_sentence": "The cashier thanked the customer for paying promptly at the checkout counter.",
+        "translation": "Nhân viên thu ngân cảm ơn khách hàng đã thanh toán kịp thời tại quầy tính tiền.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "cashier",
+          "resident",
+          "freight",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_257",
+        "num": 5,
+        "sentence": "The art gallery relies on donations from a corporate _______ to fund its exhibitions.",
+        "target": "sponsor",
+        "full_sentence": "The art gallery relies on donations from a corporate sponsor to fund its exhibitions.",
+        "translation": "Phòng trưng bày nghệ thuật dựa vào sự quyên góp từ một nhà tài trợ doanh nghiệp để tài trợ cho các cuộc triển lãm của mình.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "reference",
+          "sponsor",
+          "elevator",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_258",
+        "num": 6,
+        "sentence": "The manager asked the team to _______ a solution to reduce shipping costs.",
+        "target": "propose",
+        "full_sentence": "The manager asked the team to propose a solution to reduce shipping costs.",
+        "translation": "Người quản lý yêu cầu nhóm đề xuất giải pháp giảm chi phí vận chuyển.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "standard",
+          "sponsor",
+          "subscription",
+          "propose"
+        ]
+      },
+      {
+        "id": "ex_259",
+        "num": 7,
+        "sentence": "The report must include proper _______ to all the sources used in the analysis.",
+        "target": "references",
+        "full_sentence": "The report must include proper references to all the sources used in the analysis.",
+        "translation": "Báo cáo phải bao gồm các tài liệu tham khảo thích hợp cho tất cả các nguồn được sử dụng trong phân tích.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "reference",
+          "sponsor",
+          "references",
+          "warehouse"
+        ]
+      },
+      {
+        "id": "ex_260",
+        "num": 8,
+        "sentence": "The _______ of the neighborhood have been invited to the town hall meeting.",
+        "target": "residents",
+        "full_sentence": "The residents of the neighborhood have been invited to the town hall meeting.",
+        "translation": "Người dân trong khu phố đã được mời đến cuộc họp ở tòa thị chính.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "sponsor",
+          "reference",
+          "freight",
+          "residents"
+        ]
+      },
+      {
+        "id": "ex_261",
+        "num": 9,
+        "sentence": "The retail chain is planning to open a large _______ to store surplus inventory.",
+        "target": "warehouse",
+        "full_sentence": "The retail chain is planning to open a large warehouse to store surplus inventory.",
+        "translation": "Chuỗi bán lẻ đang có kế hoạch mở một nhà kho lớn để lưu trữ hàng tồn kho dư thừa.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "sample",
+          "sponsor",
+          "boost",
+          "warehouse"
+        ]
+      },
+      {
+        "id": "ex_262",
+        "num": 10,
+        "sentence": "Customers can request a free _______ of the product before making a purchase.",
+        "target": "sample",
+        "full_sentence": "Customers can request a free sample of the product before making a purchase.",
+        "translation": "Khách hàng có thể yêu cầu dùng thử sản phẩm miễn phí trước khi mua hàng.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "in advance",
+          "boost",
+          "sample",
+          "sponsor"
+        ]
+      },
+      {
+        "id": "ex_263",
+        "num": 11,
+        "sentence": "International shipping fees include additional charges for _______ transportation.",
+        "target": "freight",
+        "full_sentence": "International shipping fees include additional charges for freight transportation.",
+        "translation": "Phí vận chuyển quốc tế bao gồm các khoản phí bổ sung cho vận chuyển hàng hóa.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "landscape",
+          "freight",
+          "neglect",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_264",
+        "num": 12,
+        "sentence": "The company aims to _______ employee satisfaction by offering better benefits.",
+        "target": "boost",
+        "full_sentence": "The company aims to boost employee satisfaction by offering better benefits.",
+        "translation": "Công ty đặt mục tiêu nâng cao sự hài lòng của nhân viên bằng cách cung cấp các phúc lợi tốt hơn.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "warehouse",
+          "boost",
+          "standard",
+          "retail"
+        ]
+      },
+      {
+        "id": "ex_265",
+        "num": 13,
+        "sentence": "The team was praised for their _______ and willingness to work together on the project.",
+        "target": "cooperation",
+        "full_sentence": "The team was praised for their cooperation and willingness to work together on the project.",
+        "translation": "Nhóm được khen ngợi vì sự hợp tác và sẵn sàng làm việc cùng nhau trong dự án.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "elevator",
+          "cooperation",
+          "in advance",
+          "cashier"
+        ]
+      },
+      {
+        "id": "ex_266",
+        "num": 14,
+        "sentence": "New policies were implemented to ensure a higher _______ of customer service.",
+        "target": "standard",
+        "full_sentence": "New policies were implemented to ensure a higher standard of customer service.",
+        "translation": "Các chính sách mới đã được thực hiện để đảm bảo tiêu chuẩn dịch vụ khách hàng cao hơn.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "standard",
+          "boost",
+          "warehouse",
+          "sample"
+        ]
+      },
+      {
+        "id": "ex_267",
+        "num": 15,
+        "sentence": "The _______ market has been growing rapidly due to the rise in online shopping.",
+        "target": "retail",
+        "full_sentence": "The retail market has been growing rapidly due to the rise in online shopping.",
+        "translation": "Thị trường bán lẻ đang phát triển nhanh chóng nhờ sự gia tăng mua sắm trực tuyến.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "neglect",
+          "reference",
+          "boost",
+          "retail"
+        ]
+      },
+      {
+        "id": "ex_268",
+        "num": 16,
+        "sentence": "Please book your tickets _______ to secure the best rates.",
+        "target": "in advance",
+        "full_sentence": "Please book your tickets in advance to secure the best rates.",
+        "translation": "Vui lòng đặt vé trước để có được mức giá tốt nhất.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "cashier",
+          "in advance",
+          "sample",
+          "freight"
+        ]
+      },
+      {
+        "id": "ex_269",
+        "num": 17,
+        "sentence": "The garden’s stunning _______ was designed by a renowned architect.",
+        "target": "landscape",
+        "full_sentence": "The garden’s stunning landscape was designed by a renowned architect.",
+        "translation": "Cảnh quan tuyệt đẹp của khu vườn được thiết kế bởi một kiến ​​trúc sư nổi tiếng.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "reference",
+          "landscape",
+          "freight",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_270",
+        "num": 18,
+        "sentence": "The manager warned the team not to _______ their responsibilities during the busy season.",
+        "target": "neglect",
+        "full_sentence": "The manager warned the team not to neglect their responsibilities during the busy season.",
+        "translation": "Người quản lý cảnh báo toàn đội không được lơ là trách nhiệm trong mùa giải bận rộn.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "cashier",
+          "cooperation",
+          "neglect",
+          "reference"
+        ]
+      },
+      {
+        "id": "ex_271",
+        "num": 19,
+        "sentence": "This training session is designed _______ for managers and team leaders.",
+        "target": "solely",
+        "full_sentence": "This training session is designed solely for managers and team leaders.",
+        "translation": "Buổi đào tạo này được thiết kế dành riêng cho người quản lý và trưởng nhóm.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "solely",
+          "reference",
+          "experience",
+          "subscription"
+        ]
+      },
+      {
+        "id": "ex_272",
+        "num": 20,
+        "sentence": "She has extensive _______ in handling customer complaints and resolving conflicts.",
+        "target": "experience",
+        "full_sentence": "She has extensive experience in handling customer complaints and resolving conflicts.",
+        "translation": "Cô có nhiều kinh nghiệm trong việc giải quyết khiếu nại của khách hàng và giải quyết xung đột.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "cooperation",
+          "sponsor",
+          "warehouse",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_273",
+        "num": 21,
+        "sentence": "The company is looking for candidates who have _______ working in a fast-paced environment.",
+        "target": "experience",
+        "full_sentence": "The company is looking for candidates who have experience working in a fast-paced environment.",
+        "translation": "Công ty đang tìm kiếm những ứng viên có kinh nghiệm làm việc trong môi trường có nhịp độ nhanh.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "sample",
+          "experience",
+          "solely",
+          "subscription"
+        ]
+      },
+      {
+        "id": "ex_274",
+        "num": 22,
+        "sentence": "The company has agreed to _______ the local sports team for the upcoming season.",
+        "target": "sponsor",
+        "full_sentence": "The company has agreed to sponsor the local sports team for the upcoming season.",
+        "translation": "Công ty đã đồng ý tài trợ cho đội thể thao địa phương trong mùa giải sắp tới.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "reference",
+          "neglect",
+          "sponsor",
+          "sample"
+        ]
+      },
+      {
+        "id": "ex_275",
+        "num": 1,
+        "sentence": "Please turn off your phone during the meeting so that it can’t _______ you from the presentation.",
+        "target": "distract",
+        "full_sentence": "Please turn off your phone during the meeting so that it can’t distract you from the presentation.",
+        "translation": "Vui lòng tắt điện thoại trong cuộc họp để nó không làm bạn mất tập trung vào bài thuyết trình.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "transition",
+          "remodel",
+          "distract",
+          "secure"
+        ]
+      },
+      {
+        "id": "ex_276",
+        "num": 2,
+        "sentence": "The professor gave an insightful _______ on the topic of climate change.",
+        "target": "lecture",
+        "full_sentence": "The professor gave an insightful lecture on the topic of climate change.",
+        "translation": "Giáo sư đã có một bài giảng sâu sắc về chủ đề biến đổi khí hậu.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "delighted",
+          "investigate",
+          "positive",
+          "lecture"
+        ]
+      },
+      {
+        "id": "ex_277",
+        "num": 3,
+        "sentence": "The new furniture is designed to be _______ and last for many years.",
+        "target": "durable",
+        "full_sentence": "The new furniture is designed to be durable and last for many years.",
+        "translation": "Đồ nội thất mới được thiết kế để có độ bền cao và tồn tại trong nhiều năm.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "remodel",
+          "durable",
+          "venue",
+          "specialize in"
+        ]
+      },
+      {
+        "id": "ex_278",
+        "num": 4,
+        "sentence": "The university is an esteemed _______ known for its cutting-edge research.",
+        "target": "institution",
+        "full_sentence": "The university is an esteemed institution known for its cutting-edge research.",
+        "translation": "Trường đại học này là một tổ chức danh tiếng được biết đến với những nghiên cứu tiên tiến.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "institution",
+          "investigate",
+          "trouble",
+          "overview"
+        ]
+      },
+      {
+        "id": "ex_279",
+        "num": 5,
+        "sentence": "I’m _______ to inform you that you’ve been selected for the final round of the interview process.",
+        "target": "delighted",
+        "full_sentence": "I’m delighted to inform you that you’ve been selected for the final round of the interview process.",
+        "translation": "Tôi vui mừng thông báo với bạn rằng bạn đã được chọn vào vòng cuối cùng của quá trình phỏng vấn.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "investigate",
+          "delighted",
+          "donation",
+          "secure"
+        ]
+      },
+      {
+        "id": "ex_280",
+        "num": 6,
+        "sentence": "The _______ of the book will be giving a lecture on the topics discussed in her latest publication.",
+        "target": "author",
+        "full_sentence": "The author of the book will be giving a lecture on the topics discussed in her latest publication.",
+        "translation": "Tác giả của cuốn sách sẽ thuyết trình về các chủ đề được thảo luận trong ấn phẩm mới nhất của cô.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "specialize in",
+          "exclusive",
+          "author",
+          "transition"
+        ]
+      },
+      {
+        "id": "ex_281",
+        "num": 7,
+        "sentence": "At the beginning of the presentation, the manager gave a brief _______ of the company's financial performance.",
+        "target": "overview",
+        "full_sentence": "At the beginning of the presentation, the manager gave a brief overview of the company's financial performance.",
+        "translation": "Khi bắt đầu bài thuyết trình, người quản lý đã trình bày tổng quan ngắn gọn về kết quả hoạt động tài chính của công ty.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "overview",
+          "inventory",
+          "author",
+          "transition"
+        ]
+      },
+      {
+        "id": "ex_282",
+        "num": 8,
+        "sentence": "The _______ of the store’s products is updated regularly to avoid shortages.",
+        "target": "inventory",
+        "full_sentence": "The inventory of the store’s products is updated regularly to avoid shortages.",
+        "translation": "Kho sản phẩm của cửa hàng được cập nhật thường xuyên để tránh tình trạng thiếu hàng.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "inventory",
+          "secure",
+          "overview",
+          "antique"
+        ]
+      },
+      {
+        "id": "ex_283",
+        "num": 9,
+        "sentence": "The police are trying to _______ the cause of the recent fire in the building.",
+        "target": "investigate",
+        "full_sentence": "The police are trying to investigate the cause of the recent fire in the building.",
+        "translation": "Cảnh sát đang cố gắng điều tra nguyên nhân vụ cháy gần đây tại tòa nhà.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "investigate",
+          "institution",
+          "delighted",
+          "create"
+        ]
+      },
+      {
+        "id": "ex_284",
+        "num": 10,
+        "sentence": "The new art gallery is offering an _______ collection of rare and valuable pieces.",
+        "target": "exclusive",
+        "full_sentence": "The new art gallery is offering an exclusive collection of rare and valuable pieces.",
+        "translation": "Phòng trưng bày nghệ thuật mới đang cung cấp một bộ sưu tập độc quyền các tác phẩm quý hiếm.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "exclusive",
+          "inventory",
+          "secure",
+          "durable"
+        ]
+      },
+      {
+        "id": "ex_285",
+        "num": 11,
+        "sentence": "The staff is working to _______ a better customer experience for all visitors.",
+        "target": "create",
+        "full_sentence": "The staff is working to create a better customer experience for all visitors.",
+        "translation": "Các nhân viên đang làm việc để tạo ra trải nghiệm khách hàng tốt hơn cho tất cả du khách.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "remodel",
+          "positive",
+          "specialize in",
+          "create"
+        ]
+      },
+      {
+        "id": "ex_286",
+        "num": 12,
+        "sentence": "The charity event raised a large amount of money thanks to the generous _______ from local businesses.",
+        "target": "donation",
+        "full_sentence": "The charity event raised a large amount of money thanks to the generous donation from local businesses.",
+        "translation": "Sự kiện từ thiện đã quyên góp được số tiền lớn nhờ sự đóng góp hào phóng từ các doanh nghiệp địa phương.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "donation",
+          "investigate",
+          "secure",
+          "venue"
+        ]
+      },
+      {
+        "id": "ex_287",
+        "num": 13,
+        "sentence": "She plans to _______ financial analysis after completing her studies.",
+        "target": "specialize in",
+        "full_sentence": "She plans to specialize in financial analysis after completing her studies.",
+        "translation": "Cô dự định sẽ chuyên sâu về phân tích tài chính sau khi hoàn thành chương trình học của mình.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "specialize in",
+          "exclusive",
+          "donation",
+          "overview"
+        ]
+      },
+      {
+        "id": "ex_288",
+        "num": 14,
+        "sentence": "The company is currently in the process of making a smooth _______ from a traditional business model to a more digital approach.",
+        "target": "transition",
+        "full_sentence": "The company is currently in the process of making a smooth transition from a traditional business model to a more digital approach.",
+        "translation": "Công ty hiện đang trong quá trình chuyển đổi suôn sẻ từ mô hình kinh doanh truyền thống sang cách tiếp cận kỹ thuật số hơn.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "secure",
+          "remodel",
+          "transition",
+          "inventory"
+        ]
+      },
+      {
+        "id": "ex_289",
+        "num": 15,
+        "sentence": "The manager gave _______ feedback on the team's performance after the project was completed.",
+        "target": "positive",
+        "full_sentence": "The manager gave positive feedback on the team's performance after the project was completed.",
+        "translation": "Người quản lý đã đưa ra phản hồi tích cực về hiệu suất của nhóm sau khi dự án hoàn thành.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "venue",
+          "distract",
+          "exclusive",
+          "positive"
+        ]
+      },
+      {
+        "id": "ex_290",
+        "num": 16,
+        "sentence": "Please let me know if you are facing any _______ with your account so we can resolve them.",
+        "target": "trouble",
+        "full_sentence": "Please let me know if you are facing any trouble with your account so we can resolve them.",
+        "translation": "Vui lòng cho tôi biết nếu bạn đang gặp bất kỳ sự cố nào với tài khoản của mình để chúng tôi có thể giải quyết chúng.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "author",
+          "remodel",
+          "trouble",
+          "specialize in"
+        ]
+      },
+      {
+        "id": "ex_291",
+        "num": 17,
+        "sentence": "The conference will be held at a prestigious _______ in the heart of the city.",
+        "target": "venue",
+        "full_sentence": "The conference will be held at a prestigious venue in the heart of the city.",
+        "translation": "Hội nghị sẽ được tổ chức tại một địa điểm uy tín ngay trung tâm thành phố.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "institution",
+          "donation",
+          "venue",
+          "delighted"
+        ]
+      },
+      {
+        "id": "ex_292",
+        "num": 18,
+        "sentence": "We are considering to _______ the old office to better meet the needs of our employees.",
+        "target": "remodel",
+        "full_sentence": "We are considering to remodel the old office to better meet the needs of our employees.",
+        "translation": "Chúng tôi đang xem xét việc sửa sang lại văn phòng cũ để đáp ứng tốt hơn nhu cầu của nhân viên.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "exclusive",
+          "venue",
+          "transition",
+          "remodel"
+        ]
+      },
+      {
+        "id": "ex_293",
+        "num": 19,
+        "sentence": "She inherited an _______ clock from her grandparents, which has been in the family for generations.",
+        "target": "antique",
+        "full_sentence": "She inherited an antique clock from her grandparents, which has been in the family for generations.",
+        "translation": "Cô được thừa hưởng một chiếc đồng hồ cổ từ ông bà, chiếc đồng hồ này đã được gia đình lưu giữ qua nhiều thế hệ.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "positive",
+          "lecture",
+          "overview",
+          "antique"
+        ]
+      },
+      {
+        "id": "ex_294",
+        "num": 20,
+        "sentence": "After several rounds of negotiations, the company was able to _______ a major contract with a new client.",
+        "target": "secure",
+        "full_sentence": "After several rounds of negotiations, the company was able to secure a major contract with a new client.",
+        "translation": "Sau nhiều vòng đàm phán, công ty đã có thể giành được một hợp đồng lớn với một khách hàng mới.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "secure",
+          "trouble",
+          "specialize in",
+          "antique"
+        ]
+      },
+      {
+        "id": "ex_295",
+        "num": 21,
+        "sentence": "The company takes data privacy very seriously and uses advanced technology to keep customer information _______",
+        "target": "secure",
+        "full_sentence": "The company takes data privacy very seriously and uses advanced technology to keep customer information secure",
+        "translation": "Công ty rất coi trọng quyền riêng tư dữ liệu và sử dụng công nghệ tiên tiến để bảo mật thông tin khách hàng",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "delighted",
+          "donation",
+          "secure",
+          "inventory"
+        ]
+      }
+    ]
   },
   {
     "id": "deck_p3_day_1",
@@ -6346,8 +10771,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Part 3 - Day 1",
     "icon": "🎧",
     "desc": "Từ vựng hội thoại Part 3 nghe hiểu - Ngày 1",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_p3_day_1_w0",
@@ -6570,7 +10993,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Part 3 - Day 1"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_p3_day_3",
@@ -6579,8 +11004,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Part 3 - Day 3",
     "icon": "🎧",
     "desc": "Từ vựng hội thoại Part 3 nghe hiểu - Ngày 3",
-    "word_count": 19,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_p3_day_3_w0",
@@ -6792,7 +11215,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Part 3 - Day 3"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 19,
+    "exercise_count": 0
   },
   {
     "id": "deck_p3_day_2",
@@ -6801,8 +11226,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Part 3 - Day 2",
     "icon": "🎧",
     "desc": "Từ vựng hội thoại Part 3 nghe hiểu - Ngày 2",
-    "word_count": 19,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_p3_day_2_w0",
@@ -7014,7 +11437,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Part 3 - Day 2"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 19,
+    "exercise_count": 0
   },
   {
     "id": "deck_p5_phuluc2",
@@ -7023,8 +11448,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Phụ Lục 2: Bài Tập Từ Loại Chuyên Sâu",
     "icon": "📝",
     "desc": "Nhận diện danh từ, động từ, tính từ, phó từ trong câu Part 5",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_p5_phuluc2_w0",
@@ -7247,7 +11670,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Phụ Lục 2: Bài Tập Từ Loại Chuyên Sâu"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_p5_unit_5",
@@ -7256,8 +11681,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 5 - Simple sentences and Nouns",
     "icon": "📝",
     "desc": "Chuyên đề ngữ pháp Part 5: Unit 5 - Simple sentences and Nouns",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_p5_unit_5_w0",
@@ -7480,7 +11903,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Unit 5 - Simple sentences and Nouns"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_p5_unit_5_1",
@@ -7489,8 +11914,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 5.1 - Adjectives & Adverbs",
     "icon": "📝",
     "desc": "Chuyên đề ngữ pháp Part 5: Unit 5.1 - Adjectives & Adverbs",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_p5_unit_5_1_w0",
@@ -7713,7 +12136,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Unit 5.1 - Adjectives & Adverbs"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_p5_unit_5_2",
@@ -7722,8 +12147,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 5.2 - Pronouns",
     "icon": "📝",
     "desc": "Chuyên đề ngữ pháp Part 5: Unit 5.2 - Pronouns",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_p5_unit_5_2_w0",
@@ -7946,7 +12369,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Unit 5.2 - Pronouns"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_p5_unit_5_3",
@@ -7955,8 +12380,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 5.3 - Prepositions & Conjunctions",
     "icon": "📝",
     "desc": "Chuyên đề ngữ pháp Part 5: Unit 5.3 - Prepositions & Conjunctions",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_p5_unit_5_3_w0",
@@ -8179,7 +12602,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Unit 5.3 - Prepositions & Conjunctions"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_p5_unit_5_4",
@@ -8188,8 +12613,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 5.4 - Verbs",
     "icon": "📝",
     "desc": "Chuyên đề ngữ pháp Part 5: Unit 5.4 - Verbs",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_p5_unit_5_4_w0",
@@ -8412,7 +12835,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Unit 5.4 - Verbs"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_p5_unit_5_5",
@@ -8421,8 +12846,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 5.5 - Participle clauses & Relative clauses",
     "icon": "📝",
     "desc": "Chuyên đề ngữ pháp Part 5: Unit 5.5 - Participle clauses & Relative clauses",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_p5_unit_5_5_w0",
@@ -8645,7 +13068,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Unit 5.5 - Participle clauses & Relative clauses"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_p5_unit_5_6",
@@ -8654,8 +13079,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 5.6 - Comparisons & Conditional clauses",
     "icon": "📝",
     "desc": "Chuyên đề ngữ pháp Part 5: Unit 5.6 - Comparisons & Conditional clauses",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_p5_unit_5_6_w0",
@@ -8878,7 +13301,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Unit 5.6 - Comparisons & Conditional clauses"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_class_unit_1_1",
@@ -8887,8 +13312,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "UNIT 1.1",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: UNIT 1.1",
-    "word_count": 20,
-    "exercise_count": 20,
     "words": [
       {
         "id": "deck_class_unit_1_1_w0",
@@ -9113,266 +13536,308 @@ var TOEIC_COURSE_DECKS = [
     ],
     "exercises": [
       {
-        "id": "deck_class_unit_1_1_ex1",
+        "id": "ex_1",
         "num": 1,
         "sentence": "The man is sitting on the _______ at the park, resting for a while.",
-        "target": "plug",
+        "target": "bench",
+        "full_sentence": "The man is sitting on the bench at the park, resting for a while.",
+        "translation": "Người đàn ông đang ngồi trên băng ghế ở công viên, nghỉ ngơi một lúc.",
         "deck_id": "deck_class_unit_1_1",
         "options": [
-          "rack",
-          "plug",
-          "push",
-          "gather"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex2",
-        "num": 2,
-        "sentence": "The worker is adjusting the _______ on the wall.",
-        "target": "sweep",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "sweep",
-          "tie",
-          "frame",
-          "wear"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex3",
-        "num": 3,
-        "sentence": "The woman is placing her coat on the _______ by the door.",
-        "target": "ceiling",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "pack",
-          "luggage",
-          "cart",
-          "ceiling"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex4",
-        "num": 4,
-        "sentence": "The children are carrying their luggage up the _______ to their rooms.",
-        "target": "cushion",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "frame",
-          "gather",
-          "cushion",
-          "reach"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex5",
-        "num": 5,
-        "sentence": "The man is packing his _______ for the upcoming trip.",
-        "target": "rack",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "cushion",
-          "rack",
-          "pack",
-          "plug"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex6",
-        "num": 6,
-        "sentence": "The traveler is carrying his _______ through the airport to catch his flight.",
-        "target": "pack",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "cushion",
-          "pack",
-          "plug",
-          "purchase"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex7",
-        "num": 7,
-        "sentence": "The person is loading the _______ with boxes at the store.",
-        "target": "gather",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "counter",
-          "tie",
-          "sweep",
-          "gather"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex8",
-        "num": 8,
-        "sentence": "The shopkeeper is standing behind the _______ to assist the customers.",
-        "target": "stairs",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "cushion",
+          "bench",
           "examine",
-          "stairs",
+          "ceiling",
           "luggage"
         ]
       },
       {
-        "id": "deck_class_unit_1_1_ex9",
-        "num": 9,
-        "sentence": "The woman is resting her head on a _______ while sitting on the bench.",
-        "target": "tie",
+        "id": "ex_2",
+        "num": 2,
+        "sentence": "The worker is adjusting the _______ on the wall.",
+        "target": "frame",
+        "full_sentence": "The worker is adjusting the frame on the wall.",
+        "translation": "Người công nhân đang điều chỉnh khung trên tường.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "cart",
+          "frame",
+          "purchase",
+          "gather"
+        ]
+      },
+      {
+        "id": "ex_3",
+        "num": 3,
+        "sentence": "The woman is placing her coat on the _______ by the door.",
+        "target": "rack",
+        "full_sentence": "The woman is placing her coat on the rack by the door.",
+        "translation": "Người phụ nữ đang đặt chiếc áo khoác của mình lên giá cạnh cửa.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "tie",
+          "ceiling",
+          "luggage",
+          "rack"
+        ]
+      },
+      {
+        "id": "ex_4",
+        "num": 4,
+        "sentence": "The children are carrying their luggage up the _______ to their rooms.",
+        "target": "stairs",
+        "full_sentence": "The children are carrying their luggage up the stairs to their rooms.",
+        "translation": "Bọn trẻ đang mang hành lý lên cầu thang về phòng của chúng.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "cart",
+          "suitcase",
+          "wear",
+          "stairs"
+        ]
+      },
+      {
+        "id": "ex_5",
+        "num": 5,
+        "sentence": "The man is packing his _______ for the upcoming trip.",
+        "target": "suitcase",
+        "full_sentence": "The man is packing his suitcase for the upcoming trip.",
+        "translation": "Người đàn ông đang thu dọn hành lý cho chuyến đi sắp tới.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "cart",
+          "frame",
+          "suitcase",
+          "push"
+        ]
+      },
+      {
+        "id": "ex_6",
+        "num": 6,
+        "sentence": "The traveler is carrying his _______ through the airport to catch his flight.",
+        "target": "luggage",
+        "full_sentence": "The traveler is carrying his luggage through the airport to catch his flight.",
+        "translation": "Người du lịch đang mang hành lý của mình qua sân bay để bắt chuyến bay.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "rack",
+          "cart",
+          "luggage",
+          "bench"
+        ]
+      },
+      {
+        "id": "ex_7",
+        "num": 7,
+        "sentence": "The person is loading the _______ with boxes at the store.",
+        "target": "cart",
+        "full_sentence": "The person is loading the cart with boxes at the store.",
+        "translation": "Người này đang chất các thùng hàng lên xe đẩy ở cửa hàng.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "pack",
+          "examine",
+          "cart",
+          "stairs"
+        ]
+      },
+      {
+        "id": "ex_8",
+        "num": 8,
+        "sentence": "The shopkeeper is standing behind the _______ to assist the customers.",
+        "target": "counter",
+        "full_sentence": "The shopkeeper is standing behind the counter to assist the customers.",
+        "translation": "Người bán hàng đứng sau quầy để hỗ trợ khách hàng.",
         "deck_id": "deck_class_unit_1_1",
         "options": [
           "ceiling",
-          "tie",
-          "examine",
-          "counter"
+          "counter",
+          "wear",
+          "luggage"
         ]
       },
       {
-        "id": "deck_class_unit_1_1_ex10",
-        "num": 10,
-        "sentence": "The child is looking up at the colorful lights on the _______",
-        "target": "reach",
+        "id": "ex_9",
+        "num": 9,
+        "sentence": "The woman is resting her head on a _______ while sitting on the bench.",
+        "target": "cushion",
+        "full_sentence": "The woman is resting her head on a cushion while sitting on the bench.",
+        "translation": "Người phụ nữ đang tựa đầu vào một chiếc đệm khi ngồi trên băng ghế.",
         "deck_id": "deck_class_unit_1_1",
         "options": [
+          "cushion",
           "reach",
-          "cart",
-          "rack",
-          "plug"
+          "gather",
+          "tie"
         ]
       },
       {
-        "id": "deck_class_unit_1_1_ex11",
+        "id": "ex_10",
+        "num": 10,
+        "sentence": "The child is looking up at the colorful lights on the _______",
+        "target": "ceiling",
+        "full_sentence": "The child is looking up at the colorful lights on the ceiling",
+        "translation": "Đứa trẻ đang nhìn lên những ánh đèn nhiều màu sắc trên trần nhà",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "pack",
+          "stairs",
+          "ceiling",
+          "bench"
+        ]
+      },
+      {
+        "id": "ex_11",
         "num": 11,
         "sentence": "He is _______ the shopping cart down the aisle in the supermarket.",
-        "target": "suitcase",
+        "target": "pushing",
+        "full_sentence": "He is pushing the shopping cart down the aisle in the supermarket.",
+        "translation": "Anh ấy đang đẩy xe đẩy hàng dọc lối đi trong siêu thị.",
         "deck_id": "deck_class_unit_1_1",
         "options": [
           "suitcase",
-          "luggage",
-          "ceiling",
-          "pack"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex12",
-        "num": 12,
-        "sentence": "He is _______ his shoes before leaving the house.",
-        "target": "bench",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "frame",
-          "push",
-          "bench",
-          "examine"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex13",
-        "num": 13,
-        "sentence": "She is _______ the floor to clean the house.",
-        "target": "wear",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "purchase",
-          "pack",
-          "wear",
+          "pushing",
+          "stairs",
           "cart"
         ]
       },
       {
-        "id": "deck_class_unit_1_1_ex14",
-        "num": 14,
-        "sentence": "The child is _______ the top shelf to get his book.",
-        "target": "push",
+        "id": "ex_12",
+        "num": 12,
+        "sentence": "He is _______ his shoes before leaving the house.",
+        "target": "tying",
+        "full_sentence": "He is tying his shoes before leaving the house.",
+        "translation": "Anh ấy đang buộc dây giày trước khi ra khỏi nhà.",
         "deck_id": "deck_class_unit_1_1",
         "options": [
+          "tying",
           "push",
-          "ceiling",
-          "sweep",
-          "frame"
+          "luggage",
+          "bench"
         ]
       },
       {
-        "id": "deck_class_unit_1_1_ex15",
-        "num": 15,
-        "sentence": "She is _______ her luggage for the trip tomorrow.",
-        "target": "counter",
+        "id": "ex_13",
+        "num": 13,
+        "sentence": "She is _______ the floor to clean the house.",
+        "target": "sweeping",
+        "full_sentence": "She is sweeping the floor to clean the house.",
+        "translation": "Cô ấy đang quét sàn để lau nhà.",
         "deck_id": "deck_class_unit_1_1",
         "options": [
-          "wear",
-          "suitcase",
-          "cushion",
-          "counter"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex16",
-        "num": 16,
-        "sentence": "The couple is _______ their bags together at the table.",
-        "target": "cart",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "suitcase",
-          "frame",
-          "cart",
+          "luggage",
+          "counter",
+          "sweeping",
           "examine"
         ]
       },
       {
-        "id": "deck_class_unit_1_1_ex17",
-        "num": 17,
-        "sentence": "He is _______ the headphone into his phone.",
-        "target": "luggage",
+        "id": "ex_14",
+        "num": 14,
+        "sentence": "The child is _______ the top shelf to get his book.",
+        "target": "reaching",
+        "full_sentence": "The child is reaching the top shelf to get his book.",
+        "translation": "Đứa trẻ đang tiến tới kệ trên cùng để lấy cuốn sách của mình.",
         "deck_id": "deck_class_unit_1_1",
         "options": [
-          "sweep",
-          "rack",
-          "reach",
-          "luggage"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex18",
-        "num": 18,
-        "sentence": "He is _______ a new phone at the store.",
-        "target": "purchase",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "bench",
-          "gather",
-          "reach",
-          "purchase"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_1_ex19",
-        "num": 19,
-        "sentence": "The man is _______ a jacket because it is cold outside.",
-        "target": "examine",
-        "deck_id": "deck_class_unit_1_1",
-        "options": [
-          "counter",
-          "examine",
-          "stairs",
+          "reaching",
+          "plug",
+          "push",
           "gather"
         ]
       },
       {
-        "id": "deck_class_unit_1_1_ex20",
-        "num": 20,
-        "sentence": "She is carefully _______ the document to check for mistakes.",
-        "target": "frame",
+        "id": "ex_15",
+        "num": 15,
+        "sentence": "She is _______ her luggage for the trip tomorrow.",
+        "target": "packing",
+        "full_sentence": "She is packing her luggage for the trip tomorrow.",
+        "translation": "Cô ấy đang đóng gói hành lý cho chuyến đi ngày mai.",
         "deck_id": "deck_class_unit_1_1",
         "options": [
-          "cushion",
+          "pack",
+          "counter",
           "stairs",
+          "packing"
+        ]
+      },
+      {
+        "id": "ex_16",
+        "num": 16,
+        "sentence": "The couple is _______ their bags together at the table.",
+        "target": "gathering",
+        "full_sentence": "The couple is gathering their bags together at the table.",
+        "translation": "Cặp đôi đang cùng nhau thu dọn túi xách tại bàn.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "reach",
+          "examine",
+          "plug",
+          "gathering"
+        ]
+      },
+      {
+        "id": "ex_17",
+        "num": 17,
+        "sentence": "He is _______ the headphone into his phone.",
+        "target": "plugging",
+        "full_sentence": "He is plugging the headphone into his phone.",
+        "translation": "Anh ấy đang cắm tai nghe vào điện thoại.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
           "frame",
-          "rack"
+          "bench",
+          "plugging",
+          "sweep"
+        ]
+      },
+      {
+        "id": "ex_18",
+        "num": 18,
+        "sentence": "He is _______ a new phone at the store.",
+        "target": "purchasing",
+        "full_sentence": "He is purchasing a new phone at the store.",
+        "translation": "Anh ấy đang mua một chiếc điện thoại mới ở cửa hàng.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "suitcase",
+          "purchase",
+          "purchasing",
+          "bench"
+        ]
+      },
+      {
+        "id": "ex_19",
+        "num": 19,
+        "sentence": "The man is _______ a jacket because it is cold outside.",
+        "target": "wearing",
+        "full_sentence": "The man is wearing a jacket because it is cold outside.",
+        "translation": "Người đàn ông đang mặc áo khoác vì bên ngoài trời lạnh.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "bench",
+          "counter",
+          "wearing",
+          "tie"
+        ]
+      },
+      {
+        "id": "ex_20",
+        "num": 20,
+        "sentence": "She is carefully _______ the document to check for mistakes.",
+        "target": "examining",
+        "full_sentence": "She is carefully examining the document to check for mistakes.",
+        "translation": "Cô ấy đang cẩn thận kiểm tra tài liệu để kiểm tra lỗi.",
+        "deck_id": "deck_class_unit_1_1",
+        "options": [
+          "frame",
+          "cushion",
+          "examining",
+          "tie"
         ]
       }
-    ]
+    ],
+    "word_count": 20,
+    "exercise_count": 20
   },
   {
     "id": "deck_class_unit_1_2",
@@ -9381,8 +13846,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "UNIT 1.2",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: UNIT 1.2",
-    "word_count": 22,
-    "exercise_count": 20,
     "words": [
       {
         "id": "deck_class_unit_1_2_w0",
@@ -9629,266 +14092,308 @@ var TOEIC_COURSE_DECKS = [
     ],
     "exercises": [
       {
-        "id": "deck_class_unit_1_2_ex1",
+        "id": "ex_21",
         "num": 1,
         "sentence": "The light _______ in the living room gives off a warm light.",
         "target": "fixture",
+        "full_sentence": "The light fixture in the living room gives off a warm light.",
+        "translation": "Chiếc đèn trong phòng khách tỏa ra ánh sáng ấm áp.",
         "deck_id": "deck_class_unit_1_2",
         "options": [
-          "line up",
-          "spill",
-          "entrance",
-          "fixture"
+          "fixture",
+          "lay",
+          "fence",
+          "drawer"
         ]
       },
       {
-        "id": "deck_class_unit_1_2_ex2",
+        "id": "ex_22",
         "num": 2,
         "sentence": "He sat comfortably on the _______ and read a book.",
         "target": "couch",
+        "full_sentence": "He sat comfortably on the couch and read a book.",
+        "translation": "Anh ngồi thoải mái trên ghế sofa và đọc sách.",
         "deck_id": "deck_class_unit_1_2",
         "options": [
-          "umbrella",
-          "trim",
-          "drawer",
-          "couch"
+          "line up",
+          "couch",
+          "pile",
+          "fence"
         ]
       },
       {
-        "id": "deck_class_unit_1_2_ex3",
+        "id": "ex_23",
         "num": 3,
         "sentence": "Can you help me _______ this picture on the wall?",
         "target": "hang",
+        "full_sentence": "Can you help me hang this picture on the wall?",
+        "translation": "Bạn có thể giúp tôi treo bức tranh này lên tường được không?",
         "deck_id": "deck_class_unit_1_2",
         "options": [
+          "trim",
+          "cover",
           "hang",
-          "fence",
-          "lay",
-          "entrance"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_2_ex4",
-        "num": 4,
-        "sentence": "She opened the _______ to find her passport.",
-        "target": "drawer",
-        "deck_id": "deck_class_unit_1_2",
-        "options": [
-          "cabinet",
-          "container",
-          "drawer",
-          "hold"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_2_ex5",
-        "num": 5,
-        "sentence": "The _______ in the kitchen is filled with plates and bowls.",
-        "target": "cabinet",
-        "deck_id": "deck_class_unit_1_2",
-        "options": [
-          "pile",
-          "ladder",
-          "entrance",
           "cabinet"
         ]
       },
       {
-        "id": "deck_class_unit_1_2_ex6",
+        "id": "ex_24",
+        "num": 4,
+        "sentence": "She opened the _______ to find her passport.",
+        "target": "drawer",
+        "full_sentence": "She opened the drawer to find her passport.",
+        "translation": "Cô mở ngăn kéo để tìm hộ chiếu của mình.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "line up",
+          "drawer",
+          "fence",
+          "hang"
+        ]
+      },
+      {
+        "id": "ex_25",
+        "num": 5,
+        "sentence": "The _______ in the kitchen is filled with plates and bowls.",
+        "target": "cabinet",
+        "full_sentence": "The cabinet in the kitchen is filled with plates and bowls.",
+        "translation": "Tủ trong bếp chứa đầy đĩa và bát.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "pile",
+          "utensil",
+          "spill",
+          "cabinet"
+        ]
+      },
+      {
+        "id": "ex_26",
         "num": 6,
         "sentence": "The carpet _______ the entire floor of the room.",
-        "target": "cover",
+        "target": "covers",
+        "full_sentence": "The carpet covers the entire floor of the room.",
+        "translation": "Tấm thảm bao phủ toàn bộ sàn của căn phòng.",
         "deck_id": "deck_class_unit_1_2",
         "options": [
-          "container",
           "pile",
-          "fence",
-          "cover"
+          "covers",
+          "pile",
+          "cabinet"
         ]
       },
       {
-        "id": "deck_class_unit_1_2_ex7",
+        "id": "ex_27",
         "num": 7,
         "sentence": "Students are _______ to get their lunch.",
-        "target": "line up",
+        "target": "lining up",
+        "full_sentence": "Students are lining up to get their lunch.",
+        "translation": "Các em học sinh đang xếp hàng để nhận phần ăn trưa.",
         "deck_id": "deck_class_unit_1_2",
         "options": [
-          "cabinet",
-          "container",
-          "cover",
-          "line up"
+          "pile",
+          "drawer",
+          "entrance",
+          "lining up"
         ]
       },
       {
-        "id": "deck_class_unit_1_2_ex8",
+        "id": "ex_28",
         "num": 8,
         "sentence": "There’s a _______ of laundry that needs to be folded.",
         "target": "pile",
+        "full_sentence": "There’s a pile of laundry that needs to be folded.",
+        "translation": "Có một đống đồ giặt cần được gấp lại.",
         "deck_id": "deck_class_unit_1_2",
         "options": [
-          "pile",
           "entrance",
-          "suspend",
-          "line up"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_2_ex9",
-        "num": 9,
-        "sentence": "They built a new wooden _______ around the garden.",
-        "target": "pile",
-        "deck_id": "deck_class_unit_1_2",
-        "options": [
-          "utensil",
-          "pile",
-          "spill",
-          "suspend"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_2_ex10",
-        "num": 10,
-        "sentence": "Don’t forget your _______ before going out in the rain.",
-        "target": "fence",
-        "deck_id": "deck_class_unit_1_2",
-        "options": [
           "fence",
-          "container",
-          "hold",
-          "cover"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_2_ex11",
-        "num": 11,
-        "sentence": "The light fixture is _______ above the dining table.",
-        "target": "umbrella",
-        "deck_id": "deck_class_unit_1_2",
-        "options": [
-          "balcony",
-          "hang",
-          "hold",
+          "pile",
           "umbrella"
         ]
       },
       {
-        "id": "deck_class_unit_1_2_ex12",
+        "id": "ex_29",
+        "num": 9,
+        "sentence": "They built a new wooden _______ around the garden.",
+        "target": "fence",
+        "full_sentence": "They built a new wooden fence around the garden.",
+        "translation": "Họ xây một hàng rào gỗ mới xung quanh khu vườn.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "pile",
+          "drawer",
+          "cover",
+          "fence"
+        ]
+      },
+      {
+        "id": "ex_30",
+        "num": 10,
+        "sentence": "Don’t forget your _______ before going out in the rain.",
+        "target": "umbrella",
+        "full_sentence": "Don’t forget your umbrella before going out in the rain.",
+        "translation": "Đừng quên ô trước khi ra ngoài trời mưa.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "cabinet",
+          "drawer",
+          "umbrella",
+          "pot"
+        ]
+      },
+      {
+        "id": "ex_31",
+        "num": 11,
+        "sentence": "The light fixture is _______ above the dining table.",
+        "target": "suspended",
+        "full_sentence": "The light fixture is suspended above the dining table.",
+        "translation": "Đèn chiếu sáng được treo phía trên bàn ăn.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "lay",
+          "fixture",
+          "suspended",
+          "line up"
+        ]
+      },
+      {
+        "id": "ex_32",
         "num": 12,
         "sentence": "She took out a _______ to stir the soup.",
-        "target": "suspend",
+        "target": "utensil",
+        "full_sentence": "She took out a utensil to stir the soup.",
+        "translation": "Cô lấy ra một dụng cụ để khuấy súp.",
         "deck_id": "deck_class_unit_1_2",
         "options": [
-          "spill",
-          "line up",
-          "suspend",
-          "cover"
+          "couch",
+          "drawer",
+          "utensil",
+          "line up"
         ]
       },
       {
-        "id": "deck_class_unit_1_2_ex13",
+        "id": "ex_33",
         "num": 13,
         "sentence": "A plastic _______ is used to store the leftovers.",
-        "target": "utensil",
-        "deck_id": "deck_class_unit_1_2",
-        "options": [
-          "line up",
-          "utensil",
-          "hang",
-          "hold"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_2_ex14",
-        "num": 14,
-        "sentence": "He climbed the _______ to fix the roof.",
         "target": "container",
+        "full_sentence": "A plastic container is used to store the leftovers.",
+        "translation": "Một hộp nhựa được sử dụng để lưu trữ thức ăn thừa.",
         "deck_id": "deck_class_unit_1_2",
         "options": [
-          "pile",
           "ladder",
           "container",
-          "trim"
+          "hang",
+          "spill"
         ]
       },
       {
-        "id": "deck_class_unit_1_2_ex15",
+        "id": "ex_34",
+        "num": 14,
+        "sentence": "He climbed the _______ to fix the roof.",
+        "target": "ladder",
+        "full_sentence": "He climbed the ladder to fix the roof.",
+        "translation": "Anh leo lên thang để sửa mái nhà.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "ladder",
+          "pot",
+          "cabinet",
+          "utensil"
+        ]
+      },
+      {
+        "id": "ex_35",
         "num": 15,
         "sentence": "From the _______ , you can see the entire city skyline.",
-        "target": "ladder",
+        "target": "balcony",
+        "full_sentence": "From the balcony , you can see the entire city skyline.",
+        "translation": "Từ ban công, bạn có thể nhìn thấy toàn bộ đường chân trời của thành phố.",
         "deck_id": "deck_class_unit_1_2",
         "options": [
-          "couch",
-          "entrance",
-          "ladder",
-          "suspend"
+          "hold",
+          "balcony",
+          "fixture",
+          "spill"
         ]
       },
       {
-        "id": "deck_class_unit_1_2_ex16",
+        "id": "ex_36",
         "num": 16,
         "sentence": "The gardener is _______ the bushes in the front yard.",
-        "target": "balcony",
-        "deck_id": "deck_class_unit_1_2",
-        "options": [
-          "couch",
-          "fence",
-          "drawer",
-          "balcony"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_2_ex17",
-        "num": 17,
-        "sentence": "The _______ to the building is beautifully decorated with flowers.",
-        "target": "lay",
-        "deck_id": "deck_class_unit_1_2",
-        "options": [
-          "lay",
-          "hold",
-          "pot",
-          "balcony"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_2_ex18",
-        "num": 18,
-        "sentence": "Be careful not to _______ juice on the new carpet.",
-        "target": "trim",
-        "deck_id": "deck_class_unit_1_2",
-        "options": [
-          "trim",
-          "spill",
-          "cover",
-          "hold"
-        ]
-      },
-      {
-        "id": "deck_class_unit_1_2_ex19",
-        "num": 19,
-        "sentence": "She poured water into the _______ to boil noodles.",
-        "target": "entrance",
+        "target": "trimming",
+        "full_sentence": "The gardener is trimming the bushes in the front yard.",
+        "translation": "Người làm vườn đang cắt tỉa bụi cây ở sân trước.",
         "deck_id": "deck_class_unit_1_2",
         "options": [
           "pile",
-          "trim",
-          "entrance",
-          "fixture"
+          "drawer",
+          "trimming",
+          "lay"
         ]
       },
       {
-        "id": "deck_class_unit_1_2_ex20",
-        "num": 20,
-        "sentence": "They are _______ the chairs up in the corner after the meeting.",
-        "target": "spill",
+        "id": "ex_37",
+        "num": 17,
+        "sentence": "The _______ to the building is beautifully decorated with flowers.",
+        "target": "entrance",
+        "full_sentence": "The entrance to the building is beautifully decorated with flowers.",
+        "translation": "Lối vào tòa nhà được trang trí đẹp mắt bằng hoa.",
         "deck_id": "deck_class_unit_1_2",
         "options": [
-          "cover",
-          "lay",
-          "pot",
-          "spill"
+          "fixture",
+          "couch",
+          "suspend",
+          "entrance"
+        ]
+      },
+      {
+        "id": "ex_38",
+        "num": 18,
+        "sentence": "Be careful not to _______ juice on the new carpet.",
+        "target": "spill",
+        "full_sentence": "Be careful not to spill juice on the new carpet.",
+        "translation": "Cẩn thận không làm đổ nước trái cây lên tấm thảm mới.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "spill",
+          "hold",
+          "pile",
+          "entrance"
+        ]
+      },
+      {
+        "id": "ex_39",
+        "num": 19,
+        "sentence": "She poured water into the _______ to boil noodles.",
+        "target": "pot",
+        "full_sentence": "She poured water into the pot to boil noodles.",
+        "translation": "Cô đổ nước vào nồi để luộc mì.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "cabinet",
+          "line up",
+          "pile",
+          "pot"
+        ]
+      },
+      {
+        "id": "ex_40",
+        "num": 20,
+        "sentence": "They are _______ the chairs up in the corner after the meeting.",
+        "target": "piling",
+        "full_sentence": "They are piling the chairs up in the corner after the meeting.",
+        "translation": "Họ đang xếp ghế vào góc sau cuộc họp.",
+        "deck_id": "deck_class_unit_1_2",
+        "options": [
+          "fence",
+          "trim",
+          "piling",
+          "utensil"
         ]
       }
-    ]
+    ],
+    "word_count": 22,
+    "exercise_count": 20
   },
   {
     "id": "deck_class_unit_3_1_part_3",
@@ -9897,8 +14402,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "UNIT 3.1_ PART 3",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: UNIT 3.1_ PART 3",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_class_unit_3_1_part_3_w0",
@@ -10121,7 +14624,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "UNIT 3.1_ PART 3"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_class_unit_3_2_3_3_3_4",
@@ -10130,8 +14635,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "UNIT 3.2_ 3.3 & 3.4",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: UNIT 3.2_ 3.3 & 3.4",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_class_unit_3_2_3_3_3_4_w0",
@@ -10354,7 +14857,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "UNIT 3.2_ 3.3 & 3.4"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_class_unit_3_5_3_6",
@@ -10363,8 +14868,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "UNIT 3.5 & 3.6",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: UNIT 3.5 & 3.6",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_class_unit_3_5_3_6_w0",
@@ -10587,7 +15090,9 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "UNIT 3.5 & 3.6"
       }
     ],
-    "exercises": []
+    "exercises": [],
+    "word_count": 20,
+    "exercise_count": 0
   },
   {
     "id": "deck_class_unit_2_1_day_5_",
@@ -10596,8 +15101,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 2.1. (Day 5)",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 2.1. (Day 5)",
-    "word_count": 23,
-    "exercise_count": 23,
     "words": [
       {
         "id": "deck_class_unit_2_1_day_5__w0",
@@ -10855,305 +15358,353 @@ var TOEIC_COURSE_DECKS = [
     ],
     "exercises": [
       {
-        "id": "deck_class_unit_2_1_day_5__ex1",
+        "id": "ex_41",
         "num": 1,
         "sentence": "The airport’s international _______ was closed for renovation last week.",
         "target": "terminal",
+        "full_sentence": "The airport’s international terminal was closed for renovation last week.",
+        "translation": "Nhà ga quốc tế của sân bay đã đóng cửa để cải tạo vào tuần trước.",
         "deck_id": "deck_class_unit_2_1_day_5_",
         "options": [
           "terminal",
-          "merchandise",
-          "position",
-          "be interested in"
+          "resume",
+          "be supposed to",
+          "ink cartridge"
         ]
       },
       {
-        "id": "deck_class_unit_2_1_day_5__ex2",
+        "id": "ex_42",
         "num": 2,
         "sentence": "She applied for the _______ of Marketing Manager at a well-known company.",
         "target": "position",
+        "full_sentence": "She applied for the position of Marketing Manager at a well-known company.",
+        "translation": "Cô ứng tuyển vào vị trí Giám đốc Marketing tại một công ty nổi tiếng.",
         "deck_id": "deck_class_unit_2_1_day_5_",
         "options": [
-          "article",
           "prototype",
-          "ink cartridge",
-          "position"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex3",
-        "num": 3,
-        "sentence": "I heard that you _______ the photography course. Are you planning to join it?",
-        "target": "be interested in",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "terminal",
+          "employee",
           "position",
-          "resume",
-          "be interested in"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex4",
-        "num": 4,
-        "sentence": "The journalist wrote an _______ about the impact of AI on the job market.",
-        "target": "article",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "article",
-          "pursue",
-          "cater",
           "schedule"
         ]
       },
       {
-        "id": "deck_class_unit_2_1_day_5__ex5",
-        "num": 5,
-        "sentence": "According to the project _______ , the final report is due next Monday.",
-        "target": "schedule",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "be interested in",
-          "schedule",
-          "employee",
-          "prototype"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex6",
-        "num": 6,
-        "sentence": "Please send us a written _______ to verify your attendance at the event.",
-        "target": "schedule",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "schedule",
-          "employee",
-          "maintenance",
-          "position"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex7",
-        "num": 7,
-        "sentence": "The company recently hired a new _______ to assist with administrative tasks.",
-        "target": "confirmation",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "terminal",
-          "merchandise",
-          "resume",
-          "confirmation"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex8",
-        "num": 8,
-        "sentence": "He presented his diploma and _______ as proof of his academic qualifications.",
-        "target": "employee",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "be supposed to",
-          "release",
-          "pursue",
-          "employee"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex9",
-        "num": 9,
-        "sentence": "She decided to _______ her dream of becoming a professional dancer despite the challenges.",
-        "target": "certificate",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "be supposed to",
-          "ink cartridge",
-          "certificate",
-          "vegetarian"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex10",
-        "num": 10,
-        "sentence": "The new product’s _______ will be held at the trade show next month.",
-        "target": "pursue",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "maintenance",
-          "schedule",
-          "resume",
-          "pursue"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex11",
-        "num": 11,
-        "sentence": "All confidential documents must be stored in the locked _______",
-        "target": "release",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "resume",
-          "release",
-          "certificate",
-          "cater"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex12",
-        "num": 12,
-        "sentence": "The engineers showcased the first _______ of the electric vehicle to the investors.",
-        "target": "release",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "schedule",
-          "pursue",
-          "prototype",
-          "release"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex13",
-        "num": 13,
-        "sentence": "Regular _______ of office equipment is essential to ensure smooth operation.",
-        "target": "cabinet",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "cabinet",
-          "be interested in",
-          "schedule",
-          "employee"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex14",
-        "num": 14,
-        "sentence": "The store is offering a 20% discount on all _______ this weekend.",
-        "target": "prototype",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "release",
-          "resume",
-          "prototype",
-          "maintenance"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex15",
-        "num": 15,
-        "sentence": "Employees _______ clock in before starting their shifts.",
-        "target": "demonstration",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "employee",
-          "be interested in",
-          "certificate",
-          "demonstration"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex16",
-        "num": 16,
-        "sentence": "The catering service is prepared to _______ to guests with dietary restrictions.",
-        "target": "maintenance",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "article",
-          "cabinet",
-          "prototype",
-          "maintenance"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex17",
-        "num": 17,
-        "sentence": "This restaurant offers a variety of _______ dishes for non-meat eaters.",
-        "target": "merchandise",
+        "id": "ex_43",
+        "num": 3,
+        "sentence": "I heard that you _______ the photography course. Are you planning to join it?",
+        "target": "are interested in",
+        "full_sentence": "I heard that you are interested in the photography course. Are you planning to join it?",
+        "translation": "Tôi nghe nói rằng bạn quan tâm đến khóa học nhiếp ảnh. Bạn có dự định tham gia nó không?",
         "deck_id": "deck_class_unit_2_1_day_5_",
         "options": [
           "vegetarian",
           "be interested in",
-          "ink cartridge",
-          "merchandise"
+          "terminal",
+          "are interested in"
         ]
       },
       {
-        "id": "deck_class_unit_2_1_day_5__ex18",
-        "num": 18,
-        "sentence": "Please attach your updated _______ and a cover letter when applying for the job.",
-        "target": "be supposed to",
+        "id": "ex_44",
+        "num": 4,
+        "sentence": "The journalist wrote an _______ about the impact of AI on the job market.",
+        "target": "article",
+        "full_sentence": "The journalist wrote an article about the impact of AI on the job market.",
+        "translation": "Nhà báo đã viết một bài báo về tác động của AI đến thị trường việc làm.",
         "deck_id": "deck_class_unit_2_1_day_5_",
         "options": [
-          "be supposed to",
           "schedule",
-          "position",
-          "cater"
+          "prototype",
+          "employee",
+          "article"
         ]
       },
       {
-        "id": "deck_class_unit_2_1_day_5__ex19",
-        "num": 19,
-        "sentence": "The printer is out of ink. Can you replace the _______ so we can continue printing?",
-        "target": "cater",
+        "id": "ex_45",
+        "num": 5,
+        "sentence": "According to the project _______ , the final report is due next Monday.",
+        "target": "schedule",
+        "full_sentence": "According to the project schedule , the final report is due next Monday.",
+        "translation": "Theo tiến độ dự án, báo cáo cuối cùng sẽ được nộp vào thứ Hai tới.",
         "deck_id": "deck_class_unit_2_1_day_5_",
         "options": [
+          "schedule",
+          "release",
           "be supposed to",
-          "be interested in",
-          "cater",
-          "prototype"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_1_day_5__ex20",
-        "num": 20,
-        "sentence": "The movie studio announced the _______ of their highly anticipated film next Friday.",
-        "target": "vegetarian",
-        "deck_id": "deck_class_unit_2_1_day_5_",
-        "options": [
-          "ink cartridge",
-          "release",
-          "release",
           "vegetarian"
         ]
       },
       {
-        "id": "deck_class_unit_2_1_day_5__ex21",
-        "num": 21,
-        "sentence": "We need to _______ a meeting with the marketing team to discuss the new campaign.",
-        "target": "resume",
+        "id": "ex_46",
+        "num": 6,
+        "sentence": "Please send us a written _______ to verify your attendance at the event.",
+        "target": "confirmation",
+        "full_sentence": "Please send us a written confirmation to verify your attendance at the event.",
+        "translation": "Vui lòng gửi cho chúng tôi một văn bản xác nhận để xác minh sự tham dự của bạn tại sự kiện.",
         "deck_id": "deck_class_unit_2_1_day_5_",
         "options": [
-          "certificate",
           "resume",
+          "schedule",
           "confirmation",
           "pursue"
         ]
       },
       {
-        "id": "deck_class_unit_2_1_day_5__ex22",
-        "num": 22,
-        "sentence": "The company plans to _______ its latest smartphone model next month.",
-        "target": "resume",
+        "id": "ex_47",
+        "num": 7,
+        "sentence": "The company recently hired a new _______ to assist with administrative tasks.",
+        "target": "employee",
+        "full_sentence": "The company recently hired a new employee to assist with administrative tasks.",
+        "translation": "Công ty gần đây đã thuê một nhân viên mới để hỗ trợ các công việc hành chính.",
         "deck_id": "deck_class_unit_2_1_day_5_",
         "options": [
-          "pursue",
-          "resume",
-          "position",
-          "confirmation"
+          "employee",
+          "merchandise",
+          "certificate",
+          "resume"
         ]
       },
       {
-        "id": "deck_class_unit_2_1_day_5__ex23",
-        "num": 23,
-        "sentence": "After the power outage, the workers were able to _______ their tasks without much delay.",
-        "target": "ink cartridge",
+        "id": "ex_48",
+        "num": 8,
+        "sentence": "He presented his diploma and _______ as proof of his academic qualifications.",
+        "target": "certificate",
+        "full_sentence": "He presented his diploma and certificate as proof of his academic qualifications.",
+        "translation": "Anh ấy đã xuất trình bằng tốt nghiệp và chứng chỉ của mình để làm bằng chứng về trình độ học vấn của mình.",
         "deck_id": "deck_class_unit_2_1_day_5_",
         "options": [
-          "ink cartridge",
-          "maintenance",
           "certificate",
+          "article",
+          "prototype",
+          "release"
+        ]
+      },
+      {
+        "id": "ex_49",
+        "num": 9,
+        "sentence": "She decided to _______ her dream of becoming a professional dancer despite the challenges.",
+        "target": "pursue",
+        "full_sentence": "She decided to pursue her dream of becoming a professional dancer despite the challenges.",
+        "translation": "Cô quyết định theo đuổi ước mơ trở thành vũ công chuyên nghiệp bất chấp thử thách.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "cabinet",
+          "cater",
+          "pursue",
+          "resume"
+        ]
+      },
+      {
+        "id": "ex_50",
+        "num": 10,
+        "sentence": "The new product’s _______ will be held at the trade show next month.",
+        "target": "demonstration",
+        "full_sentence": "The new product’s demonstration will be held at the trade show next month.",
+        "translation": "Buổi giới thiệu sản phẩm mới sẽ được tổ chức tại triển lãm thương mại vào tháng tới.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "vegetarian",
+          "maintenance",
+          "resume",
+          "demonstration"
+        ]
+      },
+      {
+        "id": "ex_51",
+        "num": 11,
+        "sentence": "All confidential documents must be stored in the locked _______",
+        "target": "cabinet",
+        "full_sentence": "All confidential documents must be stored in the locked cabinet",
+        "translation": "Mọi tài liệu mật phải được cất giữ trong tủ có khóa",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "cabinet",
+          "vegetarian",
+          "be supposed to",
           "schedule"
         ]
+      },
+      {
+        "id": "ex_52",
+        "num": 12,
+        "sentence": "The engineers showcased the first _______ of the electric vehicle to the investors.",
+        "target": "prototype",
+        "full_sentence": "The engineers showcased the first prototype of the electric vehicle to the investors.",
+        "translation": "Các kỹ sư đã giới thiệu nguyên mẫu đầu tiên của xe điện cho các nhà đầu tư.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "prototype",
+          "position",
+          "be supposed to",
+          "schedule"
+        ]
+      },
+      {
+        "id": "ex_53",
+        "num": 13,
+        "sentence": "Regular _______ of office equipment is essential to ensure smooth operation.",
+        "target": "maintenance",
+        "full_sentence": "Regular maintenance of office equipment is essential to ensure smooth operation.",
+        "translation": "Bảo trì thường xuyên các thiết bị văn phòng là điều cần thiết để đảm bảo hoạt động trơn tru.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "merchandise",
+          "cabinet",
+          "pursue",
+          "maintenance"
+        ]
+      },
+      {
+        "id": "ex_54",
+        "num": 14,
+        "sentence": "The store is offering a 20% discount on all _______ this weekend.",
+        "target": "merchandise",
+        "full_sentence": "The store is offering a 20% discount on all merchandise this weekend.",
+        "translation": "Cuối tuần này shop đang có chương trình giảm giá 20% cho tất cả các mặt hàng.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "merchandise",
+          "release",
+          "release",
+          "cabinet"
+        ]
+      },
+      {
+        "id": "ex_55",
+        "num": 15,
+        "sentence": "Employees _______ clock in before starting their shifts.",
+        "target": "are supposed to",
+        "full_sentence": "Employees are supposed to clock in before starting their shifts.",
+        "translation": "Nhân viên phải bấm giờ trước khi bắt đầu ca làm việc của họ.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "resume",
+          "release",
+          "are supposed to",
+          "employee"
+        ]
+      },
+      {
+        "id": "ex_56",
+        "num": 16,
+        "sentence": "The catering service is prepared to _______ to guests with dietary restrictions.",
+        "target": "cater",
+        "full_sentence": "The catering service is prepared to cater to guests with dietary restrictions.",
+        "translation": "Dịch vụ ăn uống được chuẩn bị để phục vụ những khách hàng có chế độ ăn kiêng hạn chế.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "merchandise",
+          "certificate",
+          "cater",
+          "ink cartridge"
+        ]
+      },
+      {
+        "id": "ex_57",
+        "num": 17,
+        "sentence": "This restaurant offers a variety of _______ dishes for non-meat eaters.",
+        "target": "vegetarian",
+        "full_sentence": "This restaurant offers a variety of vegetarian dishes for non-meat eaters.",
+        "translation": "Nhà hàng này cung cấp nhiều món ăn chay cho những người không ăn thịt.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "maintenance",
+          "cater",
+          "pursue",
+          "vegetarian"
+        ]
+      },
+      {
+        "id": "ex_58",
+        "num": 18,
+        "sentence": "Please attach your updated _______ and a cover letter when applying for the job.",
+        "target": "resume",
+        "full_sentence": "Please attach your updated resume and a cover letter when applying for the job.",
+        "translation": "Vui lòng đính kèm sơ yếu lý lịch cập nhật của bạn và thư xin việc khi nộp đơn xin việc.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "be supposed to",
+          "be interested in",
+          "resume",
+          "release"
+        ]
+      },
+      {
+        "id": "ex_59",
+        "num": 19,
+        "sentence": "The printer is out of ink. Can you replace the _______ so we can continue printing?",
+        "target": "ink cartridge",
+        "full_sentence": "The printer is out of ink. Can you replace the ink cartridge so we can continue printing?",
+        "translation": "Máy in hết mực. Bạn có thể thay hộp mực để chúng tôi có thể tiếp tục in không?",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "release",
+          "demonstration",
+          "merchandise",
+          "ink cartridge"
+        ]
+      },
+      {
+        "id": "ex_60",
+        "num": 20,
+        "sentence": "The movie studio announced the _______ of their highly anticipated film next Friday.",
+        "target": "release",
+        "full_sentence": "The movie studio announced the release of their highly anticipated film next Friday.",
+        "translation": "Hãng phim đã thông báo phát hành bộ phim rất được mong đợi của họ vào thứ sáu tới.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "certificate",
+          "schedule",
+          "release",
+          "cater"
+        ]
+      },
+      {
+        "id": "ex_61",
+        "num": 21,
+        "sentence": "We need to _______ a meeting with the marketing team to discuss the new campaign.",
+        "target": "schedule",
+        "full_sentence": "We need to schedule a meeting with the marketing team to discuss the new campaign.",
+        "translation": "Chúng ta cần lên lịch một cuộc họp với nhóm tiếp thị để thảo luận về chiến dịch mới.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "schedule",
+          "position",
+          "release",
+          "prototype"
+        ]
+      },
+      {
+        "id": "ex_62",
+        "num": 22,
+        "sentence": "The company plans to _______ its latest smartphone model next month.",
+        "target": "release",
+        "full_sentence": "The company plans to release its latest smartphone model next month.",
+        "translation": "Công ty có kế hoạch phát hành mẫu điện thoại thông minh mới nhất của mình vào tháng tới.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "resume",
+          "release",
+          "demonstration",
+          "schedule"
+        ]
+      },
+      {
+        "id": "ex_63",
+        "num": 23,
+        "sentence": "After the power outage, the workers were able to _______ their tasks without much delay.",
+        "target": "resume",
+        "full_sentence": "After the power outage, the workers were able to resume their tasks without much delay.",
+        "translation": "Sau khi mất điện, các công nhân đã có thể tiếp tục công việc của mình mà không bị chậm trễ nhiều.",
+        "deck_id": "deck_class_unit_2_1_day_5_",
+        "options": [
+          "schedule",
+          "terminal",
+          "ink cartridge",
+          "resume"
+        ]
       }
-    ]
+    ],
+    "word_count": 23,
+    "exercise_count": 23
   },
   {
     "id": "deck_class_unit_2_2_day_6_",
@@ -11162,8 +15713,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 2.2. (Day 6)",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 2.2. (Day 6)",
-    "word_count": 22,
-    "exercise_count": 22,
     "words": [
       {
         "id": "deck_class_unit_2_2_day_6__w0",
@@ -11410,292 +15959,338 @@ var TOEIC_COURSE_DECKS = [
     ],
     "exercises": [
       {
-        "id": "deck_class_unit_2_2_day_6__ex1",
+        "id": "ex_64",
         "num": 1,
         "sentence": "The weather _______ predicts heavy rain for the weekend, so the outdoor event may be postponed.",
-        "target": "tenant",
+        "target": "forecast",
+        "full_sentence": "The weather forecast predicts heavy rain for the weekend, so the outdoor event may be postponed.",
+        "translation": "Dự báo thời tiết dự báo cuối tuần sẽ có mưa lớn nên sự kiện ngoài trời có thể bị hoãn lại.",
         "deck_id": "deck_class_unit_2_2_day_6_",
         "options": [
-          "charge",
-          "Personnel",
-          "assignment",
-          "tenant"
+          "contract",
+          "chance",
+          "forecast",
+          "charge"
         ]
       },
       {
-        "id": "deck_class_unit_2_2_day_6__ex2",
+        "id": "ex_65",
         "num": 2,
         "sentence": "The HR _______ is responsible for handling all employee-related concerns.",
-        "target": "assignment",
+        "target": "department",
+        "full_sentence": "The HR department is responsible for handling all employee-related concerns.",
+        "translation": "Bộ phận nhân sự chịu trách nhiệm giải quyết mọi vấn đề liên quan đến nhân viên.",
         "deck_id": "deck_class_unit_2_2_day_6_",
         "options": [
           "charge",
-          "presentation",
-          "assignment",
-          "tenant"
+          "department",
+          "concert",
+          "assignment"
         ]
       },
       {
-        "id": "deck_class_unit_2_2_day_6__ex3",
+        "id": "ex_66",
         "num": 3,
         "sentence": "Please confirm your table _______ at least 24 hours before your arrival.",
-        "target": "brochure",
+        "target": "reservation",
+        "full_sentence": "Please confirm your table reservation at least 24 hours before your arrival.",
+        "translation": "Vui lòng xác nhận việc đặt bàn của bạn ít nhất 24 giờ trước khi bạn đến.",
         "deck_id": "deck_class_unit_2_2_day_6_",
         "options": [
-          "policy",
-          "brochure",
-          "comedy",
-          "agency"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex4",
-        "num": 4,
-        "sentence": "The marketing team is designing a new _______ to promote the company’s services.",
-        "target": "charge",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "specialist",
-          "presentation",
+          "contract",
+          "reservation",
           "seminar",
           "charge"
         ]
       },
       {
-        "id": "deck_class_unit_2_2_day_6__ex5",
+        "id": "ex_67",
+        "num": 4,
+        "sentence": "The marketing team is designing a new _______ to promote the company’s services.",
+        "target": "brochure",
+        "full_sentence": "The marketing team is designing a new brochure to promote the company’s services.",
+        "translation": "Đội ngũ tiếp thị đang thiết kế một tập tài liệu mới để quảng bá các dịch vụ của công ty.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "policy",
+          "reservation",
+          "brochure",
+          "department"
+        ]
+      },
+      {
+        "id": "ex_68",
         "num": 5,
         "sentence": "The property manager informed the _______ about the maintenance schedule for the building.",
-        "target": "charge",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "charge",
-          "policy",
-          "concert",
-          "Personnel"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex6",
-        "num": 6,
-        "sentence": "We are excited to announce that the band will be performing a live _______ next month.",
-        "target": "charge",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "specialist",
-          "charge",
-          "manual",
-          "Personnel"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex7",
-        "num": 7,
-        "sentence": "You will receive a _______ after completing your purchase for proof of payment.",
-        "target": "receipt",
+        "target": "tenant",
+        "full_sentence": "The property manager informed the tenant about the maintenance schedule for the building.",
+        "translation": "Người quản lý tài sản đã thông báo cho người thuê về lịch trình bảo trì tòa nhà.",
         "deck_id": "deck_class_unit_2_2_day_6_",
         "options": [
           "comedy",
-          "receipt",
-          "reservation",
-          "contract"
+          "tenant",
+          "concert",
+          "policy"
         ]
       },
       {
-        "id": "deck_class_unit_2_2_day_6__ex8",
+        "id": "ex_69",
+        "num": 6,
+        "sentence": "We are excited to announce that the band will be performing a live _______ next month.",
+        "target": "concert",
+        "full_sentence": "We are excited to announce that the band will be performing a live concert next month.",
+        "translation": "Chúng tôi vui mừng thông báo rằng ban nhạc sẽ biểu diễn buổi hòa nhạc trực tiếp vào tháng tới.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "Personnel",
+          "policy",
+          "concert",
+          "department"
+        ]
+      },
+      {
+        "id": "ex_70",
+        "num": 7,
+        "sentence": "You will receive a _______ after completing your purchase for proof of payment.",
+        "target": "receipt",
+        "full_sentence": "You will receive a receipt after completing your purchase for proof of payment.",
+        "translation": "Bạn sẽ nhận được biên lai sau khi hoàn tất giao dịch mua hàng để làm bằng chứng thanh toán.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "policy",
+          "assignment",
+          "receipt",
+          "decision"
+        ]
+      },
+      {
+        "id": "ex_71",
         "num": 8,
         "sentence": "The professor encouraged students to attend the upcoming business _______ for networking opportunities.",
-        "target": "decision",
+        "target": "seminar",
+        "full_sentence": "The professor encouraged students to attend the upcoming business seminar for networking opportunities.",
+        "translation": "Giáo sư khuyến khích sinh viên tham dự hội thảo kinh doanh sắp tới để có cơ hội kết nối.",
         "deck_id": "deck_class_unit_2_2_day_6_",
         "options": [
-          "decision",
-          "agency",
-          "charge",
-          "presentation"
+          "seminar",
+          "presentation",
+          "receipt",
+          "specialist"
         ]
       },
       {
-        "id": "deck_class_unit_2_2_day_6__ex9",
+        "id": "ex_72",
         "num": 9,
         "sentence": "The company hired a cybersecurity _______ to enhance its data protection systems.",
-        "target": "forecast",
+        "target": "specialist",
+        "full_sentence": "The company hired a cybersecurity specialist to enhance its data protection systems.",
+        "translation": "Công ty đã thuê một chuyên gia an ninh mạng để tăng cường hệ thống bảo vệ dữ liệu của mình.",
         "deck_id": "deck_class_unit_2_2_day_6_",
         "options": [
-          "agency",
-          "receipt",
-          "forecast",
+          "specialist",
+          "contract",
+          "policy",
           "comedy"
         ]
       },
       {
-        "id": "deck_class_unit_2_2_day_6__ex10",
+        "id": "ex_73",
         "num": 10,
         "sentence": "The manager made a final _______ regarding the budget allocation for the project.",
-        "target": "manual",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "concert",
-          "manual",
-          "charge",
-          "charge"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex11",
-        "num": 11,
-        "sentence": "A signed _______ is required before we can begin work on the project.",
-        "target": "reservation",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "manual",
-          "brochure",
-          "charge",
-          "reservation"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex12",
-        "num": 12,
-        "sentence": "Customers can refer to the instruction _______ for detailed product setup steps.",
-        "target": "chance",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "comedy",
-          "department",
-          "chance",
-          "contract"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex13",
-        "num": 13,
-        "sentence": "The travel _______ specializes in planning luxurious international vacations.",
-        "target": "concert",
+        "target": "decision",
+        "full_sentence": "The manager made a final decision regarding the budget allocation for the project.",
+        "translation": "Người quản lý đưa ra quyết định cuối cùng về việc phân bổ ngân sách cho dự án.",
         "deck_id": "deck_class_unit_2_2_day_6_",
         "options": [
           "decision",
-          "concert",
-          "specialist",
-          "Personnel"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex14",
-        "num": 14,
-        "sentence": "Employees are required to adhere strictly to the company’s new safety _______",
-        "target": "contract",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "seminar",
-          "contract",
-          "comedy",
+          "department",
+          "Personnel",
           "chance"
         ]
       },
       {
-        "id": "deck_class_unit_2_2_day_6__ex15",
-        "num": 15,
-        "sentence": "The client requested a detailed _______ of the project proposal during the meeting.",
-        "target": "Personnel",
+        "id": "ex_74",
+        "num": 11,
+        "sentence": "A signed _______ is required before we can begin work on the project.",
+        "target": "contract",
+        "full_sentence": "A signed contract is required before we can begin work on the project.",
+        "translation": "Cần phải có hợp đồng đã ký trước khi chúng tôi có thể bắt đầu thực hiện dự án.",
         "deck_id": "deck_class_unit_2_2_day_6_",
         "options": [
-          "charge",
-          "comedy",
-          "Personnel",
-          "charge"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex16",
-        "num": 16,
-        "sentence": "The comedy club is hosting a stand-up _______ featuring several well-known comedians.",
-        "target": "comedy",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "manual",
-          "charge",
           "contract",
-          "comedy"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex17",
-        "num": 17,
-        "sentence": "You will be given a new _______ at the start of each week to complete by Friday.",
-        "target": "department",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
+          "concert",
           "chance",
-          "tenant",
-          "department",
-          "manual"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex18",
-        "num": 18,
-        "sentence": "The company is offering employees the _______ to transfer to other offices abroad.",
-        "target": "policy",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "decision",
-          "comedy",
-          "policy",
-          "concert"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex19",
-        "num": 19,
-        "sentence": "The customer service _______ is available 24/7 to handle inquiries and complaints.",
-        "target": "specialist",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "charge",
-          "Personnel",
-          "specialist",
-          "tenant"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex20",
-        "num": 20,
-        "sentence": "The hotel will _______ a fee for any cancellations made within 24 hours of the booking.",
-        "target": "seminar",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "receipt",
-          "charge",
-          "tenant",
-          "seminar"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_2_day_6__ex21",
-        "num": 21,
-        "sentence": "The hotel will add an extra _______ for late check-out after 12:00 PM.",
-        "target": "presentation",
-        "deck_id": "deck_class_unit_2_2_day_6_",
-        "options": [
-          "policy",
-          "presentation",
-          "seminar",
           "reservation"
         ]
       },
       {
-        "id": "deck_class_unit_2_2_day_6__ex22",
-        "num": 22,
-        "sentence": "You need to _______ your phone before leaving for the trip, as there might not be any charging stations.",
-        "target": "agency",
+        "id": "ex_75",
+        "num": 12,
+        "sentence": "Customers can refer to the instruction _______ for detailed product setup steps.",
+        "target": "manual",
+        "full_sentence": "Customers can refer to the instruction manual for detailed product setup steps.",
+        "translation": "Khách hàng có thể tham khảo sách hướng dẫn chi tiết các bước setup sản phẩm.",
         "deck_id": "deck_class_unit_2_2_day_6_",
         "options": [
-          "Personnel",
+          "manual",
+          "policy",
+          "charge",
+          "reservation"
+        ]
+      },
+      {
+        "id": "ex_76",
+        "num": 13,
+        "sentence": "The travel _______ specializes in planning luxurious international vacations.",
+        "target": "agency",
+        "full_sentence": "The travel agency specializes in planning luxurious international vacations.",
+        "translation": "Công ty du lịch chuyên tổ chức các kỳ nghỉ quốc tế sang trọng.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "charge",
+          "forecast",
+          "assignment",
+          "agency"
+        ]
+      },
+      {
+        "id": "ex_77",
+        "num": 14,
+        "sentence": "Employees are required to adhere strictly to the company’s new safety _______",
+        "target": "policy",
+        "full_sentence": "Employees are required to adhere strictly to the company’s new safety policy",
+        "translation": "Nhân viên được yêu cầu tuân thủ nghiêm ngặt chính sách an toàn mới của công ty",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "charge",
+          "tenant",
+          "policy",
+          "department"
+        ]
+      },
+      {
+        "id": "ex_78",
+        "num": 15,
+        "sentence": "The client requested a detailed _______ of the project proposal during the meeting.",
+        "target": "presentation",
+        "full_sentence": "The client requested a detailed presentation of the project proposal during the meeting.",
+        "translation": "Khách hàng yêu cầu trình bày chi tiết về đề xuất dự án trong cuộc họp.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "contract",
+          "chance",
+          "presentation",
+          "comedy"
+        ]
+      },
+      {
+        "id": "ex_79",
+        "num": 16,
+        "sentence": "The comedy club is hosting a stand-up _______ featuring several well-known comedians.",
+        "target": "comedy",
+        "full_sentence": "The comedy club is hosting a stand-up comedy featuring several well-known comedians.",
+        "translation": "Câu lạc bộ hài kịch đang tổ chức một vở hài kịch độc thoại có sự góp mặt của một số diễn viên hài nổi tiếng.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "seminar",
           "decision",
+          "comedy",
+          "receipt"
+        ]
+      },
+      {
+        "id": "ex_80",
+        "num": 17,
+        "sentence": "You will be given a new _______ at the start of each week to complete by Friday.",
+        "target": "assignment",
+        "full_sentence": "You will be given a new assignment at the start of each week to complete by Friday.",
+        "translation": "Bạn sẽ được giao một nhiệm vụ mới vào đầu mỗi tuần và hoàn thành trước thứ Sáu.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "charge",
+          "charge",
+          "specialist",
+          "assignment"
+        ]
+      },
+      {
+        "id": "ex_81",
+        "num": 18,
+        "sentence": "The company is offering employees the _______ to transfer to other offices abroad.",
+        "target": "chance",
+        "full_sentence": "The company is offering employees the chance to transfer to other offices abroad.",
+        "translation": "Công ty đang tạo cơ hội cho nhân viên chuyển sang các văn phòng khác ở nước ngoài.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
           "agency",
-          "contract"
+          "decision",
+          "chance",
+          "brochure"
+        ]
+      },
+      {
+        "id": "ex_82",
+        "num": 19,
+        "sentence": "The customer service _______ is available 24/7 to handle inquiries and complaints.",
+        "target": "personnel",
+        "full_sentence": "The customer service personnel is available 24/7 to handle inquiries and complaints.",
+        "translation": "Nhân viên dịch vụ khách hàng luôn sẵn sàng 24/7 để giải quyết các thắc mắc và khiếu nại.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "reservation",
+          "contract",
+          "personnel",
+          "specialist"
+        ]
+      },
+      {
+        "id": "ex_83",
+        "num": 20,
+        "sentence": "The hotel will _______ a fee for any cancellations made within 24 hours of the booking.",
+        "target": "charge",
+        "full_sentence": "The hotel will charge a fee for any cancellations made within 24 hours of the booking.",
+        "translation": "Khách sạn sẽ tính phí nếu khách hủy đặt phòng trong vòng 24 giờ kể từ khi đặt phòng.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "manual",
+          "charge",
+          "seminar",
+          "forecast"
+        ]
+      },
+      {
+        "id": "ex_84",
+        "num": 21,
+        "sentence": "The hotel will add an extra _______ for late check-out after 12:00 PM.",
+        "target": "charge",
+        "full_sentence": "The hotel will add an extra charge for late check-out after 12:00 PM.",
+        "translation": "Khách sạn sẽ tính thêm phụ phí nếu trả phòng trễ sau 12:00 trưa.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "concert",
+          "charge",
+          "reservation",
+          "chance"
+        ]
+      },
+      {
+        "id": "ex_85",
+        "num": 22,
+        "sentence": "You need to _______ your phone before leaving for the trip, as there might not be any charging stations.",
+        "target": "charge",
+        "full_sentence": "You need to charge your phone before leaving for the trip, as there might not be any charging stations.",
+        "translation": "Bạn cần sạc điện thoại trước khi lên đường vì có thể không có trạm sạc.",
+        "deck_id": "deck_class_unit_2_2_day_6_",
+        "options": [
+          "policy",
+          "charge",
+          "reservation",
+          "tenant"
         ]
       }
-    ]
+    ],
+    "word_count": 22,
+    "exercise_count": 22
   },
   {
     "id": "deck_class_unit_2_3_day_7_",
@@ -11704,8 +16299,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 2.3. (Day 7)",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 2.3. (Day 7)",
-    "word_count": 22,
-    "exercise_count": 22,
     "words": [
       {
         "id": "deck_class_unit_2_3_day_7__w0",
@@ -11952,292 +16545,338 @@ var TOEIC_COURSE_DECKS = [
     ],
     "exercises": [
       {
-        "id": "deck_class_unit_2_3_day_7__ex1",
+        "id": "ex_86",
         "num": 1,
         "sentence": "Please take a seat in the _______ while waiting for your appointment.",
-        "target": "material",
+        "target": "lobby",
+        "full_sentence": "Please take a seat in the lobby while waiting for your appointment.",
+        "translation": "Vui lòng ngồi ở sảnh trong khi chờ cuộc hẹn.",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
-          "budget",
-          "avenue",
-          "material",
-          "break"
+          "lobby",
+          "publisher",
+          "produce",
+          "request"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex2",
+        "id": "ex_87",
         "num": 2,
         "sentence": "The company is opening a new _______ in another city to expand its market reach.",
-        "target": "budget",
-        "deck_id": "deck_class_unit_2_3_day_7_",
-        "options": [
-          "request",
-          "break",
-          "budget",
-          "pick up"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_3_day_7__ex3",
-        "num": 3,
-        "sentence": "The finance team is working on a report to finalize the annual _______",
         "target": "branch",
+        "full_sentence": "The company is opening a new branch in another city to expand its market reach.",
+        "translation": "Công ty đang mở một chi nhánh mới ở một thành phố khác để mở rộng phạm vi tiếp cận thị trường.",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
           "branch",
+          "deliver",
           "pick up",
-          "produce",
-          "avenue"
+          "cover"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex4",
-        "num": 4,
-        "sentence": "Customers can submit a formal _______ for refunds via our website.",
-        "target": "lobby",
+        "id": "ex_88",
+        "num": 3,
+        "sentence": "The finance team is working on a report to finalize the annual _______",
+        "target": "budget",
+        "full_sentence": "The finance team is working on a report to finalize the annual budget",
+        "translation": "Nhóm tài chính đang làm việc trên một báo cáo để quyết toán ngân sách hàng năm",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
-          "lobby",
-          "prefer",
-          "pasta",
+          "publisher",
+          "break",
+          "budget",
           "request"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex5",
-        "num": 5,
-        "sentence": "I usually _______ walking to work over taking the bus since it keeps me active.",
-        "target": "avenue",
-        "deck_id": "deck_class_unit_2_3_day_7_",
-        "options": [
-          "avenue",
-          "pick up",
-          "cafeteria",
-          "material"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_3_day_7__ex6",
-        "num": 6,
-        "sentence": "The technical support team quickly found a _______ to the system malfunction.",
-        "target": "cafeteria",
-        "deck_id": "deck_class_unit_2_3_day_7_",
-        "options": [
-          "produce",
-          "pick up",
-          "deliver",
-          "cafeteria"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_3_day_7__ex7",
-        "num": 7,
-        "sentence": "Make sure to keep the receipt, as the product comes with a two-year _______",
-        "target": "break",
-        "deck_id": "deck_class_unit_2_3_day_7_",
-        "options": [
-          "break",
-          "branch",
-          "publisher",
-          "figure"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_3_day_7__ex8",
-        "num": 8,
-        "sentence": "The insurance policy will _______ any damage caused by natural disasters.",
-        "target": "pick up",
-        "deck_id": "deck_class_unit_2_3_day_7_",
-        "options": [
-          "pick up",
-          "walk",
-          "request",
-          "pasta"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_3_day_7__ex9",
-        "num": 9,
-        "sentence": "The book’s _______ announced the release of its latest edition this morning.",
-        "target": "pasta",
-        "deck_id": "deck_class_unit_2_3_day_7_",
-        "options": [
-          "publisher",
-          "produce",
-          "pasta",
-          "solution"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_3_day_7__ex10",
-        "num": 10,
-        "sentence": "She bent down to _______ her phone that had fallen under the table.",
-        "target": "publisher",
-        "deck_id": "deck_class_unit_2_3_day_7_",
-        "options": [
-          "cover",
-          "warranty",
-          "break",
-          "publisher"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_3_day_7__ex11",
-        "num": 11,
-        "sentence": "This company specializes in using eco-friendly methods to _______ high-quality organic vegetables.",
-        "target": "solution",
-        "deck_id": "deck_class_unit_2_3_day_7_",
-        "options": [
-          "warranty",
-          "pasta",
-          "solution",
-          "lobby"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_3_day_7__ex12",
-        "num": 12,
-        "sentence": "The company decided to _______ the documents to the client instead of using email.",
+        "id": "ex_89",
+        "num": 4,
+        "sentence": "Customers can submit a formal _______ for refunds via our website.",
         "target": "request",
+        "full_sentence": "Customers can submit a formal request for refunds via our website.",
+        "translation": "Khách hàng có thể gửi yêu cầu hoàn tiền chính thức thông qua trang web của chúng tôi.",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
           "material",
-          "publisher",
-          "avenue",
+          "prefer",
+          "request",
+          "branch"
+        ]
+      },
+      {
+        "id": "ex_90",
+        "num": 5,
+        "sentence": "I usually _______ walking to work over taking the bus since it keeps me active.",
+        "target": "prefer",
+        "full_sentence": "I usually prefer walking to work over taking the bus since it keeps me active.",
+        "translation": "Tôi thường thích đi bộ đi làm hơn là đi xe buýt vì nó giúp tôi năng động hơn.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "warranty",
+          "prefer",
+          "solution",
           "request"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex13",
-        "num": 13,
-        "sentence": "The new restaurant on Fifth _______ is known for its delicious desserts.",
-        "target": "request",
+        "id": "ex_91",
+        "num": 6,
+        "sentence": "The technical support team quickly found a _______ to the system malfunction.",
+        "target": "solution",
+        "full_sentence": "The technical support team quickly found a solution to the system malfunction.",
+        "translation": "Đội ngũ hỗ trợ kỹ thuật đã nhanh chóng tìm ra giải pháp khắc phục sự cố hệ thống.",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
-          "lobby",
-          "downtown",
-          "request",
+          "walk",
+          "cover",
+          "cover",
           "solution"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex14",
-        "num": 14,
-        "sentence": "Workers are given a 15-minute _______ during the morning shift.",
-        "target": "prefer",
+        "id": "ex_92",
+        "num": 7,
+        "sentence": "Make sure to keep the receipt, as the product comes with a two-year _______",
+        "target": "warranty",
+        "full_sentence": "Make sure to keep the receipt, as the product comes with a two-year warranty",
+        "translation": "Hãy nhớ giữ lại biên lai vì sản phẩm được bảo hành hai năm",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
-          "prefer",
-          "produce",
-          "pasta",
+          "warranty",
+          "cover",
+          "material",
+          "downtown"
+        ]
+      },
+      {
+        "id": "ex_93",
+        "num": 8,
+        "sentence": "The insurance policy will _______ any damage caused by natural disasters.",
+        "target": "cover",
+        "full_sentence": "The insurance policy will cover any damage caused by natural disasters.",
+        "translation": "Hợp đồng bảo hiểm sẽ chi trả mọi thiệt hại do thiên tai gây ra.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "deliver",
+          "cover",
+          "publisher",
+          "solution"
+        ]
+      },
+      {
+        "id": "ex_94",
+        "num": 9,
+        "sentence": "The book’s _______ announced the release of its latest edition this morning.",
+        "target": "publisher",
+        "full_sentence": "The book’s publisher announced the release of its latest edition this morning.",
+        "translation": "Nhà xuất bản cuốn sách đã thông báo phát hành ấn bản mới nhất vào sáng nay.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "publisher",
+          "material",
+          "cafeteria",
+          "budget"
+        ]
+      },
+      {
+        "id": "ex_95",
+        "num": 10,
+        "sentence": "She bent down to _______ her phone that had fallen under the table.",
+        "target": "pick up",
+        "full_sentence": "She bent down to pick up her phone that had fallen under the table.",
+        "translation": "Cô cúi xuống nhặt chiếc điện thoại rơi dưới gầm bàn lên.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "break",
+          "pick up",
+          "request",
           "publisher"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex15",
-        "num": 15,
-        "sentence": "The factory uses eco-friendly _______ to create its packaging.",
-        "target": "deliver",
-        "deck_id": "deck_class_unit_2_3_day_7_",
-        "options": [
-          "deliver",
-          "pick up",
-          "lobby",
-          "solution"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_3_day_7__ex16",
-        "num": 16,
-        "sentence": "Many people prefer living _______ because of the proximity to offices and shops.",
-        "target": "walk",
+        "id": "ex_96",
+        "num": 11,
+        "sentence": "This company specializes in using eco-friendly methods to _______ high-quality organic vegetables.",
+        "target": "produce",
+        "full_sentence": "This company specializes in using eco-friendly methods to produce high-quality organic vegetables.",
+        "translation": "Công ty này chuyên sử dụng các phương pháp thân thiện với môi trường để sản xuất rau hữu cơ chất lượng cao.",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
           "walk",
+          "produce",
           "lobby",
-          "request",
-          "deliver"
+          "downtown"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex17",
-        "num": 17,
-        "sentence": "The sales _______ for the last quarter show a significant increase compared to the previous period.",
-        "target": "warranty",
+        "id": "ex_97",
+        "num": 12,
+        "sentence": "The company decided to _______ the documents to the client instead of using email.",
+        "target": "deliver",
+        "full_sentence": "The company decided to deliver the documents to the client instead of using email.",
+        "translation": "Công ty quyết định gửi tài liệu cho khách hàng thay vì sử dụng email.",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
-          "pick up",
-          "warranty",
+          "branch",
+          "cover",
+          "deliver",
+          "warranty"
+        ]
+      },
+      {
+        "id": "ex_98",
+        "num": 13,
+        "sentence": "The new restaurant on Fifth _______ is known for its delicious desserts.",
+        "target": "avenue",
+        "full_sentence": "The new restaurant on Fifth avenue is known for its delicious desserts.",
+        "translation": "Nhà hàng mới trên đại lộ số 5 nổi tiếng với những món tráng miệng thơm ngon.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "downtown",
+          "pasta",
           "avenue",
           "prefer"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex18",
+        "id": "ex_99",
+        "num": 14,
+        "sentence": "Workers are given a 15-minute _______ during the morning shift.",
+        "target": "break",
+        "full_sentence": "Workers are given a 15-minute break during the morning shift.",
+        "translation": "Công nhân được nghỉ 15 phút trong ca sáng.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "branch",
+          "break",
+          "avenue",
+          "lobby"
+        ]
+      },
+      {
+        "id": "ex_100",
+        "num": 15,
+        "sentence": "The factory uses eco-friendly _______ to create its packaging.",
+        "target": "material",
+        "full_sentence": "The factory uses eco-friendly material to create its packaging.",
+        "translation": "Nhà máy sử dụng vật liệu thân thiện với môi trường để sản xuất bao bì.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "branch",
+          "solution",
+          "break",
+          "material"
+        ]
+      },
+      {
+        "id": "ex_101",
+        "num": 16,
+        "sentence": "Many people prefer living _______ because of the proximity to offices and shops.",
+        "target": "downtown",
+        "full_sentence": "Many people prefer living downtown because of the proximity to offices and shops.",
+        "translation": "Nhiều người thích sống ở trung tâm thành phố vì gần các văn phòng và cửa hàng.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "cover",
+          "downtown",
+          "cover",
+          "break"
+        ]
+      },
+      {
+        "id": "ex_102",
+        "num": 17,
+        "sentence": "The sales _______ for the last quarter show a significant increase compared to the previous period.",
+        "target": "figure",
+        "full_sentence": "The sales figure for the last quarter show a significant increase compared to the previous period.",
+        "translation": "Số liệu bán hàng trong quý vừa qua cho thấy sự gia tăng đáng kể so với giai đoạn trước.",
+        "deck_id": "deck_class_unit_2_3_day_7_",
+        "options": [
+          "figure",
+          "walk",
+          "budget",
+          "deliver"
+        ]
+      },
+      {
+        "id": "ex_103",
         "num": 18,
         "sentence": "I think I’ll have the chicken instead of _______ for lunch today.",
-        "target": "cover",
+        "target": "pasta",
+        "full_sentence": "I think I’ll have the chicken instead of pasta for lunch today.",
+        "translation": "Tôi nghĩ bữa trưa hôm nay tôi sẽ ăn thịt gà thay vì mì ống.",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
+          "lobby",
           "cover",
-          "deliver",
-          "budget",
-          "branch"
+          "solution",
+          "pasta"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex19",
+        "id": "ex_104",
         "num": 19,
         "sentence": "The staff gathered in the _______ for the monthly announcement.",
-        "target": "cover",
+        "target": "cafeteria",
+        "full_sentence": "The staff gathered in the cafeteria for the monthly announcement.",
+        "translation": "Các nhân viên tập trung tại căng tin để nghe thông báo hàng tháng.",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
-          "warranty",
+          "cafeteria",
+          "branch",
           "cover",
-          "lobby",
-          "request"
+          "solution"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex20",
+        "id": "ex_105",
         "num": 20,
         "sentence": "To get to the meeting venue, you’ll need to _______ about three blocks from here.",
-        "target": "downtown",
+        "target": "walk",
+        "full_sentence": "To get to the meeting venue, you’ll need to walk about three blocks from here.",
+        "translation": "Để đến địa điểm họp, bạn sẽ phải đi bộ khoảng ba dãy nhà từ đây.",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
+          "branch",
+          "produce",
           "walk",
-          "figure",
-          "downtown",
           "publisher"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex21",
+        "id": "ex_106",
         "num": 21,
         "sentence": "The customer can _______ a refund if the product is defective within 30 days of purchase.",
-        "target": "figure",
+        "target": "request",
+        "full_sentence": "The customer can request a refund if the product is defective within 30 days of purchase.",
+        "translation": "Khách hàng có thể yêu cầu hoàn lại tiền nếu sản phẩm bị lỗi trong vòng 30 ngày kể từ ngày mua.",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
-          "figure",
-          "pick up",
           "request",
-          "downtown"
+          "material",
+          "walk",
+          "pasta"
         ]
       },
       {
-        "id": "deck_class_unit_2_3_day_7__ex22",
+        "id": "ex_107",
         "num": 22,
         "sentence": "The insurance policy will _______ all damages caused by natural disasters.",
-        "target": "produce",
+        "target": "cover",
+        "full_sentence": "The insurance policy will cover all damages caused by natural disasters.",
+        "translation": "Hợp đồng bảo hiểm sẽ chi trả mọi thiệt hại do thiên tai gây ra.",
         "deck_id": "deck_class_unit_2_3_day_7_",
         "options": [
-          "produce",
-          "break",
-          "downtown",
-          "material"
+          "branch",
+          "deliver",
+          "cover",
+          "break"
         ]
       }
-    ]
+    ],
+    "word_count": 22,
+    "exercise_count": 22
   },
   {
     "id": "deck_class_unit_2_4_2_5_day_8_",
@@ -12246,8 +16885,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 2.4.&2.5. (Day 8)",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 2.4.&2.5. (Day 8)",
-    "word_count": 20,
-    "exercise_count": 20,
     "words": [
       {
         "id": "deck_class_unit_2_4_2_5_day_8__w0",
@@ -12472,266 +17109,308 @@ var TOEIC_COURSE_DECKS = [
     ],
     "exercises": [
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex1",
+        "id": "ex_108",
         "num": 1,
         "sentence": "The job _______ must be completed online and submitted before the deadline.",
-        "target": "vendor",
+        "target": "application",
+        "full_sentence": "The job application must be completed online and submitted before the deadline.",
+        "translation": "Đơn xin việc phải được hoàn thành trực tuyến và nộp trước thời hạn.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "professional",
-          "available",
-          "equipment",
-          "vendor"
+          "hike",
+          "vendor",
+          "application",
+          "performance"
         ]
       },
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex2",
+        "id": "ex_109",
         "num": 2,
         "sentence": "The _______ center is located in the basement, where employees can store their belongings.",
-        "target": "performance",
+        "target": "storage",
+        "full_sentence": "The storage center is located in the basement, where employees can store their belongings.",
+        "translation": "Trung tâm lưu trữ được đặt ở tầng hầm, nơi nhân viên có thể cất giữ đồ đạc của mình.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "stop by",
-          "musician",
-          "performance",
-          "hike"
+          "storage",
+          "shipment",
+          "achieve",
+          "musician"
         ]
       },
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex3",
+        "id": "ex_110",
         "num": 3,
         "sentence": "The guide suggested we _______ early in the morning to avoid the midday heat.",
-        "target": "mostly",
+        "target": "hike",
+        "full_sentence": "The guide suggested we hike early in the morning to avoid the midday heat.",
+        "translation": "Hướng dẫn viên gợi ý chúng tôi nên đi bộ vào sáng sớm để tránh cái nóng giữa trưa.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "mostly",
-          "renew",
-          "performance",
-          "vendor"
+          "hike",
+          "award",
+          "vendor",
+          "storage"
         ]
       },
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex4",
+        "id": "ex_111",
         "num": 4,
         "sentence": "We need to _______ the contract before sending it to the client for approval.",
-        "target": "musician",
+        "target": "revise",
+        "full_sentence": "We need to revise the contract before sending it to the client for approval.",
+        "translation": "Chúng ta cần phải sửa lại hợp đồng trước khi gửi cho khách hàng phê duyệt.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "vendor",
-          "musician",
-          "furniture",
-          "mostly"
+          "application",
+          "shipment",
+          "revise",
+          "furniture"
         ]
       },
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex5",
+        "id": "ex_112",
         "num": 5,
         "sentence": "The company confirmed that the _______ of goods would arrive by the end of the week.",
-        "target": "stop by",
+        "target": "shipment",
+        "full_sentence": "The company confirmed that the shipment of goods would arrive by the end of the week.",
+        "translation": "Công ty xác nhận lô hàng sẽ về vào cuối tuần.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "stop by",
-          "professional",
-          "vendor",
-          "hike"
+          "shipment",
+          "renew",
+          "storage",
+          "achieve"
         ]
       },
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex6",
+        "id": "ex_113",
         "num": 6,
         "sentence": "She has been _______ for the “Best Employee of the Year” for her outstanding contributions.",
-        "target": "professional",
+        "target": "nominated",
+        "full_sentence": "She has been nominated for the “Best Employee of the Year” for her outstanding contributions.",
+        "translation": "Cô đã được đề cử giải thưởng “Nhân viên xuất sắc nhất của năm” vì những đóng góp xuất sắc của mình.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "renew",
-          "vendor",
-          "performance",
-          "professional"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex7",
-        "num": 7,
-        "sentence": "The concert features a talented _______ who specializes in jazz music.",
-        "target": "property",
-        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
-        "options": [
-          "vendor",
-          "available",
-          "property",
+          "cable",
+          "nominated",
+          "furniture",
           "stop by"
         ]
       },
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex8",
-        "num": 8,
-        "sentence": "Many _______ will participate in the trade fair to showcase their products and services.",
-        "target": "cable",
+        "id": "ex_114",
+        "num": 7,
+        "sentence": "The concert features a talented _______ who specializes in jazz music.",
+        "target": "musician",
+        "full_sentence": "The concert features a talented musician who specializes in jazz music.",
+        "translation": "Buổi hòa nhạc có sự góp mặt của một nhạc sĩ tài năng chuyên về nhạc jazz.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "stop by",
-          "storage",
+          "available",
+          "vendor",
+          "musician",
+          "property"
+        ]
+      },
+      {
+        "id": "ex_115",
+        "num": 8,
+        "sentence": "Many _______ will participate in the trade fair to showcase their products and services.",
+        "target": "vendors",
+        "full_sentence": "Many vendors will participate in the trade fair to showcase their products and services.",
+        "translation": "Nhiều nhà cung cấp sẽ tham gia hội chợ thương mại để giới thiệu sản phẩm và dịch vụ của họ.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "vendors",
           "mostly",
+          "application",
+          "professional"
+        ]
+      },
+      {
+        "id": "ex_116",
+        "num": 9,
+        "sentence": "The projector and other presentation _______ are stored in the meeting room cabinet.",
+        "target": "equipment",
+        "full_sentence": "The projector and other presentation equipment are stored in the meeting room cabinet.",
+        "translation": "Máy chiếu và các thiết bị trình chiếu khác được cất giữ trong tủ phòng họp.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "shipment",
+          "equipment",
+          "cable",
+          "vendor"
+        ]
+      },
+      {
+        "id": "ex_117",
+        "num": 10,
+        "sentence": "The apartment comes fully furnished with modern _______ and appliances.",
+        "target": "furniture",
+        "full_sentence": "The apartment comes fully furnished with modern furniture and appliances.",
+        "translation": "Căn hộ được trang bị đầy đủ nội thất và thiết bị hiện đại.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "furniture",
+          "property",
+          "available",
+          "application"
+        ]
+      },
+      {
+        "id": "ex_118",
+        "num": 11,
+        "sentence": "Tickets for the event are still _______ online and at the box office.",
+        "target": "available",
+        "full_sentence": "Tickets for the event are still available online and at the box office.",
+        "translation": "Vé cho sự kiện vẫn có sẵn trực tuyến và tại phòng vé.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "hike",
+          "revise",
+          "award",
+          "available"
+        ]
+      },
+      {
+        "id": "ex_119",
+        "num": 12,
+        "sentence": "He hopes to _______ his sales target by the end of this quarter.",
+        "target": "achieve",
+        "full_sentence": "He hopes to achieve his sales target by the end of this quarter.",
+        "translation": "Ông hy vọng sẽ đạt được mục tiêu bán hàng vào cuối quý này.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "achieve",
+          "property",
+          "storage",
           "cable"
         ]
       },
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex9",
-        "num": 9,
-        "sentence": "The projector and other presentation _______ are stored in the meeting room cabinet.",
-        "target": "achieve",
+        "id": "ex_120",
+        "num": 13,
+        "sentence": "The customers at this restaurant are _______ business professionals who work nearby.",
+        "target": "mostly",
+        "full_sentence": "The customers at this restaurant are mostly business professionals who work nearby.",
+        "translation": "Khách hàng tại nhà hàng này chủ yếu là các chuyên gia kinh doanh làm việc gần đó.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "musician",
-          "achieve",
           "available",
-          "vendor"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex10",
-        "num": 10,
-        "sentence": "The apartment comes fully furnished with modern _______ and appliances.",
-        "target": "hike",
-        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
-        "options": [
-          "property",
           "shipment",
-          "hike",
-          "nominate"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex11",
-        "num": 11,
-        "sentence": "Tickets for the event are still _______ online and at the box office.",
-        "target": "nominate",
-        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
-        "options": [
-          "vendor",
           "cable",
-          "nominate",
-          "professional"
+          "mostly"
         ]
       },
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex12",
-        "num": 12,
-        "sentence": "He hopes to _______ his sales target by the end of this quarter.",
-        "target": "shipment",
+        "id": "ex_121",
+        "num": 14,
+        "sentence": "Attending _______ development workshops can enhance your skills and career prospects.",
+        "target": "professional",
+        "full_sentence": "Attending professional development workshops can enhance your skills and career prospects.",
+        "translation": "Tham dự các hội thảo phát triển chuyên môn có thể nâng cao kỹ năng và triển vọng nghề nghiệp của bạn.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "property",
-          "shipment",
-          "nominate",
+          "professional",
+          "achieve",
+          "furniture",
           "award"
         ]
       },
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex13",
-        "num": 13,
-        "sentence": "The customers at this restaurant are _______ business professionals who work nearby.",
-        "target": "revise",
+        "id": "ex_122",
+        "num": 15,
+        "sentence": "You can _______ our office anytime during business hours to pick up the documents.",
+        "target": "stop by",
+        "full_sentence": "You can stop by our office anytime during business hours to pick up the documents.",
+        "translation": "Bạn có thể ghé qua văn phòng của chúng tôi bất cứ lúc nào trong giờ làm việc để nhận tài liệu.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "mostly",
-          "revise",
-          "achieve",
+          "renew",
+          "professional",
+          "stop by",
+          "performance"
+        ]
+      },
+      {
+        "id": "ex_123",
+        "num": 16,
+        "sentence": "The theater’s _______ last night was exceptional, earning a standing ovation from the audience.",
+        "target": "performance",
+        "full_sentence": "The theater’s performance last night was exceptional, earning a standing ovation from the audience.",
+        "translation": "Buổi biểu diễn của nhà hát tối qua thật đặc biệt, nhận được sự hoan nghênh nhiệt liệt từ khán giả.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "professional",
+          "property",
+          "award",
+          "performance"
+        ]
+      },
+      {
+        "id": "ex_124",
+        "num": 17,
+        "sentence": "The _______ company offers high-speed internet services across the region.",
+        "target": "cable",
+        "full_sentence": "The cable company offers high-speed internet services across the region.",
+        "translation": "Công ty cáp cung cấp dịch vụ internet tốc độ cao trên toàn khu vực.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "cable",
+          "equipment",
+          "furniture",
+          "shipment"
+        ]
+      },
+      {
+        "id": "ex_125",
+        "num": 18,
+        "sentence": "The rental _______ includes access to the pool and gym facilities.",
+        "target": "property",
+        "full_sentence": "The rental property includes access to the pool and gym facilities.",
+        "translation": "Tài sản cho thuê bao gồm quyền sử dụng hồ bơi và phòng tập thể dục.",
+        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
+        "options": [
+          "professional",
+          "musician",
+          "property",
           "application"
         ]
       },
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex14",
-        "num": 14,
-        "sentence": "Attending _______ development workshops can enhance your skills and career prospects.",
-        "target": "available",
-        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
-        "options": [
-          "vendor",
-          "available",
-          "nominate",
-          "professional"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex15",
-        "num": 15,
-        "sentence": "You can _______ our office anytime during business hours to pick up the documents.",
-        "target": "award",
-        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
-        "options": [
-          "vendor",
-          "award",
-          "achieve",
-          "stop by"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex16",
-        "num": 16,
-        "sentence": "The theater’s _______ last night was exceptional, earning a standing ovation from the audience.",
-        "target": "furniture",
-        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
-        "options": [
-          "furniture",
-          "application",
-          "performance",
-          "equipment"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex17",
-        "num": 17,
-        "sentence": "The _______ company offers high-speed internet services across the region.",
-        "target": "storage",
-        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
-        "options": [
-          "achieve",
-          "furniture",
-          "storage",
-          "nominate"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex18",
-        "num": 18,
-        "sentence": "The rental _______ includes access to the pool and gym facilities.",
-        "target": "equipment",
-        "deck_id": "deck_class_unit_2_4_2_5_day_8_",
-        "options": [
-          "mostly",
-          "vendor",
-          "cable",
-          "equipment"
-        ]
-      },
-      {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex19",
+        "id": "ex_126",
         "num": 19,
         "sentence": "Employees are encouraged to _______ their membership to the fitness center annually.",
         "target": "renew",
+        "full_sentence": "Employees are encouraged to renew their membership to the fitness center annually.",
+        "translation": "Nhân viên được khuyến khích gia hạn tư cách thành viên của họ tại trung tâm thể hình hàng năm.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "storage",
+          "award",
           "renew",
-          "vendor",
-          "revise"
+          "storage",
+          "cable"
         ]
       },
       {
-        "id": "deck_class_unit_2_4_2_5_day_8__ex20",
+        "id": "ex_127",
         "num": 20,
         "sentence": "She received an _______ for her outstanding achievements in the technology sector.",
-        "target": "application",
+        "target": "award",
+        "full_sentence": "She received an award for her outstanding achievements in the technology sector.",
+        "translation": "Cô nhận được giải thưởng cho thành tích xuất sắc trong lĩnh vực công nghệ.",
         "deck_id": "deck_class_unit_2_4_2_5_day_8_",
         "options": [
-          "stop by",
-          "equipment",
-          "hike",
-          "application"
+          "revise",
+          "achieve",
+          "musician",
+          "award"
         ]
       }
-    ]
+    ],
+    "word_count": 20,
+    "exercise_count": 20
   },
   {
     "id": "deck_class_unit_4_1",
@@ -12740,8 +17419,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 4.1",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 4.1",
-    "word_count": 22,
-    "exercise_count": 22,
     "words": [
       {
         "id": "deck_class_unit_4_1_w0",
@@ -12988,292 +17665,338 @@ var TOEIC_COURSE_DECKS = [
     ],
     "exercises": [
       {
-        "id": "deck_class_unit_4_1_ex1",
+        "id": "ex_128",
         "num": 1,
         "sentence": "Please ensure that all _______ communications are kept confidential.",
-        "target": "facility",
+        "target": "internal",
+        "full_sentence": "Please ensure that all internal communications are kept confidential.",
+        "translation": "Hãy đảm bảo rằng tất cả thông tin liên lạc nội bộ được giữ bí mật.",
         "deck_id": "deck_class_unit_4_1",
         "options": [
-          "designate",
-          "replace",
-          "administrative",
-          "facility"
+          "facility",
+          "undergo",
+          "internal",
+          "draft"
         ]
       },
       {
-        "id": "deck_class_unit_4_1_ex2",
+        "id": "ex_129",
         "num": 2,
         "sentence": "The company plans to _______ the historic building to its original condition.",
-        "target": "undergo",
+        "target": "restore",
+        "full_sentence": "The company plans to restore the historic building to its original condition.",
+        "translation": "Công ty có kế hoạch khôi phục tòa nhà lịch sử về tình trạng ban đầu.",
         "deck_id": "deck_class_unit_4_1",
         "options": [
-          "reach",
-          "facility",
           "undergo",
+          "stairwell",
+          "issue",
           "restore"
         ]
       },
       {
-        "id": "deck_class_unit_4_1_ex3",
+        "id": "ex_130",
         "num": 3,
         "sentence": "The manager decided to _______ Sarah as the team leader for the upcoming project.",
-        "target": "draft",
+        "target": "designate",
+        "full_sentence": "The manager decided to designate Sarah as the team leader for the upcoming project.",
+        "translation": "Người quản lý quyết định chỉ định Sarah làm trưởng nhóm cho dự án sắp tới.",
         "deck_id": "deck_class_unit_4_1",
         "options": [
-          "archive",
-          "draft",
+          "real estate",
+          "designate",
           "administrative",
-          "summarize"
+          "undergo"
         ]
       },
       {
-        "id": "deck_class_unit_4_1_ex4",
+        "id": "ex_131",
         "num": 4,
         "sentence": "The report must _______ the key findings of the research for the board meeting.",
-        "target": "draft",
+        "target": "summarize",
+        "full_sentence": "The report must summarize the key findings of the research for the board meeting.",
+        "translation": "Báo cáo phải tóm tắt những phát hiện chính của nghiên cứu cho cuộc họp hội đồng quản trị.",
         "deck_id": "deck_class_unit_4_1",
         "options": [
+          "real estate",
           "issue",
-          "facility",
-          "draft",
-          "regular"
+          "summarize",
+          "restore"
         ]
       },
       {
-        "id": "deck_class_unit_4_1_ex5",
+        "id": "ex_132",
         "num": 5,
         "sentence": "The _______ to the conference hall is on the left side of the lobby.",
-        "target": "regular",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "internal",
-          "reach",
-          "undergo",
-          "regular"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex6",
-        "num": 6,
-        "sentence": "He has worked in the _______ industry for over a decade, specializing in property sales.",
-        "target": "summarize",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "summarize",
-          "stairwell",
-          "archive",
-          "draft"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex7",
-        "num": 7,
-        "sentence": "The document is still in the _______ stage and requires further review.",
-        "target": "archive",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "draft",
-          "archive",
-          "reach",
-          "colleague"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex8",
-        "num": 8,
-        "sentence": "The maintenance team will _______ the broken lightbulbs in the office today.",
-        "target": "issue",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "colleague",
-          "archive",
-          "issue",
-          "summarize"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex9",
-        "num": 9,
-        "sentence": "The _______ between the second and third floors is currently closed for repairs.",
-        "target": "issue",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "replace",
-          "issue",
-          "administrative",
-          "draft"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex10",
-        "num": 10,
-        "sentence": "You should _______ your manager immediately if there is an urgent problem.",
-        "target": "administrative",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "administrative",
-          "replace",
-          "faucet",
-          "stairwell"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex11",
-        "num": 11,
-        "sentence": "This fitness center is a state-of-the-art _______ that offers various wellness programs.",
-        "target": "real estate",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "real estate",
-          "stairwell",
-          "administrative",
-          "adjacent"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex12",
-        "num": 12,
-        "sentence": "She asked her _______ for assistance with a complex project deadline.",
-        "target": "colleague",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "colleague",
-          "draft",
-          "faucet",
-          "issue"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex13",
-        "num": 13,
-        "sentence": "The apartment complex is _______ to a large shopping mall, making it a convenient location.",
-        "target": "faucet",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "faucet",
-          "designate",
-          "stairwell",
-          "colleague"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex14",
-        "num": 14,
-        "sentence": "He was unable to _______ the client because their phone number was incorrect.",
-        "target": "replace",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "entrance",
-          "designate",
-          "internal",
-          "replace"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex15",
-        "num": 15,
-        "sentence": "The kitchen _______ needs to be tightened to stop the water from leaking.",
-        "target": "stairwell",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "administrative",
-          "stairwell",
-          "real estate",
-          "colleague"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex16",
-        "num": 16,
-        "sentence": "The team is required to create an _______ of all past contracts for easier reference.",
-        "target": "restore",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "reach",
-          "restore",
-          "colleague",
-          "draft"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex17",
-        "num": 17,
-        "sentence": "Employees must adhere to the _______ schedule for submitting their monthly reports.",
-        "target": "notify",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "notify",
-          "issue",
-          "draft",
-          "draft"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex18",
-        "num": 18,
-        "sentence": "The building will _______ extensive renovations over the next six months.",
-        "target": "reach",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "archive",
-          "internal",
-          "reach",
-          "designate"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex19",
-        "num": 19,
-        "sentence": "The meeting focused on resolving the most pressing _______ faced by the organization.",
-        "target": "adjacent",
-        "deck_id": "deck_class_unit_4_1",
-        "options": [
-          "notify",
-          "adjacent",
-          "draft",
-          "regular"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_1_ex20",
-        "num": 20,
-        "sentence": "The company is hiring additional staff to handle the growing _______ workload.",
         "target": "entrance",
+        "full_sentence": "The entrance to the conference hall is on the left side of the lobby.",
+        "translation": "Lối vào hội trường nằm ở phía bên trái của sảnh.",
         "deck_id": "deck_class_unit_4_1",
         "options": [
-          "replace",
           "entrance",
-          "archive",
+          "undergo",
+          "draft",
           "internal"
         ]
       },
       {
-        "id": "deck_class_unit_4_1_ex21",
-        "num": 21,
-        "sentence": "The marketing team was asked to _______ a proposal for the upcoming campaign.",
-        "target": "designate",
+        "id": "ex_133",
+        "num": 6,
+        "sentence": "He has worked in the _______ industry for over a decade, specializing in property sales.",
+        "target": "real estate",
+        "full_sentence": "He has worked in the real estate industry for over a decade, specializing in property sales.",
+        "translation": "Ông đã làm việc trong lĩnh vực bất động sản hơn một thập kỷ, chuyên kinh doanh bất động sản.",
         "deck_id": "deck_class_unit_4_1",
         "options": [
-          "draft",
+          "real estate",
+          "entrance",
           "notify",
-          "summarize",
-          "designate"
+          "colleague"
         ]
       },
       {
-        "id": "deck_class_unit_4_1_ex22",
-        "num": 22,
-        "sentence": "The latest _______ of the magazine features an in-depth interview with a famous author.",
-        "target": "internal",
+        "id": "ex_134",
+        "num": 7,
+        "sentence": "The document is still in the _______ stage and requires further review.",
+        "target": "draft",
+        "full_sentence": "The document is still in the draft stage and requires further review.",
+        "translation": "Tài liệu vẫn đang trong giai đoạn dự thảo và cần được xem xét thêm.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "issue",
+          "facility",
+          "issue",
+          "draft"
+        ]
+      },
+      {
+        "id": "ex_135",
+        "num": 8,
+        "sentence": "The maintenance team will _______ the broken lightbulbs in the office today.",
+        "target": "replace",
+        "full_sentence": "The maintenance team will replace the broken lightbulbs in the office today.",
+        "translation": "Hôm nay đội bảo trì sẽ thay thế những bóng đèn bị hỏng trong văn phòng.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "facility",
+          "entrance",
+          "issue",
+          "replace"
+        ]
+      },
+      {
+        "id": "ex_136",
+        "num": 9,
+        "sentence": "The _______ between the second and third floors is currently closed for repairs.",
+        "target": "stairwell",
+        "full_sentence": "The stairwell between the second and third floors is currently closed for repairs.",
+        "translation": "Cầu thang giữa tầng 2 và tầng 3 hiện đang đóng cửa để sửa chữa.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "colleague",
+          "draft",
+          "stairwell",
+          "replace"
+        ]
+      },
+      {
+        "id": "ex_137",
+        "num": 10,
+        "sentence": "You should _______ your manager immediately if there is an urgent problem.",
+        "target": "notify",
+        "full_sentence": "You should notify your manager immediately if there is an urgent problem.",
+        "translation": "Bạn nên thông báo ngay cho người quản lý của mình nếu có vấn đề khẩn cấp.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "draft",
+          "issue",
+          "adjacent",
+          "notify"
+        ]
+      },
+      {
+        "id": "ex_138",
+        "num": 11,
+        "sentence": "This fitness center is a state-of-the-art _______ that offers various wellness programs.",
+        "target": "facility",
+        "full_sentence": "This fitness center is a state-of-the-art facility that offers various wellness programs.",
+        "translation": "Trung tâm thể dục này là một cơ sở hiện đại cung cấp nhiều chương trình chăm sóc sức khỏe khác nhau.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "facility",
+          "stairwell",
+          "administrative",
+          "replace"
+        ]
+      },
+      {
+        "id": "ex_139",
+        "num": 12,
+        "sentence": "She asked her _______ for assistance with a complex project deadline.",
+        "target": "colleague",
+        "full_sentence": "She asked her colleague for assistance with a complex project deadline.",
+        "translation": "Cô nhờ đồng nghiệp của mình hỗ trợ về thời hạn dự án phức tạp.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "colleague",
+          "draft",
+          "stairwell",
+          "archive"
+        ]
+      },
+      {
+        "id": "ex_140",
+        "num": 13,
+        "sentence": "The apartment complex is _______ to a large shopping mall, making it a convenient location.",
+        "target": "adjacent",
+        "full_sentence": "The apartment complex is adjacent to a large shopping mall, making it a convenient location.",
+        "translation": "Khu chung cư nằm liền kề với một trung tâm mua sắm lớn nên rất thuận tiện.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "adjacent",
+          "stairwell",
+          "facility",
+          "colleague"
+        ]
+      },
+      {
+        "id": "ex_141",
+        "num": 14,
+        "sentence": "He was unable to _______ the client because their phone number was incorrect.",
+        "target": "reach",
+        "full_sentence": "He was unable to reach the client because their phone number was incorrect.",
+        "translation": "Anh ta không thể liên lạc được với khách hàng vì số điện thoại của họ không chính xác.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "summarize",
+          "archive",
+          "notify",
+          "reach"
+        ]
+      },
+      {
+        "id": "ex_142",
+        "num": 15,
+        "sentence": "The kitchen _______ needs to be tightened to stop the water from leaking.",
+        "target": "faucet",
+        "full_sentence": "The kitchen faucet needs to be tightened to stop the water from leaking.",
+        "translation": "Vòi bếp cần được vặn chặt để ngăn nước rò rỉ.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "adjacent",
+          "stairwell",
+          "designate",
+          "faucet"
+        ]
+      },
+      {
+        "id": "ex_143",
+        "num": 16,
+        "sentence": "The team is required to create an _______ of all past contracts for easier reference.",
+        "target": "archive",
+        "full_sentence": "The team is required to create an archive of all past contracts for easier reference.",
+        "translation": "Nhóm được yêu cầu tạo một kho lưu trữ tất cả các hợp đồng trước đây để tham khảo dễ dàng hơn.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "summarize",
+          "stairwell",
+          "archive",
+          "regular"
+        ]
+      },
+      {
+        "id": "ex_144",
+        "num": 17,
+        "sentence": "Employees must adhere to the _______ schedule for submitting their monthly reports.",
+        "target": "regular",
+        "full_sentence": "Employees must adhere to the regular schedule for submitting their monthly reports.",
+        "translation": "Nhân viên phải tuân thủ lịch trình thường xuyên để nộp báo cáo hàng tháng.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "designate",
+          "regular",
+          "archive",
+          "issue"
+        ]
+      },
+      {
+        "id": "ex_145",
+        "num": 18,
+        "sentence": "The building will _______ extensive renovations over the next six months.",
+        "target": "undergo",
+        "full_sentence": "The building will undergo extensive renovations over the next six months.",
+        "translation": "Tòa nhà sẽ được cải tạo rộng rãi trong sáu tháng tới.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "replace",
+          "designate",
+          "undergo",
+          "adjacent"
+        ]
+      },
+      {
+        "id": "ex_146",
+        "num": 19,
+        "sentence": "The meeting focused on resolving the most pressing _______ faced by the organization.",
+        "target": "issues",
+        "full_sentence": "The meeting focused on resolving the most pressing issues faced by the organization.",
+        "translation": "Cuộc họp tập trung vào việc giải quyết các vấn đề cấp bách nhất mà tổ chức phải đối mặt.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "issues",
+          "administrative",
+          "designate",
+          "stairwell"
+        ]
+      },
+      {
+        "id": "ex_147",
+        "num": 20,
+        "sentence": "The company is hiring additional staff to handle the growing _______ workload.",
+        "target": "administrative",
+        "full_sentence": "The company is hiring additional staff to handle the growing administrative workload.",
+        "translation": "Công ty đang tuyển thêm nhân viên để giải quyết khối lượng công việc hành chính ngày càng tăng.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "real estate",
+          "draft",
+          "undergo",
+          "administrative"
+        ]
+      },
+      {
+        "id": "ex_148",
+        "num": 21,
+        "sentence": "The marketing team was asked to _______ a proposal for the upcoming campaign.",
+        "target": "draft",
+        "full_sentence": "The marketing team was asked to draft a proposal for the upcoming campaign.",
+        "translation": "Nhóm tiếp thị được yêu cầu soạn thảo một đề xuất cho chiến dịch sắp tới.",
         "deck_id": "deck_class_unit_4_1",
         "options": [
           "internal",
           "issue",
-          "summarize",
+          "draft",
           "entrance"
         ]
+      },
+      {
+        "id": "ex_149",
+        "num": 22,
+        "sentence": "The latest _______ of the magazine features an in-depth interview with a famous author.",
+        "target": "issue",
+        "full_sentence": "The latest issue of the magazine features an in-depth interview with a famous author.",
+        "translation": "Số mới nhất của tạp chí có bài phỏng vấn chuyên sâu với một tác giả nổi tiếng.",
+        "deck_id": "deck_class_unit_4_1",
+        "options": [
+          "draft",
+          "internal",
+          "notify",
+          "issue"
+        ]
       }
-    ]
+    ],
+    "word_count": 22,
+    "exercise_count": 22
   },
   {
     "id": "deck_class_unit_4_2",
@@ -13282,8 +18005,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 4.2",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 4.2",
-    "word_count": 22,
-    "exercise_count": 22,
     "words": [
       {
         "id": "deck_class_unit_4_2_w0",
@@ -13530,292 +18251,338 @@ var TOEIC_COURSE_DECKS = [
     ],
     "exercises": [
       {
-        "id": "deck_class_unit_4_2_ex1",
+        "id": "ex_150",
         "num": 1,
         "sentence": "The chef shared the secret _______ that makes her signature dish unique.",
-        "target": "financial",
+        "target": "ingredient",
+        "full_sentence": "The chef shared the secret ingredient that makes her signature dish unique.",
+        "translation": "Đầu bếp đã chia sẻ nguyên liệu bí mật tạo nên sự độc đáo cho món ăn đặc trưng của cô.",
         "deck_id": "deck_class_unit_4_2",
         "options": [
-          "financial",
-          "episode",
-          "applause",
-          "distinguish"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex2",
-        "num": 2,
-        "sentence": "The company is planning a _______ to mark its 50th anniversary.",
-        "target": "handle",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "financial",
-          "device",
-          "handle",
-          "retire"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex3",
-        "num": 3,
-        "sentence": "The new smartphone _______ several cutting-edge technologies, including facial recognition.",
-        "target": "broadcast",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "broadcast",
-          "episode",
-          "encourage",
-          "error"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex4",
-        "num": 4,
-        "sentence": "The staff gathered _______ the CEO's 30 years of service to the company.",
-        "target": "feature",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "financial",
+          "revolution",
           "ingredient",
-          "handle",
+          "discover",
           "feature"
         ]
       },
       {
-        "id": "deck_class_unit_4_2_ex5",
-        "num": 5,
-        "sentence": "The accountant is responsible for managing the company’s _______ records.",
-        "target": "feature",
+        "id": "ex_151",
+        "num": 2,
+        "sentence": "The company is planning a _______ to mark its 50th anniversary.",
+        "target": "celebration",
+        "full_sentence": "The company is planning a celebration to mark its 50th anniversary.",
+        "translation": "Công ty đang lên kế hoạch tổ chức lễ kỷ niệm 50 năm thành lập.",
         "deck_id": "deck_class_unit_4_2",
         "options": [
-          "device",
-          "feature",
-          "retire",
-          "distinguish"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex6",
-        "num": 6,
-        "sentence": "The latest _______ of the popular TV show received rave reviews from critics.",
-        "target": "revolution",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "discover",
-          "feature",
-          "proceed",
-          "revolution"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex7",
-        "num": 7,
-        "sentence": "Please _______ to the next counter if you need assistance with your payment.",
-        "target": "discover",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "discover",
+          "celebration",
+          "revolution",
           "handle",
-          "encourage",
-          "device"
+          "ingredient"
         ]
       },
       {
-        "id": "deck_class_unit_4_2_ex8",
-        "num": 8,
-        "sentence": "Please double-check the report to ensure there is no _______ in the calculations.",
-        "target": "device",
+        "id": "ex_152",
+        "num": 3,
+        "sentence": "The new smartphone _______ several cutting-edge technologies, including facial recognition.",
+        "target": "features",
+        "full_sentence": "The new smartphone features several cutting-edge technologies, including facial recognition.",
+        "translation": "Điện thoại thông minh mới có một số công nghệ tiên tiến, bao gồm cả nhận dạng khuôn mặt.",
         "deck_id": "deck_class_unit_4_2",
         "options": [
-          "feature",
-          "retire",
-          "broadcast",
-          "device"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex9",
-        "num": 9,
-        "sentence": "After the final act, the audience gave the performers a round of _______ for their excellent show.",
-        "target": "display",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "episode",
-          "display",
-          "applause",
-          "track"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex10",
-        "num": 10,
-        "sentence": "The new mobile _______ has a larger screen and longer battery life compared to the previous model.",
-        "target": "display",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "feature",
-          "display",
-          "ingredient",
-          "proceed"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex11",
-        "num": 11,
-        "sentence": "The new system will _______ the process of updating client information.",
-        "target": "In honor of",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "track",
-          "feature",
-          "feature",
+          "benefit",
+          "features",
+          "celebration",
           "In honor of"
         ]
       },
       {
-        "id": "deck_class_unit_4_2_ex12",
-        "num": 12,
-        "sentence": "The book explores the technological _______ that transformed the way we communicate.",
-        "target": "celebration",
+        "id": "ex_153",
+        "num": 4,
+        "sentence": "The staff gathered _______ the CEO's 30 years of service to the company.",
+        "target": "in honor of",
+        "full_sentence": "The staff gathered in honor of the CEO's 30 years of service to the company.",
+        "translation": "Các nhân viên tập trung lại để vinh danh 30 năm cống hiến của CEO cho công ty.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "benefit",
+          "revolution",
+          "in honor of",
+          "celebration"
+        ]
+      },
+      {
+        "id": "ex_154",
+        "num": 5,
+        "sentence": "The accountant is responsible for managing the company’s _______ records.",
+        "target": "financial",
+        "full_sentence": "The accountant is responsible for managing the company’s financial records.",
+        "translation": "Kế toán viên chịu trách nhiệm quản lý hồ sơ tài chính của công ty.",
         "deck_id": "deck_class_unit_4_2",
         "options": [
           "handle",
-          "proceed",
-          "distinguish",
-          "celebration"
+          "financial",
+          "device",
+          "retire"
         ]
       },
       {
-        "id": "deck_class_unit_4_2_ex13",
-        "num": 13,
-        "sentence": "The company is launching a new program to _______ employees to participate in volunteer work.",
-        "target": "retire",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "retire",
-          "encourage",
-          "In honor of",
-          "celebration"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex14",
-        "num": 14,
-        "sentence": "The report tracks the long-term _______ of investing in renewable energy.",
-        "target": "distinguish",
+        "id": "ex_155",
+        "num": 6,
+        "sentence": "The latest _______ of the popular TV show received rave reviews from critics.",
+        "target": "episode",
+        "full_sentence": "The latest episode of the popular TV show received rave reviews from critics.",
+        "translation": "Tập mới nhất của bộ phim truyền hình nổi tiếng đã nhận được nhiều lời khen ngợi từ giới phê bình.",
         "deck_id": "deck_class_unit_4_2",
         "options": [
           "episode",
-          "distinguish",
-          "device",
+          "proceed",
+          "feature",
+          "handle"
+        ]
+      },
+      {
+        "id": "ex_156",
+        "num": 7,
+        "sentence": "Please _______ to the next counter if you need assistance with your payment.",
+        "target": "proceed",
+        "full_sentence": "Please proceed to the next counter if you need assistance with your payment.",
+        "translation": "Vui lòng đến quầy tiếp theo nếu bạn cần hỗ trợ thanh toán.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "retire",
+          "proceed",
+          "discover",
           "revolution"
         ]
       },
       {
-        "id": "deck_class_unit_4_2_ex15",
-        "num": 15,
-        "sentence": "The evening news _______ will start at 7 PM and cover today's top stories.",
+        "id": "ex_157",
+        "num": 8,
+        "sentence": "Please double-check the report to ensure there is no _______ in the calculations.",
+        "target": "error",
+        "full_sentence": "Please double-check the report to ensure there is no error in the calculations.",
+        "translation": "Vui lòng kiểm tra lại báo cáo để đảm bảo không có sai sót trong tính toán.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "display",
+          "financial",
+          "error",
+          "revolution"
+        ]
+      },
+      {
+        "id": "ex_158",
+        "num": 9,
+        "sentence": "After the final act, the audience gave the performers a round of _______ for their excellent show.",
         "target": "applause",
+        "full_sentence": "After the final act, the audience gave the performers a round of applause for their excellent show.",
+        "translation": "Sau tiết mục cuối cùng, khán giả đã dành cho các nghệ sĩ một tràng pháo tay vì màn trình diễn xuất sắc của họ.",
         "deck_id": "deck_class_unit_4_2",
         "options": [
           "ingredient",
-          "broadcast",
+          "feature",
           "retire",
           "applause"
         ]
       },
       {
-        "id": "deck_class_unit_4_2_ex16",
-        "num": 16,
-        "sentence": "After decades of hard work, she decided to _______ and spend more time with her family.",
-        "target": "error",
+        "id": "ex_159",
+        "num": 10,
+        "sentence": "The new mobile _______ has a larger screen and longer battery life compared to the previous model.",
+        "target": "device",
+        "full_sentence": "The new mobile device has a larger screen and longer battery life compared to the previous model.",
+        "translation": "Thiết bị di động mới có màn hình lớn hơn và thời lượng pin dài hơn so với mẫu trước đó.",
         "deck_id": "deck_class_unit_4_2",
         "options": [
-          "discover",
-          "display",
-          "ingredient",
-          "error"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex17",
-        "num": 17,
-        "sentence": "You can _______ the differences between the original and updated designs by looking closely at the details.",
-        "target": "ingredient",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "handle",
-          "ingredient",
-          "display",
-          "discover"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex18",
-        "num": 18,
-        "sentence": "The art gallery will _______ rare pieces from renowned artists this weekend.",
-        "target": "episode",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "episode",
-          "proceed",
-          "distinguish",
-          "feature"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex19",
-        "num": 19,
-        "sentence": "The explorer hopes to _______ a hidden temple during his next expedition.",
-        "target": "track",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "track",
-          "handle",
-          "revolution",
-          "error"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_2_ex20",
-        "num": 20,
-        "sentence": "The company uses software to _______ the progress of each project and ensure deadlines are met.",
-        "target": "benefit",
-        "deck_id": "deck_class_unit_4_2",
-        "options": [
-          "benefit",
           "device",
-          "episode",
-          "error"
+          "display",
+          "handle",
+          "encourage"
         ]
       },
       {
-        "id": "deck_class_unit_4_2_ex21",
-        "num": 21,
-        "sentence": "The store set up an impressive _______ of their latest products near the entrance.",
-        "target": "encourage",
+        "id": "ex_160",
+        "num": 11,
+        "sentence": "The new system will _______ the process of updating client information.",
+        "target": "handle",
+        "full_sentence": "The new system will handle the process of updating client information.",
+        "translation": "Hệ thống mới sẽ xử lý quá trình cập nhật thông tin khách hàng.",
         "deck_id": "deck_class_unit_4_2",
         "options": [
-          "handle",
-          "encourage",
-          "display",
-          "In honor of"
+          "financial",
+          "broadcast",
+          "feature",
+          "handle"
         ]
       },
       {
-        "id": "deck_class_unit_4_2_ex22",
-        "num": 22,
-        "sentence": "The new smartphone model includes a unique _______ that allows users to unlock it with facial recognition.",
-        "target": "proceed",
+        "id": "ex_161",
+        "num": 12,
+        "sentence": "The book explores the technological _______ that transformed the way we communicate.",
+        "target": "revolution",
+        "full_sentence": "The book explores the technological revolution that transformed the way we communicate.",
+        "translation": "Cuốn sách khám phá cuộc cách mạng công nghệ đã thay đổi cách chúng ta giao tiếp.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "encourage",
+          "distinguish",
+          "device",
+          "revolution"
+        ]
+      },
+      {
+        "id": "ex_162",
+        "num": 13,
+        "sentence": "The company is launching a new program to _______ employees to participate in volunteer work.",
+        "target": "encourage",
+        "full_sentence": "The company is launching a new program to encourage employees to participate in volunteer work.",
+        "translation": "Công ty đang triển khai một chương trình mới nhằm khuyến khích nhân viên tham gia công việc tình nguyện.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "encourage",
+          "broadcast",
+          "discover",
+          "financial"
+        ]
+      },
+      {
+        "id": "ex_163",
+        "num": 14,
+        "sentence": "The report tracks the long-term _______ of investing in renewable energy.",
+        "target": "benefits",
+        "full_sentence": "The report tracks the long-term benefits of investing in renewable energy.",
+        "translation": "Báo cáo theo dõi lợi ích lâu dài của việc đầu tư vào năng lượng tái tạo.",
         "deck_id": "deck_class_unit_4_2",
         "options": [
           "display",
           "celebration",
+          "applause",
+          "benefits"
+        ]
+      },
+      {
+        "id": "ex_164",
+        "num": 15,
+        "sentence": "The evening news _______ will start at 7 PM and cover today's top stories.",
+        "target": "broadcast",
+        "full_sentence": "The evening news broadcast will start at 7 PM and cover today's top stories.",
+        "translation": "Bản tin buổi tối sẽ bắt đầu lúc 7 giờ tối và bao gồm những tin tức nổi bật nhất ngày hôm nay.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "broadcast",
+          "ingredient",
+          "distinguish",
+          "In honor of"
+        ]
+      },
+      {
+        "id": "ex_165",
+        "num": 16,
+        "sentence": "After decades of hard work, she decided to _______ and spend more time with her family.",
+        "target": "retire",
+        "full_sentence": "After decades of hard work, she decided to retire and spend more time with her family.",
+        "translation": "Sau hàng chục năm làm việc vất vả, bà quyết định nghỉ hưu và dành nhiều thời gian hơn cho gia đình.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "retire",
+          "financial",
           "proceed",
-          "encourage"
+          "In honor of"
+        ]
+      },
+      {
+        "id": "ex_166",
+        "num": 17,
+        "sentence": "You can _______ the differences between the original and updated designs by looking closely at the details.",
+        "target": "distinguish",
+        "full_sentence": "You can distinguish the differences between the original and updated designs by looking closely at the details.",
+        "translation": "Bạn có thể phân biệt sự khác biệt giữa thiết kế ban đầu và thiết kế cập nhật bằng cách xem xét kỹ các chi tiết.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "distinguish",
+          "display",
+          "feature",
+          "track"
+        ]
+      },
+      {
+        "id": "ex_167",
+        "num": 18,
+        "sentence": "The art gallery will _______ rare pieces from renowned artists this weekend.",
+        "target": "display",
+        "full_sentence": "The art gallery will display rare pieces from renowned artists this weekend.",
+        "translation": "Phòng trưng bày nghệ thuật sẽ trưng bày những tác phẩm quý hiếm của các nghệ sĩ nổi tiếng vào cuối tuần này.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "display",
+          "distinguish",
+          "feature",
+          "broadcast"
+        ]
+      },
+      {
+        "id": "ex_168",
+        "num": 19,
+        "sentence": "The explorer hopes to _______ a hidden temple during his next expedition.",
+        "target": "discover",
+        "full_sentence": "The explorer hopes to discover a hidden temple during his next expedition.",
+        "translation": "Nhà thám hiểm hy vọng sẽ khám phá được một ngôi đền ẩn giấu trong chuyến thám hiểm tiếp theo của mình.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "discover",
+          "proceed",
+          "In honor of",
+          "applause"
+        ]
+      },
+      {
+        "id": "ex_169",
+        "num": 20,
+        "sentence": "The company uses software to _______ the progress of each project and ensure deadlines are met.",
+        "target": "track",
+        "full_sentence": "The company uses software to track the progress of each project and ensure deadlines are met.",
+        "translation": "Công ty sử dụng phần mềm để theo dõi tiến độ của từng dự án và đảm bảo đúng thời hạn.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "track",
+          "feature",
+          "revolution",
+          "broadcast"
+        ]
+      },
+      {
+        "id": "ex_170",
+        "num": 21,
+        "sentence": "The store set up an impressive _______ of their latest products near the entrance.",
+        "target": "display",
+        "full_sentence": "The store set up an impressive display of their latest products near the entrance.",
+        "translation": "Cửa hàng đã bố trí một khu trưng bày ấn tượng các sản phẩm mới nhất của họ gần lối vào.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "display",
+          "feature",
+          "encourage",
+          "handle"
+        ]
+      },
+      {
+        "id": "ex_171",
+        "num": 22,
+        "sentence": "The new smartphone model includes a unique _______ that allows users to unlock it with facial recognition.",
+        "target": "feature",
+        "full_sentence": "The new smartphone model includes a unique feature that allows users to unlock it with facial recognition.",
+        "translation": "Mẫu điện thoại thông minh mới có một tính năng độc đáo cho phép người dùng mở khóa bằng nhận dạng khuôn mặt.",
+        "deck_id": "deck_class_unit_4_2",
+        "options": [
+          "feature",
+          "track",
+          "discover",
+          "handle"
         ]
       }
-    ]
+    ],
+    "word_count": 22,
+    "exercise_count": 22
   },
   {
     "id": "deck_class_unit_4_3_4_4",
@@ -13824,8 +18591,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 4.3 &4.4",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 4.3 &4.4",
-    "word_count": 20,
-    "exercise_count": 20,
     "words": [
       {
         "id": "deck_class_unit_4_3_4_4_w0",
@@ -14050,266 +18815,308 @@ var TOEIC_COURSE_DECKS = [
     ],
     "exercises": [
       {
-        "id": "deck_class_unit_4_3_4_4_ex1",
+        "id": "ex_172",
         "num": 1,
         "sentence": "The museum will _______ the 100th anniversary of the city's founding with a special exhibition.",
-        "target": "gallery",
+        "target": "commemorate",
+        "full_sentence": "The museum will commemorate the 100th anniversary of the city's founding with a special exhibition.",
+        "translation": "Bảo tàng sẽ kỷ niệm 100 năm thành lập thành phố bằng một triển lãm đặc biệt.",
         "deck_id": "deck_class_unit_4_3_4_4",
         "options": [
+          "commemorate",
           "botanist",
-          "gallery",
-          "population",
+          "texture",
           "sculpture"
         ]
       },
       {
-        "id": "deck_class_unit_4_3_4_4_ex2",
+        "id": "ex_173",
         "num": 2,
         "sentence": "The _______ style of the ancient temple has influenced many buildings in the region.",
-        "target": "souvenir",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "interactive",
-          "process",
-          "preserve",
-          "souvenir"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex3",
-        "num": 3,
-        "sentence": "The museum’s new exhibit features a collection of contemporary _______ from renowned artists.",
-        "target": "correspondence",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "process",
-          "community",
-          "sculpture",
-          "correspondence"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex4",
-        "num": 4,
-        "sentence": "The wildlife _______ is located in the northern part of the country and is home to many rare species.",
-        "target": "texture",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "process",
-          "texture",
-          "exhibit",
-          "renovate"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex5",
-        "num": 5,
-        "sentence": "They decided to _______ the old library, making it more accessible and modern.",
-        "target": "variety",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "botanist",
-          "preserve",
-          "variety",
-          "texture"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex6",
-        "num": 6,
-        "sentence": "The science _______ was happy to share her research on endangered plant species.",
-        "target": "interactive",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "sculpture",
-          "commemorate",
-          "botanist",
-          "interactive"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex7",
-        "num": 7,
-        "sentence": "I bought a _______ from my trip to Paris, which I keep as a reminder of the city.",
-        "target": "process",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "preserve",
-          "botanist",
-          "commemorate",
-          "process"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex8",
-        "num": 8,
-        "sentence": "The restaurant offers a wide _______ of dishes, including vegetarian, vegan, and gluten-free options.",
         "target": "architectural",
+        "full_sentence": "The architectural style of the ancient temple has influenced many buildings in the region.",
+        "translation": "Phong cách kiến ​​trúc của ngôi chùa cổ đã ảnh hưởng đến nhiều tòa nhà trong khu vực.",
         "deck_id": "deck_class_unit_4_3_4_4",
         "options": [
-          "exhibit",
-          "commemorate",
-          "variety",
-          "architectural"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex9",
-        "num": 9,
-        "sentence": "The local _______ is hosting an event to raise funds for environmental protection.",
-        "target": "sculpture",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "exhibit",
-          "variety",
-          "community",
-          "sculpture"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex10",
-        "num": 10,
-        "sentence": "She is a talented artist who creates _______ works that engage the audience.",
-        "target": "wonder",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "commemorate",
-          "population",
-          "wonder",
-          "variety"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex11",
-        "num": 11,
-        "sentence": "Please make sure all your _______ with clients is properly documented for future reference.",
-        "target": "surround",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "variety",
-          "surround",
-          "exhibit",
-          "renovate"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex12",
-        "num": 12,
-        "sentence": "The _______ of this region has increased significantly over the past decade.",
-        "target": "population",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "variety",
-          "surround",
-          "population",
-          "conservatory"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex13",
-        "num": 13,
-        "sentence": "They installed a system to _______ the temperature and humidity levels in the warehouse.",
-        "target": "preserve",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "preserve",
-          "correspondence",
-          "population",
-          "souvenir"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex14",
-        "num": 14,
-        "sentence": "The hotel offers a beautiful view, with gardens that _______ the building.",
-        "target": "monitor",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "wonder",
-          "surround",
-          "monitor",
-          "architectural"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex15",
-        "num": 15,
-        "sentence": "The company is hosting a new _______ of innovative products at the trade fair next month.",
-        "target": "exhibit",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "texture",
-          "correspondence",
-          "exhibit",
-          "interactive"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex16",
-        "num": 16,
-        "sentence": "We can’t wait to visit the art _______ and see the latest contemporary pieces.",
-        "target": "botanist",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "commemorate",
-          "population",
-          "texture",
-          "botanist"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex17",
-        "num": 17,
-        "sentence": "The botanical garden includes a large _______ where exotic plants are carefully nurtured and displayed.",
-        "target": "renovate",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "correspondence",
-          "renovate",
-          "conservatory",
-          "population"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex18",
-        "num": 18,
-        "sentence": "The hotel room featured soft linens with a luxurious _______ that felt very comfortable.",
-        "target": "community",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "interactive",
-          "commemorate",
           "architectural",
-          "community"
-        ]
-      },
-      {
-        "id": "deck_class_unit_4_3_4_4_ex19",
-        "num": 19,
-        "sentence": "I often _______ if I made the right decision when I accepted this job offer.",
-        "target": "conservatory",
-        "deck_id": "deck_class_unit_4_3_4_4",
-        "options": [
-          "conservatory",
           "texture",
-          "correspondence",
+          "souvenir",
           "preserve"
         ]
       },
       {
-        "id": "deck_class_unit_4_3_4_4_ex20",
-        "num": 20,
-        "sentence": "The hiring _______ takes about two weeks, from reviewing applications to conducting interviews.",
-        "target": "commemorate",
+        "id": "ex_174",
+        "num": 3,
+        "sentence": "The museum’s new exhibit features a collection of contemporary _______ from renowned artists.",
+        "target": "sculptures",
+        "full_sentence": "The museum’s new exhibit features a collection of contemporary sculptures from renowned artists.",
+        "translation": "Triển lãm mới của bảo tàng trưng bày bộ sưu tập các tác phẩm điêu khắc đương đại của các nghệ sĩ nổi tiếng.",
         "deck_id": "deck_class_unit_4_3_4_4",
         "options": [
-          "commemorate",
+          "sculptures",
+          "variety",
+          "renovate",
+          "gallery"
+        ]
+      },
+      {
+        "id": "ex_175",
+        "num": 4,
+        "sentence": "The wildlife _______ is located in the northern part of the country and is home to many rare species.",
+        "target": "preserve",
+        "full_sentence": "The wildlife preserve is located in the northern part of the country and is home to many rare species.",
+        "translation": "Khu bảo tồn động vật hoang dã nằm ở phía bắc của đất nước và là nơi sinh sống của nhiều loài quý hiếm.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "preserve",
+          "botanist",
+          "wonder",
+          "community"
+        ]
+      },
+      {
+        "id": "ex_176",
+        "num": 5,
+        "sentence": "They decided to _______ the old library, making it more accessible and modern.",
+        "target": "renovate",
+        "full_sentence": "They decided to renovate the old library, making it more accessible and modern.",
+        "translation": "Họ quyết định cải tạo thư viện cũ để nó trở nên hiện đại và dễ tiếp cận hơn.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
           "correspondence",
+          "surround",
+          "botanist",
+          "renovate"
+        ]
+      },
+      {
+        "id": "ex_177",
+        "num": 6,
+        "sentence": "The science _______ was happy to share her research on endangered plant species.",
+        "target": "botanist",
+        "full_sentence": "The science botanist was happy to share her research on endangered plant species.",
+        "translation": "Nhà thực vật học khoa học vui mừng chia sẻ nghiên cứu của mình về các loài thực vật có nguy cơ tuyệt chủng.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "botanist",
           "souvenir",
+          "wonder",
+          "exhibit"
+        ]
+      },
+      {
+        "id": "ex_178",
+        "num": 7,
+        "sentence": "I bought a _______ from my trip to Paris, which I keep as a reminder of the city.",
+        "target": "souvenir",
+        "full_sentence": "I bought a souvenir from my trip to Paris, which I keep as a reminder of the city.",
+        "translation": "Tôi đã mua một món quà lưu niệm từ chuyến đi Paris và tôi giữ nó như một vật kỷ niệm về thành phố.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "gallery",
+          "souvenir",
+          "surround",
+          "exhibit"
+        ]
+      },
+      {
+        "id": "ex_179",
+        "num": 8,
+        "sentence": "The restaurant offers a wide _______ of dishes, including vegetarian, vegan, and gluten-free options.",
+        "target": "variety",
+        "full_sentence": "The restaurant offers a wide variety of dishes, including vegetarian, vegan, and gluten-free options.",
+        "translation": "Nhà hàng cung cấp nhiều món ăn đa dạng, bao gồm các lựa chọn ăn chay, thuần chay và không chứa gluten.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "community",
+          "monitor",
+          "preserve",
           "variety"
         ]
+      },
+      {
+        "id": "ex_180",
+        "num": 9,
+        "sentence": "The local _______ is hosting an event to raise funds for environmental protection.",
+        "target": "community",
+        "full_sentence": "The local community is hosting an event to raise funds for environmental protection.",
+        "translation": "Cộng đồng địa phương đang tổ chức một sự kiện để gây quỹ bảo vệ môi trường.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "texture",
+          "monitor",
+          "community",
+          "correspondence"
+        ]
+      },
+      {
+        "id": "ex_181",
+        "num": 10,
+        "sentence": "She is a talented artist who creates _______ works that engage the audience.",
+        "target": "interactive",
+        "full_sentence": "She is a talented artist who creates interactive works that engage the audience.",
+        "translation": "Cô là một nghệ sĩ tài năng, người tạo ra những tác phẩm tương tác thu hút khán giả.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "variety",
+          "interactive",
+          "sculpture",
+          "preserve"
+        ]
+      },
+      {
+        "id": "ex_182",
+        "num": 11,
+        "sentence": "Please make sure all your _______ with clients is properly documented for future reference.",
+        "target": "correspondence",
+        "full_sentence": "Please make sure all your correspondence with clients is properly documented for future reference.",
+        "translation": "Vui lòng đảm bảo rằng tất cả thư từ của bạn với khách hàng đều được ghi lại đúng cách để tham khảo trong tương lai.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "architectural",
+          "conservatory",
+          "correspondence",
+          "variety"
+        ]
+      },
+      {
+        "id": "ex_183",
+        "num": 12,
+        "sentence": "The _______ of this region has increased significantly over the past decade.",
+        "target": "population",
+        "full_sentence": "The population of this region has increased significantly over the past decade.",
+        "translation": "Dân số của khu vực này đã tăng đáng kể trong thập kỷ qua.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "architectural",
+          "variety",
+          "botanist",
+          "population"
+        ]
+      },
+      {
+        "id": "ex_184",
+        "num": 13,
+        "sentence": "They installed a system to _______ the temperature and humidity levels in the warehouse.",
+        "target": "monitor",
+        "full_sentence": "They installed a system to monitor the temperature and humidity levels in the warehouse.",
+        "translation": "Họ lắp đặt một hệ thống để theo dõi nhiệt độ và độ ẩm trong nhà kho.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "monitor",
+          "conservatory",
+          "botanist",
+          "gallery"
+        ]
+      },
+      {
+        "id": "ex_185",
+        "num": 14,
+        "sentence": "The hotel offers a beautiful view, with gardens that _______ the building.",
+        "target": "surround",
+        "full_sentence": "The hotel offers a beautiful view, with gardens that surround the building.",
+        "translation": "Khách sạn có tầm nhìn đẹp, có vườn bao quanh tòa nhà.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "monitor",
+          "variety",
+          "surround",
+          "community"
+        ]
+      },
+      {
+        "id": "ex_186",
+        "num": 15,
+        "sentence": "The company is hosting a new _______ of innovative products at the trade fair next month.",
+        "target": "exhibit",
+        "full_sentence": "The company is hosting a new exhibit of innovative products at the trade fair next month.",
+        "translation": "Công ty sẽ tổ chức một cuộc triển lãm mới về các sản phẩm sáng tạo tại hội chợ thương mại vào tháng tới.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "conservatory",
+          "exhibit",
+          "surround",
+          "gallery"
+        ]
+      },
+      {
+        "id": "ex_187",
+        "num": 16,
+        "sentence": "We can’t wait to visit the art _______ and see the latest contemporary pieces.",
+        "target": "gallery",
+        "full_sentence": "We can’t wait to visit the art gallery and see the latest contemporary pieces.",
+        "translation": "Chúng tôi nóng lòng được ghé thăm phòng trưng bày nghệ thuật và xem những tác phẩm đương đại mới nhất.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "variety",
+          "population",
+          "gallery",
+          "monitor"
+        ]
+      },
+      {
+        "id": "ex_188",
+        "num": 17,
+        "sentence": "The botanical garden includes a large _______ where exotic plants are carefully nurtured and displayed.",
+        "target": "conservatory",
+        "full_sentence": "The botanical garden includes a large conservatory where exotic plants are carefully nurtured and displayed.",
+        "translation": "Vườn thực vật bao gồm một nhà kính lớn, nơi các loài thực vật ngoại lai được chăm sóc và trưng bày cẩn thận.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "botanist",
+          "conservatory",
+          "architectural",
+          "souvenir"
+        ]
+      },
+      {
+        "id": "ex_189",
+        "num": 18,
+        "sentence": "The hotel room featured soft linens with a luxurious _______ that felt very comfortable.",
+        "target": "texture",
+        "full_sentence": "The hotel room featured soft linens with a luxurious texture that felt very comfortable.",
+        "translation": "Phòng khách sạn có khăn trải giường mềm mại với kết cấu sang trọng tạo cảm giác rất thoải mái.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "wonder",
+          "surround",
+          "texture",
+          "preserve"
+        ]
+      },
+      {
+        "id": "ex_190",
+        "num": 19,
+        "sentence": "I often _______ if I made the right decision when I accepted this job offer.",
+        "target": "wonder",
+        "full_sentence": "I often wonder if I made the right decision when I accepted this job offer.",
+        "translation": "Tôi thường tự hỏi liệu mình có quyết định đúng đắn khi nhận lời mời làm việc này hay không.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "exhibit",
+          "gallery",
+          "conservatory",
+          "wonder"
+        ]
+      },
+      {
+        "id": "ex_191",
+        "num": 20,
+        "sentence": "The hiring _______ takes about two weeks, from reviewing applications to conducting interviews.",
+        "target": "process",
+        "full_sentence": "The hiring process takes about two weeks, from reviewing applications to conducting interviews.",
+        "translation": "Quá trình tuyển dụng mất khoảng hai tuần, từ khi xem xét đơn đăng ký đến tiến hành phỏng vấn.",
+        "deck_id": "deck_class_unit_4_3_4_4",
+        "options": [
+          "population",
+          "process",
+          "surround",
+          "correspondence"
+        ]
       }
-    ]
+    ],
+    "word_count": 20,
+    "exercise_count": 20
   },
   {
     "id": "deck_class_unit_6_1_day_18_",
@@ -14318,8 +19125,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 6.1. (Day 18)",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 6.1. (Day 18)",
-    "word_count": 20,
-    "exercise_count": 20,
     "words": [
       {
         "id": "deck_class_unit_6_1_day_18__w0",
@@ -14544,266 +19349,308 @@ var TOEIC_COURSE_DECKS = [
     ],
     "exercises": [
       {
-        "id": "deck_class_unit_6_1_day_18__ex1",
+        "id": "ex_192",
         "num": 1,
         "sentence": "The company is looking to hire a new _______ to oversee the day-to-day operations of the team.",
-        "target": "manufacturer",
+        "target": "supervisor",
+        "full_sentence": "The company is looking to hire a new supervisor to oversee the day-to-day operations of the team.",
+        "translation": "Công ty đang tìm cách thuê một giám sát viên mới để giám sát hoạt động hàng ngày của nhóm.",
         "deck_id": "deck_class_unit_6_1_day_18_",
         "options": [
-          "manufacturer",
-          "catalog",
+          "convenient",
+          "affiliation",
+          "supervisor",
+          "inspect"
+        ]
+      },
+      {
+        "id": "ex_193",
+        "num": 2,
+        "sentence": "The store has a wide range of _______ , including TVs, sound systems, and gaming consoles.",
+        "target": "electronics",
+        "full_sentence": "The store has a wide range of electronics , including TVs, sound systems, and gaming consoles.",
+        "translation": "Cửa hàng có nhiều loại đồ điện tử, bao gồm TV, hệ thống âm thanh và máy chơi game.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "contractor",
+          "electronics",
+          "revenue",
+          "corporate"
+        ]
+      },
+      {
+        "id": "ex_194",
+        "num": 3,
+        "sentence": "The new software update will _______ the performance of the device and fix several problems.",
+        "target": "enhance",
+        "full_sentence": "The new software update will enhance the performance of the device and fix several problems.",
+        "translation": "Bản cập nhật phần mềm mới sẽ nâng cao hiệu suất của thiết bị và khắc phục một số vấn đề.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "enhance",
+          "affiliation",
           "relocate",
           "analyst"
         ]
       },
       {
-        "id": "deck_class_unit_6_1_day_18__ex2",
-        "num": 2,
-        "sentence": "The store has a wide range of _______ , including TVs, sound systems, and gaming consoles.",
-        "target": "electronics",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "analyst",
-          "manufacturer",
-          "promptly",
-          "electronics"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex3",
-        "num": 3,
-        "sentence": "The new software update will _______ the performance of the device and fix several problems.",
-        "target": "revenue",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "component",
-          "efficient",
-          "revenue",
-          "supervisor"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex4",
+        "id": "ex_195",
         "num": 4,
         "sentence": "The engineering team has been asked to _______ the quality of the materials before production begins.",
-        "target": "component",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "component",
-          "enact",
-          "job opening",
-          "revenue"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex5",
-        "num": 5,
-        "sentence": "The company’s _______ has been steadily increasing over the last few years, reaching new heights.",
-        "target": "analyst",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "enhance",
-          "analyst",
-          "contractor",
-          "revenue"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex6",
-        "num": 6,
-        "sentence": "As a leading _______ of household appliances, the company is known for its innovative designs.",
-        "target": "corporate",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "vacant",
-          "corporate",
-          "analyst",
-          "catalog"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex7",
-        "num": 7,
-        "sentence": "There is a _______ in the marketing department that we need to fill immediately.",
-        "target": "supervisor",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "enhance",
-          "affiliation",
-          "revenue",
-          "supervisor"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex8",
-        "num": 8,
-        "sentence": "The _______ was praised for completing the project on time and within budget.",
-        "target": "relocate",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "revenue",
-          "contractor",
-          "relocate",
-          "efficient"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex9",
-        "num": 9,
-        "sentence": "The new software includes several important _______ that will improve user experience and functionality.",
-        "target": "job opening",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "contractor",
-          "job opening",
-          "manufacturer",
-          "inspect"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex10",
-        "num": 10,
-        "sentence": "We offer a detailed product _______ that outlines all available models and features.",
-        "target": "affiliation",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "efficient",
-          "job opening",
-          "affiliation",
-          "vacant"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex11",
-        "num": 11,
-        "sentence": "The CEO will _______ to the new office in the city center to be closer to key clients.",
-        "target": "contribute",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "enhance",
-          "promptly",
-          "contribute",
-          "relocate"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex12",
-        "num": 12,
-        "sentence": "The company has a strong _______ with local suppliers to ensure the best materials are used.",
-        "target": "catalog",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "electronics",
-          "vacant",
-          "inspect",
-          "catalog"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex13",
-        "num": 13,
-        "sentence": "The manager was impressed with how the team was able to work together and _______ to the project’s success.",
-        "target": "enhance",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "enact",
-          "analyst",
-          "enhance",
-          "contractor"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex14",
-        "num": 14,
-        "sentence": "The new office location is much more _______ for employees, as it is closer to public transportation.",
-        "target": "vacant",
+        "target": "inspect",
+        "full_sentence": "The engineering team has been asked to inspect the quality of the materials before production begins.",
+        "translation": "Đội ngũ kỹ thuật đã được yêu cầu kiểm tra chất lượng vật liệu trước khi bắt đầu sản xuất.",
         "deck_id": "deck_class_unit_6_1_day_18_",
         "options": [
           "catalog",
-          "efficient",
-          "electronics",
-          "vacant"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex15",
-        "num": 15,
-        "sentence": "As a market _______ , she is responsible for studying consumer trends and competitor strategies.",
-        "target": "promptly",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "enact",
-          "job opening",
-          "promptly",
-          "contractor"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex16",
-        "num": 16,
-        "sentence": "Many companies organize _______ events to strengthen teamwork and improve employee morale.",
-        "target": "convenient",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "promptly",
-          "manufacturer",
-          "convenient",
+          "component",
+          "inspect",
           "job opening"
         ]
       },
       {
-        "id": "deck_class_unit_6_1_day_18__ex17",
-        "num": 17,
-        "sentence": "Please make sure to respond to customer inquiries _______ to ensure high satisfaction.",
-        "target": "contractor",
+        "id": "ex_196",
+        "num": 5,
+        "sentence": "The company’s _______ has been steadily increasing over the last few years, reaching new heights.",
+        "target": "revenue",
+        "full_sentence": "The company’s revenue has been steadily increasing over the last few years, reaching new heights.",
+        "translation": "Doanh thu của công ty đã tăng đều đặn trong vài năm qua, đạt đến những tầm cao mới.",
         "deck_id": "deck_class_unit_6_1_day_18_",
         "options": [
-          "analyst",
-          "inspect",
-          "contractor",
-          "component"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_1_day_18__ex18",
-        "num": 18,
-        "sentence": "The company posted a _______ on their website for an experienced software developer.",
-        "target": "inspect",
-        "deck_id": "deck_class_unit_6_1_day_18_",
-        "options": [
-          "inspect",
-          "analyst",
-          "manufacturer",
+          "convenient",
+          "enhance",
+          "revenue",
           "electronics"
         ]
       },
       {
-        "id": "deck_class_unit_6_1_day_18__ex19",
-        "num": 19,
-        "sentence": "The government is preparing to _______ new legislation to protect consumers.",
-        "target": "enact",
+        "id": "ex_197",
+        "num": 6,
+        "sentence": "As a leading _______ of household appliances, the company is known for its innovative designs.",
+        "target": "manufacturer",
+        "full_sentence": "As a leading manufacturer of household appliances, the company is known for its innovative designs.",
+        "translation": "Là nhà sản xuất thiết bị gia dụng hàng đầu, công ty được biết đến với những thiết kế sáng tạo.",
         "deck_id": "deck_class_unit_6_1_day_18_",
         "options": [
-          "job opening",
-          "efficient",
+          "revenue",
+          "affiliation",
           "electronics",
+          "manufacturer"
+        ]
+      },
+      {
+        "id": "ex_198",
+        "num": 7,
+        "sentence": "There is a _______ in the marketing department that we need to fill immediately.",
+        "target": "vacant",
+        "full_sentence": "There is a vacant in the marketing department that we need to fill immediately.",
+        "translation": "Có một chỗ trống trong bộ phận tiếp thị mà chúng tôi cần lấp đầy ngay lập tức.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "revenue",
+          "inspect",
+          "vacant",
+          "manufacturer"
+        ]
+      },
+      {
+        "id": "ex_199",
+        "num": 8,
+        "sentence": "The _______ was praised for completing the project on time and within budget.",
+        "target": "contractor",
+        "full_sentence": "The contractor was praised for completing the project on time and within budget.",
+        "translation": "Nhà thầu được khen ngợi vì đã hoàn thành dự án đúng thời hạn và trong ngân sách.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "contractor",
+          "affiliation",
+          "enhance",
+          "efficient"
+        ]
+      },
+      {
+        "id": "ex_200",
+        "num": 9,
+        "sentence": "The new software includes several important _______ that will improve user experience and functionality.",
+        "target": "component",
+        "full_sentence": "The new software includes several important component that will improve user experience and functionality.",
+        "translation": "Phần mềm mới bao gồm một số thành phần quan trọng sẽ cải thiện trải nghiệm và chức năng của người dùng.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "electronics",
+          "component",
+          "contribute",
+          "contractor"
+        ]
+      },
+      {
+        "id": "ex_201",
+        "num": 10,
+        "sentence": "We offer a detailed product _______ that outlines all available models and features.",
+        "target": "catalog",
+        "full_sentence": "We offer a detailed product catalog that outlines all available models and features.",
+        "translation": "Chúng tôi cung cấp một danh mục sản phẩm chi tiết phác thảo tất cả các mẫu và tính năng có sẵn.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "enhance",
+          "catalog",
+          "vacant",
           "enact"
         ]
       },
       {
-        "id": "deck_class_unit_6_1_day_18__ex20",
+        "id": "ex_202",
+        "num": 11,
+        "sentence": "The CEO will _______ to the new office in the city center to be closer to key clients.",
+        "target": "relocate",
+        "full_sentence": "The CEO will relocate to the new office in the city center to be closer to key clients.",
+        "translation": "CEO sẽ chuyển đến văn phòng mới ở trung tâm thành phố để gần gũi hơn với các khách hàng quan trọng.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "relocate",
+          "job opening",
+          "catalog",
+          "contractor"
+        ]
+      },
+      {
+        "id": "ex_203",
+        "num": 12,
+        "sentence": "The company has a strong _______ with local suppliers to ensure the best materials are used.",
+        "target": "affiliation",
+        "full_sentence": "The company has a strong affiliation with local suppliers to ensure the best materials are used.",
+        "translation": "Công ty có mối liên kết chặt chẽ với các nhà cung cấp địa phương để đảm bảo sử dụng những vật liệu tốt nhất.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "affiliation",
+          "enact",
+          "electronics",
+          "efficient"
+        ]
+      },
+      {
+        "id": "ex_204",
+        "num": 13,
+        "sentence": "The manager was impressed with how the team was able to work together and _______ to the project’s success.",
+        "target": "contribute",
+        "full_sentence": "The manager was impressed with how the team was able to work together and contribute to the project’s success.",
+        "translation": "Người quản lý rất ấn tượng với cách nhóm có thể làm việc cùng nhau và đóng góp vào sự thành công của dự án.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "supervisor",
+          "catalog",
+          "revenue",
+          "contribute"
+        ]
+      },
+      {
+        "id": "ex_205",
+        "num": 14,
+        "sentence": "The new office location is much more _______ for employees, as it is closer to public transportation.",
+        "target": "convenient",
+        "full_sentence": "The new office location is much more convenient for employees, as it is closer to public transportation.",
+        "translation": "Vị trí văn phòng mới thuận tiện hơn nhiều cho nhân viên vì gần giao thông công cộng hơn.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "corporate",
+          "supervisor",
+          "promptly",
+          "convenient"
+        ]
+      },
+      {
+        "id": "ex_206",
+        "num": 15,
+        "sentence": "As a market _______ , she is responsible for studying consumer trends and competitor strategies.",
+        "target": "analyst",
+        "full_sentence": "As a market analyst , she is responsible for studying consumer trends and competitor strategies.",
+        "translation": "Là một nhà phân tích thị trường, cô chịu trách nhiệm nghiên cứu xu hướng tiêu dùng và chiến lược của đối thủ cạnh tranh.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "relocate",
+          "analyst",
+          "efficient",
+          "corporate"
+        ]
+      },
+      {
+        "id": "ex_207",
+        "num": 16,
+        "sentence": "Many companies organize _______ events to strengthen teamwork and improve employee morale.",
+        "target": "corporate",
+        "full_sentence": "Many companies organize corporate events to strengthen teamwork and improve employee morale.",
+        "translation": "Nhiều công ty tổ chức các sự kiện của công ty để tăng cường tinh thần đồng đội và nâng cao tinh thần nhân viên.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "promptly",
+          "revenue",
+          "affiliation",
+          "corporate"
+        ]
+      },
+      {
+        "id": "ex_208",
+        "num": 17,
+        "sentence": "Please make sure to respond to customer inquiries _______ to ensure high satisfaction.",
+        "target": "promptly",
+        "full_sentence": "Please make sure to respond to customer inquiries promptly to ensure high satisfaction.",
+        "translation": "Hãy đảm bảo phản hồi kịp thời các thắc mắc của khách hàng để đảm bảo sự hài lòng cao.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "promptly",
+          "contribute",
+          "contractor",
+          "affiliation"
+        ]
+      },
+      {
+        "id": "ex_209",
+        "num": 18,
+        "sentence": "The company posted a _______ on their website for an experienced software developer.",
+        "target": "job opening",
+        "full_sentence": "The company posted a job opening on their website for an experienced software developer.",
+        "translation": "Công ty đã đăng tin tuyển dụng trên trang web của họ cho một nhà phát triển phần mềm có kinh nghiệm.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "enact",
+          "efficient",
+          "supervisor",
+          "job opening"
+        ]
+      },
+      {
+        "id": "ex_210",
+        "num": 19,
+        "sentence": "The government is preparing to _______ new legislation to protect consumers.",
+        "target": "enact",
+        "full_sentence": "The government is preparing to enact new legislation to protect consumers.",
+        "translation": "Chính phủ đang chuẩn bị ban hành luật mới để bảo vệ người tiêu dùng.",
+        "deck_id": "deck_class_unit_6_1_day_18_",
+        "options": [
+          "component",
+          "enact",
+          "analyst",
+          "contribute"
+        ]
+      },
+      {
+        "id": "ex_211",
         "num": 20,
         "sentence": "The new software has made our team much more _______ , allowing us to complete tasks in half the time.",
         "target": "efficient",
+        "full_sentence": "The new software has made our team much more efficient , allowing us to complete tasks in half the time.",
+        "translation": "Phần mềm mới đã giúp nhóm của chúng tôi làm việc hiệu quả hơn nhiều, cho phép chúng tôi hoàn thành nhiệm vụ trong một nửa thời gian.",
         "deck_id": "deck_class_unit_6_1_day_18_",
         "options": [
           "analyst",
-          "supervisor",
-          "efficient",
-          "convenient"
+          "relocate",
+          "component",
+          "efficient"
         ]
       }
-    ]
+    ],
+    "word_count": 20,
+    "exercise_count": 20
   },
   {
     "id": "deck_class_unit_6_2_day_19_",
@@ -14812,8 +19659,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 6.2. (Day 19)",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 6.2. (Day 19)",
-    "word_count": 21,
-    "exercise_count": 21,
     "words": [
       {
         "id": "deck_class_unit_6_2_day_19__w0",
@@ -15049,279 +19894,323 @@ var TOEIC_COURSE_DECKS = [
     ],
     "exercises": [
       {
-        "id": "deck_class_unit_6_2_day_19__ex1",
+        "id": "ex_212",
         "num": 1,
         "sentence": "The company provides financial _______ to its employees to help with unexpected expenses.",
         "target": "assistance",
+        "full_sentence": "The company provides financial assistance to its employees to help with unexpected expenses.",
+        "translation": "Công ty cung cấp hỗ trợ tài chính cho nhân viên của mình để giúp đỡ những chi phí bất ngờ.",
         "deck_id": "deck_class_unit_6_2_day_19_",
         "options": [
           "accompany",
+          "refrigerator",
           "accommodate",
-          "assistance",
-          "permanently"
+          "assistance"
         ]
       },
       {
-        "id": "deck_class_unit_6_2_day_19__ex2",
+        "id": "ex_213",
         "num": 2,
         "sentence": "The hotel can _______ up to 200 guests in its banquet hall for large events.",
-        "target": "annual",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "prevent",
-          "annual",
-          "original",
-          "excavation"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex3",
-        "num": 3,
-        "sentence": "To _______ accidents in the workplace, all employees are required to attend safety training sessions.",
-        "target": "overwhelming",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "prevent",
-          "investment",
-          "negotiate",
-          "overwhelming"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex4",
-        "num": 4,
-        "sentence": "They are working on a _______ solution for the project until the permanent system is implemented.",
         "target": "accommodate",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "refrigerator",
-          "period",
-          "accommodate",
-          "reminder"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex5",
-        "num": 5,
-        "sentence": "I will _______ you to the meeting later today.",
-        "target": "accommodate",
+        "full_sentence": "The hotel can accommodate up to 200 guests in its banquet hall for large events.",
+        "translation": "Khách sạn có thể chứa tới 200 khách trong phòng tiệc cho các sự kiện lớn.",
         "deck_id": "deck_class_unit_6_2_day_19_",
         "options": [
           "sudden",
           "accommodate",
-          "investment",
+          "strategy",
           "transfer"
         ]
       },
       {
-        "id": "deck_class_unit_6_2_day_19__ex6",
-        "num": 6,
-        "sentence": "We need to _______ the important files to the new system before the end of the month.",
-        "target": "accompany",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "temporary",
-          "accompany",
-          "accommodate",
-          "period"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex7",
-        "num": 7,
-        "sentence": "The marketing team needs to come up with a new _______ to increase brand awareness.",
-        "target": "refrigerator",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "senior",
-          "refrigerator",
-          "accompany",
-          "period"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex8",
-        "num": 8,
-        "sentence": "The construction team is currently working on the _______ of the building foundation.",
-        "target": "wrap",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "assistance",
-          "overwhelming",
-          "wrap",
-          "refrigerator"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex9",
-        "num": 9,
-        "sentence": "The client requested an _______ copy of the contract before signing.",
+        "id": "ex_214",
+        "num": 3,
+        "sentence": "To _______ accidents in the workplace, all employees are required to attend safety training sessions.",
         "target": "prevent",
+        "full_sentence": "To prevent accidents in the workplace, all employees are required to attend safety training sessions.",
+        "translation": "Để ngăn ngừa tai nạn tại nơi làm việc, tất cả nhân viên phải tham gia các buổi huấn luyện an toàn.",
         "deck_id": "deck_class_unit_6_2_day_19_",
         "options": [
-          "negotiate",
-          "prevent",
-          "temporary",
-          "accommodate"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex10",
-        "num": 10,
-        "sentence": "Our company hosts an _______ conference every year to bring together industry professionals.",
-        "target": "transfer",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
+          "wrap",
           "prevent",
           "transfer",
-          "accommodate",
+          "permanently"
+        ]
+      },
+      {
+        "id": "ex_215",
+        "num": 4,
+        "sentence": "They are working on a _______ solution for the project until the permanent system is implemented.",
+        "target": "temporary",
+        "full_sentence": "They are working on a temporary solution for the project until the permanent system is implemented.",
+        "translation": "Họ đang nghiên cứu giải pháp tạm thời cho dự án cho đến khi hệ thống lâu dài được triển khai.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "original",
+          "permanently",
+          "temporary",
           "wrap"
         ]
       },
       {
-        "id": "deck_class_unit_6_2_day_19__ex11",
-        "num": 11,
-        "sentence": "The amount of paperwork required for the project was _______ , making it difficult to finish on time.",
-        "target": "reminder",
+        "id": "ex_216",
+        "num": 5,
+        "sentence": "I will _______ you to the meeting later today.",
+        "target": "accompany",
+        "full_sentence": "I will accompany you to the meeting later today.",
+        "translation": "Tôi sẽ đi cùng bạn đến cuộc họp sau ngày hôm nay.",
         "deck_id": "deck_class_unit_6_2_day_19_",
         "options": [
+          "accompany",
           "accommodate",
-          "reminder",
-          "refrigerator",
-          "annual"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex12",
-        "num": 12,
-        "sentence": "The CEO’s _______ experience in the industry has made him an invaluable asset to the company.",
-        "target": "permanently",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "excavation",
-          "reminder",
-          "prevent",
-          "permanently"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex13",
-        "num": 13,
-        "sentence": "The contract is valid for a _______ of three years, after which it will be reviewed.",
-        "target": "excavation",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "accompany",
-          "strategy",
-          "excavation",
-          "senior"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex14",
-        "num": 14,
-        "sentence": "Please take a moment to read this _______ about the upcoming team-building event.",
-        "target": "temporary",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "assistance",
-          "overwhelming",
-          "sudden",
-          "temporary"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex15",
-        "num": 15,
-        "sentence": "There was a _______ change in the meeting schedule, so we had to adjust our plans.",
-        "target": "sudden",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "sudden",
-          "reminder",
-          "transfer",
-          "senior"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex16",
-        "num": 16,
-        "sentence": "She decided to move to another city and stay there _______ for better career opportunities.",
-        "target": "period",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "negotiate",
-          "temporary",
-          "accompany",
-          "period"
-        ]
-      },
-      {
-        "id": "deck_class_unit_6_2_day_19__ex17",
-        "num": 17,
-        "sentence": "The sales manager will _______ the terms of the contract with the supplier next week.",
-        "target": "senior",
-        "deck_id": "deck_class_unit_6_2_day_19_",
-        "options": [
-          "assistance",
-          "senior",
           "annual",
-          "permanently"
+          "reminder"
         ]
       },
       {
-        "id": "deck_class_unit_6_2_day_19__ex18",
-        "num": 18,
-        "sentence": "The ice cream was stored in the _______ to keep it cold during the event.",
-        "target": "strategy",
+        "id": "ex_217",
+        "num": 6,
+        "sentence": "We need to _______ the important files to the new system before the end of the month.",
+        "target": "transfer",
+        "full_sentence": "We need to transfer the important files to the new system before the end of the month.",
+        "translation": "Chúng tôi cần chuyển các tập tin quan trọng sang hệ thống mới trước cuối tháng.",
         "deck_id": "deck_class_unit_6_2_day_19_",
         "options": [
-          "prevent",
-          "accommodate",
           "excavation",
+          "senior",
+          "transfer",
           "strategy"
         ]
       },
       {
-        "id": "deck_class_unit_6_2_day_19__ex19",
-        "num": 19,
-        "sentence": "The board is planning to make a major _______ in expanding the company’s operations.",
-        "target": "original",
+        "id": "ex_218",
+        "num": 7,
+        "sentence": "The marketing team needs to come up with a new _______ to increase brand awareness.",
+        "target": "strategy",
+        "full_sentence": "The marketing team needs to come up with a new strategy to increase brand awareness.",
+        "translation": "Đội ngũ tiếp thị cần đưa ra một chiến lược mới để nâng cao nhận thức về thương hiệu.",
         "deck_id": "deck_class_unit_6_2_day_19_",
         "options": [
+          "accompany",
+          "strategy",
+          "transfer",
+          "period"
+        ]
+      },
+      {
+        "id": "ex_219",
+        "num": 8,
+        "sentence": "The construction team is currently working on the _______ of the building foundation.",
+        "target": "excavation",
+        "full_sentence": "The construction team is currently working on the excavation of the building foundation.",
+        "translation": "Hiện tại, đội thi công đang tiến hành đào móng công trình.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "sudden",
+          "excavation",
           "original",
+          "negotiate"
+        ]
+      },
+      {
+        "id": "ex_220",
+        "num": 9,
+        "sentence": "The client requested an _______ copy of the contract before signing.",
+        "target": "original",
+        "full_sentence": "The client requested an original copy of the contract before signing.",
+        "translation": "Khách hàng yêu cầu bản gốc hợp đồng trước khi ký.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "negotiate",
+          "permanently",
+          "original",
+          "transfer"
+        ]
+      },
+      {
+        "id": "ex_221",
+        "num": 10,
+        "sentence": "Our company hosts an _______ conference every year to bring together industry professionals.",
+        "target": "annual",
+        "full_sentence": "Our company hosts an annual conference every year to bring together industry professionals.",
+        "translation": "Công ty chúng tôi tổ chức hội nghị thường niên hàng năm để quy tụ các chuyên gia trong ngành.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "accompany",
+          "annual",
+          "reminder",
+          "accommodate"
+        ]
+      },
+      {
+        "id": "ex_222",
+        "num": 11,
+        "sentence": "The amount of paperwork required for the project was _______ , making it difficult to finish on time.",
+        "target": "overwhelming",
+        "full_sentence": "The amount of paperwork required for the project was overwhelming , making it difficult to finish on time.",
+        "translation": "Số lượng giấy tờ cần thiết cho dự án quá nhiều, khiến việc hoàn thành đúng hạn trở nên khó khăn.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "accommodate",
           "overwhelming",
+          "temporary",
+          "wrap"
+        ]
+      },
+      {
+        "id": "ex_223",
+        "num": 12,
+        "sentence": "The CEO’s _______ experience in the industry has made him an invaluable asset to the company.",
+        "target": "senior",
+        "full_sentence": "The CEO’s senior experience in the industry has made him an invaluable asset to the company.",
+        "translation": "Kinh nghiệm cấp cao của vị CEO này trong ngành đã giúp ông trở thành tài sản vô giá đối với công ty.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "permanently",
+          "senior",
+          "temporary",
+          "assistance"
+        ]
+      },
+      {
+        "id": "ex_224",
+        "num": 13,
+        "sentence": "The contract is valid for a _______ of three years, after which it will be reviewed.",
+        "target": "period",
+        "full_sentence": "The contract is valid for a period of three years, after which it will be reviewed.",
+        "translation": "Hợp đồng có thời hạn 3 năm, sau đó sẽ được xem xét lại.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "period",
+          "sudden",
+          "wrap",
+          "reminder"
+        ]
+      },
+      {
+        "id": "ex_225",
+        "num": 14,
+        "sentence": "Please take a moment to read this _______ about the upcoming team-building event.",
+        "target": "reminder",
+        "full_sentence": "Please take a moment to read this reminder about the upcoming team-building event.",
+        "translation": "Vui lòng dành chút thời gian để đọc lời nhắc này về sự kiện xây dựng đội nhóm sắp tới.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "reminder",
+          "refrigerator",
+          "transfer",
+          "negotiate"
+        ]
+      },
+      {
+        "id": "ex_226",
+        "num": 15,
+        "sentence": "There was a _______ change in the meeting schedule, so we had to adjust our plans.",
+        "target": "sudden",
+        "full_sentence": "There was a sudden change in the meeting schedule, so we had to adjust our plans.",
+        "translation": "Có sự thay đổi đột ngột trong lịch họp nên chúng tôi phải điều chỉnh kế hoạch.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "investment",
+          "sudden",
           "permanently",
           "strategy"
         ]
       },
       {
-        "id": "deck_class_unit_6_2_day_19__ex20",
-        "num": 20,
-        "sentence": "Don’t forget to _______ the gifts before the party begins.",
-        "target": "negotiate",
+        "id": "ex_227",
+        "num": 16,
+        "sentence": "She decided to move to another city and stay there _______ for better career opportunities.",
+        "target": "permanently",
+        "full_sentence": "She decided to move to another city and stay there permanently for better career opportunities.",
+        "translation": "Cô quyết định chuyển đến một thành phố khác và ở lại đó lâu dài để có cơ hội nghề nghiệp tốt hơn.",
         "deck_id": "deck_class_unit_6_2_day_19_",
         "options": [
-          "period",
-          "assistance",
-          "negotiate",
-          "sudden"
+          "permanently",
+          "original",
+          "accommodate",
+          "transfer"
         ]
       },
       {
-        "id": "deck_class_unit_6_2_day_19__ex21",
-        "num": 21,
-        "sentence": "The new office building is designed to _______ the needs of a growing workforce.",
-        "target": "investment",
+        "id": "ex_228",
+        "num": 17,
+        "sentence": "The sales manager will _______ the terms of the contract with the supplier next week.",
+        "target": "negotiate",
+        "full_sentence": "The sales manager will negotiate the terms of the contract with the supplier next week.",
+        "translation": "Giám đốc bán hàng sẽ đàm phán các điều khoản của hợp đồng với nhà cung cấp vào tuần tới.",
         "deck_id": "deck_class_unit_6_2_day_19_",
         "options": [
-          "sudden",
-          "temporary",
-          "investment",
-          "senior"
+          "original",
+          "negotiate",
+          "accompany",
+          "reminder"
+        ]
+      },
+      {
+        "id": "ex_229",
+        "num": 18,
+        "sentence": "The ice cream was stored in the _______ to keep it cold during the event.",
+        "target": "refrigerator",
+        "full_sentence": "The ice cream was stored in the refrigerator to keep it cold during the event.",
+        "translation": "Kem được bảo quản trong tủ lạnh để giữ lạnh trong thời gian diễn ra sự kiện.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "overwhelming",
+          "refrigerator",
+          "assistance",
+          "negotiate"
+        ]
+      },
+      {
+        "id": "ex_230",
+        "num": 19,
+        "sentence": "The board is planning to make a major _______ in expanding the company’s operations.",
+        "target": "investment",
+        "full_sentence": "The board is planning to make a major investment in expanding the company’s operations.",
+        "translation": "Hội đồng quản trị đang có kế hoạch đầu tư lớn vào việc mở rộng hoạt động của công ty.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "reminder",
+          "excavation",
+          "accompany",
+          "investment"
+        ]
+      },
+      {
+        "id": "ex_231",
+        "num": 20,
+        "sentence": "Don’t forget to _______ the gifts before the party begins.",
+        "target": "wrap",
+        "full_sentence": "Don’t forget to wrap the gifts before the party begins.",
+        "translation": "Đừng quên gói quà trước khi bữa tiệc bắt đầu.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "assistance",
+          "refrigerator",
+          "wrap",
+          "negotiate"
+        ]
+      },
+      {
+        "id": "ex_232",
+        "num": 21,
+        "sentence": "The new office building is designed to _______ the needs of a growing workforce.",
+        "target": "accommodate",
+        "full_sentence": "The new office building is designed to accommodate the needs of a growing workforce.",
+        "translation": "Tòa nhà văn phòng mới được thiết kế để đáp ứng nhu cầu của lực lượng lao động ngày càng tăng.",
+        "deck_id": "deck_class_unit_6_2_day_19_",
+        "options": [
+          "accommodate",
+          "period",
+          "reminder",
+          "annual"
         ]
       }
-    ]
+    ],
+    "word_count": 21,
+    "exercise_count": 21
   },
   {
     "id": "deck_class_unit_7_1",
@@ -15330,8 +20219,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 7.1",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 7.1",
-    "word_count": 20,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_class_unit_7_1_w0",
@@ -15554,7 +20441,310 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Unit 7.1"
       }
     ],
-    "exercises": []
+    "exercises": [
+      {
+        "id": "ex_233",
+        "num": 1,
+        "sentence": "The marketing team plans to _______ the new product line at the upcoming trade fair.",
+        "target": "launch",
+        "full_sentence": "The marketing team plans to launch the new product line at the upcoming trade fair.",
+        "translation": "Đội ngũ tiếp thị dự định ra mắt dòng sản phẩm mới tại hội chợ thương mại sắp tới.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "admission",
+          "launch",
+          "consumption",
+          "yield"
+        ]
+      },
+      {
+        "id": "ex_234",
+        "num": 2,
+        "sentence": "The company has committed to improving the _______ of its supply chain by reducing waste and emissions.",
+        "target": "sustainability",
+        "full_sentence": "The company has committed to improving the sustainability of its supply chain by reducing waste and emissions.",
+        "translation": "Công ty đã cam kết cải thiện tính bền vững của chuỗi cung ứng bằng cách giảm chất thải và khí thải.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "inquiry",
+          "memorable",
+          "carpet",
+          "sustainability"
+        ]
+      },
+      {
+        "id": "ex_235",
+        "num": 3,
+        "sentence": "Please _______ a copy of your identification with the application form.",
+        "target": "enclose",
+        "full_sentence": "Please enclose a copy of your identification with the application form.",
+        "translation": "Vui lòng gửi kèm bản sao giấy tờ tùy thân của bạn cùng với mẫu đơn.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "memorable",
+          "yield",
+          "enclose",
+          "identify"
+        ]
+      },
+      {
+        "id": "ex_236",
+        "num": 4,
+        "sentence": "The architect is working to design _______ housing options for low-income families.",
+        "target": "affordable",
+        "full_sentence": "The architect is working to design affordable housing options for low-income families.",
+        "translation": "Kiến trúc sư đang làm việc để thiết kế các lựa chọn nhà ở giá cả phải chăng cho các gia đình có thu nhập thấp.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "imagine",
+          "affordable",
+          "consultant",
+          "assurance"
+        ]
+      },
+      {
+        "id": "ex_237",
+        "num": 5,
+        "sentence": "The financial _______ was hired to provide advice on investment opportunities.",
+        "target": "consultant",
+        "full_sentence": "The financial consultant was hired to provide advice on investment opportunities.",
+        "translation": "Nhà tư vấn tài chính được thuê để đưa ra lời khuyên về các cơ hội đầu tư.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "enclose",
+          "memorable",
+          "inquiry",
+          "consultant"
+        ]
+      },
+      {
+        "id": "ex_238",
+        "num": 6,
+        "sentence": "The _______ of sugar in processed foods has raised concerns about health risks.",
+        "target": "consumption",
+        "full_sentence": "The consumption of sugar in processed foods has raised concerns about health risks.",
+        "translation": "Việc tiêu thụ đường trong thực phẩm chế biến sẵn đã làm dấy lên mối lo ngại về nguy cơ sức khỏe.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "consumption",
+          "substantial",
+          "dedicate",
+          "enclose"
+        ]
+      },
+      {
+        "id": "ex_239",
+        "num": 7,
+        "sentence": "The accountant requested the latest financial _______ to prepare the company’s annual report.",
+        "target": "statement",
+        "full_sentence": "The accountant requested the latest financial statement to prepare the company’s annual report.",
+        "translation": "Kế toán yêu cầu báo cáo tài chính mới nhất để lập báo cáo thường niên của công ty.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "carpet",
+          "facilitator",
+          "assurance",
+          "statement"
+        ]
+      },
+      {
+        "id": "ex_240",
+        "num": 8,
+        "sentence": "The soft _______ in the living room was replaced with hardwood flooring last week.",
+        "target": "carpet",
+        "full_sentence": "The soft carpet in the living room was replaced with hardwood flooring last week.",
+        "translation": "Tấm thảm mềm trong phòng khách đã được thay thế bằng sàn gỗ cứng vào tuần trước.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "sustainability",
+          "consumption",
+          "imagine",
+          "carpet"
+        ]
+      },
+      {
+        "id": "ex_241",
+        "num": 9,
+        "sentence": "Employees are required to adhere to the safety _______ established by the company.",
+        "target": "regulation",
+        "full_sentence": "Employees are required to adhere to the safety regulation established by the company.",
+        "translation": "Nhân viên được yêu cầu phải tuân thủ các quy định an toàn do công ty thiết lập.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "regulation",
+          "facilitator",
+          "consumption",
+          "carpet"
+        ]
+      },
+      {
+        "id": "ex_242",
+        "num": 10,
+        "sentence": "The technician was able to _______ the problem with the machine and fix it quickly.",
+        "target": "identify",
+        "full_sentence": "The technician was able to identify the problem with the machine and fix it quickly.",
+        "translation": "Kỹ thuật viên đã xác định được vấn đề của máy và khắc phục nhanh chóng.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "carpet",
+          "assurance",
+          "consumption",
+          "identify"
+        ]
+      },
+      {
+        "id": "ex_243",
+        "num": 11,
+        "sentence": "The workshop _______ ensured that all participants had a chance to share their ideas.",
+        "target": "facilitator",
+        "full_sentence": "The workshop facilitator ensured that all participants had a chance to share their ideas.",
+        "translation": "Người điều hành hội thảo đảm bảo rằng tất cả những người tham gia đều có cơ hội chia sẻ ý tưởng của mình.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "statement",
+          "dedicate",
+          "facilitator",
+          "launch"
+        ]
+      },
+      {
+        "id": "ex_244",
+        "num": 12,
+        "sentence": "We are conducting an _______ to determine the cause of the delay in production.",
+        "target": "inquiry",
+        "full_sentence": "We are conducting an inquiry to determine the cause of the delay in production.",
+        "translation": "Chúng tôi đang tiến hành một cuộc điều tra để xác định nguyên nhân gây ra sự chậm trễ trong sản xuất.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "inquiry",
+          "consultant",
+          "imagine",
+          "substantial"
+        ]
+      },
+      {
+        "id": "ex_245",
+        "num": 13,
+        "sentence": "The _______ profit from the investment has exceeded initial expectations.",
+        "target": "substantial",
+        "full_sentence": "The substantial profit from the investment has exceeded initial expectations.",
+        "translation": "Lợi nhuận đáng kể từ khoản đầu tư đã vượt quá mong đợi ban đầu.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "substantial",
+          "yield",
+          "identify",
+          "imagine"
+        ]
+      },
+      {
+        "id": "ex_246",
+        "num": 14,
+        "sentence": "The museum offers free _______ on the first Sunday of every month.",
+        "target": "admission",
+        "full_sentence": "The museum offers free admission on the first Sunday of every month.",
+        "translation": "Bảo tàng cung cấp vé vào cửa miễn phí vào Chủ nhật đầu tiên hàng tháng.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "consultant",
+          "inquiry",
+          "affordable",
+          "admission"
+        ]
+      },
+      {
+        "id": "ex_247",
+        "num": 15,
+        "sentence": "The CEO promised to _______ more resources to improving employee training programs.",
+        "target": "dedicate",
+        "full_sentence": "The CEO promised to dedicate more resources to improving employee training programs.",
+        "translation": "Giám đốc điều hành hứa sẽ dành nhiều nguồn lực hơn để cải thiện các chương trình đào tạo nhân viên.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "consultant",
+          "inquiry",
+          "dedicate",
+          "enclose"
+        ]
+      },
+      {
+        "id": "ex_248",
+        "num": 16,
+        "sentence": "It’s hard to _______ the impact this breakthrough technology will have on our daily lives.",
+        "target": "imagine",
+        "full_sentence": "It’s hard to imagine the impact this breakthrough technology will have on our daily lives.",
+        "translation": "Thật khó để tưởng tượng tác động của công nghệ đột phá này đối với cuộc sống hàng ngày của chúng ta.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "consultant",
+          "admission",
+          "imagine",
+          "enclose"
+        ]
+      },
+      {
+        "id": "ex_249",
+        "num": 17,
+        "sentence": "The advertisement had a strong _______ on public opinion about the product.",
+        "target": "influence",
+        "full_sentence": "The advertisement had a strong influence on public opinion about the product.",
+        "translation": "Quảng cáo đã có tác động mạnh mẽ đến dư luận về sản phẩm.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "influence",
+          "sustainability",
+          "dedicate",
+          "substantial"
+        ]
+      },
+      {
+        "id": "ex_250",
+        "num": 18,
+        "sentence": "The team worked hard to make the event a truly _______ experience for all the attendees.",
+        "target": "memorable",
+        "full_sentence": "The team worked hard to make the event a truly memorable experience for all the attendees.",
+        "translation": "Nhóm đã làm việc chăm chỉ để biến sự kiện thành một trải nghiệm thực sự đáng nhớ cho tất cả những người tham dự.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "consultant",
+          "imagine",
+          "affordable",
+          "memorable"
+        ]
+      },
+      {
+        "id": "ex_251",
+        "num": 19,
+        "sentence": "Farmers hope that this season’s harvest will _______ enough to cover their expenses.",
+        "target": "yield",
+        "full_sentence": "Farmers hope that this season’s harvest will yield enough to cover their expenses.",
+        "translation": "Nông dân hy vọng vụ thu hoạch mùa này sẽ đủ năng suất để trang trải chi phí.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "affordable",
+          "yield",
+          "substantial",
+          "statement"
+        ]
+      },
+      {
+        "id": "ex_252",
+        "num": 20,
+        "sentence": "The manager gave her _______ that the project would be completed on time.",
+        "target": "assurance",
+        "full_sentence": "The manager gave her assurance that the project would be completed on time.",
+        "translation": "Người quản lý đã đảm bảo với cô rằng dự án sẽ được hoàn thành đúng thời hạn.",
+        "deck_id": "deck_class_unit_7_1",
+        "options": [
+          "regulation",
+          "identify",
+          "assurance",
+          "admission"
+        ]
+      }
+    ],
+    "word_count": 20,
+    "exercise_count": 20
   },
   {
     "id": "deck_class_unit_7_2",
@@ -15563,8 +20753,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 7.2",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 7.2",
-    "word_count": 22,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_class_unit_7_2_w0",
@@ -15809,7 +20997,340 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Unit 7.2"
       }
     ],
-    "exercises": []
+    "exercises": [
+      {
+        "id": "ex_253",
+        "num": 1,
+        "sentence": "The new _______ was designed to efficiently transport goods between floors of the building.",
+        "target": "elevator",
+        "full_sentence": "The new elevator was designed to efficiently transport goods between floors of the building.",
+        "translation": "Thang máy mới được thiết kế để vận chuyển hàng hóa giữa các tầng của tòa nhà một cách hiệu quả.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "cashier",
+          "propose",
+          "retail",
+          "elevator"
+        ]
+      },
+      {
+        "id": "ex_254",
+        "num": 2,
+        "sentence": "The manager was quick to _______ her outstanding performance during the meeting.",
+        "target": "recognize",
+        "full_sentence": "The manager was quick to recognize her outstanding performance during the meeting.",
+        "translation": "Người quản lý đã nhanh chóng nhận ra thành tích xuất sắc của cô trong cuộc họp.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "neglect",
+          "recognize",
+          "sponsor",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_255",
+        "num": 3,
+        "sentence": "Our magazine offers a one-year _______ that includes access to exclusive content.",
+        "target": "subscription",
+        "full_sentence": "Our magazine offers a one-year subscription that includes access to exclusive content.",
+        "translation": "Tạp chí của chúng tôi cung cấp gói đăng ký một năm bao gồm quyền truy cập vào nội dung độc quyền.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "neglect",
+          "propose",
+          "freight",
+          "subscription"
+        ]
+      },
+      {
+        "id": "ex_256",
+        "num": 4,
+        "sentence": "The _______ thanked the customer for paying promptly at the checkout counter.",
+        "target": "cashier",
+        "full_sentence": "The cashier thanked the customer for paying promptly at the checkout counter.",
+        "translation": "Nhân viên thu ngân cảm ơn khách hàng đã thanh toán kịp thời tại quầy tính tiền.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "cashier",
+          "resident",
+          "freight",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_257",
+        "num": 5,
+        "sentence": "The art gallery relies on donations from a corporate _______ to fund its exhibitions.",
+        "target": "sponsor",
+        "full_sentence": "The art gallery relies on donations from a corporate sponsor to fund its exhibitions.",
+        "translation": "Phòng trưng bày nghệ thuật dựa vào sự quyên góp từ một nhà tài trợ doanh nghiệp để tài trợ cho các cuộc triển lãm của mình.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "reference",
+          "sponsor",
+          "elevator",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_258",
+        "num": 6,
+        "sentence": "The manager asked the team to _______ a solution to reduce shipping costs.",
+        "target": "propose",
+        "full_sentence": "The manager asked the team to propose a solution to reduce shipping costs.",
+        "translation": "Người quản lý yêu cầu nhóm đề xuất giải pháp giảm chi phí vận chuyển.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "standard",
+          "sponsor",
+          "subscription",
+          "propose"
+        ]
+      },
+      {
+        "id": "ex_259",
+        "num": 7,
+        "sentence": "The report must include proper _______ to all the sources used in the analysis.",
+        "target": "references",
+        "full_sentence": "The report must include proper references to all the sources used in the analysis.",
+        "translation": "Báo cáo phải bao gồm các tài liệu tham khảo thích hợp cho tất cả các nguồn được sử dụng trong phân tích.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "reference",
+          "sponsor",
+          "references",
+          "warehouse"
+        ]
+      },
+      {
+        "id": "ex_260",
+        "num": 8,
+        "sentence": "The _______ of the neighborhood have been invited to the town hall meeting.",
+        "target": "residents",
+        "full_sentence": "The residents of the neighborhood have been invited to the town hall meeting.",
+        "translation": "Người dân trong khu phố đã được mời đến cuộc họp ở tòa thị chính.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "sponsor",
+          "reference",
+          "freight",
+          "residents"
+        ]
+      },
+      {
+        "id": "ex_261",
+        "num": 9,
+        "sentence": "The retail chain is planning to open a large _______ to store surplus inventory.",
+        "target": "warehouse",
+        "full_sentence": "The retail chain is planning to open a large warehouse to store surplus inventory.",
+        "translation": "Chuỗi bán lẻ đang có kế hoạch mở một nhà kho lớn để lưu trữ hàng tồn kho dư thừa.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "sample",
+          "sponsor",
+          "boost",
+          "warehouse"
+        ]
+      },
+      {
+        "id": "ex_262",
+        "num": 10,
+        "sentence": "Customers can request a free _______ of the product before making a purchase.",
+        "target": "sample",
+        "full_sentence": "Customers can request a free sample of the product before making a purchase.",
+        "translation": "Khách hàng có thể yêu cầu dùng thử sản phẩm miễn phí trước khi mua hàng.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "in advance",
+          "boost",
+          "sample",
+          "sponsor"
+        ]
+      },
+      {
+        "id": "ex_263",
+        "num": 11,
+        "sentence": "International shipping fees include additional charges for _______ transportation.",
+        "target": "freight",
+        "full_sentence": "International shipping fees include additional charges for freight transportation.",
+        "translation": "Phí vận chuyển quốc tế bao gồm các khoản phí bổ sung cho vận chuyển hàng hóa.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "landscape",
+          "freight",
+          "neglect",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_264",
+        "num": 12,
+        "sentence": "The company aims to _______ employee satisfaction by offering better benefits.",
+        "target": "boost",
+        "full_sentence": "The company aims to boost employee satisfaction by offering better benefits.",
+        "translation": "Công ty đặt mục tiêu nâng cao sự hài lòng của nhân viên bằng cách cung cấp các phúc lợi tốt hơn.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "warehouse",
+          "boost",
+          "standard",
+          "retail"
+        ]
+      },
+      {
+        "id": "ex_265",
+        "num": 13,
+        "sentence": "The team was praised for their _______ and willingness to work together on the project.",
+        "target": "cooperation",
+        "full_sentence": "The team was praised for their cooperation and willingness to work together on the project.",
+        "translation": "Nhóm được khen ngợi vì sự hợp tác và sẵn sàng làm việc cùng nhau trong dự án.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "elevator",
+          "cooperation",
+          "in advance",
+          "cashier"
+        ]
+      },
+      {
+        "id": "ex_266",
+        "num": 14,
+        "sentence": "New policies were implemented to ensure a higher _______ of customer service.",
+        "target": "standard",
+        "full_sentence": "New policies were implemented to ensure a higher standard of customer service.",
+        "translation": "Các chính sách mới đã được thực hiện để đảm bảo tiêu chuẩn dịch vụ khách hàng cao hơn.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "standard",
+          "boost",
+          "warehouse",
+          "sample"
+        ]
+      },
+      {
+        "id": "ex_267",
+        "num": 15,
+        "sentence": "The _______ market has been growing rapidly due to the rise in online shopping.",
+        "target": "retail",
+        "full_sentence": "The retail market has been growing rapidly due to the rise in online shopping.",
+        "translation": "Thị trường bán lẻ đang phát triển nhanh chóng nhờ sự gia tăng mua sắm trực tuyến.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "neglect",
+          "reference",
+          "boost",
+          "retail"
+        ]
+      },
+      {
+        "id": "ex_268",
+        "num": 16,
+        "sentence": "Please book your tickets _______ to secure the best rates.",
+        "target": "in advance",
+        "full_sentence": "Please book your tickets in advance to secure the best rates.",
+        "translation": "Vui lòng đặt vé trước để có được mức giá tốt nhất.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "cashier",
+          "in advance",
+          "sample",
+          "freight"
+        ]
+      },
+      {
+        "id": "ex_269",
+        "num": 17,
+        "sentence": "The garden’s stunning _______ was designed by a renowned architect.",
+        "target": "landscape",
+        "full_sentence": "The garden’s stunning landscape was designed by a renowned architect.",
+        "translation": "Cảnh quan tuyệt đẹp của khu vườn được thiết kế bởi một kiến ​​trúc sư nổi tiếng.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "reference",
+          "landscape",
+          "freight",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_270",
+        "num": 18,
+        "sentence": "The manager warned the team not to _______ their responsibilities during the busy season.",
+        "target": "neglect",
+        "full_sentence": "The manager warned the team not to neglect their responsibilities during the busy season.",
+        "translation": "Người quản lý cảnh báo toàn đội không được lơ là trách nhiệm trong mùa giải bận rộn.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "cashier",
+          "cooperation",
+          "neglect",
+          "reference"
+        ]
+      },
+      {
+        "id": "ex_271",
+        "num": 19,
+        "sentence": "This training session is designed _______ for managers and team leaders.",
+        "target": "solely",
+        "full_sentence": "This training session is designed solely for managers and team leaders.",
+        "translation": "Buổi đào tạo này được thiết kế dành riêng cho người quản lý và trưởng nhóm.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "solely",
+          "reference",
+          "experience",
+          "subscription"
+        ]
+      },
+      {
+        "id": "ex_272",
+        "num": 20,
+        "sentence": "She has extensive _______ in handling customer complaints and resolving conflicts.",
+        "target": "experience",
+        "full_sentence": "She has extensive experience in handling customer complaints and resolving conflicts.",
+        "translation": "Cô có nhiều kinh nghiệm trong việc giải quyết khiếu nại của khách hàng và giải quyết xung đột.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "cooperation",
+          "sponsor",
+          "warehouse",
+          "experience"
+        ]
+      },
+      {
+        "id": "ex_273",
+        "num": 21,
+        "sentence": "The company is looking for candidates who have _______ working in a fast-paced environment.",
+        "target": "experience",
+        "full_sentence": "The company is looking for candidates who have experience working in a fast-paced environment.",
+        "translation": "Công ty đang tìm kiếm những ứng viên có kinh nghiệm làm việc trong môi trường có nhịp độ nhanh.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "sample",
+          "experience",
+          "solely",
+          "subscription"
+        ]
+      },
+      {
+        "id": "ex_274",
+        "num": 22,
+        "sentence": "The company has agreed to _______ the local sports team for the upcoming season.",
+        "target": "sponsor",
+        "full_sentence": "The company has agreed to sponsor the local sports team for the upcoming season.",
+        "translation": "Công ty đã đồng ý tài trợ cho đội thể thao địa phương trong mùa giải sắp tới.",
+        "deck_id": "deck_class_unit_7_2",
+        "options": [
+          "reference",
+          "neglect",
+          "sponsor",
+          "sample"
+        ]
+      }
+    ],
+    "word_count": 22,
+    "exercise_count": 22
   },
   {
     "id": "deck_class_unit_7_3",
@@ -15818,8 +21339,6 @@ var TOEIC_COURSE_DECKS = [
     "name": "Unit 7.3",
     "icon": "📘",
     "desc": "Từ vựng trọng tâm lớp học: Unit 7.3",
-    "word_count": 21,
-    "exercise_count": 0,
     "words": [
       {
         "id": "deck_class_unit_7_3_w0",
@@ -16053,8 +21572,328 @@ var TOEIC_COURSE_DECKS = [
         "deck_name": "Unit 7.3"
       }
     ],
-    "exercises": []
+    "exercises": [
+      {
+        "id": "ex_275",
+        "num": 1,
+        "sentence": "Please turn off your phone during the meeting so that it can’t _______ you from the presentation.",
+        "target": "distract",
+        "full_sentence": "Please turn off your phone during the meeting so that it can’t distract you from the presentation.",
+        "translation": "Vui lòng tắt điện thoại trong cuộc họp để nó không làm bạn mất tập trung vào bài thuyết trình.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "transition",
+          "remodel",
+          "distract",
+          "secure"
+        ]
+      },
+      {
+        "id": "ex_276",
+        "num": 2,
+        "sentence": "The professor gave an insightful _______ on the topic of climate change.",
+        "target": "lecture",
+        "full_sentence": "The professor gave an insightful lecture on the topic of climate change.",
+        "translation": "Giáo sư đã có một bài giảng sâu sắc về chủ đề biến đổi khí hậu.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "delighted",
+          "investigate",
+          "positive",
+          "lecture"
+        ]
+      },
+      {
+        "id": "ex_277",
+        "num": 3,
+        "sentence": "The new furniture is designed to be _______ and last for many years.",
+        "target": "durable",
+        "full_sentence": "The new furniture is designed to be durable and last for many years.",
+        "translation": "Đồ nội thất mới được thiết kế để có độ bền cao và tồn tại trong nhiều năm.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "remodel",
+          "durable",
+          "venue",
+          "specialize in"
+        ]
+      },
+      {
+        "id": "ex_278",
+        "num": 4,
+        "sentence": "The university is an esteemed _______ known for its cutting-edge research.",
+        "target": "institution",
+        "full_sentence": "The university is an esteemed institution known for its cutting-edge research.",
+        "translation": "Trường đại học này là một tổ chức danh tiếng được biết đến với những nghiên cứu tiên tiến.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "institution",
+          "investigate",
+          "trouble",
+          "overview"
+        ]
+      },
+      {
+        "id": "ex_279",
+        "num": 5,
+        "sentence": "I’m _______ to inform you that you’ve been selected for the final round of the interview process.",
+        "target": "delighted",
+        "full_sentence": "I’m delighted to inform you that you’ve been selected for the final round of the interview process.",
+        "translation": "Tôi vui mừng thông báo với bạn rằng bạn đã được chọn vào vòng cuối cùng của quá trình phỏng vấn.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "investigate",
+          "delighted",
+          "donation",
+          "secure"
+        ]
+      },
+      {
+        "id": "ex_280",
+        "num": 6,
+        "sentence": "The _______ of the book will be giving a lecture on the topics discussed in her latest publication.",
+        "target": "author",
+        "full_sentence": "The author of the book will be giving a lecture on the topics discussed in her latest publication.",
+        "translation": "Tác giả của cuốn sách sẽ thuyết trình về các chủ đề được thảo luận trong ấn phẩm mới nhất của cô.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "specialize in",
+          "exclusive",
+          "author",
+          "transition"
+        ]
+      },
+      {
+        "id": "ex_281",
+        "num": 7,
+        "sentence": "At the beginning of the presentation, the manager gave a brief _______ of the company's financial performance.",
+        "target": "overview",
+        "full_sentence": "At the beginning of the presentation, the manager gave a brief overview of the company's financial performance.",
+        "translation": "Khi bắt đầu bài thuyết trình, người quản lý đã trình bày tổng quan ngắn gọn về kết quả hoạt động tài chính của công ty.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "overview",
+          "inventory",
+          "author",
+          "transition"
+        ]
+      },
+      {
+        "id": "ex_282",
+        "num": 8,
+        "sentence": "The _______ of the store’s products is updated regularly to avoid shortages.",
+        "target": "inventory",
+        "full_sentence": "The inventory of the store’s products is updated regularly to avoid shortages.",
+        "translation": "Kho sản phẩm của cửa hàng được cập nhật thường xuyên để tránh tình trạng thiếu hàng.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "inventory",
+          "secure",
+          "overview",
+          "antique"
+        ]
+      },
+      {
+        "id": "ex_283",
+        "num": 9,
+        "sentence": "The police are trying to _______ the cause of the recent fire in the building.",
+        "target": "investigate",
+        "full_sentence": "The police are trying to investigate the cause of the recent fire in the building.",
+        "translation": "Cảnh sát đang cố gắng điều tra nguyên nhân vụ cháy gần đây tại tòa nhà.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "investigate",
+          "institution",
+          "delighted",
+          "create"
+        ]
+      },
+      {
+        "id": "ex_284",
+        "num": 10,
+        "sentence": "The new art gallery is offering an _______ collection of rare and valuable pieces.",
+        "target": "exclusive",
+        "full_sentence": "The new art gallery is offering an exclusive collection of rare and valuable pieces.",
+        "translation": "Phòng trưng bày nghệ thuật mới đang cung cấp một bộ sưu tập độc quyền các tác phẩm quý hiếm.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "exclusive",
+          "inventory",
+          "secure",
+          "durable"
+        ]
+      },
+      {
+        "id": "ex_285",
+        "num": 11,
+        "sentence": "The staff is working to _______ a better customer experience for all visitors.",
+        "target": "create",
+        "full_sentence": "The staff is working to create a better customer experience for all visitors.",
+        "translation": "Các nhân viên đang làm việc để tạo ra trải nghiệm khách hàng tốt hơn cho tất cả du khách.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "remodel",
+          "positive",
+          "specialize in",
+          "create"
+        ]
+      },
+      {
+        "id": "ex_286",
+        "num": 12,
+        "sentence": "The charity event raised a large amount of money thanks to the generous _______ from local businesses.",
+        "target": "donation",
+        "full_sentence": "The charity event raised a large amount of money thanks to the generous donation from local businesses.",
+        "translation": "Sự kiện từ thiện đã quyên góp được số tiền lớn nhờ sự đóng góp hào phóng từ các doanh nghiệp địa phương.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "donation",
+          "investigate",
+          "secure",
+          "venue"
+        ]
+      },
+      {
+        "id": "ex_287",
+        "num": 13,
+        "sentence": "She plans to _______ financial analysis after completing her studies.",
+        "target": "specialize in",
+        "full_sentence": "She plans to specialize in financial analysis after completing her studies.",
+        "translation": "Cô dự định sẽ chuyên sâu về phân tích tài chính sau khi hoàn thành chương trình học của mình.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "specialize in",
+          "exclusive",
+          "donation",
+          "overview"
+        ]
+      },
+      {
+        "id": "ex_288",
+        "num": 14,
+        "sentence": "The company is currently in the process of making a smooth _______ from a traditional business model to a more digital approach.",
+        "target": "transition",
+        "full_sentence": "The company is currently in the process of making a smooth transition from a traditional business model to a more digital approach.",
+        "translation": "Công ty hiện đang trong quá trình chuyển đổi suôn sẻ từ mô hình kinh doanh truyền thống sang cách tiếp cận kỹ thuật số hơn.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "secure",
+          "remodel",
+          "transition",
+          "inventory"
+        ]
+      },
+      {
+        "id": "ex_289",
+        "num": 15,
+        "sentence": "The manager gave _______ feedback on the team's performance after the project was completed.",
+        "target": "positive",
+        "full_sentence": "The manager gave positive feedback on the team's performance after the project was completed.",
+        "translation": "Người quản lý đã đưa ra phản hồi tích cực về hiệu suất của nhóm sau khi dự án hoàn thành.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "venue",
+          "distract",
+          "exclusive",
+          "positive"
+        ]
+      },
+      {
+        "id": "ex_290",
+        "num": 16,
+        "sentence": "Please let me know if you are facing any _______ with your account so we can resolve them.",
+        "target": "trouble",
+        "full_sentence": "Please let me know if you are facing any trouble with your account so we can resolve them.",
+        "translation": "Vui lòng cho tôi biết nếu bạn đang gặp bất kỳ sự cố nào với tài khoản của mình để chúng tôi có thể giải quyết chúng.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "author",
+          "remodel",
+          "trouble",
+          "specialize in"
+        ]
+      },
+      {
+        "id": "ex_291",
+        "num": 17,
+        "sentence": "The conference will be held at a prestigious _______ in the heart of the city.",
+        "target": "venue",
+        "full_sentence": "The conference will be held at a prestigious venue in the heart of the city.",
+        "translation": "Hội nghị sẽ được tổ chức tại một địa điểm uy tín ngay trung tâm thành phố.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "institution",
+          "donation",
+          "venue",
+          "delighted"
+        ]
+      },
+      {
+        "id": "ex_292",
+        "num": 18,
+        "sentence": "We are considering to _______ the old office to better meet the needs of our employees.",
+        "target": "remodel",
+        "full_sentence": "We are considering to remodel the old office to better meet the needs of our employees.",
+        "translation": "Chúng tôi đang xem xét việc sửa sang lại văn phòng cũ để đáp ứng tốt hơn nhu cầu của nhân viên.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "exclusive",
+          "venue",
+          "transition",
+          "remodel"
+        ]
+      },
+      {
+        "id": "ex_293",
+        "num": 19,
+        "sentence": "She inherited an _______ clock from her grandparents, which has been in the family for generations.",
+        "target": "antique",
+        "full_sentence": "She inherited an antique clock from her grandparents, which has been in the family for generations.",
+        "translation": "Cô được thừa hưởng một chiếc đồng hồ cổ từ ông bà, chiếc đồng hồ này đã được gia đình lưu giữ qua nhiều thế hệ.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "positive",
+          "lecture",
+          "overview",
+          "antique"
+        ]
+      },
+      {
+        "id": "ex_294",
+        "num": 20,
+        "sentence": "After several rounds of negotiations, the company was able to _______ a major contract with a new client.",
+        "target": "secure",
+        "full_sentence": "After several rounds of negotiations, the company was able to secure a major contract with a new client.",
+        "translation": "Sau nhiều vòng đàm phán, công ty đã có thể giành được một hợp đồng lớn với một khách hàng mới.",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "secure",
+          "trouble",
+          "specialize in",
+          "antique"
+        ]
+      },
+      {
+        "id": "ex_295",
+        "num": 21,
+        "sentence": "The company takes data privacy very seriously and uses advanced technology to keep customer information _______",
+        "target": "secure",
+        "full_sentence": "The company takes data privacy very seriously and uses advanced technology to keep customer information secure",
+        "translation": "Công ty rất coi trọng quyền riêng tư dữ liệu và sử dụng công nghệ tiên tiến để bảo mật thông tin khách hàng",
+        "deck_id": "deck_class_unit_7_3",
+        "options": [
+          "delighted",
+          "donation",
+          "secure",
+          "inventory"
+        ]
+      }
+    ],
+    "word_count": 21,
+    "exercise_count": 21
   }
 ];
 
-if (typeof window !== 'undefined') window.TOEIC_COURSE_DECKS = TOEIC_COURSE_DECKS;
+if (typeof window !== "undefined") {
+  window.TOEIC_COURSE_DECKS = TOEIC_COURSE_DECKS;
+}

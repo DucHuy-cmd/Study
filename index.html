@@ -122,8 +122,8 @@
       <!-- Header Controls: Sync, Install, Sound & Topic -->
       <div class="flex items-center space-x-1 sm:space-x-1.5">
         <!-- Nút Ngọn Lửa Chuỗi (Streak) -->
-        <button id="btn-header-streak" onclick="openStreakModal()" class="px-2 sm:px-2.5 py-1.5 text-xs font-black rounded-lg border transition flex items-center gap-1 shadow-2xs active:scale-95 flex-shrink-0 bg-slate-100 hover:bg-slate-200 text-slate-500 border-slate-200 cursor-pointer" title="Chuỗi học tập hàng ngày (Streak)">
-          <span class="text-xs sm:text-sm">🔥</span>
+        <button id="btn-header-streak" onclick="openStreakModal()" class="px-2 sm:px-2.5 py-1.5 text-xs font-black rounded-lg border transition flex items-center gap-1 shadow-2xs active:scale-95 flex-shrink-0 bg-slate-100 hover:bg-slate-200 text-slate-900 border-slate-300 cursor-pointer" title="Chuỗi học tập hàng ngày (Streak)">
+          <span id="header-streak-icon" class="text-xs sm:text-sm inline-block transition-transform" style="filter: grayscale(100%) brightness(0);">🔥</span>
           <span id="header-streak-count" class="font-black text-xs">0</span>
         </button>
 
@@ -173,6 +173,10 @@
           <button onclick="switchTabEn('mcq')" id="tab-btn-mcq" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-bold flex items-center gap-1 transition text-blue-600 bg-blue-50 border border-blue-200">
             <span>🔘</span> <span>Trắc nghiệm</span>
           </button>
+          <!-- Mode 2: Typing Practice (NEW) -->
+          <button onclick="switchTabEn('typing')" id="tab-btn-typing" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
+            <span>⌨️</span> <span>Luyện gõ từ</span>
+          </button>
           <!-- Mode 2: Flashcards 3D -->
           <button onclick="switchTabEn('flashcard')" id="tab-btn-flashcard" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
             <span>🃏</span> <span>Flashcard 3D</span>
@@ -189,10 +193,7 @@
           <button onclick="switchTabEn('collocation')" id="tab-btn-collocation" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
             <span>🧩</span> <span>Cụm từ Part 5</span>
           </button>
-          <!-- Mode 6: Starred Words -->
-          <button onclick="openStarredWordsModal()" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-amber-600 bg-amber-50 hover:bg-amber-100 border border-amber-200">
-            <span>⭐</span> <span>Từ khó (<span id="starred-badge-count">0</span>)</span>
-          </button>
+          
           <!-- Mode 7: Manage -->
           <button onclick="switchTabEn('manage')" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
             <span>📝</span> <span>Nạp từ</span>
@@ -233,7 +234,90 @@
       </div>
 
       <!-- 1. EN MCQ -->
-      <section id="view-mcq" class="en-view space-y-4">
+      
+      <!-- ================= VIEW: TYPING PRACTICE (LUYỆN GÕ TỪ 2 CHIỀU) ================= -->
+      <section id="view-typing" class="en-view hidden space-y-4">
+        <div class="bg-white p-5 sm:p-7 rounded-3xl shadow-xs border border-slate-200 text-center font-sans max-w-lg mx-auto">
+          
+          <!-- Typing Mode Header: Direction Indicator & Switcher -->
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-1.5">
+              <span id="typing-direction-badge" class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-1 shadow-2xs">
+                🇬🇧 ➔ 🇻🇳 Anh sang Việt
+              </span>
+              <span id="typing-pos-badge" class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
+                Từ vựng
+              </span>
+            </div>
+            
+            <button onclick="toggleTypingDirection()" class="text-[11px] font-bold text-slate-600 hover:text-blue-600 bg-slate-50 hover:bg-slate-100 px-2.5 py-1 rounded-xl border border-slate-200 transition flex items-center gap-1 active:scale-95" title="Đổi giữa: Trộn ngẫu nhiên | Anh ➔ Việt | Việt ➔ Anh">
+              <span>🔄 Đổi chiều gõ</span>
+            </button>
+          </div>
+
+          <!-- Prompt Word Display -->
+          <div class="py-6 sm:py-8 text-center">
+            <span id="typing-prompt-label" class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">
+              Gõ nghĩa tiếng Việt của từ:
+            </span>
+            <div class="flex items-center justify-center gap-2">
+              <h2 id="typing-prompt-word" class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-sans">
+                ...
+              </h2>
+              <button id="typing-audio-btn" onclick="speakTypingPrompt()" class="p-2 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition text-base shadow-2xs" title="Nghe phát âm">
+                🔊
+              </button>
+            </div>
+            <p id="typing-sub-hint" class="text-xs font-mono text-slate-400 mt-1.5 font-medium">/ ... /</p>
+          </div>
+
+          <!-- Input Box & Submit -->
+          <div class="space-y-3">
+            <div class="relative">
+              <input 
+                type="text" 
+                id="typing-input" 
+                autocomplete="off" 
+                autocorrect="off" 
+                autocapitalize="off" 
+                spellcheck="false"
+                placeholder="Nhập câu trả lời tại đây..."
+                class="w-full px-4 py-3.5 text-center text-lg sm:text-xl font-bold text-slate-800 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-blue-500 focus:bg-white focus:outline-none transition shadow-2xs"
+                onkeydown="handleTypingKeyDown(event)"
+              />
+            </div>
+
+            <!-- Feedback Result Box (Green/Red) -->
+            <div id="typing-feedback-box" class="hidden p-4 rounded-2xl text-left text-xs sm:text-sm font-semibold border transition font-sans">
+              <!-- Dynamically populated -->
+            </div>
+
+            <!-- Action Buttons: Check Answer / Next Question / Give up -->
+            <div class="flex items-center gap-2 pt-2">
+              <button id="typing-btn-skip" onclick="skipTypingQuestion()" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 text-xs font-bold transition flex-1 active:scale-95">
+                🏳️ Xem đáp án
+              </button>
+              <button id="typing-btn-submit" onclick="submitTypingAnswer()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-blue-200 active:scale-95">
+                Kiểm tra ↵
+              </button>
+            </div>
+          </div>
+
+          <!-- Example sentence if available -->
+          <div id="typing-sentence-box" class="hidden mt-4 pt-3 border-t border-slate-100 text-left bg-slate-50/80 p-3 rounded-2xl border border-slate-200/60">
+            <div class="flex items-start justify-between gap-1">
+              <div>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Câu ví dụ ngữ cảnh:</span>
+                <p id="typing-sentence-text" class="text-xs text-slate-800 font-semibold leading-relaxed"></p>
+              </div>
+              <button onclick="speakText(document.getElementById('typing-sentence-text').textContent, 'en-US')" class="text-blue-600 hover:text-blue-800 text-xs p-1 flex-shrink-0" title="Nghe câu ví dụ">🔊</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+<section id="view-mcq" class="en-view space-y-4">
         <div class="bg-white p-4 sm:p-8 rounded-3xl shadow-xs border border-slate-200 text-center relative overflow-hidden">
           <div class="py-3 border-b border-slate-100 relative">
             <div class="flex justify-center items-center gap-2 mb-2">
@@ -341,7 +425,7 @@
             <div class="face-front absolute inset-0 flex flex-col justify-between p-6 bg-white rounded-3xl border border-slate-200">
               <div class="flex items-center justify-between">
                 <span id="fc-pos-badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-blue-50 text-blue-700 border border-blue-200">Danh từ</span>
-                <button onclick="event.stopPropagation(); toggleStarCurrentWord()" id="fc-star-btn" class="text-lg p-1 text-slate-300 hover:text-amber-500 transition" title="Lưu từ khó">⭐</button>
+                
               </div>
 
               <div class="text-center my-auto py-4">
@@ -723,40 +807,7 @@
 
 
 
-  <!-- ================= MODAL: SỔ TAY TỪ KHÓ (STARRED WORDS) ================= -->
-  <div id="modal-en-starred" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white rounded-t-3xl sm:rounded-3xl p-5 sm:p-6 max-w-lg w-full shadow-2xl border border-slate-200 max-h-[85vh] flex flex-col animate-in slide-in-from-bottom sm:fade-in duration-200">
-      
-      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-        <div>
-          <h2 class="text-base font-extrabold text-slate-900 flex items-center gap-1.5">
-            <span>⭐ Sổ Tay Từ Khó / Hay Quên</span>
-          </h2>
-          <p class="text-[11px] text-slate-500">Các từ bạn đã đánh dấu sao hoặc làm sai cần ôn tập</p>
-        </div>
-        <button onclick="closeStarredWordsModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 font-bold flex items-center justify-center text-sm transition">✕</button>
-      </div>
-
-      <div class="py-3 flex items-center justify-between">
-        <span class="text-xs font-bold text-amber-900 bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200" id="starred-modal-summary">
-          0 từ trong sổ tay
-        </span>
-        <button onclick="studyStarredWordsOnly()" id="btn-study-starred" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold shadow-xs transition disabled:opacity-50">
-          🚀 Luyện tập riêng các từ này
-        </button>
-      </div>
-
-      <div id="starred-words-list" class="overflow-y-auto space-y-2 py-2 flex-1 pr-1 divide-y divide-slate-100">
-        <!-- Rendered dynamically -->
-      </div>
-
-      <div class="pt-3 border-t border-slate-100 text-center flex items-center gap-2">
-        <button onclick="clearAllStarredWords()" class="py-2 px-3 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded-xl font-bold text-xs transition">Xóa toàn bộ</button>
-        <button onclick="closeStarredWordsModal()" class="flex-1 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-xs transition">Đóng</button>
-      </div>
-
-    </div>
-  </div>
+  
 
 
   <!-- ================= MODAL: DANH SÁCH 12 CHỦ ĐỀ N4 ================= -->
@@ -1613,17 +1664,26 @@
 
       const countElem = document.getElementById('header-streak-count');
       const btnElem = document.getElementById('btn-header-streak');
+      const iconElem = document.getElementById('header-streak-icon');
 
       if (countElem) {
         countElem.textContent = count;
       }
       if (btnElem) {
-        if (count > 0) {
-          btnElem.className = "px-2 sm:px-2.5 py-1.5 text-xs font-black rounded-lg border transition flex items-center gap-1 shadow-2xs active:scale-95 flex-shrink-0 bg-amber-50 hover:bg-amber-100 text-amber-600 border-amber-300 cursor-pointer";
-          btnElem.title = `🔥 Chuỗi ${currentLang === 'ja' ? 'Nhật N4' : 'TOEIC'}: ${count} ngày liên tiếp${isDoneToday ? ' (Hôm nay đã hoàn thành ✓)' : ' (Cần hoàn thành trước 12h đêm)'}`;
+        if (isDoneToday) {
+          // ĐÃ LÀM HÔM NAY: MÀU ĐỎ RỰC RỠ
+          btnElem.className = "px-2 sm:px-2.5 py-1.5 text-xs font-black rounded-lg border transition flex items-center gap-1 shadow-2xs active:scale-95 flex-shrink-0 bg-red-50 hover:bg-red-100 text-red-600 border-red-300 cursor-pointer";
+          btnElem.title = `🔥 ĐÃ HOÀN THÀNH HÔM NAY! Chuỗi ${currentLang === 'ja' ? 'Nhật N4' : 'TOEIC'}: ${count} ngày liên tiếp (An toàn đến 12h đêm mai)`;
+          if (iconElem) {
+            iconElem.style.filter = "none";
+          }
         } else {
-          btnElem.className = "px-2 sm:px-2.5 py-1.5 text-xs font-bold rounded-lg border transition flex items-center gap-1 shadow-2xs active:scale-95 flex-shrink-0 bg-slate-100 hover:bg-slate-200 text-slate-500 border-slate-200 cursor-pointer";
-          btnElem.title = `🔥 Chuỗi ${currentLang === 'ja' ? 'Nhật N4' : 'TOEIC'}: 0 ngày (Chạm xem chi tiết)`;
+          // CHƯA LÀM HÔM NAY: MÀU ĐEN (Báo hiệu chưa hoàn thành)
+          btnElem.className = "px-2 sm:px-2.5 py-1.5 text-xs font-black rounded-lg border transition flex items-center gap-1 shadow-2xs active:scale-95 flex-shrink-0 bg-slate-100 hover:bg-slate-200 text-slate-900 border-slate-300 cursor-pointer";
+          btnElem.title = `🔥 CHƯA HOÀN THÀNH HÔM NAY! Chuỗi hiện tại: ${count} ngày (Cần làm ≥ 15/20 câu trước 12h đêm)`;
+          if (iconElem) {
+            iconElem.style.filter = "grayscale(100%) brightness(0)";
+          }
         }
       }
     }
@@ -2049,6 +2109,8 @@
       populateEnDeckDropdown();
       if (globalState.currentEnTab === 'gapfill') {
         startGapFillQuiz();
+      } else if (globalState.currentEnTab === 'typing') {
+        startTypingQuiz();
       } else if (globalState.currentEnTab === 'collocation') {
         startCollocQuiz();
       } else if (globalState.currentEnTab === 'manage') {
@@ -2064,7 +2126,7 @@
 
     function switchTabEn(tabName) {
       globalState.currentEnTab = tabName;
-      const tabKeys = ['mcq', 'audio', 'gapfill', 'collocation', 'flashcard', 'manage'];
+      const tabKeys = ['mcq', 'typing', 'flashcard', 'gapfill', 'audio', 'collocation', 'manage'];
       tabKeys.forEach(t => {
         const btn = document.getElementById(`tab-btn-${t}`);
         const view = document.getElementById(`view-${t}`);
@@ -2088,11 +2150,13 @@
       if (tabName === 'manage') renderEnManageTable();
       else if (tabName === 'collocation') startCollocQuiz();
       else if (tabName === 'gapfill') startGapFillQuiz();
+      else if (tabName === 'typing') startTypingQuiz();
       else restartCurrentEnMode();
     }
 
     function retryCurrentEnSession() {
       if (globalState.currentEnTab === 'gapfill') startGapFillQuiz();
+      else if (globalState.currentEnTab === 'typing') startTypingQuiz();
       else if (globalState.currentEnTab === 'collocation') startCollocQuiz();
       else restartCurrentEnMode();
     }
@@ -2477,6 +2541,303 @@
     /* =========================================================================
        GAP-FILL PRACTICE (BÀI TẬP VẬN DỤNG ĐIỀN TỪ - 232 CÂU)
        ========================================================================= */
+
+    /* =========================================================================
+       TYPING PRACTICE (LUYỆN GÕ TỪ VỰNG 2 CHIỀU: ANH ➔ VIỆT & VIỆT ➔ ANH)
+       ========================================================================= */
+    let typingDirectionMode = 'mixed'; // 'mixed' | 'en_to_vi' | 'vi_to_en'
+    let currentTypingItem = null;
+    let typingIsAnswered = false;
+
+    function startTypingQuiz() {
+      const deck = getCurrentEnDeck();
+      if (!deck || deck.words.length === 0) {
+        switchTabEn('manage');
+        return;
+      }
+
+      globalState.typingList = shuffleArray([...deck.words]).slice(0, DAILY_STREAK_TARGET);
+      globalState.typingIndex = 0;
+      globalState.typingCorrect = 0;
+      globalState.typingWrong = 0;
+
+      globalState.enCorrect = 0;
+      globalState.enWrong = 0;
+      globalState.enMistakes = [];
+      typingIsAnswered = false;
+
+      document.getElementById('en-summary-card').classList.add('hidden');
+      document.getElementById('view-typing').classList.remove('hidden');
+
+      const badgeElem = document.getElementById('en-active-deck-badge');
+      if (badgeElem && deck) {
+        badgeElem.innerHTML = `${deck.icon || '📘'} ${deck.name} (Luyện gõ)`;
+      }
+
+      updateStreakUI('en');
+      renderCurrentTypingWord();
+    }
+
+    function toggleTypingDirection() {
+      if (typingDirectionMode === 'mixed') typingDirectionMode = 'en_to_vi';
+      else if (typingDirectionMode === 'en_to_vi') typingDirectionMode = 'vi_to_en';
+      else typingDirectionMode = 'mixed';
+
+      renderCurrentTypingWord();
+    }
+
+    function renderCurrentTypingWord() {
+      const total = (globalState.typingList && globalState.typingList.length > 0) ? globalState.typingList.length : 0;
+      if (total === 0) return;
+
+      if (globalState.typingIndex >= total) {
+        showEnSummary();
+        return;
+      }
+
+      typingIsAnswered = false;
+      const word = globalState.typingList[globalState.typingIndex];
+      currentTypingItem = word;
+
+      // Update counters
+      document.getElementById('study-progress-counter').textContent = `${globalState.typingIndex + 1} / ${total}`;
+      document.getElementById('stat-correct').textContent = globalState.enCorrect;
+      document.getElementById('stat-wrong').textContent = globalState.enWrong;
+      const pct = (globalState.typingIndex / total) * 100;
+      document.getElementById('study-progress-fill').style.width = `${pct}%`;
+
+      // Determine active direction for this question
+      let activeDir = typingDirectionMode;
+      if (activeDir === 'mixed') {
+        activeDir = (globalState.typingIndex % 2 === 0) ? 'en_to_vi' : 'vi_to_en';
+      }
+      currentTypingItem.currentDir = activeDir;
+
+      // Update Badges & Labels
+      const dirBadge = document.getElementById('typing-direction-badge');
+      const posBadge = document.getElementById('typing-pos-badge');
+      const promptLabel = document.getElementById('typing-prompt-label');
+      const promptWord = document.getElementById('typing-prompt-word');
+      const subHint = document.getElementById('typing-sub-hint');
+      const audioBtn = document.getElementById('typing-audio-btn');
+      const inputElem = document.getElementById('typing-input');
+      const feedbackBox = document.getElementById('typing-feedback-box');
+      const submitBtn = document.getElementById('typing-btn-submit');
+      const skipBtn = document.getElementById('typing-btn-skip');
+      const sentBox = document.getElementById('typing-sentence-box');
+      const sentText = document.getElementById('typing-sentence-text');
+
+      posBadge.textContent = word.pos || 'Từ vựng';
+      feedbackBox.classList.add('hidden');
+      feedbackBox.innerHTML = '';
+      inputElem.value = '';
+      inputElem.disabled = false;
+      inputElem.className = "w-full px-4 py-3.5 text-center text-lg sm:text-xl font-bold text-slate-800 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-blue-500 focus:bg-white focus:outline-none transition shadow-2xs";
+
+      submitBtn.textContent = 'Kiểm tra ↵';
+      submitBtn.className = "px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-blue-200 active:scale-95";
+      skipBtn.textContent = '🏳️ Xem đáp án';
+      skipBtn.disabled = false;
+
+      if (sentBox && sentText) {
+        if (word.sentence) {
+          sentText.textContent = word.sentence;
+          sentBox.classList.remove('hidden');
+        } else {
+          sentBox.classList.add('hidden');
+        }
+      }
+
+      if (activeDir === 'en_to_vi') {
+        // EN ➔ VI
+        dirBadge.innerHTML = '🇬🇧 ➔ 🇻🇳 Anh sang Việt';
+        promptLabel.textContent = 'Gõ nghĩa tiếng Việt của từ:';
+        promptWord.textContent = word.en;
+        subHint.textContent = word.ipa || '';
+        audioBtn.classList.remove('hidden');
+        inputElem.placeholder = 'Gõ nghĩa tiếng Việt rồi nhấn Enter...';
+        speakText(word.en, 'en-US');
+      } else {
+        // VI ➔ EN
+        dirBadge.innerHTML = '🇻🇳 ➔ 🇬🇧 Việt sang Anh';
+        promptLabel.textContent = 'Gõ từ tiếng Anh tương ứng:';
+        promptWord.textContent = word.vi;
+        // Hint length of english word
+        const hintMask = word.en.split(' ').map(part => '_ '.repeat(part.length).trim()).join('   ');
+        subHint.textContent = `Gợi ý: ${hintMask} (${word.en.length} ký tự)`;
+        audioBtn.classList.add('hidden');
+        inputElem.placeholder = 'Gõ từ tiếng Anh rồi nhấn Enter...';
+      }
+
+      // Auto focus input
+      setTimeout(() => inputElem.focus(), 80);
+    }
+
+    function speakTypingPrompt() {
+      if (!currentTypingItem) return;
+      speakText(currentTypingItem.en, 'en-US');
+    }
+
+    function handleTypingKeyDown(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (!typingIsAnswered) {
+          submitTypingAnswer();
+        } else {
+          nextTypingQuestion();
+        }
+      }
+    }
+
+    function cleanTypingString(str) {
+      return (str || '').trim().toLowerCase().replace(/[.,!?;:"'()\/]/g, '').replace(/\s+/g, ' ');
+    }
+
+    function submitTypingAnswer() {
+      if (typingIsAnswered || !currentTypingItem) return;
+      const inputElem = document.getElementById('typing-input');
+      const val = cleanTypingString(inputElem.value);
+      if (!val) {
+        inputElem.focus();
+        return;
+      }
+
+      typingIsAnswered = true;
+      inputElem.disabled = true;
+
+      const isEnToVi = currentTypingItem.currentDir === 'en_to_vi';
+      let isCorrect = false;
+
+      if (isEnToVi) {
+        // Check Vietnamese meanings
+        const viRaw = currentTypingItem.vi || '';
+        const branches = viRaw.split(/[,;\/\(\)]+/).map(cleanTypingString).filter(Boolean);
+        const userClean = cleanTypingString(val);
+        isCorrect = branches.some(b => b === userClean || b.includes(userClean) || userClean.includes(b));
+      } else {
+        // Check English target
+        const enTarget = cleanTypingString(currentTypingItem.en);
+        isCorrect = val === enTarget;
+      }
+
+      const feedbackBox = document.getElementById('typing-feedback-box');
+      feedbackBox.classList.remove('hidden');
+
+      const submitBtn = document.getElementById('typing-btn-submit');
+      submitBtn.textContent = 'Tiếp tục (Enter) ➔';
+      submitBtn.className = "px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex-1 shadow-sm active:scale-95";
+
+      if (isCorrect) {
+        globalState.typingCorrect++;
+        globalState.enCorrect++;
+        playTone('correct');
+
+        inputElem.className = "w-full px-4 py-3.5 text-center text-lg sm:text-xl font-bold text-emerald-950 bg-emerald-50 border-2 border-emerald-500 rounded-2xl shadow-xs";
+        feedbackBox.className = "p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-left font-sans shadow-xs";
+        feedbackBox.innerHTML = `
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block">✓ Hoàn toàn chính xác!</span>
+              <h4 class="text-base sm:text-lg font-extrabold text-emerald-900 mt-0.5">
+                ${currentTypingItem.en} <span class="text-xs sm:text-sm font-semibold text-emerald-800">(${currentTypingItem.vi})</span>
+              </h4>
+              <p class="text-[11px] text-emerald-700 font-mono mt-0.5">${currentTypingItem.ipa || ''}</p>
+            </div>
+            <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-emerald-100 text-emerald-800 text-sm" title="Nghe phát âm">🔊</button>
+          </div>
+        `;
+        speakText(currentTypingItem.en, 'en-US');
+      } else {
+        globalState.typingWrong++;
+        globalState.enWrong++;
+        globalState.enMistakes.push(currentTypingItem);
+        playTone('wrong');
+
+        inputElem.className = "w-full px-4 py-3.5 text-center text-lg sm:text-xl font-bold text-rose-950 bg-rose-50 border-2 border-rose-500 rounded-2xl shadow-xs";
+        feedbackBox.className = "p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-950 text-left font-sans shadow-xs";
+        feedbackBox.innerHTML = `
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-[11px] font-bold text-rose-700 uppercase tracking-wider block">✗ Chưa chính xác!</span>
+              <h4 class="text-base sm:text-lg font-extrabold text-rose-900 mt-0.5">
+                Đáp án chuẩn: <u class="text-emerald-700 font-bold">${isEnToVi ? currentTypingItem.vi : currentTypingItem.en}</u>
+              </h4>
+              <p class="text-[11px] text-rose-700 mt-0.5">
+                Từ vựng: <strong>${currentTypingItem.en}</strong> = <em>${currentTypingItem.vi}</em>
+              </p>
+            </div>
+            <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-rose-100 text-rose-800 text-sm" title="Nghe phát âm">🔊</button>
+          </div>
+        `;
+      }
+
+      document.getElementById('stat-correct').textContent = globalState.enCorrect;
+      document.getElementById('stat-wrong').textContent = globalState.enWrong;
+    }
+
+    function skipTypingQuestion() {
+      if (typingIsAnswered || !currentTypingItem) return;
+      typingIsAnswered = true;
+      const inputElem = document.getElementById('typing-input');
+      inputElem.disabled = true;
+
+      globalState.typingWrong++;
+      globalState.enWrong++;
+      globalState.enMistakes.push(currentTypingItem);
+      playTone('wrong');
+
+      const isEnToVi = currentTypingItem.currentDir === 'en_to_vi';
+      const feedbackBox = document.getElementById('typing-feedback-box');
+      feedbackBox.classList.remove('hidden');
+
+      const submitBtn = document.getElementById('typing-btn-submit');
+      submitBtn.textContent = 'Tiếp tục (Enter) ➔';
+      submitBtn.className = "px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex-1 shadow-sm active:scale-95";
+
+      feedbackBox.className = "p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 text-left font-sans shadow-xs";
+      feedbackBox.innerHTML = `
+        <div class="flex items-start justify-between">
+          <div>
+            <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider block">🏳️ Đáp án đúng</span>
+            <h4 class="text-base sm:text-lg font-extrabold text-amber-900 mt-0.5">
+              ${currentTypingItem.en} = <span class="underline font-black">${currentTypingItem.vi}</span>
+            </h4>
+            <p class="text-[11px] text-amber-800 font-mono mt-0.5">${currentTypingItem.ipa || ''}</p>
+          </div>
+          <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-amber-100 text-amber-800 text-sm" title="Nghe phát âm">🔊</button>
+        </div>
+      `;
+      speakText(currentTypingItem.en, 'en-US');
+
+      document.getElementById('stat-correct').textContent = globalState.enCorrect;
+      document.getElementById('stat-wrong').textContent = globalState.enWrong;
+    }
+
+    function nextTypingQuestion() {
+      if (globalState.typingIndex < globalState.typingList.length - 1) {
+        globalState.typingIndex++;
+        renderCurrentTypingWord();
+      } else {
+        showEnSummary();
+      }
+    }
+
+
+    function getAllCourseWordsMap() {
+      const map = new Map();
+      if (globalState.enDecks) {
+        globalState.enDecks.forEach(deck => {
+          if (deck.words) {
+            deck.words.forEach(w => {
+              map.set(String(w.id || w.en).toLowerCase(), w);
+              map.set(w.en.toLowerCase(), w);
+            });
+          }
+        });
+      }
+      return map;
+    }
+
     function startGapFillQuiz() {
       const deck = getCurrentEnDeck();
       let pool = (deck && deck.exercises && deck.exercises.length > 0) ? [...deck.exercises] : [];
@@ -2604,6 +2965,11 @@
         }
 
         // Cập nhật câu hoàn chỉnh với từ đúng màu xanh
+        const fullSent = (currentItem && currentItem.full_sentence) 
+          ? currentItem.full_sentence 
+          : (currentItem && currentItem.sentence ? currentItem.sentence.replace(/_{3,}/g, correct) : correct);
+        const transText = (currentItem && currentItem.translation) ? currentItem.translation : '';
+
         if (currentItem && currentItem.sentence) {
           const filledSentence = currentItem.sentence.replace(/_{3,}/g, `<span class="text-emerald-600 font-extrabold underline underline-offset-4 decoration-2">${correct}</span>`);
           document.getElementById('gapfill-sentence').innerHTML = filledSentence;
@@ -2611,18 +2977,35 @@
 
         feedback.className = "mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-left font-sans shadow-xs";
         feedback.innerHTML = `
-          <div class="flex items-start justify-between">
-            <div>
-              <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block">✓ Chính xác!</span>
-              <h4 class="text-base sm:text-lg font-extrabold text-emerald-900 mt-0.5">
-                Từ điền chuẩn: <strong class="underline">${correct}</strong>
-                ${wordVi ? `<span class="text-xs sm:text-sm font-semibold text-emerald-800 ml-1">(${wordVi})</span>` : ''}
-              </h4>
+          <div class="space-y-2.5">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block">✓ Chính xác!</span>
+                <h4 class="text-base sm:text-lg font-extrabold text-emerald-900 mt-0.5">
+                  Từ điền chuẩn: <strong class="underline">${correct}</strong>
+                  ${wordVi ? `<span class="text-xs sm:text-sm font-semibold text-emerald-800 ml-1">(${wordVi})</span>` : ''}
+                </h4>
+              </div>
+              <div class="flex items-center gap-1 flex-shrink-0">
+                <button onclick="speakText('${correct}', 'en-US')" class="px-2 py-1 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-xs font-bold transition flex items-center gap-0.5" title="Nghe riêng từ vựng">
+                  <span>🔊 Từ</span>
+                </button>
+                <button onclick="speakText('${fullSent.replace(/'/g, "\\'")}', 'en-US')" class="px-2.5 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition flex items-center gap-1 shadow-2xs" title="Nghe cả câu">
+                  <span>🔊 Cả câu</span>
+                </button>
+              </div>
             </div>
-            <button onclick="speakText('${correct}', 'en-US')" class="text-emerald-700 hover:text-emerald-900 text-base p-1" title="Nghe phát âm">🔊</button>
+
+            ${transText ? `
+              <div class="p-3 rounded-xl bg-white/90 border border-emerald-200 text-left shadow-2xs">
+                <span class="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wide block mb-0.5">📖 Dịch nghĩa toàn bộ câu:</span>
+                <p class="text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed font-sans">"${transText}"</p>
+              </div>
+            ` : ''}
           </div>
         `;
-        speakText(correct, 'en-US');
+        // ĐỌC CẢ CÂU HOÀN CHỈNH TIẾNG ANH
+        speakText(fullSent, 'en-US');
       } else {
         globalState.gapFillWrong++;
         globalState.enWrong++;
@@ -2663,6 +3046,11 @@
         });
 
         // Cập nhật câu hoàn chỉnh với từ đúng
+        const fullSentWrong = (currentItem && currentItem.full_sentence) 
+          ? currentItem.full_sentence 
+          : (currentItem && currentItem.sentence ? currentItem.sentence.replace(/_{3,}/g, correct) : correct);
+        const transTextWrong = (currentItem && currentItem.translation) ? currentItem.translation : '';
+
         if (currentItem && currentItem.sentence) {
           const filledSentence = currentItem.sentence.replace(/_{3,}/g, `<span class="text-emerald-600 font-extrabold underline underline-offset-4 decoration-2">${correct}</span>`);
           document.getElementById('gapfill-sentence').innerHTML = filledSentence;
@@ -2670,17 +3058,35 @@
 
         feedback.className = "mt-4 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-950 text-left font-sans shadow-xs";
         feedback.innerHTML = `
-          <div class="flex items-start justify-between">
-            <div>
-              <span class="text-[11px] font-bold text-rose-700 uppercase tracking-wider block">✗ Chưa đúng!</span>
-              <h4 class="text-base sm:text-lg font-extrabold text-rose-900 mt-0.5">
-                Đáp án chuẩn: <u class="text-emerald-700 font-bold">${correct}</u>
-                ${wordVi ? `<span class="text-xs sm:text-sm font-semibold text-rose-800 ml-1">(${wordVi})</span>` : ''}
-              </h4>
+          <div class="space-y-2.5">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <span class="text-[11px] font-bold text-rose-700 uppercase tracking-wider block">✗ Chưa đúng!</span>
+                <h4 class="text-base sm:text-lg font-extrabold text-rose-900 mt-0.5">
+                  Đáp án chuẩn: <u class="text-emerald-700 font-bold">${correct}</u>
+                  ${wordVi ? `<span class="text-xs sm:text-sm font-semibold text-rose-800 ml-1">(${wordVi})</span>` : ''}
+                </h4>
+              </div>
+              <div class="flex items-center gap-1 flex-shrink-0">
+                <button onclick="speakText('${correct}', 'en-US')" class="px-2 py-1 rounded-lg bg-rose-100 hover:bg-rose-200 text-rose-800 text-xs font-bold transition flex items-center gap-0.5" title="Nghe riêng từ vựng">
+                  <span>🔊 Từ</span>
+                </button>
+                <button onclick="speakText('${fullSentWrong.replace(/'/g, "\\'")}', 'en-US')" class="px-2.5 py-1 rounded-lg bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition flex items-center gap-1 shadow-2xs" title="Nghe cả câu">
+                  <span>🔊 Cả câu</span>
+                </button>
+              </div>
             </div>
-            <button onclick="speakText('${correct}', 'en-US')" class="text-rose-700 hover:text-rose-900 text-base p-1" title="Nghe phát âm">🔊</button>
+
+            ${transTextWrong ? `
+              <div class="p-3 rounded-xl bg-white/90 border border-rose-200 text-left shadow-2xs">
+                <span class="text-[10px] font-extrabold text-rose-800 uppercase tracking-wide block mb-0.5">📖 Dịch nghĩa toàn bộ câu:</span>
+                <p class="text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed font-sans">"${transTextWrong}"</p>
+              </div>
+            ` : ''}
           </div>
         `;
+        // ĐỌC CẢ CÂU HOÀN CHỈNH TIẾNG ANH
+        speakText(fullSentWrong, 'en-US');
       }
 
       document.getElementById('stat-correct').textContent = globalState.enCorrect;
@@ -2700,150 +3106,6 @@
       if (globalState.gapFillIndex > 0) {
         globalState.gapFillIndex--;
         renderCurrentGapFill();
-      }
-    }
-
-    /* =========================================================================
-       STARRED WORDS NOTEBOOK (SỔ TAY TỪ KHÓ)
-       ========================================================================= */
-    function isWordStarred(wordKey) {
-      if (!wordKey) return false;
-      const keyStr = String(wordKey).toLowerCase();
-      if (globalState.starredWordIds.includes(keyStr)) return true;
-      const wordsMap = getAllCourseWordsMap();
-      const wordObj = wordsMap.get(keyStr);
-      if (wordObj) {
-        const idKey = String(wordObj.id || '').toLowerCase();
-        const enKey = String(wordObj.en || '').toLowerCase();
-        return globalState.starredWordIds.includes(idKey) || globalState.starredWordIds.includes(enKey);
-      }
-      return false;
-    }
-
-    function starWord(wordObj) {
-      if (!wordObj) return;
-      const key = String(wordObj.id || wordObj.en).toLowerCase();
-      if (!globalState.starredWordIds.includes(key)) {
-        globalState.starredWordIds.push(key);
-        saveStorage();
-        updateStarredCountBadge();
-      }
-    }
-
-    function unstarWord(wordKey) {
-      const keyStr = String(wordKey).toLowerCase();
-      const wordsMap = getAllCourseWordsMap();
-      const wordObj = wordsMap.get(keyStr);
-      const keysToRemove = new Set([keyStr]);
-      if (wordObj) {
-        if (wordObj.id) keysToRemove.add(String(wordObj.id).toLowerCase());
-        if (wordObj.en) keysToRemove.add(String(wordObj.en).toLowerCase());
-      }
-      globalState.starredWordIds = globalState.starredWordIds.filter(k => !keysToRemove.has(k));
-      saveStorage();
-      updateStarredCountBadge();
-    }
-
-    function toggleStarCurrentWord() {
-      if (!currentEnWord) return;
-      const key = String(currentEnWord.id || currentEnWord.en).toLowerCase();
-      if (isWordStarred(key)) {
-        unstarWord(key);
-      } else {
-        starWord(currentEnWord);
-      }
-      renderEnFlashcard(currentEnWord);
-    }
-
-    function updateStarredCountBadge() {
-      const badge = document.getElementById('starred-badge-count');
-      if (badge) badge.textContent = globalState.starredWordIds.length;
-    }
-
-    function getAllCourseWordsMap() {
-      const map = new Map();
-      globalState.enDecks.forEach(deck => {
-        deck.words.forEach(w => {
-          map.set(String(w.id || w.en).toLowerCase(), w);
-          map.set(w.en.toLowerCase(), w);
-        });
-      });
-      return map;
-    }
-
-    function openStarredWordsModal() {
-      renderStarredWordsList();
-      document.getElementById('modal-en-starred').classList.remove('hidden');
-    }
-
-    function closeStarredWordsModal() {
-      document.getElementById('modal-en-starred').classList.add('hidden');
-    }
-
-    function renderStarredWordsList() {
-      const container = document.getElementById('starred-words-list');
-      const count = globalState.starredWordIds.length;
-      document.getElementById('starred-modal-summary').textContent = `${count} từ trong sổ tay`;
-      document.getElementById('btn-study-starred').disabled = count === 0;
-
-      container.innerHTML = '';
-      if (count === 0) {
-        container.innerHTML = `
-          <div class="py-8 text-center text-slate-400">
-            <span class="text-3xl block mb-1">⭐</span>
-            <p class="text-xs font-semibold">Chưa có từ nào trong sổ tay từ khó.</p>
-            <p class="text-[11px] text-slate-400 mt-0.5">Bấm biểu tượng ⭐ khi học Flashcard hoặc khi làm sai để lưu vào đây.</p>
-          </div>
-        `;
-        return;
-      }
-
-      const wordsMap = getAllCourseWordsMap();
-      globalState.starredWordIds.forEach(id => {
-        const word = wordsMap.get(id);
-        if (!word) return;
-
-        const row = document.createElement('div');
-        row.className = "py-2.5 flex items-center justify-between gap-2 hover:bg-slate-50 px-2 rounded-xl transition";
-        row.innerHTML = `
-          <div class="min-w-0 flex-1">
-            <div class="flex items-center gap-1.5">
-              <strong class="text-xs sm:text-sm text-slate-900 font-bold truncate">${word.en}</strong>
-              <span class="text-[10px] text-slate-400 font-mono">${word.ipa || ''}</span>
-              <span class="text-[9px] bg-slate-100 text-slate-600 px-1.5 py-0.2 rounded font-semibold">${word.pos || ''}</span>
-            </div>
-            <p class="text-[11px] text-slate-600 truncate mt-0.5">${word.vi || ''}</p>
-          </div>
-          <div class="flex items-center gap-1 flex-shrink-0">
-            <button onclick="speakText('${word.en}', 'en-US')" class="p-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 text-xs transition" title="Nghe phát âm">🔊</button>
-            <button onclick="unstarWord('${id}'); renderStarredWordsList();" class="p-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 text-xs font-bold transition" title="Gỡ khỏi sổ tay">✕</button>
-          </div>
-        `;
-        container.appendChild(row);
-      });
-    }
-
-    function studyStarredWordsOnly() {
-      if (globalState.starredWordIds.length === 0) return;
-      const wordsMap = getAllCourseWordsMap();
-      const starredWordsList = [];
-      globalState.starredWordIds.forEach(id => {
-        const w = wordsMap.get(id);
-        if (w) starredWordsList.push(w);
-      });
-
-      closeStarredWordsModal();
-      globalState.enStudyList = shuffleArray(starredWordsList);
-      globalState.enIndex = 0;
-      switchTabEn('flashcard');
-    }
-
-    function clearAllStarredWords() {
-      if (confirm('Bạn có chắc muốn xóa tất cả từ khỏi sổ tay từ khó?')) {
-        globalState.starredWordIds = [];
-        saveStorage();
-        updateStarredCountBadge();
-        renderStarredWordsList();
       }
     }
 
@@ -2963,7 +3225,7 @@
 
       const total = globalState.currentEnTab === 'collocation' 
         ? globalState.collocStudyList.length 
-        : (globalState.currentEnTab === 'gapfill' ? globalState.gapFillList.length : globalState.enStudyList.length);
+        : (globalState.currentEnTab === 'gapfill' ? globalState.gapFillList.length : (globalState.currentEnTab === 'typing' ? globalState.typingList.length : globalState.enStudyList.length));
       const correct = globalState.enCorrect;
 
       document.getElementById('study-progress-fill').style.width = '100%';
