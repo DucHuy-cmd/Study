@@ -220,7 +220,7 @@
               TOEIC 450+
             </button>
             <span id="study-progress-counter" class="text-slate-700 font-extrabold bg-slate-100 px-2 py-0.5 rounded text-[11px]">
-              1 / 10
+              1 / --
             </span>
           </div>
           <div class="flex items-center space-x-2 text-[11px]">
@@ -596,8 +596,8 @@
           <button id="summary-btn-mistakes" onclick="studyEnMistakesOnly()" class="hidden w-full py-2.5 bg-rose-600 text-white rounded-xl font-bold text-xs shadow-md">
             🔁 Luyện lại từ sai (<span id="summary-mistakes-badge">0</span>)
           </button>
-          <button id="en-btn-retry-streak" onclick="retryCurrentEnSession()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs shadow-md transition">
-            🔄 Làm lại thử thách 20 câu
+          <button id="en-btn-retry-streak" onclick="retryCurrentEnSession()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs shadow-md transition cursor-pointer">
+            🔄 Làm lại mục này
           </button>
         </div>
       </div>
@@ -1038,7 +1038,7 @@
             <span>📌</span> Quy tắc giữ chuỗi:
           </div>
           <p class="text-[11px] leading-relaxed text-amber-800">
-            • Hoàn thành thử thách <strong>20 câu</strong> đạt từ <strong>15 câu đúng trở lên</strong>.<br>
+            • Hoàn thành <strong>1 mục trong bài học</strong> (Trắc nghiệm, Gõ từ, Flashcard, Điền từ) để giữ chuỗi.<br>
             • Cần hoàn thành <strong>trước 12h đêm (00:00)</strong> mỗi ngày để không bị mất chuỗi.
           </p>
         </div>
@@ -1609,12 +1609,28 @@
             fillElem.className = 'bg-emerald-500 h-2 rounded-full transition-all duration-300';
           }
         } else {
-          const curIndex = Math.min((globalState.enIndex || 0) + 1, DAILY_STREAK_TARGET);
+          let curIndex = 0;
+          let totalItems = 1;
+          if (globalState.currentEnTab === 'gapfill') {
+            curIndex = (globalState.gapFillIndex || 0) + 1;
+            totalItems = globalState.gapFillList.length || 1;
+          } else if (globalState.currentEnTab === 'typing') {
+            curIndex = (globalState.typingIndex || 0) + 1;
+            totalItems = globalState.typingList.length || 1;
+          } else if (globalState.currentEnTab === 'collocation') {
+            curIndex = (globalState.collocIndex || 0) + 1;
+            totalItems = globalState.collocStudyList.length || 1;
+          } else {
+            curIndex = (globalState.enIndex || 0) + 1;
+            totalItems = globalState.enStudyList.length || 1;
+          }
+          curIndex = Math.min(curIndex, totalItems);
+
           const deadlineNotice = `<span class="text-amber-800 text-[10px] block font-bold mt-0.5">⏰ Trước 12h đêm kẻo mất chuỗi (còn ${timeLeft.hours}h ${timeLeft.minutes}p)</span>`;
           if (subElem) {
-            subElem.innerHTML = `Thử thách: <strong id="en-daily-counter">${curIndex} / ${DAILY_STREAK_TARGET} câu (≥ ${STREAK_PASS_THRESHOLD} câu đúng)</strong> ${deadlineNotice}`;
+            subElem.innerHTML = `Thử thách: <strong id="en-daily-counter">${curIndex} / ${totalItems} (Hoàn thành 1 mục để giữ chuỗi)</strong> ${deadlineNotice}`;
           }
-          const pct = Math.min(((globalState.enIndex || 0) / DAILY_STREAK_TARGET) * 100, 100);
+          const pct = Math.min((curIndex / totalItems) * 100, 100);
           if (fillElem) {
             fillElem.style.width = `${pct}%`;
             fillElem.className = 'bg-blue-600 h-2 rounded-full transition-all duration-300';
@@ -1683,7 +1699,7 @@
         } else {
           // CHƯA LÀM HÔM NAY: MÀU ĐEN (Báo hiệu chưa hoàn thành)
           btnElem.className = "px-2 sm:px-2.5 py-1.5 text-xs font-black rounded-lg border transition flex items-center gap-1 shadow-2xs active:scale-95 flex-shrink-0 bg-slate-100 hover:bg-slate-200 text-slate-900 border-slate-300 cursor-pointer";
-          btnElem.title = `🔥 CHƯA HOÀN THÀNH HÔM NAY! Chuỗi hiện tại: ${count} ngày (Cần làm ≥ 15/20 câu trước 12h đêm)`;
+          btnElem.title = `🔥 CHƯA HOÀN THÀNH HÔM NAY! Chuỗi hiện tại: ${count} ngày (Hoàn thành 1 mục bài học trước 12h đêm)`;
           if (iconElem) {
             iconElem.style.filter = "grayscale(100%) brightness(0)";
           }
@@ -1737,8 +1753,24 @@
       const langTitle = lang === 'en' ? 'Thử thách TOEIC hoàn thành!' : 'Thử thách JLPT N4 hoàn thành!';
       document.getElementById('duolingo-lang-title').textContent = langTitle;
       
-      document.getElementById('duolingo-score-detail').innerHTML = 
-        `Bạn đã hoàn thành 20 câu và đạt <strong>${correctCount}/${totalQuestions} câu đúng</strong> (Đạt chuẩn ≥ ${STREAK_PASS_THRESHOLD} câu)!`;
+      if (lang === 'en') {
+        const tabNames = {
+          'mcq': 'Trắc nghiệm',
+          'typing': 'Luyện gõ từ',
+          'flashcard': 'Flashcard 3D',
+          'gapfill': 'Điền từ vận dụng',
+          'audio': 'Luyện nghe',
+          'collocation': 'Cụm từ Part 5'
+        };
+        const activeTabTitle = tabNames[globalState.currentEnTab] || 'bài học';
+        const isFlashcard = globalState.currentEnTab === 'flashcard';
+        document.getElementById('duolingo-score-detail').innerHTML = isFlashcard
+          ? `Bạn đã hoàn thành xem toàn bộ <strong>${totalQuestions} thẻ từ vựng</strong> mục ${activeTabTitle} và nhận được 1 chuỗi ngày!`
+          : `Bạn đã hoàn thành mục <strong>${activeTabTitle}</strong> (Đúng <strong>${correctCount}/${totalQuestions} câu</strong>) và nhận được 1 chuỗi ngày!`;
+      } else {
+        document.getElementById('duolingo-score-detail').innerHTML = 
+          `Bạn đã hoàn thành 20 câu và đạt <strong>${correctCount}/${totalQuestions} câu đúng</strong> (Đạt chuẩn ≥ ${STREAK_PASS_THRESHOLD} câu)!`;
+      }
       
       modal.classList.remove('hidden');
     }
@@ -2178,7 +2210,15 @@
         return;
       }
 
-      globalState.enStudyList = sourceList ? [...sourceList] : shuffleArray([...deck.words]).slice(0, DAILY_STREAK_TARGET);
+      if (sourceList) {
+        globalState.enStudyList = [...sourceList];
+      } else if (globalState.currentEnTab === 'flashcard') {
+        // Flashcard 3D: Xem hết toàn bộ các từ trong bài học theo thứ tự chuẩn
+        globalState.enStudyList = [...deck.words];
+      } else {
+        // Trắc nghiệm & Luyện nghe: Làm hết toàn bộ các từ trong bài học, xáo trộn ngẫu nhiên
+        globalState.enStudyList = shuffleArray([...deck.words]);
+      }
       globalState.enIndex = 0;
       globalState.enCorrect = 0;
       globalState.enWrong = 0;
@@ -2555,7 +2595,8 @@
         return;
       }
 
-      globalState.typingList = shuffleArray([...deck.words]).slice(0, DAILY_STREAK_TARGET);
+      // Luyện gõ toàn bộ các từ trong bài học
+      globalState.typingList = shuffleArray([...deck.words]);
       globalState.typingIndex = 0;
       globalState.typingCorrect = 0;
       globalState.typingWrong = 0;
@@ -3271,50 +3312,44 @@
 
       const streakBanner = document.getElementById('en-streak-summary-banner');
       const today = getTodayString();
-      const isQualified = correct >= STREAK_PASS_THRESHOLD;
 
-      if (isQualified) {
-        // ĐẠT CHUẨN STREAK (≥ 15/20 CÂU ĐÚNG)
-        const isFirstStreakToday = globalState.enStreak.lastDate !== today;
-        if (isFirstStreakToday) {
-          globalState.enStreak.count++;
-          globalState.enStreak.lastDate = today;
-        }
-        globalState.enStreak.todayCount = DAILY_STREAK_TARGET;
-        saveStreakData('en');
-
-        streakBanner.innerHTML = `
-          <div class="bg-gradient-to-r from-emerald-500 to-green-600 text-white p-3.5 rounded-2xl text-left shadow-md flex items-center justify-between">
-            <div>
-              <span class="text-[10px] font-black uppercase tracking-wider bg-black/20 px-2 py-0.5 rounded-full text-emerald-100">🔥 ĐẠT CHUẨN CHUỖI TOEIC</span>
-              <h4 class="font-black text-sm mt-1">Đúng ${correct}/${total} câu (Vượt mốc ≥ ${STREAK_PASS_THRESHOLD}/20)</h4>
-              <p class="text-[11px] text-emerald-100 mt-0.5">Chuỗi hôm nay đã được bảo toàn & kích hoạt!</p>
-            </div>
-            <span class="text-3xl animate-bounce">🔥</span>
-          </div>
-        `;
-
-        showDuolingoStreakModal('en', globalState.enStreak.count, correct, total);
-        sendAppNotification('🔥 BẢO TOÀN CHUỖI TOEIC THÀNH CÔNG!', {
-          body: `Xuất sắc! Bạn vừa đạt chuỗi ${globalState.enStreak.count} ngày liên tiếp (${correct}/${total} câu đúng). Chuỗi an toàn đến 12h đêm mai!`,
-          tag: 'studymaster-streak-win-en'
-        });
-      } else {
-        // CHƯA ĐẠT CHUẨN (< 15 CÂU ĐÚNG)
-        streakBanner.innerHTML = `
-          <div class="bg-amber-50 border-2 border-amber-300 p-3.5 rounded-2xl text-left shadow-xs">
-            <div class="flex items-center gap-1.5 text-amber-900 font-extrabold text-xs sm:text-sm">
-              <span class="text-base">⚠️</span> Chưa đủ điều kiện tạo chuỗi hôm nay!
-            </div>
-            <p class="text-xs text-amber-800 font-medium mt-1 leading-relaxed">
-              Bạn đạt <strong>${correct}/${total} câu đúng</strong>. Quy định tạo chuỗi: cần đúng từ <strong>15 câu trở lên</strong>.
-            </p>
-            <p class="text-[11px] text-amber-900 font-bold mt-1.5">
-              👉 Chuỗi ngày chưa được cộng. Hãy bấm nút [Làm lại thử thách 20 câu] bên dưới để thử lại nhé!
-            </p>
-          </div>
-        `;
+      // HOÀN THÀNH 1 MỤC TRONG 1 BÀI HỌC -> TÍNH 1 CHUỖI
+      const isFirstStreakToday = globalState.enStreak.lastDate !== today;
+      if (isFirstStreakToday) {
+        globalState.enStreak.count++;
+        globalState.enStreak.lastDate = today;
       }
+      globalState.enStreak.todayCount = total;
+      saveStreakData('en');
+
+      const tabNames = {
+        'mcq': 'Trắc nghiệm',
+        'typing': 'Luyện gõ từ',
+        'flashcard': 'Flashcard 3D',
+        'gapfill': 'Điền từ vận dụng',
+        'audio': 'Luyện nghe',
+        'collocation': 'Cụm từ Part 5'
+      };
+      const activeTabTitle = tabNames[globalState.currentEnTab] || 'bài học';
+      const isFlashcard = globalState.currentEnTab === 'flashcard';
+      const scoreSubtext = isFlashcard ? `Xem hết ${total} thẻ từ vựng` : `Đúng ${correct}/${total} câu`;
+
+      streakBanner.innerHTML = `
+        <div class="bg-gradient-to-r from-emerald-500 to-green-600 text-white p-3.5 rounded-2xl text-left shadow-md flex items-center justify-between">
+          <div>
+            <span class="text-[10px] font-black uppercase tracking-wider bg-black/20 px-2 py-0.5 rounded-full text-emerald-100">🔥 ĐẠT CHUẨN CHUỖI TOEIC</span>
+            <h4 class="font-black text-sm mt-1">Hoàn thành mục ${activeTabTitle} (${scoreSubtext})</h4>
+            <p class="text-[11px] text-emerald-100 mt-0.5">Chuỗi hôm nay đã được bảo toàn & cộng thêm 1 ngày!</p>
+          </div>
+          <span class="text-3xl animate-bounce">🔥</span>
+        </div>
+      `;
+
+      showDuolingoStreakModal('en', globalState.enStreak.count, correct, total);
+      sendAppNotification('🔥 BẢO TOÀN CHUỖI TOEIC THÀNH CÔNG!', {
+        body: `Xuất sắc! Bạn vừa hoàn thành mục ${activeTabTitle} và đạt chuỗi ${globalState.enStreak.count} ngày liên tiếp! Chuỗi an toàn đến 12h đêm mai!`,
+        tag: 'studymaster-streak-win-en'
+      });
 
       const mistakeBtn = document.getElementById('summary-btn-mistakes');
       if (globalState.enMistakes.length > 0) {
