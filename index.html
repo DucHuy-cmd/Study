@@ -269,6 +269,10 @@
               </button>
             </div>
             <p id="typing-sub-hint" class="text-xs font-mono text-slate-400 mt-1.5 font-medium">/ ... /</p>
+            <div id="typing-synonyms-box" class="hidden mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 bg-indigo-50 text-indigo-700 border border-indigo-200 rounded-full text-xs font-semibold">
+              <span>🔁 Từ đồng nghĩa:</span>
+              <span id="typing-synonyms-text" class="font-bold">...</span>
+            </div>
           </div>
 
           <!-- Input Box & Submit -->
@@ -322,18 +326,33 @@
 
 <section id="view-mcq" class="en-view space-y-4">
         <div class="bg-white p-4 sm:p-8 rounded-3xl shadow-xs border border-slate-200 text-center relative overflow-hidden">
+          
+          <!-- MCQ Mode Switcher Bar -->
+          <div class="flex items-center justify-between pb-3 mb-2 border-b border-slate-100">
+            <span id="mcq-mode-badge" class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-1 shadow-2xs">
+              🇬🇧 ➔ 🇻🇳 Anh sang Việt
+            </span>
+            <button onclick="toggleMcqDirection()" class="text-[11px] font-bold text-slate-600 hover:text-blue-600 bg-slate-50 hover:bg-slate-100 px-2.5 py-1 rounded-xl border border-slate-200 transition flex items-center gap-1 active:scale-95 cursor-pointer" title="Đổi chế độ: Anh sang Việt ⇄ Việt sang Anh ⇄ Từ đồng nghĩa">
+              <span>🔄 Đổi chế độ</span>
+            </button>
+          </div>
+
           <div class="py-3 border-b border-slate-100 relative">
             <div class="flex justify-center items-center gap-2 mb-2">
               <span id="mcq-badge-type" class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100">
                 Tiếng Anh
               </span>
-              <button onclick="speakText(currentEnWord.en, 'en-US')" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-600 flex items-center justify-center transition text-xs" title="Nghe phát âm">
+              <button id="mcq-audio-btn" onclick="speakText(currentEnWord.en, 'en-US')" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-blue-100 text-slate-600 hover:text-blue-600 flex items-center justify-center transition text-xs cursor-pointer" title="Nghe phát âm">
                 🔊
               </button>
             </div>
-            <h2 id="mcq-prompt-text" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight min-h-[44px] flex items-center justify-center">
+            <p id="mcq-question-label" class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+              Chọn nghĩa tiếng Việt chính xác:
+            </p>
+            <h2 id="mcq-prompt-text" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight min-h-[44px] flex items-center justify-center font-sans">
               ...
             </h2>
+            <p id="mcq-sub-ipa" class="text-xs font-mono text-slate-400 mt-1 font-medium"></p>
           </div>
           
           <div id="mcq-choices-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-5"></div>
@@ -463,8 +482,14 @@
                   </div>
                 </div>
 
-                <div id="fc-related-box" class="text-xs text-blue-800 font-medium bg-blue-100/60 px-2.5 py-1.5 rounded-xl">
-                  📌 <strong>Từ đi kèm:</strong> <span id="fc-related-text">...</span>
+                <!-- Hộp Từ Đồng Nghĩa / Paraphrase -->
+                <div id="fc-synonyms-box" class="bg-indigo-50/90 p-2.5 rounded-2xl border border-indigo-200 shadow-2xs">
+                  <div class="flex items-center gap-1.5 text-[10px] font-black text-indigo-700 uppercase tracking-wider mb-1.5">
+                    <span>🔁</span> <span>Từ đồng nghĩa / Paraphrase</span>
+                  </div>
+                  <div id="fc-synonyms-pills" class="flex flex-wrap gap-1.5">
+                    <!-- Dynamic synonym pills with audio button -->
+                  </div>
                 </div>
               </div>
 
@@ -545,30 +570,51 @@
       <!-- 6. EN VOCAB MANAGEMENT -->
       <section id="view-manage" class="en-view hidden space-y-4">
         <div class="bg-white p-4 rounded-3xl shadow-xs border border-slate-200">
-          <h2 class="text-sm font-extrabold text-slate-900 mb-1">Nạp dữ liệu từ vựng hàng loạt</h2>
-          <textarea id="manage-paste-textarea" rows="5" class="w-full font-mono text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-slate-50 leading-relaxed"></textarea>
+          <div class="flex items-center justify-between mb-1.5">
+            <h2 class="text-sm font-extrabold text-slate-900">Nạp dữ liệu từ vựng hàng loạt</h2>
+            <span class="text-[10px] font-bold text-indigo-600 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full">Hỗ trợ Từ Đồng Nghĩa 🔁</span>
+          </div>
+          <p class="text-[11px] text-slate-500 mb-2 leading-relaxed">
+            Hỗ trợ định dạng: <code>Từ | Nghĩa | Từ đồng nghĩa</code> (Cách nhau bằng dấu gạch đứng <code>|</code>, tab, hoặc gạch ngang <code>-</code>)
+          </p>
+          <textarea id="manage-paste-textarea" rows="4" placeholder="Ví dụ:&#10;purchase | mua sắm | buy, acquire&#10;schedule | lịch trình | calendar, timetable&#10;cancel | hủy bỏ | call off" class="w-full font-mono text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-slate-50 leading-relaxed"></textarea>
           <div class="mt-3 flex items-center justify-between gap-2">
             <span id="manage-parsed-preview" class="text-[11px] font-bold text-slate-500">0 từ</span>
             <div class="flex space-x-1.5">
-              <button onclick="appendParsedEnWords()" class="px-3 py-2 bg-slate-800 text-white rounded-xl text-xs font-bold">➕ Thêm</button>
-              <button onclick="replaceParsedEnWords()" class="px-3 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold">💾 Thay thế</button>
+              <button onclick="appendParsedEnWords()" class="px-3 py-2 bg-slate-800 text-white rounded-xl text-xs font-bold active:scale-95 transition">➕ Thêm vào bài</button>
+              <button onclick="replaceParsedEnWords()" class="px-3 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold active:scale-95 transition">💾 Thay thế toàn bộ</button>
             </div>
           </div>
         </div>
 
         <div class="bg-white p-4 rounded-3xl shadow-xs border border-slate-200">
           <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-            <h3 class="text-xs font-extrabold text-slate-900">Danh sách từ (<span id="manage-table-count">0</span>)</h3>
-            <button onclick="openNewDeckModal()" class="text-xs px-2.5 py-1 bg-blue-50 text-blue-600 rounded-lg font-bold">➕ Bộ mới</button>
+            <div>
+              <h3 class="text-xs font-extrabold text-slate-900">Danh sách từ trong bài (<span id="manage-table-count">0</span>)</h3>
+              <p class="text-[10px] text-slate-400">Xem, thêm mới hoặc xóa từ trong bài học đang chọn</p>
+            </div>
+            <button onclick="openNewDeckModal()" class="text-xs px-2.5 py-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-xl font-bold border border-blue-200 transition active:scale-95 flex items-center gap-1">➕ Tạo bộ mới</button>
           </div>
+          
+          <!-- Form thêm 1 từ -->
           <form onsubmit="handleAddSingleEnWord(event)" class="mt-3 grid grid-cols-1 sm:grid-cols-12 gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200">
-            <input type="text" id="add-en" placeholder="Tiếng Anh" required class="sm:col-span-5 px-3 py-1.5 text-xs font-semibold bg-white border border-slate-200 rounded-lg">
-            <input type="text" id="add-vi" placeholder="Tiếng Việt" required class="sm:col-span-5 px-3 py-1.5 text-xs font-semibold bg-white border border-slate-200 rounded-lg">
-            <button type="submit" class="sm:col-span-2 px-3 py-1.5 bg-blue-600 text-white rounded-lg text-xs font-bold">Thêm</button>
+            <input type="text" id="add-en" placeholder="Tiếng Anh (VD: purchase)" required class="sm:col-span-4 px-3 py-1.5 text-xs font-semibold bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="text" id="add-vi" placeholder="Nghĩa tiếng Việt (VD: mua sắm)" required class="sm:col-span-4 px-3 py-1.5 text-xs font-semibold bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <input type="text" id="add-synonyms" placeholder="Từ đồng nghĩa (VD: buy, acquire)" class="sm:col-span-3 px-3 py-1.5 text-xs font-semibold bg-white border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button type="submit" class="sm:col-span-1 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-bold transition active:scale-95">Thêm</button>
           </form>
+
           <div class="mt-3 overflow-x-auto max-h-72 overflow-y-auto border border-slate-200 rounded-xl">
             <table class="w-full text-left text-xs">
-              <tbody id="manage-table-body" class="divide-y divide-slate-100"></tbody>
+              <thead class="bg-slate-50 text-slate-500 text-[10px] uppercase font-bold border-b border-slate-200 sticky top-0">
+                <tr>
+                  <th class="py-2 px-3">Tiếng Anh</th>
+                  <th class="py-2 px-3">Nghĩa tiếng Việt</th>
+                  <th class="py-2 px-3">Từ đồng nghĩa (Paraphrase)</th>
+                  <th class="py-2 px-3 text-center">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="manage-table-body" class="divide-y divide-slate-100 bg-white"></tbody>
             </table>
           </div>
         </div>
@@ -1159,7 +1205,7 @@
 
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script src="toeic_course_data.js?v=16"></script>
+  <script src="toeic_course_data.js?v=17"></script>
   <script src="n4_quiz_data.js"></script>
   <script>
     /* =========================================================================
@@ -2332,33 +2378,119 @@
       else if (globalState.currentEnTab === 'flashcard') renderEnFlashcard(currentEnWord);
     }
 
-    // MCQ
+    // MCQ Modes: 'en_to_vi' | 'vi_to_en' | 'synonyms'
+    let mcqDirectionMode = 'en_to_vi';
+
+    function toggleMcqDirection() {
+      if (mcqDirectionMode === 'en_to_vi') {
+        mcqDirectionMode = 'vi_to_en';
+      } else if (mcqDirectionMode === 'vi_to_en') {
+        mcqDirectionMode = 'synonyms';
+      } else {
+        mcqDirectionMode = 'en_to_vi';
+      }
+      renderEnMCQ();
+    }
+
     function renderEnMCQ() {
-      document.getElementById('mcq-prompt-text').textContent = currentEnWord.en;
+      if (!currentEnWord) return;
       document.getElementById('mcq-feedback-bar').classList.add('hidden');
 
-      const deck = getCurrentEnDeck();
-      const otherWords = deck.words.filter(w => w.id !== currentEnWord.id);
-      const distractors = shuffleArray(otherWords).slice(0, 3).map(w => w.vi);
-      const options = shuffleArray([currentEnWord.vi, ...distractors]);
-
+      const modeBadge = document.getElementById('mcq-mode-badge');
+      const badgeType = document.getElementById('mcq-badge-type');
+      const qLabel = document.getElementById('mcq-question-label');
+      const promptText = document.getElementById('mcq-prompt-text');
+      const audioBtn = document.getElementById('mcq-audio-btn');
+      const subIpa = document.getElementById('mcq-sub-ipa');
       const container = document.getElementById('mcq-choices-container');
       container.innerHTML = '';
+
+      const deck = getCurrentEnDeck();
+      let otherWords = deck.words.filter(w => w.id !== currentEnWord.id);
+      // Fallback to master deck if current deck has fewer than 3 other words
+      if (otherWords.length < 3 && TOEIC_TARGET_DECKS[0]) {
+        const extra = TOEIC_TARGET_DECKS[0].words.filter(w => w.id !== currentEnWord.id && !otherWords.some(o => o.id === w.id));
+        otherWords = [...otherWords, ...extra];
+      }
+
+      const synList = getWordSynonyms(currentEnWord);
+      let promptStr = '';
+      let correctAns = '';
+      let options = [];
+
+      if (mcqDirectionMode === 'synonyms') {
+        if (synList.length > 0) {
+          if (modeBadge) modeBadge.innerHTML = '🔁 Từ đồng nghĩa (Paraphrase)';
+          if (badgeType) badgeType.textContent = 'Paraphrase';
+          if (qLabel) qLabel.textContent = 'Chọn từ đồng nghĩa với:';
+          promptStr = currentEnWord.en;
+          correctAns = synList[0];
+          if (audioBtn) audioBtn.classList.remove('hidden');
+          if (subIpa) subIpa.textContent = currentEnWord.ipa || '';
+
+          // Collect distractors: other words' synonyms or en
+          const otherSyns = [];
+          otherWords.forEach(w => {
+            const s = getWordSynonyms(w);
+            if (s.length > 0 && !synList.includes(s[0]) && s[0] !== correctAns) otherSyns.push(s[0]);
+            else if (w.en !== currentEnWord.en && !synList.includes(w.en)) otherSyns.push(w.en);
+          });
+          const distractors = shuffleArray(Array.from(new Set(otherSyns))).slice(0, 3);
+          options = shuffleArray([correctAns, ...distractors]);
+        } else {
+          // Fallback if current word has no synonyms
+          if (modeBadge) modeBadge.innerHTML = '🔁 Từ đồng nghĩa (Hỏi nghĩa)';
+          if (badgeType) badgeType.textContent = 'Tiếng Anh';
+          if (qLabel) qLabel.textContent = 'Chọn nghĩa tiếng Việt (Từ này chưa có từ đồng nghĩa):';
+          promptStr = currentEnWord.en;
+          correctAns = currentEnWord.vi;
+          if (audioBtn) audioBtn.classList.remove('hidden');
+          if (subIpa) subIpa.textContent = currentEnWord.ipa || '';
+
+          const distractors = shuffleArray(otherWords).slice(0, 3).map(w => w.vi);
+          options = shuffleArray([correctAns, ...distractors]);
+        }
+      } else if (mcqDirectionMode === 'vi_to_en') {
+        if (modeBadge) modeBadge.innerHTML = '🇻🇳 ➔ 🇬🇧 Việt sang Anh';
+        if (badgeType) badgeType.textContent = 'Tiếng Việt';
+        if (qLabel) qLabel.textContent = 'Chọn từ tiếng Anh có nghĩa:';
+        promptStr = currentEnWord.vi;
+        correctAns = currentEnWord.en;
+        if (audioBtn) audioBtn.classList.add('hidden');
+        if (subIpa) subIpa.textContent = '';
+
+        const distractors = shuffleArray(otherWords).slice(0, 3).map(w => w.en);
+        options = shuffleArray([correctAns, ...distractors]);
+      } else {
+        // Default: 'en_to_vi'
+        if (modeBadge) modeBadge.innerHTML = '🇬🇧 ➔ 🇻🇳 Anh sang Việt';
+        if (badgeType) badgeType.textContent = 'Tiếng Anh';
+        if (qLabel) qLabel.textContent = 'Chọn nghĩa tiếng Việt chính xác:';
+        promptStr = currentEnWord.en;
+        correctAns = currentEnWord.vi;
+        if (audioBtn) audioBtn.classList.remove('hidden');
+        if (subIpa) subIpa.textContent = currentEnWord.ipa || '';
+
+        const distractors = shuffleArray(otherWords).slice(0, 3).map(w => w.vi);
+        options = shuffleArray([correctAns, ...distractors]);
+      }
+
+      if (promptText) promptText.textContent = promptStr;
 
       options.forEach((opt, index) => {
         const btn = document.createElement('button');
         btn.id = `mcq-choice-${index}`;
-        btn.className = "flex items-center text-left p-3.5 rounded-2xl border-2 border-slate-200 hover:border-blue-500 hover:bg-blue-50/40 font-semibold text-slate-800 text-xs sm:text-sm transition active:scale-[0.98] bg-white min-h-[48px]";
+        btn.className = "flex items-center text-left p-3.5 rounded-2xl border-2 border-slate-200 hover:border-blue-500 hover:bg-blue-50/40 font-semibold text-slate-800 text-xs sm:text-sm transition active:scale-[0.98] bg-white min-h-[48px] cursor-pointer";
         btn.innerHTML = `
           <span class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 text-xs font-bold mr-2.5 font-sans">${index + 1}</span>
           <span class="flex-1">${opt}</span>
         `;
-        btn.onclick = () => handleEnMCQSelection(btn, opt, currentEnWord.vi);
+        btn.onclick = () => handleEnMCQSelection(btn, opt, correctAns, synList);
         container.appendChild(btn);
       });
     }
 
-    function handleEnMCQSelection(buttonElem, selected, correct) {
+    function handleEnMCQSelection(buttonElem, selected, correct, synList = []) {
       if (globalState.enIsAnswered) return;
       globalState.enIsAnswered = true;
 
@@ -2372,6 +2504,13 @@
       const feedbackBar = document.getElementById('mcq-feedback-bar');
       feedbackBar.classList.remove('hidden');
 
+      const synInfo = (synList && synList.length > 0)
+        ? `<div class="mt-1 pt-1.5 border-t border-emerald-200/60 text-xs font-medium text-emerald-800 flex items-center gap-1"><span>🔁 <strong>Từ đồng nghĩa (Paraphrase):</strong></span> <span class="font-bold underline">${synList.join(', ')}</span></div>`
+        : '';
+      const synInfoWrong = (synList && synList.length > 0)
+        ? `<div class="mt-1 pt-1.5 border-t border-rose-200/60 text-xs font-medium text-rose-800 flex items-center gap-1"><span>🔁 <strong>Từ đồng nghĩa (Paraphrase):</strong></span> <span class="font-bold underline">${synList.join(', ')}</span></div>`
+        : '';
+
       if (selected.trim().toLowerCase() === correct.trim().toLowerCase()) {
         globalState.enCorrect++;
         playTone('correct');
@@ -2380,8 +2519,8 @@
         buttonElem.style.borderColor = '#10b981';
         buttonElem.style.backgroundColor = '#ecfdf5';
         buttonElem.style.color = '#064e3b';
-        feedbackBar.className = "mt-4 p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm font-semibold";
-        feedbackBar.innerHTML = `✓ Tuyệt vời! Chính xác. Bấm [Tiếp theo ➡️] hoặc [ → ] để qua từ kế tiếp.`;
+        feedbackBar.className = "mt-4 p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm font-semibold";
+        feedbackBar.innerHTML = `✓ Tuyệt vời! Chính xác. Bấm [Tiếp theo ➡️] để qua từ kế tiếp.${synInfo}`;
         speakText(currentEnWord.en, 'en-US');
       } else {
         globalState.enWrong++;
@@ -2403,8 +2542,8 @@
           }
         });
 
-        feedbackBar.className = "mt-4 p-3 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm font-semibold";
-        feedbackBar.innerHTML = `✗ Chưa chính xác! Đáp án đúng: <u class="text-emerald-700 font-bold">${correct}</u>`;
+        feedbackBar.className = "mt-4 p-3.5 rounded-2xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm font-semibold";
+        feedbackBar.innerHTML = `✗ Chưa chính xác! Đáp án đúng: <u class="text-emerald-700 font-bold">${correct}</u>${synInfoWrong}`;
       }
 
       document.getElementById('stat-correct').textContent = globalState.enCorrect;
@@ -2626,14 +2765,21 @@
         }
       }
 
-      const relElem = document.getElementById('fc-related-text');
-      const relBox = document.getElementById('fc-related-box');
-      if (relBox && relElem) {
-        if (word.related) {
-          relElem.textContent = word.related;
-          relBox.classList.remove('hidden');
+      // Render Từ đồng nghĩa (Synonyms / Paraphrase)
+      const synList = getWordSynonyms(word);
+      const synBox = document.getElementById('fc-synonyms-box');
+      const synPills = document.getElementById('fc-synonyms-pills');
+      if (synBox && synPills) {
+        if (synList.length > 0) {
+          synPills.innerHTML = synList.map(s => `
+            <button onclick="event.stopPropagation(); speakText('${s.replace(/'/g, "\\'")}', 'en-US')" class="inline-flex items-center gap-1 px-2.5 py-1 bg-white hover:bg-indigo-100 text-indigo-800 font-bold text-xs rounded-xl border border-indigo-200 transition shadow-2xs active:scale-95 cursor-pointer" title="Bấm để nghe phát âm">
+              <span>🔁 ${s}</span>
+              <span class="text-[10px] text-indigo-500">🔊</span>
+            </button>
+          `).join('');
+          synBox.classList.remove('hidden');
         } else {
-          relBox.classList.add('hidden');
+          synBox.classList.add('hidden');
         }
       }
 
@@ -2787,6 +2933,19 @@
         inputElem.placeholder = 'Gõ từ tiếng Anh rồi nhấn Enter...';
       }
 
+      // Populate synonyms hint
+      const synList = getWordSynonyms(word);
+      const synBox = document.getElementById('typing-synonyms-box');
+      const synText = document.getElementById('typing-synonyms-text');
+      if (synBox && synText) {
+        if (synList.length > 0) {
+          synText.textContent = synList.join(', ');
+          synBox.classList.remove('hidden');
+        } else {
+          synBox.classList.add('hidden');
+        }
+      }
+
       // Auto focus input
       setTimeout(() => inputElem.focus(), 80);
     }
@@ -2868,6 +3027,14 @@
       submitBtn.className = "px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex-1 shadow-sm active:scale-95 cursor-pointer";
       setTimeout(() => submitBtn.focus(), 60);
 
+      const synList = getWordSynonyms(currentTypingItem);
+      const synBanner = (synList.length > 0)
+        ? `<div class="mt-2.5 pt-2 border-t border-emerald-200/60 text-xs text-emerald-800 font-semibold flex items-center gap-1.5"><span>🔁 Từ đồng nghĩa:</span> <span class="font-bold underline">${synList.join(', ')}</span></div>`
+        : '';
+      const synBannerWrong = (synList.length > 0)
+        ? `<div class="mt-2.5 pt-2 border-t border-rose-200/60 text-xs text-rose-800 font-semibold flex items-center gap-1.5"><span>🔁 Từ đồng nghĩa:</span> <span class="font-bold underline">${synList.join(', ')}</span></div>`
+        : '';
+
       if (isCorrect) {
         globalState.typingCorrect++;
         globalState.enCorrect++;
@@ -2886,6 +3053,7 @@
             </div>
             <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-emerald-100 text-emerald-800 text-sm cursor-pointer" title="Nghe phát âm">🔊</button>
           </div>
+          ${synBanner}
         `;
         speakText(currentTypingItem.en, 'en-US');
       } else {
@@ -2909,6 +3077,7 @@
             </div>
             <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-rose-100 text-rose-800 text-sm cursor-pointer" title="Nghe phát âm">🔊</button>
           </div>
+          ${synBannerWrong}
         `;
       }
 
@@ -2936,6 +3105,11 @@
       submitBtn.className = "px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex-1 shadow-sm active:scale-95 cursor-pointer";
       setTimeout(() => submitBtn.focus(), 60);
 
+      const synList = getWordSynonyms(currentTypingItem);
+      const synBannerSkip = (synList.length > 0)
+        ? `<div class="mt-2.5 pt-2 border-t border-amber-200/60 text-xs text-amber-900 font-semibold flex items-center gap-1.5"><span>🔁 Từ đồng nghĩa:</span> <span class="font-bold underline">${synList.join(', ')}</span></div>`
+        : '';
+
       feedbackBox.className = "p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 text-left font-sans shadow-xs";
       feedbackBox.innerHTML = `
         <div class="flex items-start justify-between">
@@ -2948,6 +3122,7 @@
           </div>
           <button onclick="speakText('${currentTypingItem.en}', 'en-US')" class="p-1.5 rounded-lg bg-amber-100 text-amber-800 text-sm cursor-pointer" title="Nghe phát âm">🔊</button>
         </div>
+        ${synBannerSkip}
       `;
       speakText(currentTypingItem.en, 'en-US');
 
@@ -3436,46 +3611,83 @@
       restartCurrentEnMode(uniqueMistakes);
     }
 
+    // Helper: Lấy danh sách từ đồng nghĩa của một từ
+    function getWordSynonyms(word) {
+      if (!word) return [];
+      if (Array.isArray(word.synonyms) && word.synonyms.length > 0) {
+        return word.synonyms.map(s => String(s).trim()).filter(Boolean);
+      }
+      if (word.related && typeof word.related === 'string') {
+        return word.related.split(/[,;]+/).map(s => s.trim()).filter(s => s && s.length > 1);
+      }
+      return [];
+    }
+
     // English Management
     function renderEnManageTable() {
       const deck = getCurrentEnDeck();
       const tbody = document.getElementById('manage-table-body');
       tbody.innerHTML = '';
 
-      if (!deck || deck.words.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="3" class="text-center py-6 text-slate-400">Chưa có từ nào.</td></tr>`;
+      if (!deck || !deck.words || deck.words.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4" class="text-center py-6 text-slate-400">Chưa có từ nào trong bài học này.</td></tr>`;
+        const countElem = document.getElementById('manage-table-count');
+        if (countElem) countElem.textContent = '0';
         return;
       }
 
       deck.words.forEach((word) => {
+        const synList = getWordSynonyms(word);
         const tr = document.createElement('tr');
-        tr.className = "hover:bg-slate-50 transition";
+        tr.className = "hover:bg-slate-50 transition border-b border-slate-100";
         tr.innerHTML = `
-          <td class="py-2.5 px-3 font-bold text-slate-900">${word.en}</td>
-          <td class="py-2.5 px-3 text-slate-600 font-medium">${word.vi}</td>
+          <td class="py-2.5 px-3">
+            <span class="font-bold text-slate-900">${word.en}</span>
+            ${word.pos ? `<span class="ml-1.5 text-[10px] text-slate-500 bg-slate-100 px-1.5 py-0.2 rounded font-semibold">${word.pos}</span>` : ''}
+          </td>
+          <td class="py-2.5 px-3 text-slate-700 font-medium">${word.vi}</td>
+          <td class="py-2.5 px-3">
+            ${synList.length > 0 
+              ? `<div class="flex flex-wrap gap-1">${synList.map(s => `<span class="bg-indigo-50 text-indigo-700 border border-indigo-200 px-1.5 py-0.5 rounded-md text-[10px] font-bold">🔁 ${s}</span>`).join('')}</div>`
+              : `<span class="text-slate-300 text-xs italic">—</span>`
+            }
+          </td>
           <td class="py-2.5 px-3 text-center">
-            <button onclick="deleteSingleEnWord(${word.id})" class="text-rose-500 hover:text-rose-700 font-bold px-2 py-1">Xoá</button>
+            <button onclick="deleteSingleEnWord('${word.id}')" class="text-rose-500 hover:text-rose-700 font-bold px-2 py-1 text-xs hover:bg-rose-50 rounded-lg transition" title="Xóa từ này">✕ Xoá</button>
           </td>
         `;
         tbody.appendChild(tr);
       });
+
+      const countElem = document.getElementById('manage-table-count');
+      if (countElem) countElem.textContent = deck.words.length;
     }
 
     function handleAddSingleEnWord(e) {
       e.preventDefault();
       const enInput = document.getElementById('add-en');
       const viInput = document.getElementById('add-vi');
+      const synInput = document.getElementById('add-synonyms');
       const en = enInput.value.trim();
       const vi = viInput.value.trim();
+      const syn = synInput ? synInput.value.trim() : '';
       if (!en || !vi) return;
 
+      const synArr = syn ? syn.split(/[,;]+/).map(s => s.trim()).filter(Boolean) : [];
       const deck = getCurrentEnDeck();
-      deck.words.push({ id: Date.now(), en, vi });
+      deck.words.push({ 
+        id: 'custom_w_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6), 
+        en, 
+        vi, 
+        synonyms: synArr,
+        related: synArr.join(', ')
+      });
       saveCustomDecks();
       saveStorage();
 
       enInput.value = '';
       viInput.value = '';
+      if (synInput) synInput.value = '';
       enInput.focus();
       renderEnManageTable();
       populateEnDeckDropdown();
@@ -3483,7 +3695,7 @@
 
     function deleteSingleEnWord(wordId) {
       const deck = getCurrentEnDeck();
-      deck.words = deck.words.filter(w => w.id !== wordId);
+      deck.words = deck.words.filter(w => String(w.id) !== String(wordId));
       saveCustomDecks();
       saveStorage();
       renderEnManageTable();
@@ -3499,15 +3711,27 @@
         if (!line) continue;
         let delimiter = '';
         if (line.includes('\t')) delimiter = '\t';
+        else if (line.includes(' | ')) delimiter = ' | ';
+        else if (line.includes('|')) delimiter = '|';
         else if (line.includes(' - ')) delimiter = ' - ';
         else if (line.includes('-')) delimiter = '-';
         else if (line.includes(':')) delimiter = ':';
 
         if (delimiter) {
-          const parts = line.split(delimiter);
-          const en = parts[0].trim();
-          const vi = parts.slice(1).join(delimiter).trim();
-          if (en && vi) parsed.push({ id: Date.now() + Math.random(), en, vi });
+          const parts = line.split(delimiter).map(p => p.trim());
+          const en = parts[0];
+          const vi = parts[1];
+          const syn = parts[2] || '';
+          if (en && vi) {
+            const synArr = syn ? syn.split(/[,;]+/).map(s => s.trim()).filter(Boolean) : [];
+            parsed.push({ 
+              id: 'custom_w_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6), 
+              en, 
+              vi, 
+              synonyms: synArr,
+              related: synArr.join(', ')
+            });
+          }
         }
       }
       return parsed;
