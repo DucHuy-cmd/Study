@@ -1159,7 +1159,7 @@
 
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script src="toeic_course_data.js"></script>
+  <script src="toeic_course_data.js?v=16"></script>
   <script src="n4_quiz_data.js"></script>
   <script>
     /* =========================================================================
@@ -1940,12 +1940,22 @@
     }
 
     function copySyncDataToClipboard() {
+      const builtInIds = new Set(TOEIC_TARGET_DECKS.map(d => d.id));
+      const customDecksOnly = (globalState.enDecks || []).filter(d => 
+        d && d.id && 
+        !builtInIds.has(d.id) && 
+        !d.id.startsWith('deck_class_') && 
+        !d.id.startsWith('deck_p3_') && 
+        !d.id.startsWith('deck_p5_') && 
+        !d.id.startsWith('unit_') && 
+        d.id !== 'deck_all_toeic_575'
+      );
       const syncPayload = {
-        version: '1.0',
+        version: '2.0',
         timestamp: Date.now(),
         enStreak: globalState.enStreak,
         jaStreak: globalState.jaStreak,
-        enDecks: globalState.enDecks,
+        customDecks: customDecksOnly,
         activeLang: globalState.activeLang,
         currentEnDeckId: globalState.currentEnDeckId,
         currentJaTopicId: globalState.currentJaTopicId
@@ -1978,9 +1988,31 @@
           globalState.jaStreak = data.jaStreak;
           saveStreakData('ja');
         }
-        if (data.enDecks && Array.isArray(data.enDecks)) {
-          globalState.enDecks = data.enDecks;
-          saveStorage();
+        const builtInIds = new Set(TOEIC_TARGET_DECKS.map(d => d.id));
+        if (data.customDecks && Array.isArray(data.customDecks)) {
+          const genuine = data.customDecks.filter(d => 
+            d && d.id && 
+            !builtInIds.has(d.id) && 
+            !d.id.startsWith('deck_class_') && 
+            !d.id.startsWith('deck_p3_') && 
+            !d.id.startsWith('deck_p5_') && 
+            !d.id.startsWith('unit_') && 
+            d.id !== 'deck_all_toeic_575'
+          );
+          globalState.enDecks = [...TOEIC_TARGET_DECKS, ...genuine];
+          saveCustomDecks();
+        } else if (data.enDecks && Array.isArray(data.enDecks)) {
+          const genuine = data.enDecks.filter(d => 
+            d && d.id && 
+            !builtInIds.has(d.id) && 
+            !d.id.startsWith('deck_class_') && 
+            !d.id.startsWith('deck_p3_') && 
+            !d.id.startsWith('deck_p5_') && 
+            !d.id.startsWith('unit_') && 
+            d.id !== 'deck_all_toeic_575'
+          );
+          globalState.enDecks = [...TOEIC_TARGET_DECKS, ...genuine];
+          saveCustomDecks();
         }
         if (data.activeLang) {
           globalState.activeLang = data.activeLang;
@@ -2038,8 +2070,9 @@
         }
       } catch (e) {}
 
-      // Official curriculum decks (28 units + Master Deck 575 words) loaded directly from toeic_course_data.js
-      globalState.enDecks = TOEIC_TARGET_DECKS;
+      // Official curriculum decks (28 units + Master Deck) loaded directly from toeic_course_data.js
+      const builtInIds = new Set(TOEIC_TARGET_DECKS.map(d => d.id));
+      globalState.enDecks = [...TOEIC_TARGET_DECKS];
 
       // Restore custom decks if user added any custom words in Manage tab
       try {
@@ -2047,12 +2080,41 @@
         if (savedCustomDecks) {
           const parsedCustom = JSON.parse(savedCustomDecks);
           if (Array.isArray(parsedCustom) && parsedCustom.length > 0) {
-            globalState.enDecks = [...TOEIC_TARGET_DECKS, ...parsedCustom];
+            // Strictly exclude any built-in decks or duplicates
+            const genuineCustom = parsedCustom.filter(d => 
+              d && d.id && 
+              !builtInIds.has(d.id) && 
+              !d.id.startsWith('deck_class_') && 
+              !d.id.startsWith('deck_p3_') && 
+              !d.id.startsWith('deck_p5_') && 
+              !d.id.startsWith('unit_') && 
+              d.id !== 'deck_all_toeic_575'
+            );
+            if (genuineCustom.length > 0) {
+              const seen = new Set(builtInIds);
+              const uniqueCustom = [];
+              genuineCustom.forEach(cd => {
+                if (!seen.has(cd.id)) {
+                  seen.add(cd.id);
+                  uniqueCustom.push(cd);
+                }
+              });
+              globalState.enDecks = [...TOEIC_TARGET_DECKS, ...uniqueCustom];
+              localStorage.setItem('vocab_custom_decks', JSON.stringify(uniqueCustom));
+            } else {
+              localStorage.removeItem('vocab_custom_decks');
+            }
           }
         }
-      } catch (e) {}
+      } catch (e) {
+        localStorage.removeItem('vocab_custom_decks');
+      }
 
       globalState.currentEnDeckId = localStorage.getItem('vocab_last_deck_id') || 'deck_all_toeic_575';
+      // If last deck id does not exist in enDecks, reset to master deck
+      if (!globalState.enDecks.some(d => d.id === globalState.currentEnDeckId)) {
+        globalState.currentEnDeckId = 'deck_all_toeic_575';
+      }
       globalState.activeLang = localStorage.getItem('vocab_active_lang') || 'en';
       globalState.currentJaTopicId = localStorage.getItem('vocab_ja_topic_id') || 'topic_01_life';
     }
@@ -2066,7 +2128,16 @@
 
     function saveCustomDecks() {
       try {
-        const customDecks = globalState.enDecks.filter(d => !d.id.startsWith('unit_') && d.id !== 'deck_all_toeic_575');
+        const builtInIds = new Set(TOEIC_TARGET_DECKS.map(d => d.id));
+        const customDecks = globalState.enDecks.filter(d => 
+          d && d.id &&
+          !builtInIds.has(d.id) &&
+          !d.id.startsWith('deck_class_') &&
+          !d.id.startsWith('deck_p3_') &&
+          !d.id.startsWith('deck_p5_') &&
+          !d.id.startsWith('unit_') &&
+          d.id !== 'deck_all_toeic_575'
+        );
         if (customDecks.length > 0) {
           localStorage.setItem('vocab_custom_decks', JSON.stringify(customDecks));
         } else {
@@ -3490,7 +3561,7 @@
       const input = document.getElementById('new-deck-name-input');
       const name = input.value.trim();
       if (!name) return;
-      const newDeck = { id: `deck_${Date.now()}`, name: name, words: [] };
+      const newDeck = { id: `custom_deck_${Date.now()}`, name: name, isCustom: true, words: [] };
       globalState.enDecks.push(newDeck);
       globalState.currentEnDeckId = newDeck.id;
       saveCustomDecks();
