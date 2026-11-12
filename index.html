@@ -776,7 +776,7 @@
       <div class="flex items-center justify-between pb-3 border-b border-slate-100">
         <div>
           <h2 class="text-base font-extrabold text-slate-900 flex items-center gap-1.5">
-            <span>📚 Kho 28 Bài Học TOEIC (575 Từ Vựng)</span>
+            <span>📚 Kho 28 Bài Học TOEIC Trọng Tâm</span>
           </h2>
           <p class="text-[11px] text-slate-500">Chạm để chọn Unit muốn luyện tập</p>
         </div>
@@ -1165,13 +1165,13 @@
     /* =========================================================================
        1. DATASETS TOEIC (MỤC TIÊU 450+, 600+, COLLOCATIONS PART 5)
        ========================================================================= */
-    // TOEIC DECKS (28 UNITS + MASTER DECK - 575 TỪ VỰNG CHUẨN GIÁO TRÌNH LỚP HỌC)
+    // TOEIC DECKS (28 UNITS + MASTER DECK - TỪ VỰNG CHUẨN GIÁO TRÌNH LỚP HỌC)
     const TOEIC_TARGET_DECKS = (typeof TOEIC_COURSE_DECKS !== 'undefined') ? TOEIC_COURSE_DECKS : [
       {
         id: "deck_all_toeic_575",
-        name: "🎯 Toàn Bộ 575 Từ Vựng TOEIC (Kho Tổng Hợp)",
+        name: "🎯 Toàn Bộ 491 Từ Vựng TOEIC (Kho Tổng Hợp)",
         icon: "🏆",
-        desc: "Toàn bộ 575 từ vựng",
+        desc: "Toàn bộ từ vựng",
         words: [],
         exercises: []
       }
@@ -2952,7 +2952,7 @@
     function renderCurrentGapFill() {
       const total = globalState.gapFillList.length;
       if (total === 0) {
-        document.getElementById('gapfill-sentence').textContent = "Bài học này chưa có câu bài tập vận dụng. Bạn vui lòng chọn Unit khác hoặc chọn 'Toàn Bộ 575 Từ Vựng' nhé!";
+        document.getElementById('gapfill-sentence').textContent = "Bài học này chưa có câu bài tập vận dụng. Bạn vui lòng chọn Unit khác hoặc chọn 'Toàn Bộ Từ Vựng' nhé!";
         document.getElementById('gapfill-options-grid').innerHTML = '';
         return;
       }
