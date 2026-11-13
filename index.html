@@ -371,37 +371,94 @@
         </div>
       </section>
 
-      <!-- 2. EN AUDIO-ONLY MODE (LUYỆN TAI NGHE PART 1 & 2) -->
+      <!-- 2. EN AUDIO DICTATION MODE (LUYỆN TAI NGHE: CHÉP TỪ & ĐIỀN NGHĨA) -->
       <section id="view-audio" class="en-view hidden space-y-4">
-        <div class="bg-white p-5 sm:p-8 rounded-3xl shadow-xs border border-slate-200 text-center">
-          <div class="py-4 border-b border-slate-100">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
-              🎧 Phản xạ nghe TOEIC (Ẩn chữ)
+        <div class="bg-white p-5 sm:p-7 rounded-3xl shadow-xs border border-slate-200 text-center font-sans max-w-lg mx-auto">
+          
+          <!-- Header Tag -->
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <span class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200 flex items-center gap-1 shadow-2xs">
+              🎧 Nghe Chép Chính Tả & Điền Nghĩa
             </span>
-            <p class="text-xs text-slate-500 mt-2">Bấm nghe âm thanh rồi chọn nghĩa tiếng Việt chính xác!</p>
+            <span id="audio-pos-badge" class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
+              Từ vựng
+            </span>
+          </div>
 
-            <!-- Big Audio Play Button -->
-            <button onclick="speakText(currentEnWord.en, 'en-US')" class="mt-4 px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-base shadow-md shadow-blue-200 flex items-center justify-center gap-2.5 mx-auto active:scale-95 transition">
-              <span class="text-2xl">🔊</span> <span>Nghe phát âm</span>
-            </button>
+          <!-- Audio Prompt Section -->
+          <div class="py-5 text-center">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-2">
+              Lắng nghe phát âm và điền thông tin:
+            </span>
 
-            <!-- Revealed Word Box (Only shown after answering) -->
-            <div id="audio-revealed-box" class="hidden mt-4 p-3 bg-slate-50 rounded-2xl border border-slate-200 animate-in fade-in">
-              <h3 id="audio-revealed-word" class="text-2xl font-extrabold text-blue-700">word</h3>
-              <p id="audio-revealed-meaning" class="text-xs text-slate-600 mt-0.5">nghĩa tiếng Việt</p>
+            <!-- Audio Play Buttons (Normal + Slow) -->
+            <div class="flex items-center justify-center gap-2.5 my-2">
+              <button onclick="speakAudioWord(0.9)" class="px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold text-sm sm:text-base shadow-md shadow-blue-200 flex items-center gap-2 active:scale-95 transition cursor-pointer">
+                <span class="text-xl">🔊</span> <span>Nghe lại (1x)</span>
+              </button>
+              <button onclick="speakAudioWord(0.7)" class="px-3.5 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm border border-slate-200 flex items-center gap-1.5 active:scale-95 transition cursor-pointer" title="Nghe với tốc độ chậm hơn">
+                <span>🐢</span> <span>Chậm (0.7x)</span>
+              </button>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-2 font-medium">Bấm nút loa để nghe lại âm thanh</p>
+          </div>
+
+          <!-- Dual Input Form: English Word & Vietnamese Meaning -->
+          <div class="space-y-3.5 text-left">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1 flex items-center justify-between">
+                <span>1. Điền từ tiếng Anh bạn nghe được:</span>
+                <span id="audio-en-hint" class="text-[10px] font-semibold text-slate-400"></span>
+              </label>
+              <input 
+                type="text" 
+                id="audio-input-en" 
+                autocomplete="off" 
+                autocorrect="off" 
+                autocapitalize="off" 
+                spellcheck="false"
+                placeholder="Gõ từ tiếng Anh nghe được..."
+                class="w-full px-4 py-3 text-sm sm:text-base font-bold text-slate-800 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-blue-500 focus:bg-white focus:outline-none transition shadow-2xs"
+                onkeydown="handleAudioEnKeyDown(event)"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">
+                2. Điền nghĩa tiếng Việt tương ứng:
+              </label>
+              <input 
+                type="text" 
+                id="audio-input-vi" 
+                autocomplete="off" 
+                autocorrect="off" 
+                autocapitalize="off" 
+                spellcheck="false"
+                placeholder="Gõ nghĩa tiếng Việt của từ này..."
+                class="w-full px-4 py-3 text-sm sm:text-base font-bold text-slate-800 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-blue-500 focus:bg-white focus:outline-none transition shadow-2xs"
+                onkeydown="handleAudioViKeyDown(event)"
+              />
+            </div>
+
+            <!-- Feedback Result Box (Shows after check/skip) -->
+            <div id="audio-feedback-box" class="hidden p-4 rounded-2xl text-left text-xs sm:text-sm font-semibold border transition font-sans">
+              <!-- Dynamically populated -->
+            </div>
+
+            <!-- Action Buttons: Check / Skip / Prev -->
+            <div class="flex items-center gap-2 pt-2">
+              <button id="audio-btn-prev" onclick="prevAudioQuestion()" class="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1 active:scale-95 cursor-pointer">
+                ⬅ Trước
+              </button>
+              <button id="audio-btn-skip" onclick="skipAudioQuestion()" class="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 text-xs font-bold transition flex-1 active:scale-95 cursor-pointer">
+                🏳️ Xem đáp án
+              </button>
+              <button id="audio-btn-submit" onclick="handleAudioAction()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-blue-200 active:scale-95 cursor-pointer">
+                Kiểm tra ↵
+              </button>
             </div>
           </div>
 
-          <div id="audio-choices-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-5"></div>
-
-          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2 font-sans">
-            <button onclick="prevEnQuestion()" class="px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1">
-              <span>⬅️ Trước</span>
-            </button>
-            <button onclick="nextEnQuestion()" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex items-center gap-1">
-              <span>Tiếp theo ➡️</span>
-            </button>
-          </div>
         </div>
       </section>
 
@@ -1205,7 +1262,7 @@
 
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script src="toeic_course_data.js?v=17"></script>
+  <script src="toeic_course_data.js?v=18"></script>
   <script src="n4_quiz_data.js"></script>
   <script>
     /* =========================================================================
@@ -1521,12 +1578,16 @@
       } catch (e) {}
     }
 
-    function speakText(text, lang = 'en-US') {
+    function speakText(text, lang = 'en-US', customRate = null) {
       if (!('speechSynthesis' in window) || !globalState.soundEnabled) return;
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = lang;
-      utterance.rate = lang.startsWith('ja') ? 0.85 : 0.9;
+      if (customRate !== null) {
+        utterance.rate = customRate;
+      } else {
+        utterance.rate = lang.startsWith('ja') ? 0.85 : 0.9;
+      }
       window.speechSynthesis.speak(utterance);
     }
 
@@ -2550,78 +2611,258 @@
       document.getElementById('stat-wrong').textContent = globalState.enWrong;
     }
 
-    // AUDIO-ONLY (ẨN CHỮ, LUYỆN TAI NGHE)
-    function renderEnAudioOnly() {
-      document.getElementById('audio-revealed-box').classList.add('hidden');
-      speakText(currentEnWord.en, 'en-US'); // Auto-play audio
+    // AUDIO DICTATION & MEANING RECALL (LUYỆN TAI NGHE: CHÉP TỪ & ĐIỀN NGHĨA)
+    let audioIsAnswered = false;
 
-      const deck = getCurrentEnDeck();
-      const otherWords = deck.words.filter(w => w.id !== currentEnWord.id);
-      const distractors = shuffleArray(otherWords).slice(0, 3).map(w => w.vi);
-      const options = shuffleArray([currentEnWord.vi, ...distractors]);
-
-      const container = document.getElementById('audio-choices-container');
-      container.innerHTML = '';
-
-      options.forEach((opt, index) => {
-        const btn = document.createElement('button');
-        btn.className = "flex items-center text-left p-4 rounded-2xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/40 font-semibold text-slate-800 text-xs sm:text-sm transition active:scale-[0.98] bg-white min-h-[50px]";
-        btn.innerHTML = `
-          <span class="w-6 h-6 flex-shrink-0 flex items-center justify-center rounded-lg bg-slate-100 text-xs font-bold mr-2.5 font-sans">${index + 1}</span>
-          <span class="flex-1">${opt}</span>
-        `;
-        btn.onclick = () => handleEnAudioSelection(btn, opt, currentEnWord.vi);
-        container.appendChild(btn);
-      });
+    function speakAudioWord(customRate = 0.9) {
+      if (!currentEnWord) return;
+      speakText(currentEnWord.en, 'en-US', customRate);
     }
 
-    function handleEnAudioSelection(buttonElem, selected, correct) {
-      if (globalState.enIsAnswered) return;
-      globalState.enIsAnswered = true;
+    function renderEnAudioOnly() {
+      if (!currentEnWord) return;
+      audioIsAnswered = false;
 
-      const allBtns = document.querySelectorAll('#audio-choices-container button');
-      allBtns.forEach(b => {
-        b.disabled = true;
-        b.style.pointerEvents = 'none';
-        b.classList.remove('hover:border-indigo-500', 'hover:bg-indigo-50/40');
+      // Update POS badge
+      const posBadge = document.getElementById('audio-pos-badge');
+      if (posBadge) posBadge.textContent = currentEnWord.pos || 'Từ vựng';
+
+      const hintElem = document.getElementById('audio-en-hint');
+      if (hintElem) hintElem.textContent = `(${currentEnWord.en.length} ký tự)`;
+
+      // Reset inputs
+      const inEn = document.getElementById('audio-input-en');
+      const inVi = document.getElementById('audio-input-vi');
+      if (inEn) {
+        inEn.value = '';
+        inEn.disabled = false;
+        inEn.className = "w-full px-4 py-3 text-sm sm:text-base font-bold text-slate-800 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-blue-500 focus:bg-white focus:outline-none transition shadow-2xs";
+      }
+      if (inVi) {
+        inVi.value = '';
+        inVi.disabled = false;
+        inVi.className = "w-full px-4 py-3 text-sm sm:text-base font-bold text-slate-800 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-blue-500 focus:bg-white focus:outline-none transition shadow-2xs";
+      }
+
+      // Reset feedback
+      const feedbackBox = document.getElementById('audio-feedback-box');
+      if (feedbackBox) {
+        feedbackBox.classList.add('hidden');
+        feedbackBox.innerHTML = '';
+      }
+
+      // Reset action buttons
+      const submitBtn = document.getElementById('audio-btn-submit');
+      if (submitBtn) {
+        submitBtn.textContent = 'Kiểm tra ↵';
+        submitBtn.className = "px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-blue-200 active:scale-95 cursor-pointer";
+      }
+      const skipBtn = document.getElementById('audio-btn-skip');
+      if (skipBtn) skipBtn.disabled = false;
+
+      const prevBtn = document.getElementById('audio-btn-prev');
+      if (prevBtn) {
+        prevBtn.disabled = globalState.enIndex === 0;
+        prevBtn.classList.toggle('opacity-40', globalState.enIndex === 0);
+      }
+
+      // Auto play audio
+      speakAudioWord(0.9);
+
+      // Auto focus English input
+      setTimeout(() => {
+        if (inEn) inEn.focus();
+      }, 100);
+    }
+
+    function handleAudioEnKeyDown(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const inEn = document.getElementById('audio-input-en');
+        const inVi = document.getElementById('audio-input-vi');
+        if (inEn && inVi) {
+          if (!inVi.value.trim()) {
+            inVi.focus();
+          } else {
+            handleAudioAction();
+          }
+        }
+      }
+    }
+
+    function handleAudioViKeyDown(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleAudioAction();
+      }
+    }
+
+    function handleAudioAction() {
+      if (!audioIsAnswered) {
+        checkAudioAnswer();
+      } else {
+        nextEnQuestion();
+      }
+    }
+
+    function checkAudioAnswer() {
+      if (!currentEnWord || audioIsAnswered) return;
+      audioIsAnswered = true;
+
+      const inEn = document.getElementById('audio-input-en');
+      const inVi = document.getElementById('audio-input-vi');
+      inEn.disabled = true;
+      inVi.disabled = true;
+
+      const userEn = cleanTypingString(inEn.value);
+      const targetEn = cleanTypingString(currentEnWord.en);
+      const isEnCorrect = userEn.length > 0 && userEn === targetEn;
+
+      const userVi = inVi.value.trim();
+      const viRaw = currentEnWord.vi || '';
+      const branches = viRaw.split(/[,;\/\(\)]+/).map(cleanTypingString).filter(Boolean);
+      const userCleanVi = cleanTypingString(userVi);
+      const userNoToneVi = removeVietnameseTones(userCleanVi);
+      const isViCorrect = userCleanVi.length > 0 && branches.some(b => {
+        const bClean = cleanTypingString(b);
+        const bNoTone = removeVietnameseTones(bClean);
+        return bClean === userCleanVi || 
+               bClean.includes(userCleanVi) || 
+               userCleanVi.includes(bClean) || 
+               bNoTone === userNoToneVi || 
+               bNoTone.includes(userNoToneVi) || 
+               userNoToneVi.includes(bNoTone);
       });
 
-      const revealBox = document.getElementById('audio-revealed-box');
-      document.getElementById('audio-revealed-word').textContent = currentEnWord.en;
-      document.getElementById('audio-revealed-meaning').textContent = currentEnWord.vi;
-      revealBox.classList.remove('hidden');
+      // Update input border colors
+      if (isEnCorrect) {
+        inEn.className = "w-full px-4 py-3 text-sm sm:text-base font-bold text-emerald-950 bg-emerald-50 border-2 border-emerald-500 rounded-2xl shadow-xs";
+      } else {
+        inEn.className = "w-full px-4 py-3 text-sm sm:text-base font-bold text-rose-950 bg-rose-50 border-2 border-rose-500 rounded-2xl shadow-xs";
+      }
 
-      if (selected.trim().toLowerCase() === correct.trim().toLowerCase()) {
+      if (isViCorrect) {
+        inVi.className = "w-full px-4 py-3 text-sm sm:text-base font-bold text-emerald-950 bg-emerald-50 border-2 border-emerald-500 rounded-2xl shadow-xs";
+      } else {
+        inVi.className = "w-full px-4 py-3 text-sm sm:text-base font-bold text-rose-950 bg-rose-50 border-2 border-rose-500 rounded-2xl shadow-xs";
+      }
+
+      const feedbackBox = document.getElementById('audio-feedback-box');
+      feedbackBox.classList.remove('hidden');
+
+      const submitBtn = document.getElementById('audio-btn-submit');
+      submitBtn.textContent = 'Tiếp theo (Enter) ➔';
+      submitBtn.className = "px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex-1 shadow-sm active:scale-95 cursor-pointer";
+      setTimeout(() => submitBtn.focus(), 60);
+
+      const synList = getWordSynonyms(currentEnWord);
+      const synHtml = (synList && synList.length > 0)
+        ? `<div class="mt-2.5 pt-2 border-t border-slate-200/60 text-xs font-semibold flex items-center gap-1.5"><span>🔁 Từ đồng nghĩa:</span> <span class="font-bold underline">${synList.join(', ')}</span></div>`
+        : '';
+
+      const isAllCorrect = isEnCorrect && isViCorrect;
+
+      if (isAllCorrect) {
         globalState.enCorrect++;
         playTone('correct');
-        buttonElem.classList.remove('border-slate-200', 'bg-white');
-        buttonElem.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
-        buttonElem.style.borderColor = '#10b981';
-        buttonElem.style.backgroundColor = '#ecfdf5';
-        buttonElem.style.color = '#064e3b';
+        feedbackBox.className = "p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 text-left font-sans shadow-xs";
+        feedbackBox.innerHTML = `
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block">✓ Xuất sắc! Nghe đúng chính tả & nhớ chuẩn nghĩa!</span>
+              <h4 class="text-base sm:text-lg font-extrabold text-emerald-950 mt-1">
+                ${currentEnWord.en} = <span class="underline">${currentEnWord.vi}</span>
+              </h4>
+              <p class="text-xs text-emerald-800 font-mono mt-0.5">${currentEnWord.ipa || ''}</p>
+              ${currentEnWord.sentence ? `<p class="text-xs text-slate-700 mt-2 italic bg-white/70 p-2 rounded-xl border border-emerald-100 font-normal">"${currentEnWord.sentence}"</p>` : ''}
+            </div>
+            <button onclick="speakAudioWord(0.9)" class="p-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-900 text-sm cursor-pointer transition flex-shrink-0 ml-2" title="Nghe lại">🔊</button>
+          </div>
+          ${synHtml}
+        `;
+        speakAudioWord(0.9);
       } else {
         globalState.enWrong++;
         globalState.enMistakes.push(currentEnWord);
         playTone('wrong');
-        buttonElem.classList.remove('border-slate-200', 'bg-white');
-        buttonElem.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-950');
-        buttonElem.style.borderColor = '#f43f5e';
-        buttonElem.style.backgroundColor = '#fff1f2';
-        buttonElem.style.color = '#881337';
-
-        allBtns.forEach(b => {
-          if (b.textContent.includes(correct)) {
-            b.classList.remove('border-slate-200', 'bg-white');
-            b.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-950');
-            b.style.borderColor = '#10b981';
-            b.style.backgroundColor = '#ecfdf5';
-            b.style.color = '#064e3b';
-          }
-        });
+        feedbackBox.className = "p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-950 text-left font-sans shadow-xs";
+        feedbackBox.innerHTML = `
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${isEnCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-200 text-rose-900'}">
+                  Tiếng Anh: ${isEnCorrect ? '✓ Đúng' : '✗ Chưa đúng'}
+                </span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded ${isViCorrect ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-200 text-rose-900'}">
+                  Nghĩa Việt: ${isViCorrect ? '✓ Đúng' : '✗ Chưa đúng'}
+                </span>
+              </div>
+              <h4 class="text-base sm:text-lg font-extrabold text-slate-900 mt-1">
+                Đáp án chuẩn: <span class="text-blue-700 font-black">${currentEnWord.en}</span> = <span class="text-emerald-700 font-black">${currentEnWord.vi}</span>
+              </h4>
+              <p class="text-xs text-slate-600 font-mono mt-0.5">${currentEnWord.ipa || ''}</p>
+              ${currentEnWord.sentence ? `<p class="text-xs text-slate-700 mt-2 italic bg-white/70 p-2 rounded-xl border border-rose-100 font-normal">"${currentEnWord.sentence}"</p>` : ''}
+            </div>
+            <button onclick="speakAudioWord(0.9)" class="p-2 rounded-xl bg-rose-100 hover:bg-rose-200 text-rose-900 text-sm cursor-pointer transition flex-shrink-0 ml-2" title="Nghe lại">🔊</button>
+          </div>
+          ${synHtml}
+        `;
       }
 
       document.getElementById('stat-correct').textContent = globalState.enCorrect;
       document.getElementById('stat-wrong').textContent = globalState.enWrong;
+      updateStreakUI('en');
+    }
+
+    function skipAudioQuestion() {
+      if (!currentEnWord || audioIsAnswered) return;
+      audioIsAnswered = true;
+
+      const inEn = document.getElementById('audio-input-en');
+      const inVi = document.getElementById('audio-input-vi');
+      inEn.disabled = true;
+      inVi.disabled = true;
+
+      globalState.enWrong++;
+      globalState.enMistakes.push(currentEnWord);
+      playTone('wrong');
+
+      const feedbackBox = document.getElementById('audio-feedback-box');
+      feedbackBox.classList.remove('hidden');
+
+      const submitBtn = document.getElementById('audio-btn-submit');
+      submitBtn.textContent = 'Tiếp tục (Enter) ➔';
+      submitBtn.className = "px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-bold transition flex-1 shadow-sm active:scale-95 cursor-pointer";
+      setTimeout(() => submitBtn.focus(), 60);
+
+      const synList = getWordSynonyms(currentEnWord);
+      const synHtml = (synList && synList.length > 0)
+        ? `<div class="mt-2.5 pt-2 border-t border-amber-200/60 text-xs text-amber-900 font-semibold flex items-center gap-1.5"><span>🔁 Từ đồng nghĩa:</span> <span class="font-bold underline">${synList.join(', ')}</span></div>`
+        : '';
+
+      feedbackBox.className = "p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 text-left font-sans shadow-xs";
+      feedbackBox.innerHTML = `
+        <div class="flex items-start justify-between">
+          <div class="flex-1">
+            <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider block">🏳️ Đáp án đúng</span>
+            <h4 class="text-base sm:text-lg font-extrabold text-amber-950 mt-1">
+              ${currentEnWord.en} = <span class="underline font-black">${currentEnWord.vi}</span>
+            </h4>
+            <p class="text-xs text-amber-800 font-mono mt-0.5">${currentEnWord.ipa || ''}</p>
+            ${currentEnWord.sentence ? `<p class="text-xs text-slate-700 mt-2 italic bg-white/70 p-2 rounded-xl border border-amber-100 font-normal">"${currentEnWord.sentence}"</p>` : ''}
+          </div>
+          <button onclick="speakAudioWord(0.9)" class="p-2 rounded-xl bg-amber-100 hover:bg-amber-200 text-amber-900 text-sm cursor-pointer transition flex-shrink-0 ml-2" title="Nghe lại">🔊</button>
+        </div>
+        ${synHtml}
+      `;
+      speakAudioWord(0.9);
+
+      document.getElementById('stat-correct').textContent = globalState.enCorrect;
+      document.getElementById('stat-wrong').textContent = globalState.enWrong;
+    }
+
+    function prevAudioQuestion() {
+      prevEnQuestion();
     }
 
     // COLLOCATIONS PART 5 (20 CÂU THỬ THÁCH CHUỖI)
