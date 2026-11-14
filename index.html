@@ -177,6 +177,10 @@
           <button onclick="switchTabEn('typing')" id="tab-btn-typing" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
             <span>⌨️</span> <span>Luyện gõ từ</span>
           </button>
+          <!-- Mode: Synonym Practice (NEW) -->
+          <button onclick="switchTabEn('synonym')" id="tab-btn-synonym" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
+            <span>🔁</span> <span>Từ đồng nghĩa</span>
+          </button>
           <!-- Mode 2: Flashcards 3D -->
           <button onclick="switchTabEn('flashcard')" id="tab-btn-flashcard" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
             <span>🃏</span> <span>Flashcard 3D</span>
@@ -324,6 +328,121 @@
         </div>
       </section>
 
+      <!-- Mode: SYNONYM PRACTICE (PARAPHRASE) - KIỂM TRA CỘT CUỐI & GÕ TỪ ĐỒNG NGHĨA -->
+      <section id="view-synonym" class="en-view hidden space-y-4">
+        <div class="bg-white p-5 sm:p-7 rounded-3xl shadow-xs border border-slate-200 text-center font-sans max-w-lg mx-auto">
+          
+          <!-- Synonym Mode Header -->
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center gap-1 shadow-2xs">
+                🔁 Từ đồng nghĩa (Paraphrase)
+              </span>
+              <span id="synonym-pos-badge" class="text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
+                Từ vựng
+              </span>
+            </div>
+            <span class="text-[11px] font-semibold text-slate-400">
+              Gõ từ đồng nghĩa tiếng Anh
+            </span>
+          </div>
+
+          <!-- Empty State Box (Chỉ hiện khi bài học chưa có từ đồng nghĩa ở cột cuối) -->
+          <div id="synonym-empty-box" class="hidden py-8 px-4 text-center">
+            <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-3 border border-indigo-100 shadow-2xs">
+              🔁
+            </div>
+            <h3 class="text-base font-bold text-slate-800 mb-1">Chưa có từ đồng nghĩa trong bài học này</h3>
+            <p class="text-xs text-slate-500 mb-5 max-w-sm mx-auto leading-relaxed">
+              Mục này chỉ kiểm tra các từ có nhập <b>từ đồng nghĩa ở cột cuối</b> (Paraphrase). Hãy sang mục <b>Nạp từ</b> để thêm hoặc chọn bài học khác có sẵn từ đồng nghĩa nhé!
+            </p>
+            <div class="flex items-center justify-center gap-2">
+              <button onclick="switchTabEn('manage')" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition shadow-xs active:scale-95 cursor-pointer">
+                📝 Sang mục Nạp từ
+              </button>
+              <button onclick="openEnDeckModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition active:scale-95 cursor-pointer">
+                📚 Đổi bài học khác
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Question Container -->
+          <div id="synonym-active-box">
+            <!-- Prompt Word Display -->
+            <div class="py-6 sm:py-8 text-center">
+              <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">
+                Cho từ tiếng Anh:
+              </span>
+              <div class="flex items-center justify-center gap-2">
+                <h2 id="synonym-prompt-word" class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-sans">
+                  ...
+                </h2>
+                <button id="synonym-audio-btn" onclick="speakSynonymPrompt()" class="p-2 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition text-base shadow-2xs cursor-pointer" title="Nghe phát âm từ đề bài">
+                  🔊
+                </button>
+              </div>
+              <div class="mt-2">
+                <span id="synonym-sub-meaning" class="text-xs sm:text-sm font-semibold text-slate-700 bg-slate-100 inline-block px-3 py-1 rounded-xl border border-slate-200/60">
+                  ...
+                </span>
+              </div>
+              <p id="synonym-sub-ipa" class="text-xs font-mono text-slate-400 mt-1 font-medium"></p>
+            </div>
+
+            <!-- Input Box & Submit -->
+            <div class="space-y-3">
+              <div class="text-left">
+                <label for="synonym-input" class="text-[11px] font-bold text-indigo-700 block mb-1.5 flex items-center justify-between">
+                  <span>✍️ Gõ từ đồng nghĩa tiếng Anh (Paraphrase):</span>
+                  <span class="text-[10px] text-slate-400 font-normal">Chấp nhận mọi từ đồng nghĩa hợp lệ</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="synonym-input" 
+                  autocomplete="off" 
+                  autocorrect="off" 
+                  autocapitalize="off" 
+                  spellcheck="false"
+                  placeholder="Gõ từ đồng nghĩa (VD: staff, employee...)"
+                  class="w-full px-4 py-3.5 text-center text-lg sm:text-xl font-bold text-slate-800 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-indigo-500 focus:bg-white focus:outline-none transition shadow-2xs"
+                  onkeydown="handleSynonymKeyDown(event)"
+                />
+              </div>
+
+              <!-- Feedback Result Box (Green/Red/Amber) -->
+              <div id="synonym-feedback-box" class="hidden p-4 rounded-2xl text-left text-xs sm:text-sm font-semibold border transition font-sans">
+                <!-- Dynamically populated -->
+              </div>
+
+              <!-- Action Buttons: Check Answer / Next Question / Give up -->
+              <div class="flex items-center gap-2 pt-2">
+                <button id="synonym-btn-prev" onclick="prevSynonymQuestion()" class="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition flex items-center gap-1 active:scale-95 cursor-pointer">
+                  ⬅ Trước
+                </button>
+                <button id="synonym-btn-skip" onclick="skipSynonymQuestion()" class="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 text-xs font-bold transition flex-1 active:scale-95 cursor-pointer">
+                  🏳️ Xem đáp án
+                </button>
+                <button id="synonym-btn-submit" onclick="handleSynonymAction()" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-indigo-200 active:scale-95 cursor-pointer">
+                  Kiểm tra ↵
+                </button>
+              </div>
+            </div>
+
+            <!-- Example sentence if available -->
+            <div id="synonym-sentence-box" class="hidden mt-4 pt-3 border-t border-slate-100 text-left bg-slate-50/80 p-3 rounded-2xl border border-slate-200/60">
+              <div class="flex items-start justify-between gap-1">
+                <div>
+                  <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-0.5">Câu ví dụ ngữ cảnh:</span>
+                  <p id="synonym-sentence-text" class="text-xs text-slate-800 font-semibold leading-relaxed"></p>
+                </div>
+                <button onclick="speakText(document.getElementById('synonym-sentence-text').textContent, 'en-US')" class="text-indigo-600 hover:text-indigo-800 text-xs p-1 flex-shrink-0 cursor-pointer" title="Nghe câu ví dụ">🔊</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
 <section id="view-mcq" class="en-view space-y-4">
         <div class="bg-white p-4 sm:p-8 rounded-3xl shadow-xs border border-slate-200 text-center relative overflow-hidden">
           
@@ -332,8 +451,8 @@
             <span id="mcq-mode-badge" class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-1 shadow-2xs">
               🇬🇧 ➔ 🇻🇳 Anh sang Việt
             </span>
-            <button onclick="toggleMcqDirection()" class="text-[11px] font-bold text-slate-600 hover:text-blue-600 bg-slate-50 hover:bg-slate-100 px-2.5 py-1 rounded-xl border border-slate-200 transition flex items-center gap-1 active:scale-95 cursor-pointer" title="Đổi chế độ: Anh sang Việt ⇄ Việt sang Anh ⇄ Từ đồng nghĩa">
-              <span>🔄 Đổi chế độ</span>
+            <button onclick="toggleMcqDirection()" class="text-[11px] font-bold text-slate-600 hover:text-blue-600 bg-slate-50 hover:bg-slate-100 px-2.5 py-1 rounded-xl border border-slate-200 transition flex items-center gap-1 active:scale-95 cursor-pointer" title="Đổi chiều: Anh sang Việt ⇄ Việt sang Anh">
+              <span>🔄 Đổi chiều</span>
             </button>
           </div>
 
@@ -1262,7 +1381,7 @@
 
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script src="toeic_course_data.js?v=18"></script>
+  <script src="toeic_course_data.js?v=19"></script>
   <script src="n4_quiz_data.js"></script>
   <script>
     /* =========================================================================
@@ -1491,6 +1610,10 @@
       enMistakes: [],
       enIsAnswered: false,
 
+      // Synonyms state
+      synonymIndex: 0,
+      synonymList: [],
+
       // Collocations state
       collocIndex: 0,
       collocStudyList: [],
@@ -1511,6 +1634,8 @@
     let audioCtx = null;
     let currentEnWord = null;
     let currentJaItem = null;
+    let currentSynonymItem = null;
+    let synonymIsAnswered = false;
 
 
     /* =========================================================================
@@ -1724,6 +1849,9 @@
           } else if (globalState.currentEnTab === 'typing') {
             curIndex = (globalState.typingIndex || 0) + 1;
             totalItems = globalState.typingList.length || 1;
+          } else if (globalState.currentEnTab === 'synonym') {
+            curIndex = (globalState.synonymIndex || 0) + 1;
+            totalItems = (globalState.synonymList && globalState.synonymList.length) ? globalState.synonymList.length : 1;
           } else if (globalState.currentEnTab === 'collocation') {
             curIndex = (globalState.collocIndex || 0) + 1;
             totalItems = globalState.collocStudyList.length || 1;
@@ -2331,6 +2459,8 @@
         startGapFillQuiz();
       } else if (globalState.currentEnTab === 'typing') {
         startTypingQuiz();
+      } else if (globalState.currentEnTab === 'synonym') {
+        startSynonymQuiz();
       } else if (globalState.currentEnTab === 'collocation') {
         startCollocQuiz();
       } else if (globalState.currentEnTab === 'manage') {
@@ -2346,7 +2476,7 @@
 
     function switchTabEn(tabName) {
       globalState.currentEnTab = tabName;
-      const tabKeys = ['mcq', 'typing', 'flashcard', 'gapfill', 'audio', 'collocation', 'manage'];
+      const tabKeys = ['mcq', 'typing', 'synonym', 'flashcard', 'gapfill', 'audio', 'collocation', 'manage'];
       tabKeys.forEach(t => {
         const btn = document.getElementById(`tab-btn-${t}`);
         const view = document.getElementById(`view-${t}`);
@@ -2371,17 +2501,23 @@
       else if (tabName === 'collocation') startCollocQuiz();
       else if (tabName === 'gapfill') startGapFillQuiz();
       else if (tabName === 'typing') startTypingQuiz();
+      else if (tabName === 'synonym') startSynonymQuiz();
       else restartCurrentEnMode();
     }
 
     function retryCurrentEnSession() {
       if (globalState.currentEnTab === 'gapfill') startGapFillQuiz();
       else if (globalState.currentEnTab === 'typing') startTypingQuiz();
+      else if (globalState.currentEnTab === 'synonym') startSynonymQuiz();
       else if (globalState.currentEnTab === 'collocation') startCollocQuiz();
       else restartCurrentEnMode();
     }
 
     function restartCurrentEnMode(sourceList = null) {
+      if (globalState.currentEnTab === 'synonym') {
+        startSynonymQuiz(sourceList);
+        return;
+      }
       const deck = getCurrentEnDeck();
       if (!deck || deck.words.length === 0) {
         if (globalState.currentEnTab !== 'manage') switchTabEn('manage');
@@ -2439,17 +2575,11 @@
       else if (globalState.currentEnTab === 'flashcard') renderEnFlashcard(currentEnWord);
     }
 
-    // MCQ Modes: 'en_to_vi' | 'vi_to_en' | 'synonyms'
+    // MCQ Modes: 'en_to_vi' | 'vi_to_en'
     let mcqDirectionMode = 'en_to_vi';
 
     function toggleMcqDirection() {
-      if (mcqDirectionMode === 'en_to_vi') {
-        mcqDirectionMode = 'vi_to_en';
-      } else if (mcqDirectionMode === 'vi_to_en') {
-        mcqDirectionMode = 'synonyms';
-      } else {
-        mcqDirectionMode = 'en_to_vi';
-      }
+      mcqDirectionMode = (mcqDirectionMode === 'en_to_vi') ? 'vi_to_en' : 'en_to_vi';
       renderEnMCQ();
     }
 
@@ -2474,44 +2604,11 @@
         otherWords = [...otherWords, ...extra];
       }
 
-      const synList = getWordSynonyms(currentEnWord);
       let promptStr = '';
       let correctAns = '';
       let options = [];
 
-      if (mcqDirectionMode === 'synonyms') {
-        if (synList.length > 0) {
-          if (modeBadge) modeBadge.innerHTML = '🔁 Từ đồng nghĩa (Paraphrase)';
-          if (badgeType) badgeType.textContent = 'Paraphrase';
-          if (qLabel) qLabel.textContent = 'Chọn từ đồng nghĩa với:';
-          promptStr = currentEnWord.en;
-          correctAns = synList[0];
-          if (audioBtn) audioBtn.classList.remove('hidden');
-          if (subIpa) subIpa.textContent = currentEnWord.ipa || '';
-
-          // Collect distractors: other words' synonyms or en
-          const otherSyns = [];
-          otherWords.forEach(w => {
-            const s = getWordSynonyms(w);
-            if (s.length > 0 && !synList.includes(s[0]) && s[0] !== correctAns) otherSyns.push(s[0]);
-            else if (w.en !== currentEnWord.en && !synList.includes(w.en)) otherSyns.push(w.en);
-          });
-          const distractors = shuffleArray(Array.from(new Set(otherSyns))).slice(0, 3);
-          options = shuffleArray([correctAns, ...distractors]);
-        } else {
-          // Fallback if current word has no synonyms
-          if (modeBadge) modeBadge.innerHTML = '🔁 Từ đồng nghĩa (Hỏi nghĩa)';
-          if (badgeType) badgeType.textContent = 'Tiếng Anh';
-          if (qLabel) qLabel.textContent = 'Chọn nghĩa tiếng Việt (Từ này chưa có từ đồng nghĩa):';
-          promptStr = currentEnWord.en;
-          correctAns = currentEnWord.vi;
-          if (audioBtn) audioBtn.classList.remove('hidden');
-          if (subIpa) subIpa.textContent = currentEnWord.ipa || '';
-
-          const distractors = shuffleArray(otherWords).slice(0, 3).map(w => w.vi);
-          options = shuffleArray([correctAns, ...distractors]);
-        }
-      } else if (mcqDirectionMode === 'vi_to_en') {
+      if (mcqDirectionMode === 'vi_to_en') {
         if (modeBadge) modeBadge.innerHTML = '🇻🇳 ➔ 🇬🇧 Việt sang Anh';
         if (badgeType) badgeType.textContent = 'Tiếng Việt';
         if (qLabel) qLabel.textContent = 'Chọn từ tiếng Anh có nghĩa:';
@@ -3387,6 +3484,346 @@
       }
     }
 
+    /* =========================================================================
+       LUYỆN TỪ ĐỒNG NGHĨA (PARAPHRASE) - CHECK CỘT CUỐI & GÕ TỪ ĐỒNG NGHĨA
+       ========================================================================= */
+    function checkSynonymMatch(userInput, synList) {
+      const userClean = cleanTypingString(userInput);
+      if (!userClean) return false;
+      if (!synList || !Array.isArray(synList)) return false;
+
+      return synList.some(syn => {
+        const synClean = cleanTypingString(syn);
+        if (synClean === userClean) return true;
+
+        const parts = String(syn).split(/[,;\/]+/).map(cleanTypingString).filter(Boolean);
+        if (parts.includes(userClean)) return true;
+
+        return false;
+      });
+    }
+
+    function startSynonymQuiz(sourceList = null) {
+      const deck = getCurrentEnDeck();
+      if (!deck || !deck.words) {
+        switchTabEn('manage');
+        return;
+      }
+
+      // Check ở cột cuối: Chỉ các từ có nhập từ đồng nghĩa mới được kiểm tra
+      const allWords = sourceList ? sourceList : deck.words;
+      const eligibleWords = allWords.filter(w => {
+        const syns = getWordSynonyms(w);
+        return syns && syns.length > 0;
+      });
+
+      const emptyBox = document.getElementById('synonym-empty-box');
+      const activeBox = document.getElementById('synonym-active-box');
+      const badgeElem = document.getElementById('en-active-deck-badge');
+
+      if (badgeElem && deck) {
+        badgeElem.innerHTML = `${deck.icon || '📘'} ${deck.name} (Từ đồng nghĩa)`;
+      }
+
+      if (eligibleWords.length === 0) {
+        if (emptyBox) emptyBox.classList.remove('hidden');
+        if (activeBox) activeBox.classList.add('hidden');
+        document.getElementById('study-progress-counter').textContent = '0 / 0';
+        document.getElementById('stat-correct').textContent = '0';
+        document.getElementById('stat-wrong').textContent = '0';
+        document.getElementById('study-progress-fill').style.width = '0%';
+        globalState.synonymList = [];
+        globalState.synonymIndex = 0;
+        return;
+      }
+
+      if (emptyBox) emptyBox.classList.add('hidden');
+      if (activeBox) activeBox.classList.remove('hidden');
+
+      globalState.synonymList = sourceList ? [...eligibleWords] : shuffleArray([...eligibleWords]);
+      globalState.synonymIndex = 0;
+      globalState.enCorrect = 0;
+      globalState.enWrong = 0;
+      globalState.enMistakes = [];
+      synonymIsAnswered = false;
+
+      document.getElementById('en-summary-card').classList.add('hidden');
+      document.getElementById('view-synonym').classList.remove('hidden');
+
+      updateStreakUI('en');
+      renderCurrentSynonymWord();
+    }
+
+    function renderCurrentSynonymWord() {
+      const total = (globalState.synonymList && globalState.synonymList.length > 0) ? globalState.synonymList.length : 0;
+      if (total === 0) {
+        const emptyBox = document.getElementById('synonym-empty-box');
+        const activeBox = document.getElementById('synonym-active-box');
+        if (emptyBox) emptyBox.classList.remove('hidden');
+        if (activeBox) activeBox.classList.add('hidden');
+        return;
+      }
+
+      if (globalState.synonymIndex >= total) {
+        showEnSummary();
+        return;
+      }
+
+      synonymIsAnswered = false;
+      const word = globalState.synonymList[globalState.synonymIndex];
+      currentSynonymItem = word;
+
+      // Update counters
+      document.getElementById('study-progress-counter').textContent = `${globalState.synonymIndex + 1} / ${total}`;
+      document.getElementById('stat-correct').textContent = globalState.enCorrect;
+      document.getElementById('stat-wrong').textContent = globalState.enWrong;
+      const pct = (globalState.synonymIndex / total) * 100;
+      document.getElementById('study-progress-fill').style.width = `${pct}%`;
+
+      // Update Displays
+      const posBadge = document.getElementById('synonym-pos-badge');
+      const promptWord = document.getElementById('synonym-prompt-word');
+      const subMeaning = document.getElementById('synonym-sub-meaning');
+      const subIpa = document.getElementById('synonym-sub-ipa');
+      const inputElem = document.getElementById('synonym-input');
+      const feedbackBox = document.getElementById('synonym-feedback-box');
+      const submitBtn = document.getElementById('synonym-btn-submit');
+      const skipBtn = document.getElementById('synonym-btn-skip');
+      const prevBtn = document.getElementById('synonym-btn-prev');
+      const sentBox = document.getElementById('synonym-sentence-box');
+      const sentText = document.getElementById('synonym-sentence-text');
+
+      if (posBadge) posBadge.textContent = word.pos || 'Từ vựng';
+      if (promptWord) promptWord.textContent = word.en || '...';
+      if (subMeaning) subMeaning.textContent = word.vi || '';
+      if (subIpa) subIpa.textContent = word.ipa ? `/${word.ipa}/` : '';
+
+      if (feedbackBox) {
+        feedbackBox.classList.add('hidden');
+        feedbackBox.innerHTML = '';
+        feedbackBox.className = 'hidden p-4 rounded-2xl text-left text-xs sm:text-sm font-semibold border transition font-sans';
+      }
+
+      if (inputElem) {
+        inputElem.value = '';
+        inputElem.disabled = false;
+        inputElem.className = "w-full px-4 py-3.5 text-center text-lg sm:text-xl font-bold text-slate-800 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:border-indigo-500 focus:bg-white focus:outline-none transition shadow-2xs";
+        setTimeout(() => inputElem.focus(), 80);
+      }
+
+      if (submitBtn) {
+        submitBtn.textContent = 'Kiểm tra ↵';
+        submitBtn.className = "px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-indigo-200 active:scale-95 cursor-pointer";
+      }
+
+      if (skipBtn) {
+        skipBtn.disabled = false;
+        skipBtn.classList.remove('opacity-40');
+        skipBtn.className = "px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 text-xs font-bold transition flex-1 active:scale-95 cursor-pointer";
+      }
+
+      if (prevBtn) {
+        prevBtn.disabled = globalState.synonymIndex === 0;
+        prevBtn.classList.toggle('opacity-40', globalState.synonymIndex === 0);
+      }
+
+      if (sentBox && sentText) {
+        if (word.example_en) {
+          sentBox.classList.remove('hidden');
+          sentText.textContent = word.example_en;
+        } else {
+          sentBox.classList.add('hidden');
+        }
+      }
+
+      updateStreakUI('en');
+    }
+
+    function handleSynonymAction() {
+      if (!synonymIsAnswered) {
+        submitSynonymAnswer();
+      } else {
+        nextSynonymQuestion();
+      }
+    }
+
+    function handleSynonymKeyDown(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSynonymAction();
+      }
+    }
+
+    function submitSynonymAnswer() {
+      if (synonymIsAnswered || !currentSynonymItem) return;
+      const inputElem = document.getElementById('synonym-input');
+      if (!inputElem) return;
+      const userRaw = inputElem.value.trim();
+      if (!userRaw) {
+        inputElem.focus();
+        return;
+      }
+
+      synonymIsAnswered = true;
+      inputElem.disabled = true;
+
+      const synList = getWordSynonyms(currentSynonymItem);
+      const isMatch = checkSynonymMatch(userRaw, synList);
+      const feedbackBox = document.getElementById('synonym-feedback-box');
+      const submitBtn = document.getElementById('synonym-btn-submit');
+      const skipBtn = document.getElementById('synonym-btn-skip');
+
+      if (isMatch) {
+        globalState.enCorrect++;
+        playTone('correct');
+        inputElem.classList.remove('border-slate-200', 'bg-slate-50');
+        inputElem.classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-800');
+
+        if (feedbackBox) {
+          feedbackBox.className = 'p-4 rounded-2xl text-left text-xs sm:text-sm font-semibold border transition font-sans bg-emerald-50 border-emerald-200 text-emerald-800 block';
+          feedbackBox.innerHTML = `
+            <div class="flex items-start gap-2.5">
+              <span class="text-xl flex-shrink-0">🎉</span>
+              <div class="space-y-1.5 flex-1">
+                <div class="text-emerald-900 font-extrabold text-sm">Chính xác! Bạn đã tìm đúng từ đồng nghĩa.</div>
+                <div class="text-xs text-emerald-700">Các từ đồng nghĩa được công nhận của <b>${currentSynonymItem.en}</b>:</div>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  ${synList.map(s => `
+                    <button type="button" onclick="speakText('${s.replace(/'/g, "\\'")}', 'en-US')" class="inline-flex items-center gap-1 bg-white border border-emerald-300 text-emerald-800 font-bold px-2.5 py-1 rounded-lg text-xs hover:bg-emerald-100 transition cursor-pointer shadow-2xs">
+                      <span>🔁 ${s}</span> <span>🔊</span>
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      } else {
+        globalState.enWrong++;
+        globalState.enMistakes.push(currentSynonymItem);
+        playTone('wrong');
+        inputElem.classList.remove('border-slate-200', 'bg-slate-50');
+        inputElem.classList.add('border-rose-500', 'bg-rose-50', 'text-rose-800');
+
+        const isTypedOriginal = cleanTypingString(userRaw) === cleanTypingString(currentSynonymItem.en);
+
+        if (feedbackBox) {
+          feedbackBox.className = 'p-4 rounded-2xl text-left text-xs sm:text-sm font-semibold border transition font-sans bg-rose-50 border-rose-200 text-rose-800 block';
+          feedbackBox.innerHTML = `
+            <div class="flex items-start gap-2.5">
+              <span class="text-xl flex-shrink-0">❌</span>
+              <div class="space-y-1.5 flex-1">
+                <div class="text-rose-900 font-extrabold text-sm">Chưa đúng từ đồng nghĩa!</div>
+                <div class="text-xs text-rose-700">
+                  ${isTypedOriginal 
+                    ? `⚠️ Bạn vừa gõ lại chính từ đề bài (<span class="font-bold underline">${userRaw}</span>). Cần gõ từ đồng nghĩa (paraphrase) của nó!` 
+                    : `Bạn đã nhập: <span class="line-through font-mono font-bold">${userRaw}</span>`
+                  }
+                </div>
+                <div class="text-xs text-slate-700 pt-0.5">Từ đồng nghĩa chính xác của <b>${currentSynonymItem.en}</b> (${currentSynonymItem.vi || ''}) là:</div>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  ${synList.map(s => `
+                    <button type="button" onclick="speakText('${s.replace(/'/g, "\\'")}', 'en-US')" class="inline-flex items-center gap-1 bg-white border border-rose-200 text-indigo-700 font-bold px-2.5 py-1 rounded-lg text-xs hover:bg-indigo-50 transition cursor-pointer shadow-2xs">
+                      <span>🔁 ${s}</span> <span>🔊</span>
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      document.getElementById('stat-correct').textContent = globalState.enCorrect;
+      document.getElementById('stat-wrong').textContent = globalState.enWrong;
+
+      if (submitBtn) {
+        submitBtn.textContent = 'Tiếp theo ➔';
+        submitBtn.className = "px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-emerald-200 active:scale-95 cursor-pointer";
+        submitBtn.focus();
+      }
+      if (skipBtn) {
+        skipBtn.disabled = true;
+        skipBtn.classList.add('opacity-40');
+      }
+    }
+
+    function skipSynonymQuestion() {
+      if (synonymIsAnswered || !currentSynonymItem) return;
+      synonymIsAnswered = true;
+
+      const inputElem = document.getElementById('synonym-input');
+      if (inputElem) {
+        inputElem.disabled = true;
+        inputElem.classList.remove('border-slate-200', 'bg-slate-50');
+        inputElem.classList.add('border-amber-400', 'bg-amber-50', 'text-amber-800');
+      }
+
+      globalState.enWrong++;
+      globalState.enMistakes.push(currentSynonymItem);
+      playTone('wrong');
+
+      const synList = getWordSynonyms(currentSynonymItem);
+      const feedbackBox = document.getElementById('synonym-feedback-box');
+      const submitBtn = document.getElementById('synonym-btn-submit');
+      const skipBtn = document.getElementById('synonym-btn-skip');
+
+      if (feedbackBox) {
+        feedbackBox.className = 'p-4 rounded-2xl text-left text-xs sm:text-sm font-semibold border transition font-sans bg-amber-50 border-amber-200 text-amber-900 block';
+        feedbackBox.innerHTML = `
+          <div class="flex items-start gap-2.5">
+            <span class="text-xl flex-shrink-0">🏳️</span>
+            <div class="space-y-1.5 flex-1">
+              <div class="text-amber-900 font-extrabold text-sm">Đã xem đáp án (Ghi nhận cần ôn lại)</div>
+              <div class="text-xs text-slate-700 pt-0.5">Từ đồng nghĩa của <b>${currentSynonymItem.en}</b> (${currentSynonymItem.vi || ''}) là:</div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${synList.map(s => `
+                  <button type="button" onclick="speakText('${s.replace(/'/g, "\\'")}', 'en-US')" class="inline-flex items-center gap-1 bg-white border border-amber-300 text-amber-900 font-bold px-2.5 py-1 rounded-lg text-xs hover:bg-amber-100 transition cursor-pointer shadow-2xs">
+                    <span>🔁 ${s}</span> <span>🔊</span>
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      document.getElementById('stat-correct').textContent = globalState.enCorrect;
+      document.getElementById('stat-wrong').textContent = globalState.enWrong;
+
+      if (submitBtn) {
+        submitBtn.textContent = 'Tiếp theo ➔';
+        submitBtn.className = "px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition flex-1 shadow-sm shadow-indigo-200 active:scale-95 cursor-pointer";
+        submitBtn.focus();
+      }
+      if (skipBtn) {
+        skipBtn.disabled = true;
+        skipBtn.classList.add('opacity-40');
+      }
+    }
+
+    function nextSynonymQuestion() {
+      if (globalState.synonymIndex < globalState.synonymList.length - 1) {
+        globalState.synonymIndex++;
+        renderCurrentSynonymWord();
+      } else {
+        showEnSummary();
+      }
+    }
+
+    function prevSynonymQuestion() {
+      if (globalState.synonymIndex > 0) {
+        globalState.synonymIndex--;
+        renderCurrentSynonymWord();
+      }
+    }
+
+    function speakSynonymPrompt() {
+      if (currentSynonymItem && currentSynonymItem.en) {
+        speakText(currentSynonymItem.en, 'en-US');
+      }
+    }
+
 
     function getAllCourseWordsMap() {
       const map = new Map();
@@ -3790,7 +4227,13 @@
 
       const total = globalState.currentEnTab === 'collocation' 
         ? globalState.collocStudyList.length 
-        : (globalState.currentEnTab === 'gapfill' ? globalState.gapFillList.length : (globalState.currentEnTab === 'typing' ? globalState.typingList.length : globalState.enStudyList.length));
+        : (globalState.currentEnTab === 'gapfill' 
+            ? globalState.gapFillList.length 
+            : (globalState.currentEnTab === 'typing' 
+                ? globalState.typingList.length 
+                : (globalState.currentEnTab === 'synonym'
+                    ? (globalState.synonymList ? globalState.synonymList.length : 0)
+                    : globalState.enStudyList.length)));
       const correct = globalState.enCorrect;
 
       document.getElementById('study-progress-fill').style.width = '100%';
@@ -3812,6 +4255,7 @@
       const tabNames = {
         'mcq': 'Trắc nghiệm',
         'typing': 'Luyện gõ từ',
+        'synonym': 'Luyện từ đồng nghĩa',
         'flashcard': 'Flashcard 3D',
         'gapfill': 'Điền từ vận dụng',
         'audio': 'Luyện nghe',
