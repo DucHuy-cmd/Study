@@ -1381,7 +1381,7 @@
 
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script src="toeic_course_data.js?v=19"></script>
+  <script src="toeic_course_data.js?v=20"></script>
   <script src="n4_quiz_data.js"></script>
   <script>
     /* =========================================================================
@@ -2604,6 +2604,7 @@
         otherWords = [...otherWords, ...extra];
       }
 
+      const synList = getWordSynonyms(currentEnWord);
       let promptStr = '';
       let correctAns = '';
       let options = [];
