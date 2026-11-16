@@ -1381,7 +1381,7 @@
 
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script src="toeic_course_data.js?v=20"></script>
+  <script src="toeic_course_data.js?v=21"></script>
   <script src="n4_quiz_data.js"></script>
   <script>
     /* =========================================================================
@@ -3488,20 +3488,70 @@
     /* =========================================================================
        LUYỆN TỪ ĐỒNG NGHĨA (PARAPHRASE) - CHECK CỘT CUỐI & GÕ TỪ ĐỒNG NGHĨA
        ========================================================================= */
-    function checkSynonymMatch(userInput, synList) {
+    function checkSynonymMatch(userInput, synList, originalWord = '') {
       const userClean = cleanTypingString(userInput);
       if (!userClean) return false;
-      if (!synList || !Array.isArray(synList)) return false;
+      if (!synList || !Array.isArray(synList) || synList.length === 0) return false;
 
-      return synList.some(syn => {
-        const synClean = cleanTypingString(syn);
-        if (synClean === userClean) return true;
-
-        const parts = String(syn).split(/[,;\/]+/).map(cleanTypingString).filter(Boolean);
-        if (parts.includes(userClean)) return true;
-
-        return false;
+      const validSyns = [];
+      synList.forEach(s => {
+        const sClean = cleanTypingString(s);
+        if (sClean) validSyns.push(sClean);
+        String(s).split(/[,;\/|]+/).forEach(p => {
+          const pClean = cleanTypingString(p);
+          if (pClean) validSyns.push(pClean);
+        });
       });
+
+      const uniqueSyns = Array.from(new Set(validSyns));
+      const origClean = cleanTypingString(originalWord);
+
+      // Nếu người dùng chỉ gõ lại chính từ đề bài, không tính là từ đồng nghĩa
+      if (origClean && userClean === origClean) {
+        return false;
+      }
+
+      // 1. So khớp chính xác toàn bộ chuỗi
+      if (uniqueSyns.includes(userClean)) return true;
+
+      // 2. Bỏ qua mạo từ hoặc 'to' ở đầu (VD: 'a bill' -> 'bill', 'to buy' -> 'buy')
+      const userWithoutArticle = userClean.replace(/^(to|a|an|the)\s+/, '');
+      if (uniqueSyns.includes(userWithoutArticle)) return true;
+
+      // 3. Người dùng gõ nhiều từ đồng nghĩa ngăn cách bởi dấu: 'bill, invoice', 'bill / invoice', 'bill and invoice'
+      const userParts = userInput
+        .toLowerCase()
+        .split(/[,;\/|&+]|\band\b/)
+        .map(cleanTypingString)
+        .filter(Boolean);
+
+      if (userParts.length > 1) {
+        if (userParts.some(p => uniqueSyns.includes(p) || uniqueSyns.includes(p.replace(/^(to|a|an|the)\s+/, '')))) {
+          return true;
+        }
+      }
+
+      // 4. Người dùng gõ nhiều từ đồng nghĩa cách nhau bằng dấu cách (VD: 'bill invoice' hoặc 'invoice bill')
+      const userWords = userClean.split(/\s+/).filter(Boolean);
+      if (userWords.length > 1) {
+        const hasValidWord = userWords.some(w => {
+          if (origClean && w === origClean) return false;
+          return uniqueSyns.includes(w);
+        });
+        if (hasValidWord) return true;
+      }
+
+      // 5. Khớp trọn vẹn cụm từ / từ đơn bất kỳ trong chuỗi người dùng gõ
+      for (const syn of uniqueSyns) {
+        if (origClean && syn === origClean) continue;
+        const escaped = syn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp('(?:^|\\s)' + escaped + '(?:\\s|$)', 'i');
+        if (regex.test(userClean)) {
+          return true;
+        }
+      }
+
+      return false;
     }
 
     function startSynonymQuiz(sourceList = null) {
@@ -3669,7 +3719,7 @@
       inputElem.disabled = true;
 
       const synList = getWordSynonyms(currentSynonymItem);
-      const isMatch = checkSynonymMatch(userRaw, synList);
+      const isMatch = checkSynonymMatch(userRaw, synList, currentSynonymItem.en);
       const feedbackBox = document.getElementById('synonym-feedback-box');
       const submitBtn = document.getElementById('synonym-btn-submit');
       const skipBtn = document.getElementById('synonym-btn-skip');
