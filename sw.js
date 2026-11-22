@@ -1,9 +1,8 @@
-const CACHE_NAME = 'studymaster-v21';
+const CACHE_NAME = 'studymaster-v22';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './toeic_course_data.js',
-  './n4_quiz_data.js',
   './manifest.json',
   './icons/icon-192.png',
   './icons/icon-512.png',

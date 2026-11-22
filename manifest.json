@@ -1,8 +1,8 @@
 {
-  "name": "StudyMaster - Học Từ Vựng Tiếng Anh & JLPT N4",
+  "name": "StudyMaster - Học Từ Vựng TOEIC",
   "short_name": "StudyMaster",
-  "description": "Ứng dụng luyện thi từ vựng Tiếng Anh Quizlet và Tiếng Nhật JLPT N4",
-  "start_url": "./index.html?v=3",
+  "description": "Ứng dụng luyện thi từ vựng Tiếng Anh TOEIC chuyên sâu",
+  "start_url": "./index.html?v=4",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
