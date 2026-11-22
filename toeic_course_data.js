@@ -1,4 +1,4 @@
-/* TOEIC Course Data - 28 Units + Master Deck with 295 Cloze Exercises with Vietnamese Translations */
+/* TOEIC Course Data - 28 Units + Master Deck + Đợt 1 Tổng Hợp */
 var TOEIC_COURSE_DECKS = [
   {
     "id": "deck_all_toeic_575",
@@ -10132,6 +10132,3361 @@ var TOEIC_COURSE_DECKS = [
           "inventory"
         ],
         "deck_name": "Unit 7.3"
+      }
+    ]
+  },
+  {
+    "id": "deck_class_tong_hop_dot_1",
+    "category": "classroom",
+    "category_name": "📘 Lớp Học",
+    "name": "🔥 Tổng Hợp Đợt 1 (Unit 1.1 - Unit 2.5)",
+    "icon": "🔥",
+    "desc": "Tổng hợp toàn bộ 119 từ vựng và 127 câu bài tập vận dụng từ Unit 1.1 đến hết Unit 2 phục vụ kiểm tra đợt 1",
+    "word_count": 119,
+    "exercise_count": 127,
+    "words": [
+      {
+        "id": "deck_class_tong_hop_dot_1_w0",
+        "en": "plug",
+        "ipa": "/plʌɡ/",
+        "pos": "Động từ (V)",
+        "vi": "cắm",
+        "sentence": "She is plugging her phone into an outlet.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w1",
+        "en": "sweep",
+        "ipa": "/swiːp/",
+        "pos": "Động từ (V)",
+        "vi": "quét",
+        "sentence": "She is sweeping the floor in the kitchen.",
+        "related": "clean",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w2",
+        "en": "ceiling",
+        "ipa": "/ˈsiː.lɪŋ/",
+        "pos": "Danh từ (N)",
+        "vi": "trần nhà",
+        "sentence": "They are painting the ceiling white.",
+        "related": "roof",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w3",
+        "en": "cushion",
+        "ipa": "/ˈkʊʃ.ən/",
+        "pos": "Danh từ (N)",
+        "vi": "gối đệm",
+        "sentence": "He is putting a cushion on the couch.",
+        "related": "pillow",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w4",
+        "en": "rack",
+        "ipa": "/ræk/",
+        "pos": "Danh từ (N)",
+        "vi": "giá để đồ",
+        "sentence": "She is arranging clothes on the rack.",
+        "related": "shelf",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w5",
+        "en": "pack",
+        "ipa": "/pæk/",
+        "pos": "Động từ (V)",
+        "vi": "đóng gói",
+        "sentence": "He is packing his clothes for the trip.",
+        "related": "wrap",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w6",
+        "en": "gather",
+        "ipa": "/ˈɡæð.ər/",
+        "pos": "Động từ (V)",
+        "vi": "tụ tập",
+        "sentence": "They are gathering around the table.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w7",
+        "en": "stairs",
+        "ipa": "/steərz/",
+        "pos": "Danh từ (N)",
+        "vi": "cầu thang",
+        "sentence": "She is walking up the stairs slowly.",
+        "related": "steps",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w8",
+        "en": "tie",
+        "ipa": "/taɪ/",
+        "pos": "Động từ (V)",
+        "vi": "buộc",
+        "sentence": "He is tying his shoelaces right now.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w9",
+        "en": "reach",
+        "ipa": "/riːtʃ/",
+        "pos": "Động từ (V)",
+        "vi": "với tới",
+        "sentence": "She is reaching for a book on the top shelf.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w10",
+        "en": "suitcase",
+        "ipa": "/ˈsuːt.keɪs/",
+        "pos": "Danh từ (N)",
+        "vi": "vali",
+        "sentence": "He is carrying a suitcase to the car.",
+        "related": "luggage, bag",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w11",
+        "en": "bench",
+        "ipa": "/bentʃ/",
+        "pos": "Danh từ (N)",
+        "vi": "ghế dài",
+        "sentence": "They are sitting on the bench in the park.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w12",
+        "en": "wear",
+        "ipa": "/weər/",
+        "pos": "Động từ (V)",
+        "vi": "mặc, mang",
+        "sentence": "She is wearing a beautiful red dress.",
+        "related": "put on",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w13",
+        "en": "push",
+        "ipa": "/pʊʃ/",
+        "pos": "Động từ (V)",
+        "vi": "đẩy",
+        "sentence": "He is pushing the cart in the supermarket.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w14",
+        "en": "counter",
+        "ipa": "/ˈkaʊn.tər/",
+        "pos": "Danh từ (N)",
+        "vi": "quầy",
+        "sentence": "She is cleaning the counter in the kitchen.",
+        "related": "desk, table",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w15",
+        "en": "cart",
+        "ipa": "/kɑːrt/",
+        "pos": "Danh từ (N)",
+        "vi": "xe đẩy",
+        "sentence": "He is loading groceries into the cart.",
+        "related": "trolley",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w16",
+        "en": "luggage",
+        "ipa": "/ˈlʌɡ.ɪdʒ/",
+        "pos": "Danh từ (N)",
+        "vi": "hành lý",
+        "sentence": "They are checking their luggage at the airport.",
+        "related": "baggage",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w17",
+        "en": "purchase",
+        "ipa": "/ˈpɜːrtʃəs/",
+        "pos": "Động từ (V)",
+        "vi": "mua",
+        "sentence": "He is purchasing some items in a store.",
+        "related": "buy",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w18",
+        "en": "examine",
+        "ipa": "/ɪɡˈzæm.ɪn/",
+        "pos": "Động từ (V)",
+        "vi": "xem qua",
+        "sentence": "He is examining the menu carefully.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w19",
+        "en": "frame",
+        "ipa": "/freɪm/",
+        "pos": "Danh từ (N)",
+        "vi": "khung",
+        "sentence": "She is cleaning the frame of the picture.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w20",
+        "en": "fixture",
+        "ipa": "/ˈfɪks.tʃər/",
+        "pos": "Danh từ (N)",
+        "vi": "vật cố định",
+        "sentence": "The light fixture is being installed now.",
+        "related": "light fixture",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w21",
+        "en": "couch",
+        "ipa": "/kaʊtʃ/",
+        "pos": "Danh từ (N)",
+        "vi": "ghế dài",
+        "sentence": "He is lying on the couch.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w22",
+        "en": "hang",
+        "ipa": "/hæŋ/",
+        "pos": "Động từ (V)",
+        "vi": "treo",
+        "sentence": "She is hanging a painting on the wall.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w23",
+        "en": "drawer",
+        "ipa": "/drɔːr/",
+        "pos": "Danh từ (N)",
+        "vi": "ngăn kéo",
+        "sentence": "She is putting the keys in the drawer.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w24",
+        "en": "cabinet",
+        "ipa": "/ˈkæb.ɪ.nət/",
+        "pos": "Danh từ (N)",
+        "vi": "Tủ, tủ tài liệu",
+        "sentence": "They are cleaning the cabinet right now.",
+        "related": "cupboard, closet, locker",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w25",
+        "en": "cover",
+        "ipa": "/ˈkʌv.ər/",
+        "pos": "N / V",
+        "vi": "Bao phủ, che phủ; Bìa (sách/báo)",
+        "sentence": "He is covering the table with a cloth. / Have you seen the cover of the latest issue?",
+        "related": "envelope, wrap",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w26",
+        "en": "line up",
+        "ipa": "/laɪn ʌp/",
+        "pos": "Động từ (V)",
+        "vi": "xếp hàng",
+        "sentence": "People are lining up outside the store.",
+        "related": "queue",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w27",
+        "en": "pile",
+        "ipa": "/paɪl/",
+        "pos": "N / V",
+        "vi": "chồng, đống; xếp chồng",
+        "sentence": "There is a pile of books on the desk.",
+        "related": "stack",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w28",
+        "en": "fence",
+        "ipa": "/fens/",
+        "pos": "Danh từ (N)",
+        "vi": "hàng rào",
+        "sentence": "They are painting the fence white.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w29",
+        "en": "umbrella",
+        "ipa": "/ʌmˈbrel.ə/",
+        "pos": "Danh từ (N)",
+        "vi": "ô, dù",
+        "sentence": "She is holding an umbrella in the rain.",
+        "related": "parasol, canopy",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w30",
+        "en": "suspend",
+        "ipa": "/səˈspend/",
+        "pos": "Động từ (V)",
+        "vi": "treo",
+        "sentence": "The lamp is suspended from the ceiling.",
+        "related": "hang",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w31",
+        "en": "utensil",
+        "ipa": "/juːˈten.sɪl/",
+        "pos": "Danh từ (N)",
+        "vi": "dụng cụ",
+        "sentence": "They are using utensils to eat dinner.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w32",
+        "en": "container",
+        "ipa": "/kənˈteɪ.nər/",
+        "pos": "Danh từ (N)",
+        "vi": "đựng chứa",
+        "sentence": "She is filling the container with water.",
+        "related": "vessel, box",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w33",
+        "en": "ladder",
+        "ipa": "/ˈlæd.ər/",
+        "pos": "Danh từ (N)",
+        "vi": "thang",
+        "sentence": "He is climbing the ladder carefully.",
+        "related": "stairs, steps",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w34",
+        "en": "balcony",
+        "ipa": "/ˈbæl.kə.ni/",
+        "pos": "Danh từ (N)",
+        "vi": "ban công",
+        "sentence": "She is watering flowers on the balcony.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w35",
+        "en": "lay",
+        "ipa": "/leɪ/",
+        "pos": "Động từ (V)",
+        "vi": "đặt, bày",
+        "sentence": "He is laying the plates on the table.",
+        "related": "place, position",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w36",
+        "en": "trim",
+        "ipa": "/trɪm/",
+        "pos": "Động từ (V)",
+        "vi": "cắt tỉa",
+        "sentence": "She is trimming the bushes in the garden.",
+        "related": "cut",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w37",
+        "en": "entrance",
+        "ipa": "/ˈen.trəns/",
+        "pos": "Danh từ (N)",
+        "vi": "lối vào",
+        "sentence": "They are decorating the entrance for the event.",
+        "related": "gateway",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w38",
+        "en": "spill",
+        "ipa": "/spɪl/",
+        "pos": "Động từ (V)",
+        "vi": "làm đổ ra",
+        "sentence": "She is spilling water on the floor.",
+        "related": "leak",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w39",
+        "en": "pot",
+        "ipa": "/pɒt/",
+        "pos": "Danh từ (N)",
+        "vi": "nồi",
+        "sentence": "He is stirring soup in the pot.",
+        "related": "pan, container",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w40",
+        "en": "hold",
+        "ipa": "/hoʊld/",
+        "pos": "Động từ (V)",
+        "vi": "cầm, giữ",
+        "sentence": "She is holding a baby in her arms.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w41",
+        "en": "terminal",
+        "ipa": "/ˈtɜːrmɪnl/",
+        "pos": "Danh từ (N)",
+        "vi": "nhà đón khách",
+        "sentence": "A second terminal was opened last year.",
+        "related": "station",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w42",
+        "en": "position",
+        "ipa": "/pəˈzɪʃn/",
+        "pos": "Danh từ (N)",
+        "vi": "Vị trí, chức vụ",
+        "sentence": "Well, I've found our position on the map if you want to see where we are.",
+        "related": "Role, place",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w43",
+        "en": "be interested in",
+        "ipa": "/ˈɪntrəstɪd/",
+        "pos": "",
+        "vi": "Thích thú",
+        "sentence": "I'm very interested in history.",
+        "related": "Care",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w44",
+        "en": "article",
+        "ipa": "/ˈɑːrtɪkl/",
+        "pos": "Danh từ (N)",
+        "vi": "Bài báo",
+        "sentence": "Have you seen that article about young fashion designers?",
+        "related": "Column, journal",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w45",
+        "en": "schedule",
+        "ipa": "/ˈʃedjuːl/ /ˈskedʒuːl/",
+        "pos": "N / V",
+        "vi": "Lịch trình; Lên lịch",
+        "sentence": "We're working to a tight schedule.",
+        "related": "Calendar, timetable, Plan, set",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w46",
+        "en": "confirmation",
+        "ipa": "/ˌkɑːnfərˈmeɪʃn/",
+        "pos": "Danh từ (N)",
+        "vi": "Sự xác nhận",
+        "sentence": "I'm still waiting for confirmation of the test results.",
+        "related": "Agreement, approval",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w47",
+        "en": "employee",
+        "ipa": "/ɪmˈplɔɪiː/",
+        "pos": "Danh từ (N)",
+        "vi": "Nhân viên",
+        "sentence": "The firm has over 500 employees.",
+        "related": "Worker, staff",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w48",
+        "en": "certificate",
+        "ipa": "/sərˈtɪfɪkət/",
+        "pos": "Danh từ (N)",
+        "vi": "Giấy chứng nhận",
+        "sentence": "A certificate of completion will be issued to all who complete the course.",
+        "related": "Degree, diploma",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w49",
+        "en": "pursue",
+        "ipa": "/pərˈsuː/",
+        "pos": "Động từ (V)",
+        "vi": "Theo đuổi",
+        "sentence": "She wishes to pursue a medical career.",
+        "related": "Desire, attempt",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w50",
+        "en": "release",
+        "ipa": "/rɪˈliːs/",
+        "pos": "N / V",
+        "vi": "Phát hành; Sự phát hành",
+        "sentence": "There have been a lot of new products released onto the market.",
+        "related": "Publish, issue, publicity",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w51",
+        "en": "prototype",
+        "ipa": "/ˈprəʊtətaɪp/",
+        "pos": "Danh từ (N)",
+        "vi": "Mẫu đầu tiên",
+        "sentence": "Scientists have developed a working prototype for the machine.",
+        "related": "First, model",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w52",
+        "en": "demonstration",
+        "ipa": "/ˌdemənˈstreɪʃn/",
+        "pos": "Danh từ (N)",
+        "vi": "Sự giới thiệu",
+        "sentence": "He gave us a demonstration of the new software in use.",
+        "related": "Show, trial",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w53",
+        "en": "maintenance",
+        "ipa": "/ˈmeɪntənəns/",
+        "pos": "Danh từ (N)",
+        "vi": "Bảo trì",
+        "sentence": "The school pays for heating and the maintenance of the buildings.",
+        "related": "Care, conservation",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w54",
+        "en": "merchandise",
+        "ipa": "/ˈmɜːrtʃəndaɪs/",
+        "pos": "Danh từ (N)",
+        "vi": "Hàng hóa",
+        "sentence": "Shoppers complained about poor quality merchandise and high prices.",
+        "related": "Item, goods",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w55",
+        "en": "be supposed to",
+        "ipa": "/səˈpəʊzd/",
+        "pos": "",
+        "vi": "Được cho là",
+        "sentence": "The children are supposed to be at school by 8.45 a.m.",
+        "related": "Assumed, presumed",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w56",
+        "en": "cater",
+        "ipa": "/ˈkeɪtər/",
+        "pos": "Động từ (V)",
+        "vi": "Cung cấp (thực phẩm)",
+        "sentence": "Most of our work now involves catering for weddings.",
+        "related": "Supply, provide",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w57",
+        "en": "vegetarian",
+        "ipa": "/ˌvedʒəˈteriən/",
+        "pos": "Danh từ (N)",
+        "vi": "Người ăn chay",
+        "sentence": "She's been a vegetarian for ten years now.",
+        "related": "vegan",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w58",
+        "en": "resume",
+        "ipa": "/ˈrezəmeɪ/",
+        "pos": "N / V",
+        "vi": "Hồ sơ; Khôi phục lại",
+        "sentence": "Yes, I've read your résumé. Very impressive.",
+        "related": "CV, record, continue",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w59",
+        "en": "ink cartridge",
+        "ipa": "/ɪŋk ˈkɑːrtrɪdʒ/",
+        "pos": "Danh từ (N)",
+        "vi": "Hộp mực in",
+        "sentence": "The ink cartridge in my printer needs to be replaced.",
+        "related": "Tube, box",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w60",
+        "en": "tenant",
+        "ipa": "/ˈtenənt/",
+        "pos": "Danh từ (N)",
+        "vi": "Người thuê",
+        "sentence": "The decorating was done by a previous tenant.",
+        "related": "Renter, resident",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w61",
+        "en": "assignment",
+        "ipa": "/əˈsaɪnmənt/",
+        "pos": "Danh từ (N)",
+        "vi": "Nhiệm vụ",
+        "sentence": "Students are required to complete all homework assignments.",
+        "related": "Duty, appointment",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w62",
+        "en": "brochure",
+        "ipa": "/ˈbrəʊʃə(r)/ /brəʊˈʃʊr/",
+        "pos": "Danh từ (N)",
+        "vi": "Sách quảng cáo",
+        "sentence": "They produced a brochure on healthy eating that was to be distributed in supermarkets.",
+        "related": "Leaflet, flyer",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w63",
+        "en": "charge",
+        "ipa": "/tʃɑːrdʒ/",
+        "pos": "N / V",
+        "vi": "Chi phí; Tính phí; Sạc pin",
+        "sentence": "Delivery is free of charge.",
+        "related": "Cost, expense, price, Charger, battery",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w64",
+        "en": "receipt",
+        "ipa": "/rɪˈsiːt/",
+        "pos": "Danh từ (N)",
+        "vi": "Biên lai",
+        "sentence": "We will email the receipt to you.",
+        "related": "Bill, invoice",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w65",
+        "en": "decision",
+        "ipa": "/dɪˈsɪʒn/",
+        "pos": "Danh từ (N)",
+        "vi": "Quyết định",
+        "sentence": "I think I've made the right decision.",
+        "related": "Determination, result",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w66",
+        "en": "forecast",
+        "ipa": "/ˈfɔːrkæst/",
+        "pos": "Danh từ (N)",
+        "vi": "Dự đoán",
+        "sentence": "It is difficult to make long-term forecasts for a fast-growing industry.",
+        "related": "Predict, anticipate",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w67",
+        "en": "manual",
+        "ipa": "/ˈmænjuəl/",
+        "pos": "Danh từ (N)",
+        "vi": "Sách hướng dẫn",
+        "sentence": "The computer comes with a 600-page instruction manual.",
+        "related": "Guide, handbook",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w68",
+        "en": "reservation",
+        "ipa": "/ˌrezərˈveɪʃn/",
+        "pos": "Danh từ (N)",
+        "vi": "Sự đặt chỗ trước",
+        "sentence": "I'll call the restaurant and make a reservation.",
+        "related": "booking",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w69",
+        "en": "chance",
+        "ipa": "/tʃæns/",
+        "pos": "Danh từ (N)",
+        "vi": "Cơ hội",
+        "sentence": "Please give me a chance to explain.",
+        "related": "opportunity",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w70",
+        "en": "concert",
+        "ipa": "/ˈkɑːnsərt/",
+        "pos": "Danh từ (N)",
+        "vi": "Buổi hòa nhạc",
+        "sentence": "All the mothers and fathers had been invited to the end-of-term concert.",
+        "related": "Musical, recital",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w71",
+        "en": "contract",
+        "ipa": "/ˈkɑːntrækt/",
+        "pos": "Danh từ (N)",
+        "vi": "Hợp đồng",
+        "sentence": "All employees have a written contract of employment.",
+        "related": "Agreement",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w72",
+        "en": "Personnel",
+        "ipa": "/ˌpɜːrsəˈnel/",
+        "pos": "Danh từ (N)",
+        "vi": "Phòng nhân sự",
+        "sentence": "She works in personnel.",
+        "related": "Human resources",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w73",
+        "en": "comedy",
+        "ipa": "/ˈkɑːmədi/",
+        "pos": "Danh từ (N)",
+        "vi": "Hài kịch",
+        "sentence": "He moved to Los Angeles to write comedy.",
+        "related": "Fun, humor",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w74",
+        "en": "department",
+        "ipa": "/dɪˈpɑːrt.mənt/",
+        "pos": "Danh từ (N)",
+        "vi": "Phòng ban",
+        "sentence": "Please submit your claim for travelling expenses to the accounts department.",
+        "related": "Division",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w75",
+        "en": "policy",
+        "ipa": "/ˈpɑːləsi/",
+        "pos": "Danh từ (N)",
+        "vi": "Chính sách",
+        "sentence": "The new managers are expected to implement new policies.",
+        "related": "Action, rule",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w76",
+        "en": "specialist",
+        "ipa": "/ˈspeʃəlɪst/",
+        "pos": "Danh từ (N)",
+        "vi": "Chuyên gia",
+        "sentence": "She's a specialist in modern French literature.",
+        "related": "professional",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w77",
+        "en": "seminar",
+        "ipa": "/ˈsemɪnɑːr/",
+        "pos": "Danh từ (N)",
+        "vi": "Hội thảo",
+        "sentence": "I attended practically every lecture and seminar when I was a student.",
+        "related": "workshop",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w78",
+        "en": "presentation",
+        "ipa": "/ˌpriːznˈteɪʃn/",
+        "pos": "Danh từ (N)",
+        "vi": "Bài thuyết trình",
+        "sentence": "Several speakers will be making short presentations.",
+        "related": "Display, demonstration",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w79",
+        "en": "agency",
+        "ipa": "/ˈeɪdʒənsi/",
+        "pos": "Danh từ (N)",
+        "vi": "Đại lý",
+        "sentence": "She works for an advertising agency.",
+        "related": "Company, department",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w80",
+        "en": "material",
+        "ipa": "/məˈtɪriəl/",
+        "pos": "Danh từ (N)",
+        "vi": "Tài liệu, vật liệu",
+        "sentence": "Every item we sell is made out of recycled material.",
+        "related": "Handout, document",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w81",
+        "en": "budget",
+        "ipa": "/ˈbʌdʒɪt/",
+        "pos": "Danh từ (N)",
+        "vi": "Ngân sách",
+        "sentence": "Many families struggle to balance the household budget.",
+        "related": "Money, fund",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w82",
+        "en": "branch",
+        "ipa": "/bræntʃ/",
+        "pos": "Danh từ (N)",
+        "vi": "Chi nhánh",
+        "sentence": "The store is opening more local branches.",
+        "related": "Division, office",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w83",
+        "en": "lobby",
+        "ipa": "/ˈlɑːbi/",
+        "pos": "Danh từ (N)",
+        "vi": "Sảnh",
+        "sentence": "He was waiting for me in the lobby of the hotel.",
+        "related": "Doorway, hallway",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w84",
+        "en": "avenue",
+        "ipa": "/ˈævənuː/",
+        "pos": "Danh từ (N)",
+        "vi": "Đại lộ",
+        "sentence": "We walked down a broad avenue lined with trees.",
+        "related": "Boulevard, road",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w85",
+        "en": "cafeteria",
+        "ipa": "/ˌkæfəˈtɪriə/",
+        "pos": "Danh từ (N)",
+        "vi": "Căn tin",
+        "sentence": "Consumer groups were urging school cafeterias to serve healthier food.",
+        "related": "Canteen, lunchroom",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w86",
+        "en": "break",
+        "ipa": "/breɪk/",
+        "pos": "Danh từ (N)",
+        "vi": "Giải lao",
+        "sentence": "Let's take a break.",
+        "related": "Rest, interval",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w87",
+        "en": "pick up",
+        "ipa": "/pɪk ʌp/",
+        "pos": "",
+        "vi": "Nhấc lên",
+        "sentence": "The phone rang and rang and nobody picked up.",
+        "related": "uplift",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w88",
+        "en": "pasta",
+        "ipa": "/ˈpɑːstə/",
+        "pos": "Danh từ (N)",
+        "vi": "Mì ống",
+        "sentence": "We had slices of cold meat and pasta salad.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w89",
+        "en": "publisher",
+        "ipa": "/ˈpʌblɪʃər/",
+        "pos": "Danh từ (N)",
+        "vi": "Nhà xuất bản",
+        "sentence": "Several publishers are competing in the same market.",
+        "related": "Journalist, reporter",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w90",
+        "en": "solution",
+        "ipa": "/səˈluːʃn/",
+        "pos": "Danh từ (N)",
+        "vi": "Giải pháp",
+        "sentence": "It was decided that the only solution was for him to leave the company.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w91",
+        "en": "request",
+        "ipa": "/rɪˈkwest/",
+        "pos": "N / V",
+        "vi": "Lời yêu cầu; Yêu cầu",
+        "sentence": "He submitted a request to adopt a flexible working routine.",
+        "related": "Requirement, Require, call for",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w92",
+        "en": "prefer",
+        "ipa": "/prɪˈfɜːr/",
+        "pos": "Động từ (V)",
+        "vi": "Thích … hơn",
+        "sentence": "‘Coffee or tea?’ ‘I'd prefer tea, thanks.’",
+        "related": "Would rather",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w93",
+        "en": "deliver",
+        "ipa": "/dɪˈlɪvər/",
+        "pos": "Động từ (V)",
+        "vi": "Giao hàng",
+        "sentence": "We promise to deliver within 48 hours.",
+        "related": "Ship, transport",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w94",
+        "en": "walk",
+        "ipa": "/wɔːk/",
+        "pos": "Động từ (V)",
+        "vi": "Đi bộ",
+        "sentence": "The baby is just learning to walk.",
+        "related": "Stroll, hike",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w95",
+        "en": "warranty",
+        "ipa": "/ˈwɔːrənti/",
+        "pos": "Danh từ (N)",
+        "vi": "Bảo hành",
+        "sentence": "The television comes with a full two-year warranty.",
+        "related": "Assurance, guarantee",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w96",
+        "en": "downtown",
+        "ipa": "/ˌdaʊnˈtaʊn/",
+        "pos": "Danh từ (N)",
+        "vi": "Trung tâm thành phố",
+        "sentence": "I work downtown, but I live in the suburbs.",
+        "related": "City center",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w97",
+        "en": "figure",
+        "ipa": "/ˈfɪɡjər/",
+        "pos": "Danh từ (N)",
+        "vi": "Số liệu",
+        "sentence": "Official figures indicate that crime is falling.",
+        "related": "Number, amount",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w98",
+        "en": "produce",
+        "ipa": "/prəˈdjuːs/",
+        "pos": "Động từ (V)",
+        "vi": "Sản xuất",
+        "sentence": "The local factory produces electronic components.",
+        "related": "Manufacture, make",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w99",
+        "en": "vendor",
+        "ipa": "/ˈvendər/",
+        "pos": "Danh từ (N)",
+        "vi": "Nhà cung cấp",
+        "sentence": "They are the nation's leading vendor of organic dairy products.",
+        "related": "Supplier, provider",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w100",
+        "en": "performance",
+        "ipa": "/pərˈfɔːrməns/",
+        "pos": "Danh từ (N)",
+        "vi": "Buổi biểu diễn",
+        "sentence": "The performance starts at seven.",
+        "related": "Show, concert",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w101",
+        "en": "mostly",
+        "ipa": "/ˈməʊstli/",
+        "pos": "Phó từ (Adv)",
+        "vi": "Hầu hết",
+        "sentence": "Revenue grew by 18 per cent, mostly due to the opening of 33 new stores.",
+        "related": "Frequently, often",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w102",
+        "en": "musician",
+        "ipa": "/mjuˈzɪʃn/",
+        "pos": "Danh từ (N)",
+        "vi": "Nhạc sĩ",
+        "sentence": "The competition recognizes talented young musicians.",
+        "related": "Artist, composer",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w103",
+        "en": "stop by",
+        "ipa": "/stɑːp baɪ/",
+        "pos": "",
+        "vi": "Ghé ngang",
+        "sentence": "Could you stop by the store on the way home for some bread?",
+        "related": "Visit, come by",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w104",
+        "en": "professional",
+        "ipa": "/prəˈfeʃənl/",
+        "pos": "Tính từ (Adj)",
+        "vi": "Thuộc về nghề nghiệp",
+        "sentence": "The company encourages employees to engage in continuous professional development.",
+        "related": "",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w105",
+        "en": "property",
+        "ipa": "/ˈprɑːpərti/",
+        "pos": "Danh từ (N)",
+        "vi": "Bất động sản, của cải",
+        "sentence": "This building is government property.",
+        "related": "Real estate",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w106",
+        "en": "cable",
+        "ipa": "/ˈkeɪbl/",
+        "pos": "Danh từ (N)",
+        "vi": "Dây cáp",
+        "sentence": "They're digging up the road to lay cables.",
+        "related": "Wire, cord",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w107",
+        "en": "achieve",
+        "ipa": "/əˈtʃiːv/",
+        "pos": "Động từ (V)",
+        "vi": "Đạt được",
+        "sentence": "He had finally achieved success.",
+        "related": "Gain, get",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w108",
+        "en": "hike",
+        "ipa": "/haɪk/",
+        "pos": "Động từ (V)",
+        "vi": "Đi bộ đường dài",
+        "sentence": "You'll need some strong boots for hiking over rough country.",
+        "related": "Walk, stroll",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w109",
+        "en": "nominate",
+        "ipa": "/ˈnɑːmɪneɪt/",
+        "pos": "Động từ (V)",
+        "vi": "Chỉ định",
+        "sentence": "Each office will nominate a representative to sit on the committee.",
+        "related": "assign, choose",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w110",
+        "en": "shipment",
+        "ipa": "/ˈʃɪpmənt/",
+        "pos": "Danh từ (N)",
+        "vi": "Sự vận chuyển",
+        "sentence": "The goods are ready for shipment.",
+        "related": "Delivery, transportation",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w111",
+        "en": "revise",
+        "ipa": "/rɪˈvaɪz/",
+        "pos": "Động từ (V)",
+        "vi": "Sửa lại",
+        "sentence": "I realised that I would have to revise my life plan.",
+        "related": "Modify, review",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w112",
+        "en": "available",
+        "ipa": "/əˈveɪləbl/",
+        "pos": "Tính từ (Adj)",
+        "vi": "Có sẵn",
+        "sentence": "Further details are available on request.",
+        "related": "free",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w113",
+        "en": "award",
+        "ipa": "/əˈwɔːrd/",
+        "pos": "Danh từ (N)",
+        "vi": "Giải thưởng",
+        "sentence": "He was nominated for the best actor award.",
+        "related": "prize",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w114",
+        "en": "furniture",
+        "ipa": "/ˈfɜːrnɪtʃər/",
+        "pos": "Danh từ (N)",
+        "vi": "Đồ nội thất",
+        "sentence": "We need to buy some new furniture.",
+        "related": "Bed, table",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w115",
+        "en": "storage",
+        "ipa": "/ˈstɔːrɪdʒ/",
+        "pos": "Danh từ (N)",
+        "vi": "Nơi lưu trữ",
+        "sentence": "We need more storage now.",
+        "related": "Warehouse, stock",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w116",
+        "en": "equipment",
+        "ipa": "/ɪˈkwɪpmənt/",
+        "pos": "Danh từ (N)",
+        "vi": "Thiết bị",
+        "sentence": "Everyone should bring the necessary equipment for camping in the mountains.",
+        "related": "Tool, device",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w117",
+        "en": "renew",
+        "ipa": "/rɪˈnuː/",
+        "pos": "Động từ (V)",
+        "vi": "Gia hạn",
+        "sentence": "I forgot to renew my season ticket.",
+        "related": "Extend, prolong",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "deck_class_tong_hop_dot_1_w118",
+        "en": "application",
+        "ipa": "/ˌæplɪˈkeɪʃn/",
+        "pos": "Danh từ (N)",
+        "vi": "Đơn ứng tuyển",
+        "sentence": "We have received applications from more than 3 000 students.",
+        "related": "form",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "deck_name": "Tổng Hợp Đợt 1"
+      }
+    ],
+    "exercises": [
+      {
+        "id": "ex_th1_1",
+        "num": 1,
+        "sentence": "The man is sitting on the _______ at the park, resting for a while.",
+        "target": "bench",
+        "full_sentence": "The man is sitting on the bench at the park, resting for a while.",
+        "translation": "Người đàn ông đang ngồi trên băng ghế ở công viên, nghỉ ngơi một lúc.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "bench",
+          "examine",
+          "ceiling",
+          "luggage"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_2",
+        "num": 2,
+        "sentence": "The worker is adjusting the _______ on the wall.",
+        "target": "frame",
+        "full_sentence": "The worker is adjusting the frame on the wall.",
+        "translation": "Người công nhân đang điều chỉnh khung trên tường.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cart",
+          "frame",
+          "purchase",
+          "gather"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_3",
+        "num": 3,
+        "sentence": "The woman is placing her coat on the _______ by the door.",
+        "target": "rack",
+        "full_sentence": "The woman is placing her coat on the rack by the door.",
+        "translation": "Người phụ nữ đang đặt chiếc áo khoác của mình lên giá cạnh cửa.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "tie",
+          "ceiling",
+          "luggage",
+          "rack"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_4",
+        "num": 4,
+        "sentence": "The children are carrying their luggage up the _______ to their rooms.",
+        "target": "stairs",
+        "full_sentence": "The children are carrying their luggage up the stairs to their rooms.",
+        "translation": "Bọn trẻ đang mang hành lý lên cầu thang về phòng của chúng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cart",
+          "suitcase",
+          "wear",
+          "stairs"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_5",
+        "num": 5,
+        "sentence": "The man is packing his _______ for the upcoming trip.",
+        "target": "suitcase",
+        "full_sentence": "The man is packing his suitcase for the upcoming trip.",
+        "translation": "Người đàn ông đang thu dọn hành lý cho chuyến đi sắp tới.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cart",
+          "frame",
+          "suitcase",
+          "push"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_6",
+        "num": 6,
+        "sentence": "The traveler is carrying his _______ through the airport to catch his flight.",
+        "target": "luggage",
+        "full_sentence": "The traveler is carrying his luggage through the airport to catch his flight.",
+        "translation": "Người du lịch đang mang hành lý của mình qua sân bay để bắt chuyến bay.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "rack",
+          "cart",
+          "luggage",
+          "bench"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_7",
+        "num": 7,
+        "sentence": "The person is loading the _______ with boxes at the store.",
+        "target": "cart",
+        "full_sentence": "The person is loading the cart with boxes at the store.",
+        "translation": "Người này đang chất các thùng hàng lên xe đẩy ở cửa hàng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "pack",
+          "examine",
+          "cart",
+          "stairs"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_8",
+        "num": 8,
+        "sentence": "The shopkeeper is standing behind the _______ to assist the customers.",
+        "target": "counter",
+        "full_sentence": "The shopkeeper is standing behind the counter to assist the customers.",
+        "translation": "Người bán hàng đứng sau quầy để hỗ trợ khách hàng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "ceiling",
+          "counter",
+          "wear",
+          "luggage"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_9",
+        "num": 9,
+        "sentence": "The woman is resting her head on a _______ while sitting on the bench.",
+        "target": "cushion",
+        "full_sentence": "The woman is resting her head on a cushion while sitting on the bench.",
+        "translation": "Người phụ nữ đang tựa đầu vào một chiếc đệm khi ngồi trên băng ghế.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cushion",
+          "reach",
+          "gather",
+          "tie"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_10",
+        "num": 10,
+        "sentence": "The child is looking up at the colorful lights on the _______",
+        "target": "ceiling",
+        "full_sentence": "The child is looking up at the colorful lights on the ceiling",
+        "translation": "Đứa trẻ đang nhìn lên những ánh đèn nhiều màu sắc trên trần nhà",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "pack",
+          "stairs",
+          "ceiling",
+          "bench"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_11",
+        "num": 11,
+        "sentence": "He is _______ the shopping cart down the aisle in the supermarket.",
+        "target": "pushing",
+        "full_sentence": "He is pushing the shopping cart down the aisle in the supermarket.",
+        "translation": "Anh ấy đang đẩy xe đẩy hàng dọc lối đi trong siêu thị.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "suitcase",
+          "pushing",
+          "stairs",
+          "cart"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_12",
+        "num": 12,
+        "sentence": "He is _______ his shoes before leaving the house.",
+        "target": "tying",
+        "full_sentence": "He is tying his shoes before leaving the house.",
+        "translation": "Anh ấy đang buộc dây giày trước khi ra khỏi nhà.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "tying",
+          "push",
+          "luggage",
+          "bench"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_13",
+        "num": 13,
+        "sentence": "She is _______ the floor to clean the house.",
+        "target": "sweeping",
+        "full_sentence": "She is sweeping the floor to clean the house.",
+        "translation": "Cô ấy đang quét sàn để lau nhà.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "luggage",
+          "counter",
+          "sweeping",
+          "examine"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_14",
+        "num": 14,
+        "sentence": "The child is _______ the top shelf to get his book.",
+        "target": "reaching",
+        "full_sentence": "The child is reaching the top shelf to get his book.",
+        "translation": "Đứa trẻ đang tiến tới kệ trên cùng để lấy cuốn sách của mình.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "reaching",
+          "plug",
+          "push",
+          "gather"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_15",
+        "num": 15,
+        "sentence": "She is _______ her luggage for the trip tomorrow.",
+        "target": "packing",
+        "full_sentence": "She is packing her luggage for the trip tomorrow.",
+        "translation": "Cô ấy đang đóng gói hành lý cho chuyến đi ngày mai.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "pack",
+          "counter",
+          "stairs",
+          "packing"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_16",
+        "num": 16,
+        "sentence": "The couple is _______ their bags together at the table.",
+        "target": "gathering",
+        "full_sentence": "The couple is gathering their bags together at the table.",
+        "translation": "Cặp đôi đang cùng nhau thu dọn túi xách tại bàn.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "reach",
+          "examine",
+          "plug",
+          "gathering"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_17",
+        "num": 17,
+        "sentence": "He is _______ the headphone into his phone.",
+        "target": "plugging",
+        "full_sentence": "He is plugging the headphone into his phone.",
+        "translation": "Anh ấy đang cắm tai nghe vào điện thoại.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "frame",
+          "bench",
+          "plugging",
+          "sweep"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_18",
+        "num": 18,
+        "sentence": "He is _______ a new phone at the store.",
+        "target": "purchasing",
+        "full_sentence": "He is purchasing a new phone at the store.",
+        "translation": "Anh ấy đang mua một chiếc điện thoại mới ở cửa hàng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "suitcase",
+          "purchase",
+          "purchasing",
+          "bench"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_19",
+        "num": 19,
+        "sentence": "The man is _______ a jacket because it is cold outside.",
+        "target": "wearing",
+        "full_sentence": "The man is wearing a jacket because it is cold outside.",
+        "translation": "Người đàn ông đang mặc áo khoác vì bên ngoài trời lạnh.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "bench",
+          "counter",
+          "wearing",
+          "tie"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_20",
+        "num": 20,
+        "sentence": "She is carefully _______ the document to check for mistakes.",
+        "target": "examining",
+        "full_sentence": "She is carefully examining the document to check for mistakes.",
+        "translation": "Cô ấy đang cẩn thận kiểm tra tài liệu để kiểm tra lỗi.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "frame",
+          "cushion",
+          "examining",
+          "tie"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_21",
+        "num": 21,
+        "sentence": "The light _______ in the living room gives off a warm light.",
+        "target": "fixture",
+        "full_sentence": "The light fixture in the living room gives off a warm light.",
+        "translation": "Chiếc đèn trong phòng khách tỏa ra ánh sáng ấm áp.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "fixture",
+          "lay",
+          "fence",
+          "drawer"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_22",
+        "num": 22,
+        "sentence": "He sat comfortably on the _______ and read a book.",
+        "target": "couch",
+        "full_sentence": "He sat comfortably on the couch and read a book.",
+        "translation": "Anh ngồi thoải mái trên ghế sofa và đọc sách.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "line up",
+          "couch",
+          "pile",
+          "fence"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_23",
+        "num": 23,
+        "sentence": "Can you help me _______ this picture on the wall?",
+        "target": "hang",
+        "full_sentence": "Can you help me hang this picture on the wall?",
+        "translation": "Bạn có thể giúp tôi treo bức tranh này lên tường được không?",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "trim",
+          "cover",
+          "hang",
+          "cabinet"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_24",
+        "num": 24,
+        "sentence": "She opened the _______ to find her passport.",
+        "target": "drawer",
+        "full_sentence": "She opened the drawer to find her passport.",
+        "translation": "Cô mở ngăn kéo để tìm hộ chiếu của mình.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "line up",
+          "drawer",
+          "fence",
+          "hang"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_25",
+        "num": 25,
+        "sentence": "The _______ in the kitchen is filled with plates and bowls.",
+        "target": "cabinet",
+        "full_sentence": "The cabinet in the kitchen is filled with plates and bowls.",
+        "translation": "Tủ trong bếp chứa đầy đĩa và bát.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "pile",
+          "utensil",
+          "spill",
+          "cabinet"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_26",
+        "num": 26,
+        "sentence": "The carpet _______ the entire floor of the room.",
+        "target": "covers",
+        "full_sentence": "The carpet covers the entire floor of the room.",
+        "translation": "Tấm thảm bao phủ toàn bộ sàn của căn phòng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "pile",
+          "covers",
+          "pile",
+          "cabinet"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_27",
+        "num": 27,
+        "sentence": "Students are _______ to get their lunch.",
+        "target": "lining up",
+        "full_sentence": "Students are lining up to get their lunch.",
+        "translation": "Các em học sinh đang xếp hàng để nhận phần ăn trưa.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "pile",
+          "drawer",
+          "entrance",
+          "lining up"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_28",
+        "num": 28,
+        "sentence": "There’s a _______ of laundry that needs to be folded.",
+        "target": "pile",
+        "full_sentence": "There’s a pile of laundry that needs to be folded.",
+        "translation": "Có một đống đồ giặt cần được gấp lại.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "entrance",
+          "fence",
+          "pile",
+          "umbrella"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_29",
+        "num": 29,
+        "sentence": "They built a new wooden _______ around the garden.",
+        "target": "fence",
+        "full_sentence": "They built a new wooden fence around the garden.",
+        "translation": "Họ xây một hàng rào gỗ mới xung quanh khu vườn.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "pile",
+          "drawer",
+          "cover",
+          "fence"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_30",
+        "num": 30,
+        "sentence": "Don’t forget your _______ before going out in the rain.",
+        "target": "umbrella",
+        "full_sentence": "Don’t forget your umbrella before going out in the rain.",
+        "translation": "Đừng quên ô trước khi ra ngoài trời mưa.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cabinet",
+          "drawer",
+          "umbrella",
+          "pot"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_31",
+        "num": 31,
+        "sentence": "The light fixture is _______ above the dining table.",
+        "target": "suspended",
+        "full_sentence": "The light fixture is suspended above the dining table.",
+        "translation": "Đèn chiếu sáng được treo phía trên bàn ăn.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "lay",
+          "fixture",
+          "suspended",
+          "line up"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_32",
+        "num": 32,
+        "sentence": "She took out a _______ to stir the soup.",
+        "target": "utensil",
+        "full_sentence": "She took out a utensil to stir the soup.",
+        "translation": "Cô lấy ra một dụng cụ để khuấy súp.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "couch",
+          "drawer",
+          "utensil",
+          "line up"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_33",
+        "num": 33,
+        "sentence": "A plastic _______ is used to store the leftovers.",
+        "target": "container",
+        "full_sentence": "A plastic container is used to store the leftovers.",
+        "translation": "Một hộp nhựa được sử dụng để lưu trữ thức ăn thừa.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "ladder",
+          "container",
+          "hang",
+          "spill"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_34",
+        "num": 34,
+        "sentence": "He climbed the _______ to fix the roof.",
+        "target": "ladder",
+        "full_sentence": "He climbed the ladder to fix the roof.",
+        "translation": "Anh leo lên thang để sửa mái nhà.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "ladder",
+          "pot",
+          "cabinet",
+          "utensil"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_35",
+        "num": 35,
+        "sentence": "From the _______ , you can see the entire city skyline.",
+        "target": "balcony",
+        "full_sentence": "From the balcony , you can see the entire city skyline.",
+        "translation": "Từ ban công, bạn có thể nhìn thấy toàn bộ đường chân trời của thành phố.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "hold",
+          "balcony",
+          "fixture",
+          "spill"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_36",
+        "num": 36,
+        "sentence": "The gardener is _______ the bushes in the front yard.",
+        "target": "trimming",
+        "full_sentence": "The gardener is trimming the bushes in the front yard.",
+        "translation": "Người làm vườn đang cắt tỉa bụi cây ở sân trước.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "pile",
+          "drawer",
+          "trimming",
+          "lay"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_37",
+        "num": 37,
+        "sentence": "The _______ to the building is beautifully decorated with flowers.",
+        "target": "entrance",
+        "full_sentence": "The entrance to the building is beautifully decorated with flowers.",
+        "translation": "Lối vào tòa nhà được trang trí đẹp mắt bằng hoa.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "fixture",
+          "couch",
+          "suspend",
+          "entrance"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_38",
+        "num": 38,
+        "sentence": "Be careful not to _______ juice on the new carpet.",
+        "target": "spill",
+        "full_sentence": "Be careful not to spill juice on the new carpet.",
+        "translation": "Cẩn thận không làm đổ nước trái cây lên tấm thảm mới.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "spill",
+          "hold",
+          "pile",
+          "entrance"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_39",
+        "num": 39,
+        "sentence": "She poured water into the _______ to boil noodles.",
+        "target": "pot",
+        "full_sentence": "She poured water into the pot to boil noodles.",
+        "translation": "Cô đổ nước vào nồi để luộc mì.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cabinet",
+          "line up",
+          "pile",
+          "pot"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_40",
+        "num": 40,
+        "sentence": "They are _______ the chairs up in the corner after the meeting.",
+        "target": "piling",
+        "full_sentence": "They are piling the chairs up in the corner after the meeting.",
+        "translation": "Họ đang xếp ghế vào góc sau cuộc họp.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "fence",
+          "trim",
+          "piling",
+          "utensil"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_41",
+        "num": 41,
+        "sentence": "The airport’s international _______ was closed for renovation last week.",
+        "target": "terminal",
+        "full_sentence": "The airport’s international terminal was closed for renovation last week.",
+        "translation": "Nhà ga quốc tế của sân bay đã đóng cửa để cải tạo vào tuần trước.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "terminal",
+          "resume",
+          "be supposed to",
+          "ink cartridge"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_42",
+        "num": 42,
+        "sentence": "She applied for the _______ of Marketing Manager at a well-known company.",
+        "target": "position",
+        "full_sentence": "She applied for the position of Marketing Manager at a well-known company.",
+        "translation": "Cô ứng tuyển vào vị trí Giám đốc Marketing tại một công ty nổi tiếng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "prototype",
+          "employee",
+          "position",
+          "schedule"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_43",
+        "num": 43,
+        "sentence": "I heard that you _______ the photography course. Are you planning to join it?",
+        "target": "are interested in",
+        "full_sentence": "I heard that you are interested in the photography course. Are you planning to join it?",
+        "translation": "Tôi nghe nói rằng bạn quan tâm đến khóa học nhiếp ảnh. Bạn có dự định tham gia nó không?",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "vegetarian",
+          "be interested in",
+          "terminal",
+          "are interested in"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_44",
+        "num": 44,
+        "sentence": "The journalist wrote an _______ about the impact of AI on the job market.",
+        "target": "article",
+        "full_sentence": "The journalist wrote an article about the impact of AI on the job market.",
+        "translation": "Nhà báo đã viết một bài báo về tác động của AI đến thị trường việc làm.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "schedule",
+          "prototype",
+          "employee",
+          "article"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_45",
+        "num": 45,
+        "sentence": "According to the project _______ , the final report is due next Monday.",
+        "target": "schedule",
+        "full_sentence": "According to the project schedule , the final report is due next Monday.",
+        "translation": "Theo tiến độ dự án, báo cáo cuối cùng sẽ được nộp vào thứ Hai tới.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "schedule",
+          "release",
+          "be supposed to",
+          "vegetarian"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_46",
+        "num": 46,
+        "sentence": "Please send us a written _______ to verify your attendance at the event.",
+        "target": "confirmation",
+        "full_sentence": "Please send us a written confirmation to verify your attendance at the event.",
+        "translation": "Vui lòng gửi cho chúng tôi một văn bản xác nhận để xác minh sự tham dự của bạn tại sự kiện.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "resume",
+          "schedule",
+          "confirmation",
+          "pursue"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_47",
+        "num": 47,
+        "sentence": "The company recently hired a new _______ to assist with administrative tasks.",
+        "target": "employee",
+        "full_sentence": "The company recently hired a new employee to assist with administrative tasks.",
+        "translation": "Công ty gần đây đã thuê một nhân viên mới để hỗ trợ các công việc hành chính.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "employee",
+          "merchandise",
+          "certificate",
+          "resume"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_48",
+        "num": 48,
+        "sentence": "He presented his diploma and _______ as proof of his academic qualifications.",
+        "target": "certificate",
+        "full_sentence": "He presented his diploma and certificate as proof of his academic qualifications.",
+        "translation": "Anh ấy đã xuất trình bằng tốt nghiệp và chứng chỉ của mình để làm bằng chứng về trình độ học vấn của mình.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "certificate",
+          "article",
+          "prototype",
+          "release"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_49",
+        "num": 49,
+        "sentence": "She decided to _______ her dream of becoming a professional dancer despite the challenges.",
+        "target": "pursue",
+        "full_sentence": "She decided to pursue her dream of becoming a professional dancer despite the challenges.",
+        "translation": "Cô quyết định theo đuổi ước mơ trở thành vũ công chuyên nghiệp bất chấp thử thách.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cabinet",
+          "cater",
+          "pursue",
+          "resume"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_50",
+        "num": 50,
+        "sentence": "The new product’s _______ will be held at the trade show next month.",
+        "target": "demonstration",
+        "full_sentence": "The new product’s demonstration will be held at the trade show next month.",
+        "translation": "Buổi giới thiệu sản phẩm mới sẽ được tổ chức tại triển lãm thương mại vào tháng tới.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "vegetarian",
+          "maintenance",
+          "resume",
+          "demonstration"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_51",
+        "num": 51,
+        "sentence": "All confidential documents must be stored in the locked _______",
+        "target": "cabinet",
+        "full_sentence": "All confidential documents must be stored in the locked cabinet",
+        "translation": "Mọi tài liệu mật phải được cất giữ trong tủ có khóa",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cabinet",
+          "vegetarian",
+          "be supposed to",
+          "schedule"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_52",
+        "num": 52,
+        "sentence": "The engineers showcased the first _______ of the electric vehicle to the investors.",
+        "target": "prototype",
+        "full_sentence": "The engineers showcased the first prototype of the electric vehicle to the investors.",
+        "translation": "Các kỹ sư đã giới thiệu nguyên mẫu đầu tiên của xe điện cho các nhà đầu tư.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "prototype",
+          "position",
+          "be supposed to",
+          "schedule"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_53",
+        "num": 53,
+        "sentence": "Regular _______ of office equipment is essential to ensure smooth operation.",
+        "target": "maintenance",
+        "full_sentence": "Regular maintenance of office equipment is essential to ensure smooth operation.",
+        "translation": "Bảo trì thường xuyên các thiết bị văn phòng là điều cần thiết để đảm bảo hoạt động trơn tru.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "merchandise",
+          "cabinet",
+          "pursue",
+          "maintenance"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_54",
+        "num": 54,
+        "sentence": "The store is offering a 20% discount on all _______ this weekend.",
+        "target": "merchandise",
+        "full_sentence": "The store is offering a 20% discount on all merchandise this weekend.",
+        "translation": "Cuối tuần này shop đang có chương trình giảm giá 20% cho tất cả các mặt hàng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "merchandise",
+          "release",
+          "release",
+          "cabinet"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_55",
+        "num": 55,
+        "sentence": "Employees _______ clock in before starting their shifts.",
+        "target": "are supposed to",
+        "full_sentence": "Employees are supposed to clock in before starting their shifts.",
+        "translation": "Nhân viên phải bấm giờ trước khi bắt đầu ca làm việc của họ.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "resume",
+          "release",
+          "are supposed to",
+          "employee"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_56",
+        "num": 56,
+        "sentence": "The catering service is prepared to _______ to guests with dietary restrictions.",
+        "target": "cater",
+        "full_sentence": "The catering service is prepared to cater to guests with dietary restrictions.",
+        "translation": "Dịch vụ ăn uống được chuẩn bị để phục vụ những khách hàng có chế độ ăn kiêng hạn chế.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "merchandise",
+          "certificate",
+          "cater",
+          "ink cartridge"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_57",
+        "num": 57,
+        "sentence": "This restaurant offers a variety of _______ dishes for non-meat eaters.",
+        "target": "vegetarian",
+        "full_sentence": "This restaurant offers a variety of vegetarian dishes for non-meat eaters.",
+        "translation": "Nhà hàng này cung cấp nhiều món ăn chay cho những người không ăn thịt.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "maintenance",
+          "cater",
+          "pursue",
+          "vegetarian"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_58",
+        "num": 58,
+        "sentence": "Please attach your updated _______ and a cover letter when applying for the job.",
+        "target": "resume",
+        "full_sentence": "Please attach your updated resume and a cover letter when applying for the job.",
+        "translation": "Vui lòng đính kèm sơ yếu lý lịch cập nhật của bạn và thư xin việc khi nộp đơn xin việc.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "be supposed to",
+          "be interested in",
+          "resume",
+          "release"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_59",
+        "num": 59,
+        "sentence": "The printer is out of ink. Can you replace the _______ so we can continue printing?",
+        "target": "ink cartridge",
+        "full_sentence": "The printer is out of ink. Can you replace the ink cartridge so we can continue printing?",
+        "translation": "Máy in hết mực. Bạn có thể thay hộp mực để chúng tôi có thể tiếp tục in không?",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "release",
+          "demonstration",
+          "merchandise",
+          "ink cartridge"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_60",
+        "num": 60,
+        "sentence": "The movie studio announced the _______ of their highly anticipated film next Friday.",
+        "target": "release",
+        "full_sentence": "The movie studio announced the release of their highly anticipated film next Friday.",
+        "translation": "Hãng phim đã thông báo phát hành bộ phim rất được mong đợi của họ vào thứ sáu tới.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "certificate",
+          "schedule",
+          "release",
+          "cater"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_61",
+        "num": 61,
+        "sentence": "We need to _______ a meeting with the marketing team to discuss the new campaign.",
+        "target": "schedule",
+        "full_sentence": "We need to schedule a meeting with the marketing team to discuss the new campaign.",
+        "translation": "Chúng ta cần lên lịch một cuộc họp với nhóm tiếp thị để thảo luận về chiến dịch mới.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "schedule",
+          "position",
+          "release",
+          "prototype"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_62",
+        "num": 62,
+        "sentence": "The company plans to _______ its latest smartphone model next month.",
+        "target": "release",
+        "full_sentence": "The company plans to release its latest smartphone model next month.",
+        "translation": "Công ty có kế hoạch phát hành mẫu điện thoại thông minh mới nhất của mình vào tháng tới.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "resume",
+          "release",
+          "demonstration",
+          "schedule"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_63",
+        "num": 63,
+        "sentence": "After the power outage, the workers were able to _______ their tasks without much delay.",
+        "target": "resume",
+        "full_sentence": "After the power outage, the workers were able to resume their tasks without much delay.",
+        "translation": "Sau khi mất điện, các công nhân đã có thể tiếp tục công việc của mình mà không bị chậm trễ nhiều.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "schedule",
+          "terminal",
+          "ink cartridge",
+          "resume"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_64",
+        "num": 64,
+        "sentence": "The weather _______ predicts heavy rain for the weekend, so the outdoor event may be postponed.",
+        "target": "forecast",
+        "full_sentence": "The weather forecast predicts heavy rain for the weekend, so the outdoor event may be postponed.",
+        "translation": "Dự báo thời tiết dự báo cuối tuần sẽ có mưa lớn nên sự kiện ngoài trời có thể bị hoãn lại.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "contract",
+          "chance",
+          "forecast",
+          "charge"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_65",
+        "num": 65,
+        "sentence": "The HR _______ is responsible for handling all employee-related concerns.",
+        "target": "department",
+        "full_sentence": "The HR department is responsible for handling all employee-related concerns.",
+        "translation": "Bộ phận nhân sự chịu trách nhiệm giải quyết mọi vấn đề liên quan đến nhân viên.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "charge",
+          "department",
+          "concert",
+          "assignment"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_66",
+        "num": 66,
+        "sentence": "Please confirm your table _______ at least 24 hours before your arrival.",
+        "target": "reservation",
+        "full_sentence": "Please confirm your table reservation at least 24 hours before your arrival.",
+        "translation": "Vui lòng xác nhận việc đặt bàn của bạn ít nhất 24 giờ trước khi bạn đến.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "contract",
+          "reservation",
+          "seminar",
+          "charge"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_67",
+        "num": 67,
+        "sentence": "The marketing team is designing a new _______ to promote the company’s services.",
+        "target": "brochure",
+        "full_sentence": "The marketing team is designing a new brochure to promote the company’s services.",
+        "translation": "Đội ngũ tiếp thị đang thiết kế một tập tài liệu mới để quảng bá các dịch vụ của công ty.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "policy",
+          "reservation",
+          "brochure",
+          "department"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_68",
+        "num": 68,
+        "sentence": "The property manager informed the _______ about the maintenance schedule for the building.",
+        "target": "tenant",
+        "full_sentence": "The property manager informed the tenant about the maintenance schedule for the building.",
+        "translation": "Người quản lý tài sản đã thông báo cho người thuê về lịch trình bảo trì tòa nhà.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "comedy",
+          "tenant",
+          "concert",
+          "policy"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_69",
+        "num": 69,
+        "sentence": "We are excited to announce that the band will be performing a live _______ next month.",
+        "target": "concert",
+        "full_sentence": "We are excited to announce that the band will be performing a live concert next month.",
+        "translation": "Chúng tôi vui mừng thông báo rằng ban nhạc sẽ biểu diễn buổi hòa nhạc trực tiếp vào tháng tới.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "Personnel",
+          "policy",
+          "concert",
+          "department"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_70",
+        "num": 70,
+        "sentence": "You will receive a _______ after completing your purchase for proof of payment.",
+        "target": "receipt",
+        "full_sentence": "You will receive a receipt after completing your purchase for proof of payment.",
+        "translation": "Bạn sẽ nhận được biên lai sau khi hoàn tất giao dịch mua hàng để làm bằng chứng thanh toán.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "policy",
+          "assignment",
+          "receipt",
+          "decision"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_71",
+        "num": 71,
+        "sentence": "The professor encouraged students to attend the upcoming business _______ for networking opportunities.",
+        "target": "seminar",
+        "full_sentence": "The professor encouraged students to attend the upcoming business seminar for networking opportunities.",
+        "translation": "Giáo sư khuyến khích sinh viên tham dự hội thảo kinh doanh sắp tới để có cơ hội kết nối.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "seminar",
+          "presentation",
+          "receipt",
+          "specialist"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_72",
+        "num": 72,
+        "sentence": "The company hired a cybersecurity _______ to enhance its data protection systems.",
+        "target": "specialist",
+        "full_sentence": "The company hired a cybersecurity specialist to enhance its data protection systems.",
+        "translation": "Công ty đã thuê một chuyên gia an ninh mạng để tăng cường hệ thống bảo vệ dữ liệu của mình.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "specialist",
+          "contract",
+          "policy",
+          "comedy"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_73",
+        "num": 73,
+        "sentence": "The manager made a final _______ regarding the budget allocation for the project.",
+        "target": "decision",
+        "full_sentence": "The manager made a final decision regarding the budget allocation for the project.",
+        "translation": "Người quản lý đưa ra quyết định cuối cùng về việc phân bổ ngân sách cho dự án.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "decision",
+          "department",
+          "Personnel",
+          "chance"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_74",
+        "num": 74,
+        "sentence": "A signed _______ is required before we can begin work on the project.",
+        "target": "contract",
+        "full_sentence": "A signed contract is required before we can begin work on the project.",
+        "translation": "Cần phải có hợp đồng đã ký trước khi chúng tôi có thể bắt đầu thực hiện dự án.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "contract",
+          "concert",
+          "chance",
+          "reservation"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_75",
+        "num": 75,
+        "sentence": "Customers can refer to the instruction _______ for detailed product setup steps.",
+        "target": "manual",
+        "full_sentence": "Customers can refer to the instruction manual for detailed product setup steps.",
+        "translation": "Khách hàng có thể tham khảo sách hướng dẫn chi tiết các bước setup sản phẩm.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "manual",
+          "policy",
+          "charge",
+          "reservation"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_76",
+        "num": 76,
+        "sentence": "The travel _______ specializes in planning luxurious international vacations.",
+        "target": "agency",
+        "full_sentence": "The travel agency specializes in planning luxurious international vacations.",
+        "translation": "Công ty du lịch chuyên tổ chức các kỳ nghỉ quốc tế sang trọng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "charge",
+          "forecast",
+          "assignment",
+          "agency"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_77",
+        "num": 77,
+        "sentence": "Employees are required to adhere strictly to the company’s new safety _______",
+        "target": "policy",
+        "full_sentence": "Employees are required to adhere strictly to the company’s new safety policy",
+        "translation": "Nhân viên được yêu cầu tuân thủ nghiêm ngặt chính sách an toàn mới của công ty",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "charge",
+          "tenant",
+          "policy",
+          "department"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_78",
+        "num": 78,
+        "sentence": "The client requested a detailed _______ of the project proposal during the meeting.",
+        "target": "presentation",
+        "full_sentence": "The client requested a detailed presentation of the project proposal during the meeting.",
+        "translation": "Khách hàng yêu cầu trình bày chi tiết về đề xuất dự án trong cuộc họp.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "contract",
+          "chance",
+          "presentation",
+          "comedy"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_79",
+        "num": 79,
+        "sentence": "The comedy club is hosting a stand-up _______ featuring several well-known comedians.",
+        "target": "comedy",
+        "full_sentence": "The comedy club is hosting a stand-up comedy featuring several well-known comedians.",
+        "translation": "Câu lạc bộ hài kịch đang tổ chức một vở hài kịch độc thoại có sự góp mặt của một số diễn viên hài nổi tiếng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "seminar",
+          "decision",
+          "comedy",
+          "receipt"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_80",
+        "num": 80,
+        "sentence": "You will be given a new _______ at the start of each week to complete by Friday.",
+        "target": "assignment",
+        "full_sentence": "You will be given a new assignment at the start of each week to complete by Friday.",
+        "translation": "Bạn sẽ được giao một nhiệm vụ mới vào đầu mỗi tuần và hoàn thành trước thứ Sáu.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "charge",
+          "charge",
+          "specialist",
+          "assignment"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_81",
+        "num": 81,
+        "sentence": "The company is offering employees the _______ to transfer to other offices abroad.",
+        "target": "chance",
+        "full_sentence": "The company is offering employees the chance to transfer to other offices abroad.",
+        "translation": "Công ty đang tạo cơ hội cho nhân viên chuyển sang các văn phòng khác ở nước ngoài.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "agency",
+          "decision",
+          "chance",
+          "brochure"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_82",
+        "num": 82,
+        "sentence": "The customer service _______ is available 24/7 to handle inquiries and complaints.",
+        "target": "personnel",
+        "full_sentence": "The customer service personnel is available 24/7 to handle inquiries and complaints.",
+        "translation": "Nhân viên dịch vụ khách hàng luôn sẵn sàng 24/7 để giải quyết các thắc mắc và khiếu nại.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "reservation",
+          "contract",
+          "personnel",
+          "specialist"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_83",
+        "num": 83,
+        "sentence": "The hotel will _______ a fee for any cancellations made within 24 hours of the booking.",
+        "target": "charge",
+        "full_sentence": "The hotel will charge a fee for any cancellations made within 24 hours of the booking.",
+        "translation": "Khách sạn sẽ tính phí nếu khách hủy đặt phòng trong vòng 24 giờ kể từ khi đặt phòng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "manual",
+          "charge",
+          "seminar",
+          "forecast"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_84",
+        "num": 84,
+        "sentence": "The hotel will add an extra _______ for late check-out after 12:00 PM.",
+        "target": "charge",
+        "full_sentence": "The hotel will add an extra charge for late check-out after 12:00 PM.",
+        "translation": "Khách sạn sẽ tính thêm phụ phí nếu trả phòng trễ sau 12:00 trưa.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "concert",
+          "charge",
+          "reservation",
+          "chance"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_85",
+        "num": 85,
+        "sentence": "You need to _______ your phone before leaving for the trip, as there might not be any charging stations.",
+        "target": "charge",
+        "full_sentence": "You need to charge your phone before leaving for the trip, as there might not be any charging stations.",
+        "translation": "Bạn cần sạc điện thoại trước khi lên đường vì có thể không có trạm sạc.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "policy",
+          "charge",
+          "reservation",
+          "tenant"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_86",
+        "num": 86,
+        "sentence": "Please take a seat in the _______ while waiting for your appointment.",
+        "target": "lobby",
+        "full_sentence": "Please take a seat in the lobby while waiting for your appointment.",
+        "translation": "Vui lòng ngồi ở sảnh trong khi chờ cuộc hẹn.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "lobby",
+          "publisher",
+          "produce",
+          "request"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_87",
+        "num": 87,
+        "sentence": "The company is opening a new _______ in another city to expand its market reach.",
+        "target": "branch",
+        "full_sentence": "The company is opening a new branch in another city to expand its market reach.",
+        "translation": "Công ty đang mở một chi nhánh mới ở một thành phố khác để mở rộng phạm vi tiếp cận thị trường.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "branch",
+          "deliver",
+          "pick up",
+          "cover"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_88",
+        "num": 88,
+        "sentence": "The finance team is working on a report to finalize the annual _______",
+        "target": "budget",
+        "full_sentence": "The finance team is working on a report to finalize the annual budget",
+        "translation": "Nhóm tài chính đang làm việc trên một báo cáo để quyết toán ngân sách hàng năm",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "publisher",
+          "break",
+          "budget",
+          "request"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_89",
+        "num": 89,
+        "sentence": "Customers can submit a formal _______ for refunds via our website.",
+        "target": "request",
+        "full_sentence": "Customers can submit a formal request for refunds via our website.",
+        "translation": "Khách hàng có thể gửi yêu cầu hoàn tiền chính thức thông qua trang web của chúng tôi.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "material",
+          "prefer",
+          "request",
+          "branch"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_90",
+        "num": 90,
+        "sentence": "I usually _______ walking to work over taking the bus since it keeps me active.",
+        "target": "prefer",
+        "full_sentence": "I usually prefer walking to work over taking the bus since it keeps me active.",
+        "translation": "Tôi thường thích đi bộ đi làm hơn là đi xe buýt vì nó giúp tôi năng động hơn.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "warranty",
+          "prefer",
+          "solution",
+          "request"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_91",
+        "num": 91,
+        "sentence": "The technical support team quickly found a _______ to the system malfunction.",
+        "target": "solution",
+        "full_sentence": "The technical support team quickly found a solution to the system malfunction.",
+        "translation": "Đội ngũ hỗ trợ kỹ thuật đã nhanh chóng tìm ra giải pháp khắc phục sự cố hệ thống.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "walk",
+          "cover",
+          "cover",
+          "solution"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_92",
+        "num": 92,
+        "sentence": "Make sure to keep the receipt, as the product comes with a two-year _______",
+        "target": "warranty",
+        "full_sentence": "Make sure to keep the receipt, as the product comes with a two-year warranty",
+        "translation": "Hãy nhớ giữ lại biên lai vì sản phẩm được bảo hành hai năm",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "warranty",
+          "cover",
+          "material",
+          "downtown"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_93",
+        "num": 93,
+        "sentence": "The insurance policy will _______ any damage caused by natural disasters.",
+        "target": "cover",
+        "full_sentence": "The insurance policy will cover any damage caused by natural disasters.",
+        "translation": "Hợp đồng bảo hiểm sẽ chi trả mọi thiệt hại do thiên tai gây ra.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "deliver",
+          "cover",
+          "publisher",
+          "solution"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_94",
+        "num": 94,
+        "sentence": "The book’s _______ announced the release of its latest edition this morning.",
+        "target": "publisher",
+        "full_sentence": "The book’s publisher announced the release of its latest edition this morning.",
+        "translation": "Nhà xuất bản cuốn sách đã thông báo phát hành ấn bản mới nhất vào sáng nay.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "publisher",
+          "material",
+          "cafeteria",
+          "budget"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_95",
+        "num": 95,
+        "sentence": "She bent down to _______ her phone that had fallen under the table.",
+        "target": "pick up",
+        "full_sentence": "She bent down to pick up her phone that had fallen under the table.",
+        "translation": "Cô cúi xuống nhặt chiếc điện thoại rơi dưới gầm bàn lên.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "break",
+          "pick up",
+          "request",
+          "publisher"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_96",
+        "num": 96,
+        "sentence": "This company specializes in using eco-friendly methods to _______ high-quality organic vegetables.",
+        "target": "produce",
+        "full_sentence": "This company specializes in using eco-friendly methods to produce high-quality organic vegetables.",
+        "translation": "Công ty này chuyên sử dụng các phương pháp thân thiện với môi trường để sản xuất rau hữu cơ chất lượng cao.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "walk",
+          "produce",
+          "lobby",
+          "downtown"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_97",
+        "num": 97,
+        "sentence": "The company decided to _______ the documents to the client instead of using email.",
+        "target": "deliver",
+        "full_sentence": "The company decided to deliver the documents to the client instead of using email.",
+        "translation": "Công ty quyết định gửi tài liệu cho khách hàng thay vì sử dụng email.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "branch",
+          "cover",
+          "deliver",
+          "warranty"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_98",
+        "num": 98,
+        "sentence": "The new restaurant on Fifth _______ is known for its delicious desserts.",
+        "target": "avenue",
+        "full_sentence": "The new restaurant on Fifth avenue is known for its delicious desserts.",
+        "translation": "Nhà hàng mới trên đại lộ số 5 nổi tiếng với những món tráng miệng thơm ngon.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "downtown",
+          "pasta",
+          "avenue",
+          "prefer"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_99",
+        "num": 99,
+        "sentence": "Workers are given a 15-minute _______ during the morning shift.",
+        "target": "break",
+        "full_sentence": "Workers are given a 15-minute break during the morning shift.",
+        "translation": "Công nhân được nghỉ 15 phút trong ca sáng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "branch",
+          "break",
+          "avenue",
+          "lobby"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_100",
+        "num": 100,
+        "sentence": "The factory uses eco-friendly _______ to create its packaging.",
+        "target": "material",
+        "full_sentence": "The factory uses eco-friendly material to create its packaging.",
+        "translation": "Nhà máy sử dụng vật liệu thân thiện với môi trường để sản xuất bao bì.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "branch",
+          "solution",
+          "break",
+          "material"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_101",
+        "num": 101,
+        "sentence": "Many people prefer living _______ because of the proximity to offices and shops.",
+        "target": "downtown",
+        "full_sentence": "Many people prefer living downtown because of the proximity to offices and shops.",
+        "translation": "Nhiều người thích sống ở trung tâm thành phố vì gần các văn phòng và cửa hàng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cover",
+          "downtown",
+          "cover",
+          "break"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_102",
+        "num": 102,
+        "sentence": "The sales _______ for the last quarter show a significant increase compared to the previous period.",
+        "target": "figure",
+        "full_sentence": "The sales figure for the last quarter show a significant increase compared to the previous period.",
+        "translation": "Số liệu bán hàng trong quý vừa qua cho thấy sự gia tăng đáng kể so với giai đoạn trước.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "figure",
+          "walk",
+          "budget",
+          "deliver"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_103",
+        "num": 103,
+        "sentence": "I think I’ll have the chicken instead of _______ for lunch today.",
+        "target": "pasta",
+        "full_sentence": "I think I’ll have the chicken instead of pasta for lunch today.",
+        "translation": "Tôi nghĩ bữa trưa hôm nay tôi sẽ ăn thịt gà thay vì mì ống.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "lobby",
+          "cover",
+          "solution",
+          "pasta"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_104",
+        "num": 104,
+        "sentence": "The staff gathered in the _______ for the monthly announcement.",
+        "target": "cafeteria",
+        "full_sentence": "The staff gathered in the cafeteria for the monthly announcement.",
+        "translation": "Các nhân viên tập trung tại căng tin để nghe thông báo hàng tháng.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cafeteria",
+          "branch",
+          "cover",
+          "solution"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_105",
+        "num": 105,
+        "sentence": "To get to the meeting venue, you’ll need to _______ about three blocks from here.",
+        "target": "walk",
+        "full_sentence": "To get to the meeting venue, you’ll need to walk about three blocks from here.",
+        "translation": "Để đến địa điểm họp, bạn sẽ phải đi bộ khoảng ba dãy nhà từ đây.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "branch",
+          "produce",
+          "walk",
+          "publisher"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_106",
+        "num": 106,
+        "sentence": "The customer can _______ a refund if the product is defective within 30 days of purchase.",
+        "target": "request",
+        "full_sentence": "The customer can request a refund if the product is defective within 30 days of purchase.",
+        "translation": "Khách hàng có thể yêu cầu hoàn lại tiền nếu sản phẩm bị lỗi trong vòng 30 ngày kể từ ngày mua.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "request",
+          "material",
+          "walk",
+          "pasta"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_107",
+        "num": 107,
+        "sentence": "The insurance policy will _______ all damages caused by natural disasters.",
+        "target": "cover",
+        "full_sentence": "The insurance policy will cover all damages caused by natural disasters.",
+        "translation": "Hợp đồng bảo hiểm sẽ chi trả mọi thiệt hại do thiên tai gây ra.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "branch",
+          "deliver",
+          "cover",
+          "break"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_108",
+        "num": 108,
+        "sentence": "The job _______ must be completed online and submitted before the deadline.",
+        "target": "application",
+        "full_sentence": "The job application must be completed online and submitted before the deadline.",
+        "translation": "Đơn xin việc phải được hoàn thành trực tuyến và nộp trước thời hạn.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "hike",
+          "vendor",
+          "application",
+          "performance"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_109",
+        "num": 109,
+        "sentence": "The _______ center is located in the basement, where employees can store their belongings.",
+        "target": "storage",
+        "full_sentence": "The storage center is located in the basement, where employees can store their belongings.",
+        "translation": "Trung tâm lưu trữ được đặt ở tầng hầm, nơi nhân viên có thể cất giữ đồ đạc của mình.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "storage",
+          "shipment",
+          "achieve",
+          "musician"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_110",
+        "num": 110,
+        "sentence": "The guide suggested we _______ early in the morning to avoid the midday heat.",
+        "target": "hike",
+        "full_sentence": "The guide suggested we hike early in the morning to avoid the midday heat.",
+        "translation": "Hướng dẫn viên gợi ý chúng tôi nên đi bộ vào sáng sớm để tránh cái nóng giữa trưa.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "hike",
+          "award",
+          "vendor",
+          "storage"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_111",
+        "num": 111,
+        "sentence": "We need to _______ the contract before sending it to the client for approval.",
+        "target": "revise",
+        "full_sentence": "We need to revise the contract before sending it to the client for approval.",
+        "translation": "Chúng ta cần phải sửa lại hợp đồng trước khi gửi cho khách hàng phê duyệt.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "application",
+          "shipment",
+          "revise",
+          "furniture"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_112",
+        "num": 112,
+        "sentence": "The company confirmed that the _______ of goods would arrive by the end of the week.",
+        "target": "shipment",
+        "full_sentence": "The company confirmed that the shipment of goods would arrive by the end of the week.",
+        "translation": "Công ty xác nhận lô hàng sẽ về vào cuối tuần.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "shipment",
+          "renew",
+          "storage",
+          "achieve"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_113",
+        "num": 113,
+        "sentence": "She has been _______ for the “Best Employee of the Year” for her outstanding contributions.",
+        "target": "nominated",
+        "full_sentence": "She has been nominated for the “Best Employee of the Year” for her outstanding contributions.",
+        "translation": "Cô đã được đề cử giải thưởng “Nhân viên xuất sắc nhất của năm” vì những đóng góp xuất sắc của mình.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cable",
+          "nominated",
+          "furniture",
+          "stop by"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_114",
+        "num": 114,
+        "sentence": "The concert features a talented _______ who specializes in jazz music.",
+        "target": "musician",
+        "full_sentence": "The concert features a talented musician who specializes in jazz music.",
+        "translation": "Buổi hòa nhạc có sự góp mặt của một nhạc sĩ tài năng chuyên về nhạc jazz.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "available",
+          "vendor",
+          "musician",
+          "property"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_115",
+        "num": 115,
+        "sentence": "Many _______ will participate in the trade fair to showcase their products and services.",
+        "target": "vendors",
+        "full_sentence": "Many vendors will participate in the trade fair to showcase their products and services.",
+        "translation": "Nhiều nhà cung cấp sẽ tham gia hội chợ thương mại để giới thiệu sản phẩm và dịch vụ của họ.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "vendors",
+          "mostly",
+          "application",
+          "professional"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_116",
+        "num": 116,
+        "sentence": "The projector and other presentation _______ are stored in the meeting room cabinet.",
+        "target": "equipment",
+        "full_sentence": "The projector and other presentation equipment are stored in the meeting room cabinet.",
+        "translation": "Máy chiếu và các thiết bị trình chiếu khác được cất giữ trong tủ phòng họp.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "shipment",
+          "equipment",
+          "cable",
+          "vendor"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_117",
+        "num": 117,
+        "sentence": "The apartment comes fully furnished with modern _______ and appliances.",
+        "target": "furniture",
+        "full_sentence": "The apartment comes fully furnished with modern furniture and appliances.",
+        "translation": "Căn hộ được trang bị đầy đủ nội thất và thiết bị hiện đại.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "furniture",
+          "property",
+          "available",
+          "application"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_118",
+        "num": 118,
+        "sentence": "Tickets for the event are still _______ online and at the box office.",
+        "target": "available",
+        "full_sentence": "Tickets for the event are still available online and at the box office.",
+        "translation": "Vé cho sự kiện vẫn có sẵn trực tuyến và tại phòng vé.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "hike",
+          "revise",
+          "award",
+          "available"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_119",
+        "num": 119,
+        "sentence": "He hopes to _______ his sales target by the end of this quarter.",
+        "target": "achieve",
+        "full_sentence": "He hopes to achieve his sales target by the end of this quarter.",
+        "translation": "Ông hy vọng sẽ đạt được mục tiêu bán hàng vào cuối quý này.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "achieve",
+          "property",
+          "storage",
+          "cable"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_120",
+        "num": 120,
+        "sentence": "The customers at this restaurant are _______ business professionals who work nearby.",
+        "target": "mostly",
+        "full_sentence": "The customers at this restaurant are mostly business professionals who work nearby.",
+        "translation": "Khách hàng tại nhà hàng này chủ yếu là các chuyên gia kinh doanh làm việc gần đó.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "available",
+          "shipment",
+          "cable",
+          "mostly"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_121",
+        "num": 121,
+        "sentence": "Attending _______ development workshops can enhance your skills and career prospects.",
+        "target": "professional",
+        "full_sentence": "Attending professional development workshops can enhance your skills and career prospects.",
+        "translation": "Tham dự các hội thảo phát triển chuyên môn có thể nâng cao kỹ năng và triển vọng nghề nghiệp của bạn.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "professional",
+          "achieve",
+          "furniture",
+          "award"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_122",
+        "num": 122,
+        "sentence": "You can _______ our office anytime during business hours to pick up the documents.",
+        "target": "stop by",
+        "full_sentence": "You can stop by our office anytime during business hours to pick up the documents.",
+        "translation": "Bạn có thể ghé qua văn phòng của chúng tôi bất cứ lúc nào trong giờ làm việc để nhận tài liệu.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "renew",
+          "professional",
+          "stop by",
+          "performance"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_123",
+        "num": 123,
+        "sentence": "The theater’s _______ last night was exceptional, earning a standing ovation from the audience.",
+        "target": "performance",
+        "full_sentence": "The theater’s performance last night was exceptional, earning a standing ovation from the audience.",
+        "translation": "Buổi biểu diễn của nhà hát tối qua thật đặc biệt, nhận được sự hoan nghênh nhiệt liệt từ khán giả.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "professional",
+          "property",
+          "award",
+          "performance"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_124",
+        "num": 124,
+        "sentence": "The _______ company offers high-speed internet services across the region.",
+        "target": "cable",
+        "full_sentence": "The cable company offers high-speed internet services across the region.",
+        "translation": "Công ty cáp cung cấp dịch vụ internet tốc độ cao trên toàn khu vực.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "cable",
+          "equipment",
+          "furniture",
+          "shipment"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_125",
+        "num": 125,
+        "sentence": "The rental _______ includes access to the pool and gym facilities.",
+        "target": "property",
+        "full_sentence": "The rental property includes access to the pool and gym facilities.",
+        "translation": "Tài sản cho thuê bao gồm quyền sử dụng hồ bơi và phòng tập thể dục.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "professional",
+          "musician",
+          "property",
+          "application"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_126",
+        "num": 126,
+        "sentence": "Employees are encouraged to _______ their membership to the fitness center annually.",
+        "target": "renew",
+        "full_sentence": "Employees are encouraged to renew their membership to the fitness center annually.",
+        "translation": "Nhân viên được khuyến khích gia hạn tư cách thành viên của họ tại trung tâm thể hình hàng năm.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "award",
+          "renew",
+          "storage",
+          "cable"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
+      },
+      {
+        "id": "ex_th1_127",
+        "num": 127,
+        "sentence": "She received an _______ for her outstanding achievements in the technology sector.",
+        "target": "award",
+        "full_sentence": "She received an award for her outstanding achievements in the technology sector.",
+        "translation": "Cô nhận được giải thưởng cho thành tích xuất sắc trong lĩnh vực công nghệ.",
+        "deck_id": "deck_class_tong_hop_dot_1",
+        "options": [
+          "revise",
+          "achieve",
+          "musician",
+          "award"
+        ],
+        "deck_name": "Tổng Hợp Đợt 1"
       }
     ]
   },

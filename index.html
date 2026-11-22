@@ -129,7 +129,7 @@
         <div id="header-en-controls" class="flex items-center space-x-1">
           <button onclick="openEnDeckModal()" class="px-2.5 py-1.5 text-xs font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 active:scale-95 rounded-lg border border-blue-200 transition flex items-center gap-1 shadow-2xs">
             <span>📚 Bài học</span>
-            <span id="header-en-deck-badge" class="bg-blue-600 text-white px-1.5 py-0.2 rounded-full text-[10px] font-mono">29</span>
+            <span id="header-en-deck-badge" class="bg-blue-600 text-white px-1.5 py-0.2 rounded-full text-[10px] font-mono">30</span>
           </button>
         </div>
       </div>
@@ -820,7 +820,7 @@
       <div class="flex items-center justify-between pb-3 border-b border-slate-100">
         <div>
           <h2 class="text-base font-extrabold text-slate-900 flex items-center gap-1.5">
-            <span>📚 Kho 28 Bài Học TOEIC Trọng Tâm</span>
+            <span>📚 Kho Bài Học TOEIC Trọng Tâm</span>
           </h2>
           <p class="text-[11px] text-slate-500">Chạm để chọn Unit muốn luyện tập</p>
         </div>
@@ -829,8 +829,8 @@
 
       <!-- Category Filter Pills -->
       <div class="flex items-center gap-1.5 py-2.5 overflow-x-auto text-xs font-bold border-b border-slate-100 no-scrollbar">
-        <button onclick="filterEnDeckCategory('all')" id="en-cat-btn-all" class="px-3 py-1.5 rounded-xl bg-blue-600 text-white flex-shrink-0 transition">Tất cả (29)</button>
-        <button onclick="filterEnDeckCategory('classroom')" id="en-cat-btn-classroom" class="px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition">📘 Lớp học (17)</button>
+        <button onclick="filterEnDeckCategory('all')" id="en-cat-btn-all" class="px-3 py-1.5 rounded-xl bg-blue-600 text-white flex-shrink-0 transition">Tất cả (30)</button>
+        <button onclick="filterEnDeckCategory('classroom')" id="en-cat-btn-classroom" class="px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition">📘 Lớp học (18)</button>
         <button onclick="filterEnDeckCategory('part3')" id="en-cat-btn-part3" class="px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition">🎧 Part 3 (3)</button>
         <button onclick="filterEnDeckCategory('part5')" id="en-cat-btn-part5" class="px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition">📝 Part 5 (8)</button>
       </div>
@@ -1129,7 +1129,7 @@
 
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script src="toeic_course_data.js?v=22"></script>
+  <script src="toeic_course_data.js?v=23"></script>
   <script>
     /* =========================================================================
        1. DATASETS TOEIC (MỤC TIÊU 450+, 600+, COLLOCATIONS PART 5)
@@ -1977,9 +1977,15 @@ let currentSynonymItem = null;
         localStorage.removeItem('vocab_custom_decks');
       }
 
-      globalState.currentEnDeckId = localStorage.getItem('vocab_last_deck_id') || 'deck_all_toeic_575';
-      if (!globalState.enDecks.some(d => d.id === globalState.currentEnDeckId)) {
-        globalState.currentEnDeckId = 'deck_all_toeic_575';
+      if (localStorage.getItem('vocab_app_version') !== 'v23') {
+        localStorage.setItem('vocab_app_version', 'v23');
+        globalState.currentEnDeckId = 'deck_class_tong_hop_dot_1';
+        localStorage.setItem('vocab_last_deck_id', 'deck_class_tong_hop_dot_1');
+      } else {
+        globalState.currentEnDeckId = localStorage.getItem('vocab_last_deck_id') || 'deck_class_tong_hop_dot_1';
+        if (!globalState.enDecks.some(d => d.id === globalState.currentEnDeckId)) {
+          globalState.currentEnDeckId = 'deck_class_tong_hop_dot_1';
+        }
       }
     }
 
@@ -3715,11 +3721,32 @@ let currentSynonymItem = null;
     }
 
     /* =========================================================================
-       DECK SELECTION MODAL (28 UNITS + MASTER DECK)
+       DECK SELECTION MODAL (29 UNITS + MASTER DECK)
        ========================================================================= */
     let enActiveCategoryFilter = 'all';
 
+    function updateEnDeckCategoryCounts() {
+      const allBtn = document.getElementById('en-cat-btn-all');
+      const classBtn = document.getElementById('en-cat-btn-classroom');
+      const p3Btn = document.getElementById('en-cat-btn-part3');
+      const p5Btn = document.getElementById('en-cat-btn-part5');
+      if (allBtn) allBtn.textContent = `Tất cả (${globalState.enDecks.length})`;
+      if (classBtn) {
+        const count = globalState.enDecks.filter(d => d.category === 'classroom').length;
+        classBtn.textContent = `📘 Lớp học (${count})`;
+      }
+      if (p3Btn) {
+        const count = globalState.enDecks.filter(d => d.category === 'part3').length;
+        p3Btn.textContent = `🎧 Part 3 (${count})`;
+      }
+      if (p5Btn) {
+        const count = globalState.enDecks.filter(d => d.category === 'part5').length;
+        p5Btn.textContent = `📝 Part 5 (${count})`;
+      }
+    }
+
     function openEnDeckModal() {
+      updateEnDeckCategoryCounts();
       renderEnDecksGrid();
       document.getElementById('modal-en-decks').classList.remove('hidden');
     }
