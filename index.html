@@ -175,10 +175,15 @@
           <button onclick="switchTabEn('collocation')" id="tab-btn-collocation" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
             <span>🧩</span> <span>Cụm từ Part 5</span>
           </button>
+
+          <!-- Mode 6: Theory (NEW) -->
+          <button onclick="switchTabEn('theory')" id="tab-btn-theory" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
+            <span>📖</span> <span>Lý thuyết</span>
+          </button>
           
           <!-- Mode 7: Manage -->
-          <button onclick="switchTabEn('manage')" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
-            <span>📝</span> <span>Nạp từ</span>
+          <button onclick="switchTabEn('manage')" id="tab-btn-manage" class="mode-tab-btn px-2.5 py-1.5 rounded-xl font-semibold flex items-center gap-1 transition text-slate-600 hover:bg-slate-100">
+            <span>⚙️</span> <span>Nạp từ</span>
           </button>
         </div>
 
@@ -721,6 +726,314 @@
       </section>
 
 
+      <!-- ========================================================================= -->
+      <!-- ==================== PHÂN HỆ: LÝ THUYẾT & BÀI TẬP TOEIC ================= -->
+      <!-- ========================================================================= -->
+      <section id="view-theory" class="en-view hidden space-y-4">
+
+        <!-- Header Card: Unit Selector & Overview -->
+        <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-sky-700 p-4 sm:p-5 rounded-3xl text-white shadow-md relative overflow-hidden">
+          <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-xs text-[11px] font-bold text-blue-100 mb-1.5">
+                <span>📘</span> <span id="theory-unit-badge">Ngữ pháp cốt lõi</span>
+              </div>
+              <h2 id="theory-unit-title" class="text-base sm:text-lg font-black tracking-tight leading-snug">Unit 5: Câu Đơn & Danh Từ</h2>
+              <p id="theory-unit-desc" class="text-xs text-blue-100/90 mt-0.5 line-clamp-2 leading-relaxed">
+                Nắm vững 3 mẫu câu đơn, phân biệt nội/ngoại động từ, 14 đuôi danh từ, cụm danh từ và 6 vị trí danh từ trong Part 5.
+              </p>
+            </div>
+            <!-- Quick stats pill -->
+            <div class="flex items-center gap-2 self-start sm:self-auto flex-shrink-0">
+              <span class="px-2.5 py-1 bg-white/15 rounded-xl text-[11px] font-bold border border-white/20 flex items-center gap-1">
+                <span>🃏</span> <span id="theory-stat-cards">11 Thẻ</span>
+              </span>
+              <span class="px-2.5 py-1 bg-white/15 rounded-xl text-[11px] font-bold border border-white/20 flex items-center gap-1">
+                <span>✍️</span> <span id="theory-stat-exs">32 Bài tập</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Theory Sub-navigation (4 Modules) -->
+        <div class="flex items-center p-1 bg-slate-200/80 rounded-2xl gap-1 text-xs font-bold overflow-x-auto no-scrollbar">
+          <button onclick="switchTheorySubTab('cards')" id="theory-subbtn-cards" class="flex-1 min-w-max py-2 px-3 rounded-xl transition flex items-center justify-center gap-1.5 bg-white text-blue-700 shadow-xs">
+            <span>🃏</span> <span>Thẻ 3D</span>
+          </button>
+          <button onclick="switchTheorySubTab('exercises')" id="theory-subbtn-exercises" class="flex-1 min-w-max py-2 px-3 rounded-xl transition flex items-center justify-center gap-1.5 text-slate-600 hover:text-slate-900">
+            <span>✍️</span> <span>Bài tập (9 Ex)</span>
+          </button>
+          <button onclick="switchTheorySubTab('mindmap')" id="theory-subbtn-mindmap" class="flex-1 min-w-max py-2 px-3 rounded-xl transition flex items-center justify-center gap-1.5 text-slate-600 hover:text-slate-900">
+            <span>🧠</span> <span>Sơ đồ tóm tắt</span>
+          </button>
+          <button onclick="switchTheorySubTab('quiz')" id="theory-subbtn-quiz" class="flex-1 min-w-max py-2 px-3 rounded-xl transition flex items-center justify-center gap-1.5 text-slate-600 hover:text-slate-900">
+            <span>⏱️</span> <span>Kiểm tra 10 câu</span>
+          </button>
+        </div>
+
+        <!-- ================= SUB-TAB 1: THẺ LÝ THUYẾT 3D ================= -->
+        <div id="theory-pane-cards" class="space-y-4">
+          <!-- Card Progress Info -->
+          <div class="flex items-center justify-between px-1 text-xs font-bold text-slate-500">
+            <span id="theory-card-counter" class="bg-blue-50 text-blue-700 px-2.5 py-1 rounded-lg border border-blue-200">
+              Thẻ 1 / 11
+            </span>
+            <span id="theory-card-cat" class="text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md font-semibold text-[11px]">
+              Mẫu câu đơn
+            </span>
+            <button onclick="shuffleTheoryCards()" class="hover:text-blue-600 flex items-center gap-1 text-slate-600 transition text-[11px] font-semibold">
+              <span>🔀</span> <span>Trộn</span>
+            </button>
+          </div>
+
+          <!-- 3D Card Container -->
+          <div class="card-3d-wrap w-full h-[360px] sm:h-[380px] cursor-pointer" onclick="flipTheoryCard()">
+            <div id="theory-card-3d" class="card-3d w-full h-full relative">
+              
+              <!-- Mặt trước (Front) -->
+              <div class="face-front absolute inset-0 bg-white border-2 border-blue-200 rounded-3xl p-5 sm:p-6 shadow-sm flex flex-col justify-between text-center select-none hover:border-blue-300 transition">
+                <div class="flex items-center justify-between text-xs text-slate-400 font-bold border-b border-slate-100 pb-2">
+                  <span class="text-blue-600 font-extrabold flex items-center gap-1">
+                    <span>💡</span> <span>QUY TẮC NGỮ PHÁP</span>
+                  </span>
+                  <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-mono">BẤM ĐỂ LẬT THẺ</span>
+                </div>
+
+                <div class="my-auto space-y-3">
+                  <h3 id="theory-front-title" class="text-lg sm:text-2xl font-black text-slate-900 leading-tight">
+                    3 Mẫu Câu Đơn Cơ Bản
+                  </h3>
+                  <p id="theory-front-question" class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-md mx-auto">
+                    3 mẫu câu đơn chính trong tiếng Anh gồm những cấu trúc nào?
+                  </p>
+                  <div class="pt-2">
+                    <span id="theory-front-summary" class="inline-block px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-xl text-blue-700 font-bold text-xs sm:text-sm font-mono shadow-2xs">
+                      S + Vnội | S + Vngoại + O | S + Vlinking + Miêu tả
+                    </span>
+                  </div>
+                </div>
+
+                <div class="text-[11px] font-semibold text-slate-400 pt-2 border-t border-slate-100 flex items-center justify-center gap-1">
+                  <span>👉</span> <span>Chạm để xem giải thích chi tiết & ví dụ minh họa</span>
+                </div>
+              </div>
+
+              <!-- Mặt sau (Back) -->
+              <div class="face-back absolute inset-0 bg-white border-2 border-indigo-300 rounded-3xl p-5 sm:p-6 shadow-sm flex flex-col justify-between text-left select-none overflow-y-auto">
+                <div>
+                  <div class="flex items-center justify-between text-xs text-indigo-700 font-extrabold border-b border-indigo-100 pb-2 mb-3">
+                    <span id="theory-back-title" class="flex items-center gap-1 text-xs sm:text-sm font-black">
+                      3 Mẫu Câu Đơn Cơ Bản
+                    </span>
+                    <button onclick="event.stopPropagation(); speakTheoryExample();" title="Nghe đọc ví dụ" class="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-100 flex items-center justify-center transition">
+                      🔊
+                    </button>
+                  </div>
+
+                  <div id="theory-back-details" class="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    <!-- Chi tiết các quy tắc -->
+                  </div>
+                </div>
+
+                <!-- Tip Box -->
+                <div id="theory-back-tip-box" class="mt-3 p-3 bg-amber-50/90 border border-amber-200/90 rounded-2xl text-[11px] sm:text-xs text-amber-900 flex items-start gap-2">
+                  <span class="text-base flex-shrink-0">⚡</span>
+                  <div id="theory-back-tip" class="font-medium leading-relaxed">
+                    Mẹo thi: Linking Verb thường gặp nhất: be, look, seem...
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Controls: Prev / Flip / Next -->
+          <div class="flex items-center justify-between gap-2 pt-1">
+            <button onclick="prevTheoryCard()" class="flex-1 py-3 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 rounded-2xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1 active:scale-95 shadow-2xs">
+              <span>⬅️</span> <span>Trước</span>
+            </button>
+            <button onclick="flipTheoryCard()" class="py-3 px-5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 rounded-2xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1 active:scale-95 shadow-2xs">
+              <span>🔄</span> <span>Lật thẻ</span>
+            </button>
+            <button onclick="nextTheoryCard()" class="flex-1 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-1 active:scale-95 shadow-sm shadow-blue-200">
+              <span>Tiếp theo</span> <span>➡️</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= SUB-TAB 2: BÀI TẬP TƯƠNG TÁC (9 EXERCISES) ================= -->
+        <div id="theory-pane-exercises" class="hidden space-y-4">
+          <!-- Filter Exercise Pills -->
+          <div class="bg-white p-2 rounded-2xl border border-slate-200">
+            <div class="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider px-2 mb-1.5 flex items-center justify-between">
+              <span>Chọn bài tập (Exercise 01 → 09):</span>
+              <span id="theory-ex-filter-count" class="text-blue-600 font-bold">32 câu</span>
+            </div>
+            <div id="theory-ex-filter-bar" class="flex items-center gap-1 overflow-x-auto py-1 text-xs font-bold no-scrollbar">
+              <button onclick="filterTheoryExercise('all')" id="ex-filter-all" class="px-2.5 py-1 rounded-xl bg-blue-600 text-white flex-shrink-0 transition text-xs">Tất cả</button>
+              <button onclick="filterTheoryExercise('Exercise 01')" id="ex-filter-ex1" class="px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs">Ex 01: S/V/O</button>
+              <button onclick="filterTheoryExercise('Exercise 02')" id="ex-filter-ex2" class="px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs">Ex 02: Dịch câu</button>
+              <button onclick="filterTheoryExercise('Exercise 03')" id="ex-filter-ex3" class="px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs">Ex 03: Vnội/Vngoại</button>
+              <button onclick="filterTheoryExercise('Exercise 04')" id="ex-filter-ex4" class="px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs">Ex 04: Cụm V+O</button>
+              <button onclick="filterTheoryExercise('Exercise 05')" id="ex-filter-ex5" class="px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs">Ex 05: Dịch dài</button>
+              <button onclick="filterTheoryExercise('Exercise 06')" id="ex-filter-ex6" class="px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs">Ex 06: Người/Vật</button>
+              <button onclick="filterTheoryExercise('Exercise 07')" id="ex-filter-ex7" class="px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs">Ex 07: Đếm được</button>
+              <button onclick="filterTheoryExercise('Exercise 08')" id="ex-filter-ex8" class="px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs">Ex 08: Số ít/nhiều</button>
+              <button onclick="filterTheoryExercise('Exercise 09')" id="ex-filter-ex9" class="px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs">Ex 09: Part 5</button>
+            </div>
+          </div>
+
+          <!-- Exercise Question Card -->
+          <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-xs space-y-4">
+            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+              <div class="flex items-center gap-2">
+                <span id="theory-ex-badge" class="px-2 py-0.5 bg-blue-100 text-blue-800 rounded-lg text-xs font-extrabold">Exercise 01</span>
+                <span id="theory-ex-topic" class="text-xs font-semibold text-slate-500">Từ loại trong câu đơn</span>
+              </div>
+              <span id="theory-ex-counter" class="text-xs font-mono font-bold text-slate-400">Câu 1 / 32</span>
+            </div>
+
+            <!-- Prompt Question -->
+            <div id="theory-ex-prompt" class="text-sm sm:text-base font-bold text-slate-900 leading-relaxed min-h-[44px]">
+              Vị trí Chủ ngữ (Subject - S) trong câu đơn thường do từ loại nào đảm nhận?
+            </div>
+
+            <!-- Options Grid -->
+            <div id="theory-ex-options" class="grid grid-cols-1 gap-2.5 pt-1">
+              <!-- Render options dynamically -->
+            </div>
+
+            <!-- Feedback / Explanation Box (Hidden until answered) -->
+            <div id="theory-ex-feedback" class="hidden p-4 rounded-2xl border transition leading-relaxed text-xs sm:text-sm">
+              <div class="flex items-center gap-1.5 font-black mb-1.5" id="theory-ex-feedback-title">
+                <span>✓ Chính xác!</span>
+              </div>
+              <p id="theory-ex-explanation" class="text-slate-700 leading-relaxed">
+                Giải thích chi tiết...
+              </p>
+            </div>
+
+            <!-- Nav Controls -->
+            <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-100">
+              <button onclick="prevTheoryExercise()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-xs transition active:scale-95">
+                ⬅️ Câu trước
+              </button>
+              <button onclick="nextTheoryExercise()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs transition active:scale-95 shadow-sm shadow-blue-200">
+                Câu tiếp theo ➡️
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= SUB-TAB 3: SƠ ĐỒ TÓM TẮT & TRA CỨU ================= -->
+        <div id="theory-pane-mindmap" class="hidden space-y-4">
+          <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-xs space-y-4">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+              <div>
+                <h3 class="text-sm font-extrabold text-slate-900 flex items-center gap-1.5">
+                  <span>🧠</span> <span>Sơ Đồ Ngữ Pháp Cốt Lõi Unit 5</span>
+                </h3>
+                <p class="text-[11px] text-slate-500">Bấm từng mục để mở rộng hoặc thu gọn chi tiết</p>
+              </div>
+              <button onclick="toggleAllMindmap(true)" class="text-xs text-blue-600 font-bold hover:underline">Mở tất cả</button>
+            </div>
+
+            <!-- Mindmap Branches Container -->
+            <div id="theory-mindmap-container" class="space-y-3">
+              <!-- Render branches dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= SUB-TAB 4: MINI QUIZ KIỂM TRA (10 CÂU CÓ HẸN GIỜ) ================= -->
+        <div id="theory-pane-quiz" class="hidden space-y-4">
+          
+          <!-- Quiz Start View -->
+          <div id="theory-quiz-start-view" class="bg-white p-6 rounded-3xl border border-slate-200 shadow-xs text-center space-y-4">
+            <div class="w-16 h-16 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-3xl mx-auto flex items-center justify-center text-white text-3xl shadow-lg shadow-blue-200">
+              ⏱️
+            </div>
+            <div>
+              <h3 class="text-base sm:text-lg font-black text-slate-900">Thử Thách 10 Câu Lý Thuyết Unit 5</h3>
+              <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto leading-relaxed">
+                Hệ thống chọn ngẫu nhiên 10 câu hỏi từ toàn bộ 9 Exercise. Mỗi câu có <strong>30 giây</strong> để trả lời mô phỏng tốc độ làm đề Part 5 thật!
+              </p>
+            </div>
+            <div class="inline-flex items-center gap-4 py-2 px-4 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-600 font-bold">
+              <span>🎯 10 câu hỏi</span>
+              <span>•</span>
+              <span>⏰ 30s / câu</span>
+              <span>•</span>
+              <span>📊 Báo cáo điểm số</span>
+            </div>
+            <div>
+              <button onclick="startTheoryQuizNow()" class="w-full sm:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white font-extrabold text-sm rounded-2xl shadow-md shadow-blue-300 transition">
+                🚀 Bắt đầu làm bài thi
+              </button>
+            </div>
+          </div>
+
+          <!-- Quiz Active Question View -->
+          <div id="theory-quiz-active-view" class="hidden bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-xs space-y-4">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+              <span id="theory-quiz-q-counter" class="text-xs font-mono font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-200">
+                Câu 1 / 10
+              </span>
+              <!-- Timer Badge -->
+              <div class="flex items-center gap-1.5 px-3 py-1 bg-amber-50 border border-amber-200 text-amber-800 rounded-full text-xs font-bold font-mono">
+                <span>⏱️</span>
+                <span id="theory-quiz-timer">30s</span>
+              </div>
+            </div>
+
+            <div id="theory-quiz-prompt" class="text-sm sm:text-base font-bold text-slate-900 leading-relaxed min-h-[44px]">
+              Nội dung câu hỏi quiz...
+            </div>
+
+            <div id="theory-quiz-options" class="grid grid-cols-1 gap-2.5 pt-1">
+              <!-- Options rendered dynamically -->
+            </div>
+
+            <!-- Feedback preview -->
+            <div id="theory-quiz-feedback" class="hidden p-3.5 rounded-2xl border text-xs leading-relaxed">
+              <div id="theory-quiz-feedback-title" class="font-extrabold mb-1"></div>
+              <p id="theory-quiz-explanation" class="text-slate-600"></p>
+            </div>
+          </div>
+
+          <!-- Quiz Result View -->
+          <div id="theory-quiz-result-view" class="hidden bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs space-y-4 text-center">
+            <div id="theory-quiz-score-badge" class="w-16 h-16 rounded-3xl mx-auto flex items-center justify-center text-white text-2xl font-black shadow-lg">
+              🎉
+            </div>
+            <div>
+              <h3 id="theory-quiz-result-title" class="text-base sm:text-lg font-black text-slate-900">Hoàn Thành Thử Thách!</h3>
+              <p id="theory-quiz-result-sub" class="text-xs text-slate-500 mt-1">Bạn đã trả lời đúng 8/10 câu (80%)</p>
+            </div>
+
+            <!-- Mistakes Summary -->
+            <div id="theory-quiz-mistakes-box" class="hidden text-left bg-rose-50/70 border border-rose-200 p-3.5 rounded-2xl space-y-2 text-xs">
+              <div class="font-bold text-rose-800 flex items-center gap-1">
+                <span>⚠️</span> <span>Các câu cần xem lại:</span>
+              </div>
+              <div id="theory-quiz-mistakes-list" class="space-y-2 text-slate-700"></div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-2 pt-2">
+              <button onclick="startTheoryQuizNow()" class="flex-1 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold text-xs transition active:scale-95 shadow-md shadow-blue-200">
+                🔄 Làm lại đề mới
+              </button>
+              <button onclick="switchTheorySubTab('cards')" class="flex-1 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-2xl font-bold text-xs transition active:scale-95">
+                🃏 Ôn lại 11 Thẻ 3D
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
       <!-- 6. EN VOCAB MANAGEMENT -->
       <section id="view-manage" class="en-view hidden space-y-4">
         <div class="bg-white p-4 rounded-3xl shadow-xs border border-slate-200">
@@ -1129,7 +1442,8 @@
 
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script src="toeic_course_data.js?v=23"></script>
+  <script src="toeic_course_data.js?v=24"></script>
+  <script src="toeic_theory_data.js?v=24"></script>
   <script>
     /* =========================================================================
        1. DATASETS TOEIC (MỤC TIÊU 450+, 600+, COLLOCATIONS PART 5)
@@ -2034,7 +2348,7 @@ let currentSynonymItem = null;
 
     function switchTabEn(tabName) {
       globalState.currentEnTab = tabName;
-      const tabKeys = ['mcq', 'typing', 'synonym', 'flashcard', 'gapfill', 'audio', 'collocation', 'manage'];
+      const tabKeys = ['mcq', 'typing', 'synonym', 'flashcard', 'gapfill', 'audio', 'collocation', 'theory', 'manage'];
       tabKeys.forEach(t => {
         const btn = document.getElementById(`tab-btn-${t}`);
         const view = document.getElementById(`view-${t}`);
@@ -2050,12 +2364,13 @@ let currentSynonymItem = null;
 
       const progressCard = document.getElementById('en-progress-card');
       if (progressCard) {
-        progressCard.classList.toggle('hidden', ['manage'].includes(tabName));
+        progressCard.classList.toggle('hidden', ['manage', 'theory'].includes(tabName));
       }
       const summaryCard = document.getElementById('en-summary-card');
       if (summaryCard) summaryCard.classList.add('hidden');
 
       if (tabName === 'manage') renderEnManageTable();
+      else if (tabName === 'theory') startTheoryModule();
       else if (tabName === 'collocation') startCollocQuiz();
       else if (tabName === 'gapfill') startGapFillQuiz();
       else if (tabName === 'typing') startTypingQuiz();
@@ -4111,6 +4426,616 @@ let currentSynonymItem = null;
     }
 
 
+
+    /* =========================================================================
+       8. PHÂN HỆ LÝ THUYẾT & BÀI TẬP TOEIC (UNIT 5: CÂU ĐƠN & DANH TỪ)
+       ========================================================================= */
+    globalState.currentTheoryUnitId = 'unit_5_simple_sentences_and_nouns';
+    globalState.currentTheorySubTab = 'cards';
+    globalState.theoryCardIndex = 0;
+    globalState.theoryExFilter = 'all';
+    globalState.theoryExIndex = 0;
+    globalState.theoryFilteredExs = [];
+    globalState.theoryExAnswered = false;
+    globalState.theoryQuizIndex = 0;
+    globalState.theoryQuizList = [];
+    globalState.theoryQuizScore = 0;
+    globalState.theoryQuizMistakes = [];
+    globalState.theoryQuizTimer = null;
+    globalState.theoryQuizTimeLeft = 30;
+    globalState.theoryQuizAnswered = false;
+
+    function getCurrentTheoryUnit() {
+      if (typeof TOEIC_THEORY_UNITS !== 'undefined' && TOEIC_THEORY_UNITS.length > 0) {
+        return TOEIC_THEORY_UNITS.find(u => u.id === globalState.currentTheoryUnitId) || TOEIC_THEORY_UNITS[0];
+      }
+      return null;
+    }
+
+    function startTheoryModule() {
+      const unit = getCurrentTheoryUnit();
+      if (!unit) return;
+
+      document.getElementById('theory-unit-title').textContent = unit.title;
+      document.getElementById('theory-unit-badge').textContent = unit.badge || 'Ngữ pháp cốt lõi';
+      document.getElementById('theory-unit-desc').textContent = unit.description;
+      document.getElementById('theory-stat-cards').textContent = (unit.flashcards ? unit.flashcards.length : 0) + ' Thẻ';
+      document.getElementById('theory-stat-exs').textContent = (unit.exercises ? unit.exercises.length : 0) + ' Bài tập';
+
+      switchTheorySubTab(globalState.currentTheorySubTab || 'cards');
+    }
+
+    function switchTheorySubTab(subTabName) {
+      globalState.currentTheorySubTab = subTabName;
+      const subTabs = ['cards', 'exercises', 'mindmap', 'quiz'];
+
+      subTabs.forEach(tab => {
+        const btn = document.getElementById(`theory-subbtn-${tab}`);
+        const pane = document.getElementById(`theory-pane-${tab}`);
+        if (btn) {
+          if (tab === subTabName) {
+            btn.className = "flex-1 min-w-max py-2 px-3 rounded-xl transition flex items-center justify-center gap-1.5 bg-white text-blue-700 shadow-xs font-bold";
+          } else {
+            btn.className = "flex-1 min-w-max py-2 px-3 rounded-xl transition flex items-center justify-center gap-1.5 text-slate-600 hover:text-slate-900 font-semibold";
+          }
+        }
+        if (pane) pane.classList.toggle('hidden', tab !== subTabName);
+      });
+
+      if (subTabName === 'cards') renderTheoryCards();
+      else if (subTabName === 'exercises') {
+        initTheoryExercises();
+        renderTheoryExercise();
+      }
+      else if (subTabName === 'mindmap') renderTheoryMindmap();
+      else if (subTabName === 'quiz') resetTheoryQuizView();
+    }
+
+    // --- SUB-MODULE 1: THẺ LÝ THUYẾT 3D ---
+    function renderTheoryCards() {
+      const unit = getCurrentTheoryUnit();
+      if (!unit || !unit.flashcards || unit.flashcards.length === 0) return;
+
+      const cards = unit.flashcards;
+      if (globalState.theoryCardIndex >= cards.length) globalState.theoryCardIndex = 0;
+      if (globalState.theoryCardIndex < 0) globalState.theoryCardIndex = cards.length - 1;
+
+      const card = cards[globalState.theoryCardIndex];
+      const cardEl = document.getElementById('theory-card-3d');
+      if (cardEl) cardEl.classList.remove('is-flipped');
+
+      document.getElementById('theory-card-counter').textContent = `Thẻ ${globalState.theoryCardIndex + 1} / ${cards.length}`;
+      document.getElementById('theory-card-cat').textContent = card.category;
+
+      // Mặt trước
+      document.getElementById('theory-front-title').textContent = card.title;
+      document.getElementById('theory-front-question').innerHTML = card.question;
+      document.getElementById('theory-front-summary').innerHTML = card.summary;
+
+      // Mặt sau
+      document.getElementById('theory-back-title').textContent = card.title;
+      const detailsEl = document.getElementById('theory-back-details');
+      detailsEl.innerHTML = '';
+      if (Array.isArray(card.details)) {
+        card.details.forEach(item => {
+          const p = document.createElement('div');
+          p.className = 'py-1 border-b border-indigo-50 last:border-b-0 leading-relaxed';
+          p.innerHTML = item;
+          detailsEl.appendChild(p);
+        });
+      }
+
+      const tipBox = document.getElementById('theory-back-tip-box');
+      const tipText = document.getElementById('theory-back-tip');
+      if (card.tip) {
+        tipText.innerHTML = card.tip;
+        tipBox.classList.remove('hidden');
+      } else {
+        tipBox.classList.add('hidden');
+      }
+    }
+
+    function flipTheoryCard() {
+      const cardEl = document.getElementById('theory-card-3d');
+      if (cardEl) cardEl.classList.toggle('is-flipped');
+    }
+
+    function nextTheoryCard() {
+      const unit = getCurrentTheoryUnit();
+      if (!unit || !unit.flashcards) return;
+      globalState.theoryCardIndex = (globalState.theoryCardIndex + 1) % unit.flashcards.length;
+      renderTheoryCards();
+    }
+
+    function prevTheoryCard() {
+      const unit = getCurrentTheoryUnit();
+      if (!unit || !unit.flashcards) return;
+      globalState.theoryCardIndex = (globalState.theoryCardIndex - 1 + unit.flashcards.length) % unit.flashcards.length;
+      renderTheoryCards();
+    }
+
+    function shuffleTheoryCards() {
+      const unit = getCurrentTheoryUnit();
+      if (!unit || !unit.flashcards) return;
+      unit.flashcards = shuffleArray(unit.flashcards);
+      globalState.theoryCardIndex = 0;
+      renderTheoryCards();
+    }
+
+    function speakTheoryExample() {
+      const unit = getCurrentTheoryUnit();
+      if (!unit || !unit.flashcards) return;
+      const card = unit.flashcards[globalState.theoryCardIndex];
+      if (!card) return;
+      let textToRead = card.title;
+      if (card.summary) textToRead += '. ' + card.summary.replace(/<[^>]+>/g, '');
+      speakText(textToRead, 'en-US');
+    }
+
+    // --- SUB-MODULE 2: BÀI TẬP TƯƠNG TÁC (9 EXERCISES) ---
+    function initTheoryExercises() {
+      const unit = getCurrentTheoryUnit();
+      if (!unit || !unit.exercises) return;
+
+      const f = globalState.theoryExFilter || 'all';
+      if (f === 'all') {
+        globalState.theoryFilteredExs = [...unit.exercises];
+      } else {
+        globalState.theoryFilteredExs = unit.exercises.filter(ex => ex.exerciseNumber === f);
+      }
+
+      if (globalState.theoryExIndex >= globalState.theoryFilteredExs.length) {
+        globalState.theoryExIndex = 0;
+      }
+      globalState.theoryExAnswered = false;
+
+      const countEl = document.getElementById('theory-ex-filter-count');
+      if (countEl) countEl.textContent = `${globalState.theoryFilteredExs.length} câu`;
+    }
+
+    function filterTheoryExercise(filterKey) {
+      globalState.theoryExFilter = filterKey;
+      const filterBtns = [
+        { id: 'ex-filter-all', key: 'all' },
+        { id: 'ex-filter-ex1', key: 'Exercise 01' },
+        { id: 'ex-filter-ex2', key: 'Exercise 02' },
+        { id: 'ex-filter-ex3', key: 'Exercise 03' },
+        { id: 'ex-filter-ex4', key: 'Exercise 04' },
+        { id: 'ex-filter-ex5', key: 'Exercise 05' },
+        { id: 'ex-filter-ex6', key: 'Exercise 06' },
+        { id: 'ex-filter-ex7', key: 'Exercise 07' },
+        { id: 'ex-filter-ex8', key: 'Exercise 08' },
+        { id: 'ex-filter-ex9', key: 'Exercise 09' }
+      ];
+
+      filterBtns.forEach(b => {
+        const btn = document.getElementById(b.id);
+        if (btn) {
+          if (b.key === filterKey) {
+            btn.className = "px-2.5 py-1 rounded-xl bg-blue-600 text-white flex-shrink-0 transition text-xs font-bold";
+          } else {
+            btn.className = "px-2.5 py-1 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs font-semibold";
+          }
+        }
+      });
+
+      initTheoryExercises();
+      renderTheoryExercise();
+    }
+
+    function renderTheoryExercise() {
+      const list = globalState.theoryFilteredExs;
+      if (!list || list.length === 0) return;
+
+      if (globalState.theoryExIndex >= list.length) globalState.theoryExIndex = 0;
+      if (globalState.theoryExIndex < 0) globalState.theoryExIndex = list.length - 1;
+
+      const ex = list[globalState.theoryExIndex];
+      globalState.theoryExAnswered = false;
+
+      document.getElementById('theory-ex-badge').textContent = ex.exerciseNumber;
+      document.getElementById('theory-ex-topic').textContent = ex.topic;
+      document.getElementById('theory-ex-counter').textContent = `Câu ${globalState.theoryExIndex + 1} / ${list.length}`;
+      document.getElementById('theory-ex-prompt').innerHTML = ex.prompt;
+
+      const feedbackBox = document.getElementById('theory-ex-feedback');
+      if (feedbackBox) feedbackBox.classList.add('hidden');
+
+      const optionsContainer = document.getElementById('theory-ex-options');
+      optionsContainer.innerHTML = '';
+
+      const letters = ['A', 'B', 'C', 'D'];
+      ex.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.id = `theory-ex-opt-${idx}`;
+        btn.className = "w-full p-3.5 text-left rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 font-bold text-xs sm:text-sm text-slate-800 transition active:scale-[0.99] flex items-center gap-3";
+        btn.onclick = () => selectTheoryExerciseAnswer(idx);
+
+        const badge = document.createElement('span');
+        badge.className = "w-7 h-7 rounded-xl bg-white border border-slate-200 text-slate-700 font-extrabold flex items-center justify-center text-xs flex-shrink-0 shadow-2xs";
+        badge.textContent = letters[idx] || (idx + 1);
+
+        const text = document.createElement('span');
+        text.className = "flex-1 leading-snug";
+        text.innerHTML = opt;
+
+        btn.appendChild(badge);
+        btn.appendChild(text);
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function selectTheoryExerciseAnswer(choiceIdx) {
+      if (globalState.theoryExAnswered) return;
+      globalState.theoryExAnswered = true;
+
+      const list = globalState.theoryFilteredExs;
+      const ex = list[globalState.theoryExIndex];
+      if (!ex) return;
+
+      const isCorrect = choiceIdx === ex.answer;
+      const chosenBtn = document.getElementById(`theory-ex-opt-${choiceIdx}`);
+      const correctBtn = document.getElementById(`theory-ex-opt-${ex.answer}`);
+
+      if (isCorrect) {
+        if (chosenBtn) {
+          chosenBtn.className = "w-full p-3.5 text-left rounded-2xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-xs sm:text-sm transition flex items-center gap-3 shadow-2xs";
+        }
+        playAudioSuccess();
+      } else {
+        if (chosenBtn) {
+          chosenBtn.className = "w-full p-3.5 text-left rounded-2xl border-2 border-rose-500 bg-rose-50 text-rose-900 font-bold text-xs sm:text-sm transition flex items-center gap-3 shadow-2xs animate-shake";
+        }
+        if (correctBtn) {
+          correctBtn.className = "w-full p-3.5 text-left rounded-2xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-xs sm:text-sm transition flex items-center gap-3 shadow-2xs";
+        }
+        playAudioFailure();
+      }
+
+      // Show Feedback Box with explanation
+      const feedbackBox = document.getElementById('theory-ex-feedback');
+      const feedbackTitle = document.getElementById('theory-ex-feedback-title');
+      const feedbackExplanation = document.getElementById('theory-ex-explanation');
+
+      if (feedbackBox) {
+        feedbackBox.classList.remove('hidden');
+        if (isCorrect) {
+          feedbackBox.className = "p-4 rounded-2xl border border-emerald-200 bg-emerald-50/70 text-emerald-900 text-xs sm:text-sm leading-relaxed";
+          feedbackTitle.innerHTML = "<span>🎉 Chính xác xuất sắc!</span>";
+        } else {
+          feedbackBox.className = "p-4 rounded-2xl border border-rose-200 bg-rose-50/70 text-rose-900 text-xs sm:text-sm leading-relaxed";
+          feedbackTitle.innerHTML = "<span>💡 Chưa chính xác - Đáp án đúng là: " + ex.options[ex.answer] + "</span>";
+        }
+        feedbackExplanation.innerHTML = ex.explanation;
+      }
+    }
+
+    function nextTheoryExercise() {
+      const list = globalState.theoryFilteredExs;
+      if (!list || list.length === 0) return;
+      globalState.theoryExIndex = (globalState.theoryExIndex + 1) % list.length;
+      renderTheoryExercise();
+    }
+
+    function prevTheoryExercise() {
+      const list = globalState.theoryFilteredExs;
+      if (!list || list.length === 0) return;
+      globalState.theoryExIndex = (globalState.theoryExIndex - 1 + list.length) % list.length;
+      renderTheoryExercise();
+    }
+
+    // --- SUB-MODULE 3: SƠ ĐỒ MINDMAP TÓM TẮT ---
+    function renderTheoryMindmap() {
+      const unit = getCurrentTheoryUnit();
+      if (!unit || !unit.mindmapNodes) return;
+
+      const container = document.getElementById('theory-mindmap-container');
+      container.innerHTML = '';
+
+      unit.mindmapNodes.forEach((node, nIdx) => {
+        const branchBox = document.createElement('div');
+        branchBox.className = "border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50 shadow-2xs";
+
+        // Branch header (Accordion toggle)
+        const header = document.createElement('button');
+        header.className = "w-full p-3.5 bg-white hover:bg-slate-50 transition text-left font-extrabold text-xs sm:text-sm text-slate-800 flex items-center justify-between";
+        header.onclick = () => toggleMindmapBranch(nIdx);
+
+        header.innerHTML = `
+          <span class="flex items-center gap-2">
+            <span class="text-base">${node.icon || '📌'}</span>
+            <span class="text-${node.color || 'blue'}-700">${node.title}</span>
+          </span>
+          <span id="mindmap-arrow-${nIdx}" class="text-slate-400 font-mono text-sm transition-transform duration-200">▼</span>
+        `;
+
+        // Branch body
+        const body = document.createElement('div');
+        body.id = `mindmap-body-${nIdx}`;
+        body.className = "p-3 space-y-2 border-t border-slate-100 bg-white";
+
+        if (Array.isArray(node.children)) {
+          node.children.forEach(child => {
+            const item = document.createElement('div');
+            item.className = "p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-1";
+            item.innerHTML = `
+              <div class="font-black text-xs text-slate-900">${child.title}</div>
+              <div class="text-[11px] sm:text-xs text-slate-600 leading-relaxed font-normal">${child.desc}</div>
+            `;
+            body.appendChild(item);
+          });
+        }
+
+        branchBox.appendChild(header);
+        branchBox.appendChild(body);
+        container.appendChild(branchBox);
+      });
+    }
+
+    function toggleMindmapBranch(idx) {
+      const body = document.getElementById(`mindmap-body-${idx}`);
+      const arrow = document.getElementById(`mindmap-arrow-${idx}`);
+      if (body) {
+        body.classList.toggle('hidden');
+        if (arrow) arrow.style.transform = body.classList.contains('hidden') ? 'rotate(-90deg)' : 'rotate(0deg)';
+      }
+    }
+
+    function toggleAllMindmap(expand = true) {
+      const unit = getCurrentTheoryUnit();
+      if (!unit || !unit.mindmapNodes) return;
+      unit.mindmapNodes.forEach((_, idx) => {
+        const body = document.getElementById(`mindmap-body-${idx}`);
+        const arrow = document.getElementById(`mindmap-arrow-${idx}`);
+        if (body) {
+          if (expand) body.classList.remove('hidden');
+          else body.classList.add('hidden');
+          if (arrow) arrow.style.transform = expand ? 'rotate(0deg)' : 'rotate(-90deg)';
+        }
+      });
+    }
+
+    // --- SUB-MODULE 4: MINI QUIZ KIỂM TRA (10 CÂU CÓ HẸN GIỜ 30S) ---
+    function resetTheoryQuizView() {
+      stopTheoryQuizTimer();
+      document.getElementById('theory-quiz-start-view').classList.remove('hidden');
+      document.getElementById('theory-quiz-active-view').classList.add('hidden');
+      document.getElementById('theory-quiz-result-view').classList.add('hidden');
+    }
+
+    function startTheoryQuizNow() {
+      const unit = getCurrentTheoryUnit();
+      if (!unit || !unit.exercises || unit.exercises.length === 0) return;
+
+      const allExs = shuffleArray([...unit.exercises]);
+      globalState.theoryQuizList = allExs.slice(0, Math.min(10, allExs.length));
+      globalState.theoryQuizIndex = 0;
+      globalState.theoryQuizScore = 0;
+      globalState.theoryQuizMistakes = [];
+      globalState.theoryQuizAnswered = false;
+
+      document.getElementById('theory-quiz-start-view').classList.add('hidden');
+      document.getElementById('theory-quiz-result-view').classList.add('hidden');
+      document.getElementById('theory-quiz-active-view').classList.remove('hidden');
+
+      renderTheoryQuizQuestion();
+    }
+
+    function renderTheoryQuizQuestion() {
+      stopTheoryQuizTimer();
+
+      const list = globalState.theoryQuizList;
+      if (globalState.theoryQuizIndex >= list.length) {
+        finishTheoryQuiz();
+        return;
+      }
+
+      const q = list[globalState.theoryQuizIndex];
+      globalState.theoryQuizAnswered = false;
+
+      document.getElementById('theory-quiz-q-counter').textContent = `Câu ${globalState.theoryQuizIndex + 1} / ${list.length}`;
+      document.getElementById('theory-quiz-prompt').innerHTML = q.prompt;
+
+      const feedbackBox = document.getElementById('theory-quiz-feedback');
+      if (feedbackBox) feedbackBox.classList.add('hidden');
+
+      const optionsContainer = document.getElementById('theory-quiz-options');
+      optionsContainer.innerHTML = '';
+
+      const letters = ['A', 'B', 'C', 'D'];
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.id = `theory-quiz-opt-${idx}`;
+        btn.className = "w-full p-3.5 text-left rounded-2xl border-2 border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 font-bold text-xs sm:text-sm text-slate-800 transition active:scale-[0.99] flex items-center gap-3";
+        btn.onclick = () => selectTheoryQuizAnswer(idx);
+
+        const badge = document.createElement('span');
+        badge.className = "w-7 h-7 rounded-xl bg-white border border-slate-200 text-slate-700 font-extrabold flex items-center justify-center text-xs flex-shrink-0 shadow-2xs";
+        badge.textContent = letters[idx] || (idx + 1);
+
+        const text = document.createElement('span');
+        text.className = "flex-1 leading-snug";
+        text.innerHTML = opt;
+
+        btn.appendChild(badge);
+        btn.appendChild(text);
+        optionsContainer.appendChild(btn);
+      });
+
+      // Start 30s Countdown
+      globalState.theoryQuizTimeLeft = 30;
+      updateQuizTimerBadge();
+      globalState.theoryQuizTimer = setInterval(() => {
+        globalState.theoryQuizTimeLeft--;
+        updateQuizTimerBadge();
+        if (globalState.theoryQuizTimeLeft <= 0) {
+          stopTheoryQuizTimer();
+          handleQuizTimeout();
+        }
+      }, 1000);
+    }
+
+    function updateQuizTimerBadge() {
+      const el = document.getElementById('theory-quiz-timer');
+      if (el) {
+        el.textContent = globalState.theoryQuizTimeLeft + 's';
+        if (globalState.theoryQuizTimeLeft <= 5) {
+          el.parentElement.className = "flex items-center gap-1.5 px-3 py-1 bg-rose-50 border border-rose-300 text-rose-700 rounded-full text-xs font-bold font-mono animate-pulse";
+        } else {
+          el.parentElement.className = "flex items-center gap-1.5 px-3 py-1 bg-amber-50 border border-amber-200 text-amber-800 rounded-full text-xs font-bold font-mono";
+        }
+      }
+    }
+
+    function stopTheoryQuizTimer() {
+      if (globalState.theoryQuizTimer) {
+        clearInterval(globalState.theoryQuizTimer);
+        globalState.theoryQuizTimer = null;
+      }
+    }
+
+    function handleQuizTimeout() {
+      if (globalState.theoryQuizAnswered) return;
+      globalState.theoryQuizAnswered = true;
+
+      const q = globalState.theoryQuizList[globalState.theoryQuizIndex];
+      globalState.theoryQuizMistakes.push({
+        question: q,
+        userChoice: -1,
+        isTimeout: true
+      });
+
+      const correctBtn = document.getElementById(`theory-quiz-opt-${q.answer}`);
+      if (correctBtn) {
+        correctBtn.className = "w-full p-3.5 text-left rounded-2xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-xs sm:text-sm flex items-center gap-3";
+      }
+
+      playAudioFailure();
+      showQuizFeedback(false, "⏰ Hết 30 giây! Đáp án chính xác là: " + q.options[q.answer], q.explanation);
+
+      setTimeout(() => {
+        globalState.theoryQuizIndex++;
+        renderTheoryQuizQuestion();
+      }, 2500);
+    }
+
+    function selectTheoryQuizAnswer(choiceIdx) {
+      if (globalState.theoryQuizAnswered) return;
+      globalState.theoryQuizAnswered = true;
+      stopTheoryQuizTimer();
+
+      const q = globalState.theoryQuizList[globalState.theoryQuizIndex];
+      const isCorrect = choiceIdx === q.answer;
+
+      const chosenBtn = document.getElementById(`theory-quiz-opt-${choiceIdx}`);
+      const correctBtn = document.getElementById(`theory-quiz-opt-${q.answer}`);
+
+      if (isCorrect) {
+        globalState.theoryQuizScore++;
+        if (chosenBtn) {
+          chosenBtn.className = "w-full p-3.5 text-left rounded-2xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-xs sm:text-sm flex items-center gap-3";
+        }
+        playAudioSuccess();
+        showQuizFeedback(true, "✓ Chính xác!", q.explanation);
+      } else {
+        globalState.theoryQuizMistakes.push({
+          question: q,
+          userChoice: choiceIdx,
+          isTimeout: false
+        });
+        if (chosenBtn) {
+          chosenBtn.className = "w-full p-3.5 text-left rounded-2xl border-2 border-rose-500 bg-rose-50 text-rose-900 font-bold text-xs sm:text-sm flex items-center gap-3 animate-shake";
+        }
+        if (correctBtn) {
+          correctBtn.className = "w-full p-3.5 text-left rounded-2xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-xs sm:text-sm flex items-center gap-3";
+        }
+        playAudioFailure();
+        showQuizFeedback(false, "✕ Sai rồi! Đáp án đúng: " + q.options[q.answer], q.explanation);
+      }
+
+      setTimeout(() => {
+        globalState.theoryQuizIndex++;
+        renderTheoryQuizQuestion();
+      }, 2200);
+    }
+
+    function showQuizFeedback(isCorrect, title, explanation) {
+      const box = document.getElementById('theory-quiz-feedback');
+      const titleEl = document.getElementById('theory-quiz-feedback-title');
+      const expEl = document.getElementById('theory-quiz-explanation');
+      if (box) {
+        box.classList.remove('hidden');
+        box.className = isCorrect
+          ? "p-3.5 rounded-2xl border border-emerald-200 bg-emerald-50 text-emerald-900 text-xs leading-relaxed"
+          : "p-3.5 rounded-2xl border border-rose-200 bg-rose-50 text-rose-900 text-xs leading-relaxed";
+        titleEl.textContent = title;
+        expEl.innerHTML = explanation;
+      }
+    }
+
+    function finishTheoryQuiz() {
+      stopTheoryQuizTimer();
+      document.getElementById('theory-quiz-active-view').classList.add('hidden');
+      document.getElementById('theory-quiz-result-view').classList.remove('hidden');
+
+      const total = globalState.theoryQuizList.length;
+      const score = globalState.theoryQuizScore;
+      const pct = Math.round((score / total) * 100);
+
+      const titleEl = document.getElementById('theory-quiz-result-title');
+      const subEl = document.getElementById('theory-quiz-result-sub');
+      const badgeEl = document.getElementById('theory-quiz-score-badge');
+
+      if (pct >= 80) {
+        badgeEl.className = "w-16 h-16 rounded-3xl mx-auto flex items-center justify-center text-white text-3xl font-black bg-gradient-to-tr from-emerald-500 to-teal-600 shadow-lg shadow-emerald-200";
+        badgeEl.textContent = "🏆";
+        titleEl.textContent = "Xuất sắc! Nắm chắc lý thuyết Unit 5";
+        playDuolingoFanfare();
+      } else if (pct >= 50) {
+        badgeEl.className = "w-16 h-16 rounded-3xl mx-auto flex items-center justify-center text-white text-3xl font-black bg-gradient-to-tr from-blue-500 to-indigo-600 shadow-lg shadow-blue-200";
+        badgeEl.textContent = "👍";
+        titleEl.textContent = "Khá tốt! Cần củng cố thêm một số điểm";
+      } else {
+        badgeEl.className = "w-16 h-16 rounded-3xl mx-auto flex items-center justify-center text-white text-3xl font-black bg-gradient-to-tr from-amber-500 to-rose-600 shadow-lg shadow-amber-200";
+        badgeEl.textContent = "💪";
+        titleEl.textContent = "Cần ôn tập kỹ hơn 11 thẻ quy tắc!";
+      }
+
+      subEl.innerHTML = `Bạn đã đạt <strong>${score}/${total} câu đúng</strong> (${pct}%). Giữ vững phong độ trước ngày thi!`;
+
+      // Mistakes box
+      const mistakesBox = document.getElementById('theory-quiz-mistakes-box');
+      const mistakesList = document.getElementById('theory-quiz-mistakes-list');
+      if (globalState.theoryQuizMistakes.length > 0) {
+        mistakesBox.classList.remove('hidden');
+        mistakesList.innerHTML = '';
+        globalState.theoryQuizMistakes.forEach(m => {
+          const item = document.createElement('div');
+          item.className = "p-2.5 rounded-xl bg-white border border-rose-100 space-y-1";
+          item.innerHTML = `
+            <div class="font-bold text-slate-900">${m.question.prompt}</div>
+            <div class="text-emerald-700 font-semibold">✓ Đáp án đúng: ${m.question.options[m.question.answer]}</div>
+            <div class="text-slate-500 text-[11px]">${m.question.explanation}</div>
+          `;
+          mistakesList.appendChild(item);
+        });
+      } else {
+        mistakesBox.classList.add('hidden');
+      }
+    }
+
+    // Keyboard navigation helper for Theory
+    function nextTheoryItem() {
+      if (globalState.currentTheorySubTab === 'cards') nextTheoryCard();
+      else if (globalState.currentTheorySubTab === 'exercises') nextTheoryExercise();
+    }
+
+    function prevTheoryItem() {
+      if (globalState.currentTheorySubTab === 'cards') prevTheoryCard();
+      else if (globalState.currentTheorySubTab === 'exercises') prevTheoryExercise();
+    }
+
+
     /* =========================================================================
        8. ĐIỀU HƯỚNG BẰNG PHÍM: CHỈ DÙNG [ <- ] VÀ [ -> ]
        ========================================================================= */
@@ -4129,18 +5054,23 @@ let currentSynonymItem = null;
 
         if (e.key === 'ArrowRight') {
           e.preventDefault();
-          if (globalState.currentEnTab === 'collocation') nextCollocQuestion();
+          if (globalState.currentEnTab === 'theory') nextTheoryItem();
+          else if (globalState.currentEnTab === 'collocation') nextCollocQuestion();
           else if (globalState.currentEnTab === 'gapfill') nextGapFillQuestion();
           else if (globalState.currentEnTab === 'typing') nextTypingQuestion();
           else if (globalState.currentEnTab === 'synonym') nextSynonymQuestion();
           else nextEnQuestion();
         } else if (e.key === 'ArrowLeft') {
           e.preventDefault();
-          if (globalState.currentEnTab === 'collocation') prevCollocQuestion();
+          if (globalState.currentEnTab === 'theory') prevTheoryItem();
+          else if (globalState.currentEnTab === 'collocation') prevCollocQuestion();
           else if (globalState.currentEnTab === 'gapfill') prevGapFillQuestion();
           else if (globalState.currentEnTab === 'typing') prevTypingQuestion();
           else if (globalState.currentEnTab === 'synonym') prevSynonymQuestion();
           else prevEnQuestion();
+        } else if (e.key === ' ' && globalState.currentEnTab === 'theory' && globalState.currentTheorySubTab === 'cards') {
+          e.preventDefault();
+          flipTheoryCard();
         }
       });
     }
