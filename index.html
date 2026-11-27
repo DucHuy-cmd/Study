@@ -769,7 +769,11 @@
         </div>
 
         <!-- ================= SUB-TAB 1: HỌC TẬP PHẢN XẠ (GÕ ĐÁP ÁN) ================= -->
-        <div id="grammar-pane-practice" class="space-y-4">
+        <div id="grammar-pane-practice" class="space-y-3">
+          <!-- Practice Category Pills -->
+          <div id="grammar-practice-category-nav" class="flex items-center gap-1.5 overflow-x-auto py-1 text-xs font-bold no-scrollbar">
+            <!-- Dynamic Practice Category Pills -->
+          </div>
           <!-- Top progress & stats -->
           <div class="flex items-center justify-between px-1 text-xs font-bold text-slate-500">
             <span id="grammar-practice-counter" class="bg-blue-50 text-blue-700 px-2.5 py-1 rounded-lg border border-blue-200">
@@ -1387,8 +1391,8 @@
 
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script src="toeic_course_data.js?v=28"></script>
-  <script src="toeic_grammar_data.js?v=28"></script>
+  <script src="toeic_course_data.js?v=29"></script>
+  <script src="toeic_grammar_data.js?v=29"></script>
   <script>
     /* =========================================================================
        1. DATASETS TOEIC (MỤC TIÊU 450+, 600+, COLLOCATIONS PART 5)
@@ -4383,21 +4387,53 @@ let currentSynonymItem = null;
     globalState.grammarIsAnswered = false;
     globalState.activeTheoryTopicId = 'all';
 
+    globalState.activePracticeCategory = 'all';
+
     function initGrammarModuleState() {
       if (globalState.grammarQuestions.length === 0) {
         const saved = localStorage.getItem('studymaster_custom_grammar');
+        let loaded = [];
         if (saved) {
           try {
             const parsed = JSON.parse(saved);
             if (Array.isArray(parsed) && parsed.length > 0) {
-              globalState.grammarQuestions = parsed;
+              loaded = parsed;
             }
           } catch (e) {}
         }
-        if (globalState.grammarQuestions.length === 0 && typeof TOEIC_GRAMMAR_DATA !== 'undefined' && TOEIC_GRAMMAR_DATA.practiceQuestions) {
-          globalState.grammarQuestions = [...TOEIC_GRAMMAR_DATA.practiceQuestions];
+        if (loaded.length === 0 && typeof TOEIC_GRAMMAR_DATA !== 'undefined' && TOEIC_GRAMMAR_DATA.practiceQuestions) {
+          loaded = [...TOEIC_GRAMMAR_DATA.practiceQuestions];
+        } else if (typeof TOEIC_GRAMMAR_DATA !== 'undefined' && TOEIC_GRAMMAR_DATA.practiceQuestions) {
+          // Merge any newly introduced default questions
+          TOEIC_GRAMMAR_DATA.practiceQuestions.forEach(dq => {
+            if (!loaded.some(lq => (lq.id && lq.id === dq.id) || lq.question === dq.question)) {
+              loaded.push(dq);
+            }
+          });
         }
+        globalState.grammarQuestions = loaded;
       }
+    }
+
+    function getActivePracticeQuestions() {
+      initGrammarModuleState();
+      const all = globalState.grammarQuestions;
+      if (!globalState.activePracticeCategory || globalState.activePracticeCategory === 'all') {
+        return all;
+      }
+      return all.filter(q => (q.category || 'dong_danh_tu') === globalState.activePracticeCategory);
+    }
+
+    function filterPracticeCategory(catId) {
+      globalState.activePracticeCategory = catId;
+      globalState.grammarQuestionIndex = 0;
+      globalState.grammarCorrect = 0;
+      globalState.grammarWrong = 0;
+      const statCorrect = document.getElementById('grammar-stat-correct');
+      const statWrong = document.getElementById('grammar-stat-wrong');
+      if (statCorrect) statCorrect.textContent = '0';
+      if (statWrong) statWrong.textContent = '0';
+      renderGrammarPracticeQuestion();
     }
 
     function startGrammarModule() {
@@ -4469,9 +4505,37 @@ let currentSynonymItem = null;
     // --- SUB-TAB 1: HỌC TẬP GÕ PHẢN XẠ ---
     function renderGrammarPracticeQuestion() {
       initGrammarModuleState();
-      const list = globalState.grammarQuestions;
+      const allQuestions = globalState.grammarQuestions;
+      const list = getActivePracticeQuestions();
+
+      // Render practice category pills
+      const nav = document.getElementById('grammar-practice-category-nav');
+      if (nav) {
+        nav.innerHTML = '';
+        const countDong = allQuestions.filter(q => (q.category || 'dong_danh_tu') === 'dong_danh_tu').length;
+        const countTinh = allQuestions.filter(q => q.category === 'tinh_trang_tu').length;
+
+        const catOptions = [
+          { id: 'all', label: `Tất cả (${allQuestions.length})` },
+          { id: 'dong_danh_tu', label: `📘 Động danh từ (${countDong})` },
+          { id: 'tinh_trang_tu', label: `📗 Tính từ & Trạng từ (${countTinh})` }
+        ];
+
+        catOptions.forEach(opt => {
+          const btn = document.createElement('button');
+          const isActive = (globalState.activePracticeCategory === opt.id);
+          btn.className = isActive
+            ? "px-3 py-1.5 rounded-xl bg-blue-600 text-white flex-shrink-0 transition text-xs font-bold shadow-2xs cursor-pointer"
+            : "px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs font-semibold cursor-pointer";
+          btn.textContent = opt.label;
+          btn.onclick = () => filterPracticeCategory(opt.id);
+          nav.appendChild(btn);
+        });
+      }
+
       if (!list || list.length === 0) {
-        document.getElementById('grammar-question-text').textContent = 'Chưa có câu hỏi nào. Vui lòng vào mục "Nạp dữ liệu" để nạp câu hỏi!';
+        document.getElementById('grammar-question-text').textContent = 'Chưa có câu hỏi nào trong danh mục này.';
+        document.getElementById('grammar-practice-counter').textContent = '0 / 0';
         return;
       }
 
@@ -4536,7 +4600,8 @@ let currentSynonymItem = null;
         return;
       }
 
-      const q = globalState.grammarQuestions[globalState.grammarQuestionIndex];
+      const list = getActivePracticeQuestions();
+      const q = list[globalState.grammarQuestionIndex];
       if (!q) return;
 
       globalState.grammarIsAnswered = true;
@@ -4608,7 +4673,8 @@ let currentSynonymItem = null;
     }
 
     function revealGrammarAnswer() {
-      const q = globalState.grammarQuestions[globalState.grammarQuestionIndex];
+      const list = getActivePracticeQuestions();
+      const q = list[globalState.grammarQuestionIndex];
       if (!q) return;
 
       if (!globalState.grammarIsAnswered) {
@@ -4645,14 +4711,14 @@ let currentSynonymItem = null;
     }
 
     function nextGrammarQuestion() {
-      const list = globalState.grammarQuestions;
+      const list = getActivePracticeQuestions();
       if (!list || list.length === 0) return;
       globalState.grammarQuestionIndex = (globalState.grammarQuestionIndex + 1) % list.length;
       renderGrammarPracticeQuestion();
     }
 
     function prevGrammarQuestion() {
-      const list = globalState.grammarQuestions;
+      const list = getActivePracticeQuestions();
       if (!list || list.length === 0) return;
       globalState.grammarQuestionIndex = (globalState.grammarQuestionIndex - 1 + list.length) % list.length;
       renderGrammarPracticeQuestion();
@@ -4660,7 +4726,14 @@ let currentSynonymItem = null;
 
     function shuffleGrammarQuestions() {
       initGrammarModuleState();
-      globalState.grammarQuestions = shuffleArray(globalState.grammarQuestions);
+      const activeCat = globalState.activePracticeCategory;
+      if (!activeCat || activeCat === 'all') {
+        globalState.grammarQuestions = shuffleArray(globalState.grammarQuestions);
+      } else {
+        const matching = shuffleArray(globalState.grammarQuestions.filter(q => (q.category || 'dong_danh_tu') === activeCat));
+        const others = globalState.grammarQuestions.filter(q => (q.category || 'dong_danh_tu') !== activeCat);
+        globalState.grammarQuestions = [...matching, ...others];
+      }
       globalState.grammarQuestionIndex = 0;
       globalState.grammarCorrect = 0;
       globalState.grammarWrong = 0;
@@ -4669,7 +4742,7 @@ let currentSynonymItem = null;
       if (statCorrect) statCorrect.textContent = '0';
       if (statWrong) statWrong.textContent = '0';
       renderGrammarPracticeQuestion();
-      alert("🔀 Đã xáo trộn ngẫu nhiên toàn bộ câu hỏi!");
+      alert("🔀 Đã xáo trộn ngẫu nhiên các câu hỏi!");
     }
 
     // --- SUB-TAB 2: LÝ THUYẾT BÀI GIẢNG (ACCORDION & GOM GỌN CHUYÊN ĐỀ) ---

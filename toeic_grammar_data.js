@@ -268,12 +268,330 @@ var TOEIC_GRAMMAR_DATA = {
         </div>
       `
     }
+,
+    {
+      id: "topic_nhan_biet_tinh_tu",
+      category: "tinh_trang_tu",
+      categoryLabel: "Tính từ & Trạng từ",
+      icon: "⭐",
+      title: "1. Nhận Biết Tính Từ, 6 Đuôi Thông Dụng & Tính Từ Phân Từ (-ing / -ed)",
+      badge: "Đuôi & Phân từ",
+      contentHtml: `
+        <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+          <div class="p-3.5 bg-blue-50/80 rounded-2xl border border-blue-200">
+            <h5 class="font-extrabold text-blue-900 mb-1 flex items-center gap-1.5">
+              <span>🎯</span> <span>1. Định nghĩa Tính từ (Adjective - Adj):</span>
+            </h5>
+            <p class="text-slate-700">
+              Tính từ là từ dùng để <strong>mô tả tính chất, trạng thái</strong> của người hoặc vật.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-2 text-xs">
+              <span class="px-2 py-0.5 bg-white border border-blue-200 rounded-md font-semibold">smart (thông minh)</span>
+              <span class="px-2 py-0.5 bg-white border border-blue-200 rounded-md font-semibold">cold (lạnh)</span>
+              <span class="px-2 py-0.5 bg-white border border-blue-200 rounded-md font-semibold">fast (nhanh)</span>
+              <span class="px-2 py-0.5 bg-white border border-blue-200 rounded-md font-semibold">sharp (sắc bén)</span>
+            </div>
+          </div>
+
+          <div class="p-3.5 bg-white rounded-2xl border border-slate-200 space-y-2">
+            <h5 class="font-extrabold text-slate-900 flex items-center gap-1.5">
+              <span>🏷️</span> <span>2. 6 Đuôi tính từ thông dụng (Học thuộc lòng):</span>
+            </h5>
+            <div class="p-2.5 bg-amber-50 border border-amber-200 rounded-xl font-mono text-center font-extrabold text-amber-900 text-xs sm:text-sm shadow-2xs">
+              -ful, -al, -able, -ic, -ive, -ous
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1 text-xs">
+              <div class="p-2 bg-slate-50 rounded-xl border border-slate-100"><code>-ful</code>: helpful, careful</div>
+              <div class="p-2 bg-slate-50 rounded-xl border border-slate-100"><code>-al</code>: central, financial</div>
+              <div class="p-2 bg-slate-50 rounded-xl border border-slate-100"><code>-able</code>: flexible, available</div>
+              <div class="p-2 bg-slate-50 rounded-xl border border-slate-100"><code>-ic</code>: specific, artistic</div>
+              <div class="p-2 bg-slate-50 rounded-xl border border-slate-100"><code>-ive</code>: creative, active</div>
+              <div class="p-2 bg-slate-50 rounded-xl border border-slate-100"><code>-ous</code>: dangerous, famous</div>
+            </div>
+            <p class="text-[11px] text-indigo-700 font-semibold italic pt-1">
+              💡 Lưu ý thứ tự ưu tiên: Ưu tiên xét đuôi tính từ gốc trước, sau đó mới xét đến tính từ phân từ (-ing / -ed).
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-emerald-50/70 rounded-2xl border border-emerald-200 space-y-2">
+            <h5 class="font-extrabold text-emerald-950 flex items-center gap-1.5">
+              <span>⚖️</span> <span>3. Tính từ phân từ: -ing vs -ed (Bẫy kinh điển Part 5):</span>
+            </h5>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+              <div class="bg-white p-3 rounded-xl border border-emerald-200 shadow-2xs space-y-1.5">
+                <span class="font-extrabold text-emerald-800 text-xs uppercase tracking-wider block">Adj (-ing) • Bản chất / Chủ động</span>
+                <p class="text-xs text-slate-700">Diễn tả <strong>bản chất, tính chất</strong> của một ai hoặc cái gì đó.</p>
+                <div class="text-[11px] bg-emerald-50/60 p-2 rounded-lg font-mono text-emerald-950 space-y-0.5">
+                  <div>• <em>swimming pool</em> (hồ bơi)</div>
+                  <div>• <em>The movie is interesting.</em> (bộ phim hay)</div>
+                  <div>• <em>a demanding job</em> (công việc đòi hỏi cao)</div>
+                </div>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl border border-emerald-200 shadow-2xs space-y-1.5">
+                <span class="font-extrabold text-teal-800 text-xs uppercase tracking-wider block">Adj (-ed) • Cảm nhận / Bị động</span>
+                <p class="text-xs text-slate-700">Diễn tả <strong>cảm nhận của con người</strong> về thứ gì đó, hoặc mang ý <strong>bị động</strong>.</p>
+                <div class="text-[11px] bg-teal-50/60 p-2 rounded-lg font-mono text-teal-950 space-y-0.5">
+                  <div>• <em>I am interested in reading books.</em> (cảm xúc)</div>
+                  <div>• <em>an attached file</em> (tập tin được đính kèm)</div>
+                  <div>• <em>The door is locked.</em> (cửa bị khóa)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: "topic_vi_tri_tinh_tu",
+      category: "tinh_trang_tu",
+      categoryLabel: "Tính từ & Trạng từ",
+      icon: "📍",
+      title: "2. Vị Trí Của Tính Từ & Cấu Trúc Ngoại Động Từ Đặc Biệt",
+      badge: "Vị trí & Ngoại V đặc biệt",
+      contentHtml: `
+        <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+          <div class="p-3.5 bg-white rounded-2xl border border-slate-200 space-y-1.5">
+            <h5 class="font-extrabold text-slate-900 flex items-center gap-1.5">
+              <span>1️⃣</span> <span>Trong Cụm Danh Từ (Noun Phrase):</span>
+            </h5>
+            <div class="font-mono text-xs sm:text-sm font-extrabold text-indigo-700 bg-indigo-50 p-2.5 rounded-xl border border-indigo-200 text-center">
+              [MT / TTSH / Hạn định từ] + Adj + N
+            </div>
+            <p class="text-xs text-slate-600">
+              Tính từ đứng trong cụm danh từ để <strong>bổ nghĩa cho danh từ đứng sau (danh từ cuối cụm)</strong>.
+            </p>
+            <div class="p-2 bg-slate-50 rounded-xl text-xs font-mono">
+              VD: <em>A <strong>smart</strong> student is doing his homework.</em>
+            </div>
+          </div>
+
+          <div class="p-3.5 bg-blue-50/80 rounded-2xl border border-blue-200 space-y-2">
+            <h5 class="font-extrabold text-blue-900 flex items-center gap-1.5">
+              <span>2️⃣</span> <span>Ngoài Cụm Danh Từ (Sau Linking Verbs - Động từ nối):</span>
+            </h5>
+            <div class="font-mono text-xs sm:text-sm font-extrabold text-blue-800 bg-white p-2.5 rounded-xl border border-blue-200 text-center shadow-2xs">
+              S + V_linking + Adj
+            </div>
+            <p class="text-xs text-slate-700">
+              Tính từ đứng sau Linking Verb để <strong>bổ nghĩa cho danh từ ở vị trí chủ ngữ</strong>.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <div class="p-2 bg-white rounded-xl border border-blue-100">
+                <strong>• Giác quan:</strong> <em>look</em> (trông), <em>taste</em> (nếm), <em>smell</em> (ngửi), <em>sound</em> (nghe), <em>feel</em> (cảm thấy)
+              </div>
+              <div class="p-2 bg-white rounded-xl border border-blue-100">
+                <strong>• Miêu tả trạng thái:</strong> <em>be</em> (thì, là), <em>seem</em> (dường như), <em>appear</em> (có vẻ)
+              </div>
+              <div class="p-2 bg-white rounded-xl border border-blue-100">
+                <strong>• Chuyển đổi trạng thái:</strong> <em>turn, become, get</em> (trở nên)
+              </div>
+              <div class="p-2 bg-white rounded-xl border border-blue-100">
+                <strong>• Giữ nguyên trạng thái:</strong> <em>remain, stay</em> (giữ nguyên)
+              </div>
+            </div>
+            <div class="p-2 bg-white rounded-xl text-xs font-mono border border-blue-100">
+              VD: <em>The sky became <strong>dark</strong>.</em> (dark bổ nghĩa cho The sky)
+            </div>
+          </div>
+
+          <div class="p-3.5 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl border border-amber-300 space-y-2">
+            <h5 class="font-extrabold text-amber-950 flex items-center gap-1.5">
+              <span>⭐</span> <span>3. Cấu trúc Ngoại Động Từ Đặc Biệt (Bắt buộc học thuộc):</span>
+            </h5>
+            <div class="font-mono text-xs sm:text-sm font-black text-rose-700 bg-white p-2.5 rounded-xl border border-rose-200 text-center shadow-2xs">
+              S + V_ngoại_đặc_biệt + O + Adj
+            </div>
+            <p class="text-xs text-amber-900 font-semibold">
+              👉 Tính từ đứng sau tân ngữ để <strong>bổ nghĩa cho danh từ ở vị trí tân ngữ (O)</strong>!
+            </p>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left bg-white rounded-xl overflow-hidden border border-amber-200">
+                <thead class="bg-amber-100/70 text-amber-900 font-bold border-b border-amber-200">
+                  <tr>
+                    <th class="p-2">Động từ đặc biệt</th>
+                    <th class="p-2">Ý nghĩa</th>
+                    <th class="p-2">Ví dụ thực tế</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-amber-100 font-medium">
+                  <tr><td class="p-2 font-bold font-mono">Find</td><td class="p-2">Cảm thấy</td><td class="p-2">I find the test <strong>easy</strong>.</td></tr>
+                  <tr><td class="p-2 font-bold font-mono">Deem</td><td class="p-2">Cho rằng / Cảm thấy</td><td class="p-2">The board deemed it <strong>necessary</strong>.</td></tr>
+                  <tr><td class="p-2 font-bold font-mono">Make</td><td class="p-2">Làm cho</td><td class="p-2">The mother made the cake <strong>delicious</strong>.</td></tr>
+                  <tr><td class="p-2 font-bold font-mono">Keep</td><td class="p-2">Giữ cho</td><td class="p-2">Please keep the room <strong>clean</strong>.</td></tr>
+                  <tr><td class="p-2 font-bold font-mono">Leave</td><td class="p-2">Để cho</td><td class="p-2">Don't leave the door <strong>open</strong>.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: "topic_nhan_biet_trang_tu",
+      category: "tinh_trang_tu",
+      categoryLabel: "Tính từ & Trạng từ",
+      icon: "⚡",
+      title: "3. Nhận Biết Trạng Từ (Adverb) & Các Trường Hợp Bất Quy Tắc",
+      badge: "Đuôi & Bất quy tắc",
+      contentHtml: `
+        <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+          <div class="p-3.5 bg-indigo-50/80 rounded-2xl border border-indigo-200 space-y-1.5">
+            <h5 class="font-extrabold text-indigo-900 flex items-center gap-1.5">
+              <span>🎯</span> <span>1. Định nghĩa & Công thức cấu tạo Trạng từ:</span>
+            </h5>
+            <p class="text-slate-700">
+              Trạng từ (Adverb) là từ dùng để bổ nghĩa cho <strong>động từ, tính từ, trạng từ khác hoặc cả câu</strong>, chỉ cách thức, thời gian, mức độ, nơi chốn...
+            </p>
+            <div class="font-mono text-xs sm:text-sm font-extrabold text-indigo-800 bg-white p-2.5 rounded-xl border border-indigo-200 text-center shadow-2xs">
+              Adj + -ly ➔ Adverb (Trạng từ)
+            </div>
+            <div class="flex flex-wrap gap-2 text-xs pt-1">
+              <span class="p-1.5 bg-white rounded-lg border border-indigo-100">quick + -ly ➔ <strong>quickly</strong></span>
+              <span class="p-1.5 bg-white rounded-lg border border-indigo-100">happy + -ly ➔ <strong>happily</strong></span>
+              <span class="p-1.5 bg-white rounded-lg border border-indigo-100">careful + -ly ➔ <strong>carefully</strong></span>
+            </div>
+            <p class="text-[11px] text-indigo-700 font-semibold italic pt-0.5">
+              💡 Mẹo đảo ngược: Trạng từ bỏ đuôi -ly ➔ Tính từ (quickly bỏ -ly ➔ quick).
+            </p>
+          </div>
+
+          <div class="p-3.5 bg-white rounded-2xl border border-slate-200 space-y-2">
+            <h5 class="font-extrabold text-slate-900 flex items-center gap-1.5">
+              <span>⚖️</span> <span>2. Phân biệt Tính từ vs Trạng từ:</span>
+            </h5>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+              <div class="p-3 bg-blue-50/70 rounded-xl border border-blue-200">
+                <span class="font-bold text-blue-900 block mb-1">Về Ý Nghĩa:</span>
+                Trạng từ và tính từ thường có cùng ý nghĩa gốc:<br>
+                • <em>good</em> (tốt) – <em>well</em> (tốt)<br>
+                • <em>quick</em> (nhanh) – <em>quickly</em> (nhanh)
+              </div>
+              <div class="p-3 bg-purple-50/70 rounded-xl border border-purple-200">
+                <span class="font-bold text-purple-900 block mb-1">Về Vai Trò:</span>
+                • <strong>Tính từ:</strong> Bổ nghĩa duy nhất cho <strong>Danh từ</strong>.<br>
+                • <strong>Trạng từ:</strong> Bổ nghĩa cho các thành phần khác <strong>TRỪ Danh từ</strong>.
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3.5 bg-rose-50/80 rounded-2xl border border-rose-200 space-y-2">
+            <h5 class="font-extrabold text-rose-950 flex items-center gap-1.5">
+              <span>⚠️</span> <span>3. Các Trạng từ đặc biệt & Bẫy nguy hiểm trong đề thi:</span>
+            </h5>
+            <div class="space-y-1.5 text-xs">
+              <div class="p-2 bg-white rounded-xl border border-rose-100">
+                <strong>• Từ vừa là Tính từ, vừa là Trạng từ (KHÔNG thêm -ly):</strong><br>
+                <code class="text-rose-700 font-bold">hard, late, early, fast, far, high, close</code><br>
+                VD: <em>He works hard (adv).</em> KHÔNG dùng <em>hardly</em> với nghĩa chăm chỉ!
+              </div>
+              <div class="p-2 bg-white rounded-xl border border-rose-100">
+                <strong>• Bẫy đổi nghĩa khi thêm -ly:</strong><br>
+                • <code>hard</code> (chăm chỉ/vất vả) $\neq$ <code>hardly</code> (hầu như không, hiếm khi).<br>
+                • <code>late</code> (muộn, trễ) $\neq$ <code>lately</code> (dạo gần đây).
+              </div>
+              <div class="p-2 bg-white rounded-xl border border-rose-100">
+                <strong>• Trạng từ bất quy tắc:</strong><br>
+                Tính từ <code>good</code> ➔ Trạng từ là <code>well</code> (không có goodly).
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+    },
+    {
+      id: "topic_vi_tri_trang_tu",
+      category: "tinh_trang_tu",
+      categoryLabel: "Tính từ & Trạng từ",
+      icon: "🎯",
+      title: "4. 4 Vị Trí Của Trạng Từ & 3 'Vị Trí Vàng' Bắt Buộc Chọn Adv Trong Part 5",
+      badge: "Mẹo thi Part 5",
+      contentHtml: `
+        <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+          <div class="p-3.5 bg-white rounded-2xl border border-slate-200 space-y-2">
+            <h5 class="font-extrabold text-slate-900 flex items-center gap-1.5">
+              <span>📌</span> <span>1. 4 Vị trí và chức năng cơ bản của Trạng từ:</span>
+            </h5>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left bg-slate-50 rounded-xl overflow-hidden border border-slate-200">
+                <thead class="bg-slate-200/80 text-slate-800 font-bold">
+                  <tr>
+                    <th class="p-2">Câu ví dụ</th>
+                    <th class="p-2">Vị trí</th>
+                    <th class="p-2">Chức năng</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 bg-white">
+                  <tr>
+                    <td class="p-2 font-mono">She <strong>quietly</strong> opened the door.</td>
+                    <td class="p-2 font-semibold text-blue-700">Trước động từ thường</td>
+                    <td class="p-2 text-slate-600">Bổ nghĩa cho động từ thường</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 font-mono">The manager is <strong>really</strong> kind.</td>
+                    <td class="p-2 font-semibold text-indigo-700">Adv + Adj</td>
+                    <td class="p-2 text-slate-600">Bổ nghĩa cho tính từ</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 font-mono">Delivered <strong>very</strong> professionally.</td>
+                    <td class="p-2 font-semibold text-purple-700">Adv + Adv</td>
+                    <td class="p-2 text-slate-600">Bổ nghĩa cho trạng từ khác</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 font-mono"><strong>Generally</strong>, a worker needs...</td>
+                    <td class="p-2 font-semibold text-emerald-700">Adv, S + V...</td>
+                    <td class="p-2 text-slate-600">Đầu câu, bổ nghĩa cho cả câu</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="p-4 bg-gradient-to-r from-blue-700 via-indigo-700 to-sky-700 rounded-3xl text-white shadow-md space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🏆</span>
+              <h5 class="font-black text-sm sm:text-base text-white">3 "VỊ TRÍ VÀNG" BẮT BUỘC CHỌN TRẠNG TỪ TRONG PART 5:</h5>
+            </div>
+            <p class="text-xs text-blue-100 leading-relaxed">
+              Trong đề thi TOEIC Part 5, khi thấy khoảng trống bị <strong>kẹp giữa</strong> 3 cấu trúc sau, 99% chọn ngay <strong>Trạng từ (-ly)</strong>:
+            </p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-xs">
+                <span class="font-extrabold text-amber-300 block mb-0.5">(1) Kẹp giữa to be và Adj / V-ing / V3/ed:</span>
+                <div class="font-mono font-bold text-white bg-black/25 px-2 py-1 rounded-lg">
+                  S + be + <span class="text-amber-300 underline">[ Adv ]</span> + Adj / V-ing / V3/ed
+                </div>
+                <div class="text-[11px] text-blue-100 mt-1">VD: The project was <em>successfully</em> completed.</div>
+              </div>
+
+              <div class="p-2.5 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-xs">
+                <span class="font-extrabold text-amber-300 block mb-0.5">(2) Kẹp giữa have/has/had và V3/ed:</span>
+                <div class="font-mono font-bold text-white bg-black/25 px-2 py-1 rounded-lg">
+                  S + have / has / had + <span class="text-amber-300 underline">[ Adv ]</span> + V3/ed
+                </div>
+                <div class="text-[11px] text-blue-100 mt-1">VD: We have <em>already</em> received the payment.</div>
+              </div>
+
+              <div class="p-2.5 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-xs">
+                <span class="font-extrabold text-amber-300 block mb-0.5">(3) Kẹp giữa Động từ khiếm khuyết (Modal Verb) và V0:</span>
+                <div class="font-mono font-bold text-white bg-black/25 px-2 py-1 rounded-lg">
+                  S + Modal Verb (can, may, should, must...) + <span class="text-amber-300 underline">[ Adv ]</span> + V0
+                </div>
+                <div class="text-[11px] text-blue-100 mt-1">VD: You should <em>strictly</em> follow the regulations.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `
+    }
   ],
 
-  // 2. BỘ CÂU HỎI GÕ PHẢN XẠ ACTIVE RECALL (20 CÂU CỐT LÕI)
+  // 2. BỘ CÂU HỎI LUYỆN GÕ PHẢN XẠ (20 CÂU CỐT LÕI)
   practiceQuestions: [
     {
       id: "gq_1",
+      category: "dong_danh_tu",
       topic: "3 Mẫu câu đơn",
       question: "Nêu công thức của mẫu câu đơn số 1 (dùng để kể về hành động của bản thân chủ thể)?",
       correctAnswer: "S + V nội",
@@ -285,6 +603,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_2",
+      category: "dong_danh_tu",
       topic: "3 Mẫu câu đơn",
       question: "Nêu công thức của mẫu câu đơn số 2 (hành động tác động lên đối tượng khác)?",
       correctAnswer: "S + V ngoại + O",
@@ -296,6 +615,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_3",
+      category: "dong_danh_tu",
       topic: "3 Mẫu câu đơn",
       question: "Nêu công thức của mẫu câu đơn số 3 (dùng để miêu tả đặc điểm hoặc danh tính)?",
       correctAnswer: "S + V linking + phần miêu tả",
@@ -307,6 +627,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_4",
+      category: "dong_danh_tu",
       topic: "Nội/Ngoại động từ",
       question: "Submit (nộp) là nội động từ hay ngoại động từ?",
       correctAnswer: "ngoại động từ",
@@ -318,6 +639,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_5",
+      category: "dong_danh_tu",
       topic: "Nội/Ngoại động từ",
       question: "Happen (xảy ra) là nội động từ hay ngoại động từ?",
       correctAnswer: "nội động từ",
@@ -329,6 +651,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_6",
+      category: "dong_danh_tu",
       topic: "Cụm V + O",
       question: "Điền tân ngữ thương mại thích hợp: Submit a ... (nộp báo cáo)?",
       correctAnswer: "report",
@@ -340,6 +663,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_7",
+      category: "dong_danh_tu",
       topic: "Cụm V + O",
       question: "Điền tân ngữ thương mại thích hợp: Approve the ... (phê duyệt đề xuất)?",
       correctAnswer: "proposal",
@@ -351,6 +675,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_8",
+      category: "dong_danh_tu",
       topic: "Cụm V + O",
       question: "Điền tân ngữ thương mại thích hợp: Launch a ... (tung ra chiến dịch)?",
       correctAnswer: "campaign",
@@ -362,6 +687,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_9",
+      category: "dong_danh_tu",
       topic: "Đuôi danh từ",
       question: "Kể ít nhất 3 đuôi danh từ chỉ NGƯỜI thông dụng (ví dụ: -er, -or, ...)?",
       correctAnswer: "-er, -or, -ee",
@@ -373,6 +699,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_10",
+      category: "dong_danh_tu",
       topic: "Đuôi danh từ",
       question: "Kể ít nhất 3 đuôi danh từ chỉ VẬT/SỰ VIỆC thông dụng (ví dụ: -ion, -ment, ...)?",
       correctAnswer: "-ion, -ment, -ness",
@@ -384,6 +711,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_11",
+      category: "dong_danh_tu",
       topic: "Bẫy đuôi -al",
       question: "Kể 3 danh từ có đuôi -al đặc biệt (hay bị nhầm là tính từ)?",
       correctAnswer: "proposal, approval, renewal",
@@ -395,6 +723,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_12",
+      category: "dong_danh_tu",
       topic: "Bẫy đuôi -ive",
       question: "Representative (đuôi -ive) là loại từ gì?",
       correctAnswer: "danh từ và tính từ",
@@ -406,6 +735,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_13",
+      category: "dong_danh_tu",
       topic: "Cụm danh từ",
       question: "Nêu công thức đầy đủ của Cụm danh từ (Noun Phrase)?",
       correctAnswer: "MT/TTSH + ADV + ADJ + N",
@@ -417,6 +747,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_14",
+      category: "dong_danh_tu",
       topic: "Quy tắc dịch câu",
       question: "Khi gặp một Cụm danh từ trong câu, ta phải dịch theo thứ tự nào?",
       correctAnswer: "phải sang trái",
@@ -428,6 +759,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_15",
+      category: "dong_danh_tu",
       topic: "Phân loại danh từ",
       question: "Danh từ chỉ NGƯỜI (employee, manager...) có đếm được không?",
       correctAnswer: "có",
@@ -439,6 +771,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_16",
+      category: "dong_danh_tu",
       topic: "Phân loại danh từ",
       question: "Danh từ đếm được ở dạng số ít (ví dụ: book, table) có được đứng một mình không?",
       correctAnswer: "không",
@@ -450,6 +783,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_17",
+      category: "dong_danh_tu",
       topic: "Danh từ không đếm được",
       question: "Information (thông tin) là danh từ đếm được hay không đếm được?",
       correctAnswer: "không đếm được",
@@ -461,6 +795,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_18",
+      category: "dong_danh_tu",
       topic: "Danh từ không đếm được",
       question: "Kể 3 danh từ không đếm được tiêu biểu trong đề thi TOEIC?",
       correctAnswer: "information, equipment, knowledge",
@@ -472,6 +807,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_19",
+      category: "dong_danh_tu",
       topic: "Vị trí danh từ",
       question: "Kể ít nhất 3 vị trí vàng của Danh từ trong câu Part 5?",
       correctAnswer: "Chủ ngữ, sau V, sau giới từ",
@@ -483,6 +819,7 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "gq_20",
+      category: "dong_danh_tu",
       topic: "Danh từ không đếm được",
       question: "Động từ đi theo sau một Danh từ không đếm được (làm chủ ngữ) được chia ở số ít hay số nhiều?",
       correctAnswer: "số ít",
@@ -491,6 +828,199 @@ var TOEIC_GRAMMAR_DATA = {
       ],
       hint: "Ví dụ: Information is clear (dùng is, was, has, V_s/es)",
       explanation: "Danh từ không đếm được khi làm chủ ngữ luôn chia động từ ở dạng SỐ ÍT (is, was, has, V_s/es)."
+    }
+,
+    {
+      id: "gq_21",
+      category: "tinh_trang_tu",
+      topic: "Đuôi tính từ",
+      question: "Kể ít nhất 4 đuôi tính từ phổ biến trong tiếng Anh (ví dụ: -ful, -able...)?",
+      correctAnswer: "-ful, -al, -able, -ive, -ous, -ic",
+      acceptableAnswers: [
+        "-ful, -al, -able, -ive, -ous, -ic", "-ful, -al, -able, -ive", "-ful -al -able -ive", "ful, al, able, ive", "ful al able ive", "ful, al, able, ive, ous", "ful able al ive", "-ful, -able, -al, -ive, -ous"
+      ],
+      hint: "6 Đuôi vàng: -ful, -al, -able, -ic, -ive, -ous",
+      explanation: "6 Đuôi tính từ kinh điển trong đề thi TOEIC: -ful, -al, -able, -ic, -ive, -ous."
+    },
+    {
+      id: "gq_22",
+      category: "tinh_trang_tu",
+      topic: "Tính từ phân từ",
+      question: "Tính từ đuôi -ing dùng để diễn tả điều gì của đối tượng?",
+      correctAnswer: "bản chất",
+      acceptableAnswers: [
+        "bản chất", "ban chat", "tính chất", "tinh chat", "chủ động", "chu dong", "bản chất sự vật", "tính chất của người hoặc vật"
+      ],
+      hint: "Ví dụ: an interesting movie (bản chất bộ phim hay)",
+      explanation: "Tính từ đuôi -ing diễn tả BẢN CHẤT, tính chất vốn có của sự vật, sự việc hoặc con người."
+    },
+    {
+      id: "gq_23",
+      category: "tinh_trang_tu",
+      topic: "Tính từ phân từ",
+      question: "Tính từ đuôi -ed dùng để diễn tả điều gì?",
+      correctAnswer: "cảm xúc",
+      acceptableAnswers: [
+        "cảm xúc", "cam xuc", "bị động", "bi dong", "cảm nhận", "cam nhan", "cảm xúc con người", "cam xuc con nguoi"
+      ],
+      hint: "Ví dụ: I am interested (tôi cảm thấy thích thú - cảm xúc)",
+      explanation: "Tính từ đuôi -ed diễn tả CẢM XÚC, cảm nhận của con người, hoặc trạng thái BỊ ĐỘNG."
+    },
+    {
+      id: "gq_24",
+      category: "tinh_trang_tu",
+      topic: "Tính từ phân từ",
+      question: "Chọn từ đúng: 'I am (interested / interesting) in reading books'?",
+      correctAnswer: "interested",
+      acceptableAnswers: [
+        "interested"
+      ],
+      hint: "Diễn tả cảm xúc, sự quan tâm của bản thân người nói (I am...)",
+      explanation: "Chọn 'interested' vì diễn tả cảm xúc của chủ ngữ người: be interested in sth (thích thú, quan tâm đến cái gì)."
+    },
+    {
+      id: "gq_25",
+      category: "tinh_trang_tu",
+      topic: "Tính từ phân từ",
+      question: "Chọn từ đúng: 'The movie we watched yesterday was very (interested / interesting)'?",
+      correctAnswer: "interesting",
+      acceptableAnswers: [
+        "interesting"
+      ],
+      hint: "Diễn tả bản chất của bộ phim (the movie)",
+      explanation: "Chọn 'interesting' vì miêu tả bản chất của sự vật (bộ phim hay, hấp dẫn)."
+    },
+    {
+      id: "gq_26",
+      category: "tinh_trang_tu",
+      topic: "Linking Verbs",
+      question: "Kể 4 động từ nối (Linking Verbs) chỉ giác quan đi kèm tính từ?",
+      correctAnswer: "look, sound, smell, taste, feel",
+      acceptableAnswers: [
+        "look, sound, smell, taste, feel", "look sound smell taste feel", "look, taste, smell, sound", "look, sound, smell, taste", "look sound taste feel", "taste, smell, sound, feel"
+      ],
+      hint: "Trông (l...), nghe (s...), ngửi (sm...), nếm (t...), cảm giác (f...)",
+      explanation: "Các Linking Verbs chỉ giác quan luôn đi cùng Tính từ: look, sound, smell, taste, feel."
+    },
+    {
+      id: "gq_27",
+      category: "tinh_trang_tu",
+      topic: "Ngoại động từ đặc biệt",
+      question: "Nêu công thức của câu với Ngoại động từ đặc biệt (find, deem, make, keep, leave)?",
+      correctAnswer: "S + V + O + Adj",
+      acceptableAnswers: [
+        "S + V + O + Adj", "S+V+O+Adj", "S + V_ngoại đặc biệt + O + Adj", "S + V ngoại đặc biệt + O + Adj", "S + V dac biet + O + Adj"
+      ],
+      hint: "Chủ ngữ + Động từ đặc biệt + Tân ngữ + Tính từ",
+      explanation: "Công thức vàng: S + V_đặc biệt + O + Adj (Tính từ đứng sau tân ngữ để bổ nghĩa cho tân ngữ)."
+    },
+    {
+      id: "gq_28",
+      category: "tinh_trang_tu",
+      topic: "Ngoại động từ đặc biệt",
+      question: "Kể 5 ngoại động từ đặc biệt đi theo cấu trúc S + V + O + Adj?",
+      correctAnswer: "find, deem, make, keep, leave",
+      acceptableAnswers: [
+        "find, deem, make, keep, leave", "find deem make keep leave", "make, keep, find, deem, leave", "keep, make, find, deem, leave"
+      ],
+      hint: "Cảm thấy (f..., d...), làm cho (m...), giữ cho (k...), để cho (l...)",
+      explanation: "5 Ngoại động từ đặc biệt bắt buộc học thuộc: Find, Deem, Make, Keep, Leave."
+    },
+    {
+      id: "gq_29",
+      category: "tinh_trang_tu",
+      topic: "Ngoại động từ đặc biệt",
+      question: "Trong câu 'The mother made the cake delicious', tính từ 'delicious' bổ nghĩa cho từ nào?",
+      correctAnswer: "the cake",
+      acceptableAnswers: [
+        "the cake", "cake", "tân ngữ", "tan ngu", "tân ngữ the cake", "O"
+      ],
+      hint: "Bổ nghĩa cho danh từ đứng trước nó làm tân ngữ",
+      explanation: "Tính từ 'delicious' đứng sau tân ngữ 'the cake' để bổ nghĩa trực tiếp cho tân ngữ 'the cake'."
+    },
+    {
+      id: "gq_30",
+      category: "tinh_trang_tu",
+      topic: "Quy tắc tạo trạng từ",
+      question: "Trạng từ thông thường được tạo thành từ công thức nào?",
+      correctAnswer: "Adj + -ly",
+      acceptableAnswers: [
+        "Adj + -ly", "adj + ly", "tính từ + ly", "tinh tu + ly", "adj+ly", "Adj + ly"
+      ],
+      hint: "Tính từ thêm đuôi -ly (quick ➔ quickly)",
+      explanation: "Trạng từ = Tính từ + đuôi '-ly' (quick ➔ quickly, careful ➔ carefully)."
+    },
+    {
+      id: "gq_31",
+      category: "tinh_trang_tu",
+      topic: "Trạng từ bất quy tắc",
+      question: "Trạng từ của tính từ 'good' là từ gì?",
+      correctAnswer: "well",
+      acceptableAnswers: [
+        "well"
+      ],
+      hint: "Làm bài tốt: do the test ...",
+      explanation: "Trạng từ của 'good' là 'well' (bất quy tắc, tuyệt đối không dùng goodly)."
+    },
+    {
+      id: "gq_32",
+      category: "tinh_trang_tu",
+      topic: "Bẫy trạng từ",
+      question: "Trạng từ 'hardly' có nghĩa là gì?",
+      correctAnswer: "hiếm khi",
+      acceptableAnswers: [
+        "hiếm khi", "hiem khi", "hầu như không", "hau nhu khong"
+      ],
+      hint: "Mang nghĩa phủ định gần như không bao giờ...",
+      explanation: "Hardly mang nghĩa 'hầu như không / hiếm khi' (khác hoàn toàn với 'hard' là chăm chỉ/vất vả)."
+    },
+    {
+      id: "gq_33",
+      category: "tinh_trang_tu",
+      topic: "Vị trí vàng Part 5",
+      question: "Trong cấu trúc S + be + [ ... ] + Adj hoặc V_ed, chỗ trống điền loại từ nào?",
+      correctAnswer: "trạng từ",
+      acceptableAnswers: [
+        "trạng từ", "trang tu", "adv", "adverb"
+      ],
+      hint: "Từ loại có đuôi -ly bổ nghĩa cho tính từ hoặc động từ phía sau",
+      explanation: "Vị trí vàng 1: S + be + [ Adv ] + Adj/V_ed (Ví dụ: The plan was successfully approved)."
+    },
+    {
+      id: "gq_34",
+      category: "tinh_trang_tu",
+      topic: "Vị trí vàng Part 5",
+      question: "Trong cấu trúc S + have/has + [ ... ] + V3/ed, chỗ trống điền loại từ nào?",
+      correctAnswer: "trạng từ",
+      acceptableAnswers: [
+        "trạng từ", "trang tu", "adv", "adverb"
+      ],
+      hint: "Từ loại kẹp giữa trợ động từ have/has và động từ chính",
+      explanation: "Vị trí vàng 2: S + have/has + [ Adv ] + V3/ed (Ví dụ: They have already finished the task)."
+    },
+    {
+      id: "gq_35",
+      category: "tinh_trang_tu",
+      topic: "Vị trí vàng Part 5",
+      question: "Trong cấu trúc S + Modal Verb (can, should, will...) + [ ... ] + V0, chỗ trống điền loại từ nào?",
+      correctAnswer: "trạng từ",
+      acceptableAnswers: [
+        "trạng từ", "trang tu", "adv", "adverb"
+      ],
+      hint: "Từ loại kẹp giữa động từ khiếm khuyết và động từ nguyên mẫu",
+      explanation: "Vị trí vàng 3: S + Modal Verb + [ Adv ] + V0 (Ví dụ: Employees must strictly follow safety rules)."
+    },
+    {
+      id: "gq_36",
+      category: "tinh_trang_tu",
+      topic: "Phân biệt Adj vs Adv",
+      question: "Tính từ bổ nghĩa cho loại từ nào, và trạng từ bổ nghĩa cho loại từ nào?",
+      correctAnswer: "tính từ bổ nghĩa danh từ, trạng từ bổ nghĩa các thành phần khác",
+      acceptableAnswers: [
+        "tính từ bổ nghĩa danh từ, trạng từ bổ nghĩa các thành phần khác", "tính từ bổ nghĩa danh từ, trạng từ bổ nghĩa động từ", "tính từ bổ nghĩa danh từ", "tinh tu bo nghia danh tu", "adj cho N, adv cho khác", "tính từ cho danh từ, trạng từ cho động từ"
+      ],
+      hint: "Tính từ chỉ bổ nghĩa cho N; trạng từ bổ nghĩa cho V, Adj, Adv khác, cả câu...",
+      explanation: "Tính từ duy nhất bổ nghĩa cho Danh từ. Trạng từ bổ nghĩa cho tất cả các thành phần khác TRỪ Danh từ."
     }
   ],
 
