@@ -732,7 +732,7 @@
       <section id="view-grammar" class="en-view hidden space-y-4">
 
         <!-- Top Banner Header -->
-        <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-sky-600 p-4 sm:p-5 rounded-3xl text-white shadow-md relative overflow-hidden">
+        <div id="grammar-top-banner" class="hidden bg-gradient-to-r from-blue-700 via-indigo-700 to-sky-600 p-4 sm:p-5 rounded-3xl text-white shadow-md relative overflow-hidden">
           <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-xs text-[11px] font-bold text-blue-100 mb-1.5">
@@ -778,14 +778,14 @@
             <span id="grammar-practice-topic" class="text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg font-semibold text-[11px] border border-indigo-100">
               Chuyên đề: 3 Mẫu câu đơn
             </span>
-            <div class="flex items-center gap-2">
-              <span class="text-emerald-600 text-xs font-bold flex items-center gap-1">
+            <div class="flex items-center gap-1.5">
+              <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-md text-xs font-bold flex items-center gap-1 shadow-2xs">
                 <span>✓</span> <span id="grammar-stat-correct">0</span>
               </span>
-              <span class="text-rose-500 text-xs font-bold flex items-center gap-1">
+              <span class="bg-rose-50 text-rose-700 border border-rose-200 px-2 py-0.5 rounded-md text-xs font-bold flex items-center gap-1 shadow-2xs">
                 <span>✕</span> <span id="grammar-stat-wrong">0</span>
               </span>
-              <button onclick="shuffleGrammarQuestions()" title="Trộn câu hỏi" class="hover:text-blue-600 text-slate-500 text-xs font-bold transition flex items-center gap-0.5 ml-1">
+              <button onclick="shuffleGrammarQuestions()" title="Trộn câu hỏi" class="hover:text-blue-600 text-slate-500 text-xs font-bold transition flex items-center gap-0.5 ml-1 p-1 hover:bg-slate-100 rounded-lg cursor-pointer">
                 <span>🔀</span>
               </button>
             </div>
@@ -859,15 +859,37 @@
         </div>
 
         <!-- ================= SUB-TAB 2: LÝ THUYẾT BÀI GIẢNG ================= -->
-        <div id="grammar-pane-theory" class="hidden space-y-4">
+        <div id="grammar-pane-theory" class="hidden space-y-3">
+          <!-- Controls: Search & Expand/Collapse All -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-white p-3 rounded-2xl border border-slate-200 shadow-2xs">
+            <div class="relative flex-1">
+              <span class="absolute inset-y-0 left-3 flex items-center text-slate-400 text-xs">🔍</span>
+              <input 
+                type="text" 
+                id="grammar-theory-search" 
+                placeholder="Tìm nhanh lý thuyết (VD: 3 mẫu câu, đuôi danh từ, bẫy -al, dịch câu...)..." 
+                class="w-full pl-8 pr-3 py-1.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-blue-500 bg-slate-50 transition"
+                oninput="handleGrammarTheorySearch(this.value)"
+              />
+            </div>
+            <div class="flex items-center gap-1.5 self-end sm:self-auto flex-shrink-0">
+              <button onclick="toggleAllGrammarTheory(true)" class="px-2.5 py-1.5 text-[11px] font-bold text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-xl transition flex items-center gap-1 border border-blue-200 cursor-pointer shadow-2xs">
+                <span>🔽</span> <span>Mở tất cả</span>
+              </button>
+              <button onclick="toggleAllGrammarTheory(false)" class="px-2.5 py-1.5 text-[11px] font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition flex items-center gap-1 border border-slate-200 cursor-pointer shadow-2xs">
+                <span>🔼</span> <span>Gom lại (Thu gọn)</span>
+              </button>
+            </div>
+          </div>
+
           <!-- Quick Topic Tabs -->
           <div id="grammar-theory-topics-nav" class="flex items-center gap-1.5 overflow-x-auto py-1 text-xs font-bold no-scrollbar">
             <!-- Topics buttons rendered dynamically -->
           </div>
 
-          <!-- Topics Content Container -->
-          <div id="grammar-theory-topics-container" class="space-y-4">
-            <!-- Injected dynamically from TOEIC_GRAMMAR_DATA.theoryTopics -->
+          <!-- Topics Accordion Container -->
+          <div id="grammar-theory-topics-container" class="space-y-2.5">
+            <!-- Injected dynamically as compact accordion cards -->
           </div>
         </div>
 
@@ -1365,8 +1387,8 @@
 
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script src="toeic_course_data.js?v=26"></script>
-  <script src="toeic_grammar_data.js?v=26"></script>
+  <script src="toeic_course_data.js?v=27"></script>
+  <script src="toeic_grammar_data.js?v=27"></script>
   <script>
     /* =========================================================================
        1. DATASETS TOEIC (MỤC TIÊU 450+, 600+, COLLOCATIONS PART 5)
@@ -4493,6 +4515,14 @@ let currentSynonymItem = null;
       }
     }
 
+    // Audio helper aliases
+    function playAudioSuccess() {
+      playTone('correct');
+    }
+    function playAudioFailure() {
+      playTone('wrong');
+    }
+
     function checkGrammarAnswer() {
       if (globalState.grammarIsAnswered) {
         nextGrammarQuestion();
@@ -4520,7 +4550,7 @@ let currentSynonymItem = null;
       if (isCorrect) {
         globalState.grammarCorrect++;
         input.className = "w-full px-4 py-3.5 text-center text-base sm:text-lg font-bold text-emerald-900 bg-emerald-50 border-2 border-emerald-500 rounded-2xl focus:outline-none transition shadow-2xs";
-        playAudioSuccess();
+        playTone('correct');
 
         if (feedbackBox) {
           feedbackBox.classList.remove('hidden');
@@ -4534,7 +4564,7 @@ let currentSynonymItem = null;
       } else {
         globalState.grammarWrong++;
         input.className = "w-full px-4 py-3.5 text-center text-base sm:text-lg font-bold text-rose-900 bg-rose-50 border-2 border-rose-500 rounded-2xl focus:outline-none transition shadow-2xs animate-shake";
-        playAudioFailure();
+        playTone('wrong');
 
         if (feedbackBox) {
           feedbackBox.classList.remove('hidden');
@@ -4548,8 +4578,10 @@ let currentSynonymItem = null;
         }
       }
 
-      document.getElementById('grammar-stat-correct').textContent = globalState.grammarCorrect;
-      document.getElementById('grammar-stat-wrong').textContent = globalState.grammarWrong;
+      const statCorrect = document.getElementById('grammar-stat-correct');
+      const statWrong = document.getElementById('grammar-stat-wrong');
+      if (statCorrect) statCorrect.textContent = globalState.grammarCorrect;
+      if (statWrong) statWrong.textContent = globalState.grammarWrong;
 
       if (checkBtn) {
         checkBtn.textContent = 'Tiếp tục ➔ (Enter)';
@@ -4579,7 +4611,14 @@ let currentSynonymItem = null;
       const q = globalState.grammarQuestions[globalState.grammarQuestionIndex];
       if (!q) return;
 
+      if (!globalState.grammarIsAnswered) {
+        globalState.grammarWrong++;
+        playTone('wrong');
+        const statWrong = document.getElementById('grammar-stat-wrong');
+        if (statWrong) statWrong.textContent = globalState.grammarWrong;
+      }
       globalState.grammarIsAnswered = true;
+
       const input = document.getElementById('grammar-input');
       input.value = q.correctAnswer;
       input.className = "w-full px-4 py-3.5 text-center text-base sm:text-lg font-bold text-blue-900 bg-blue-50 border-2 border-blue-400 rounded-2xl focus:outline-none transition shadow-2xs";
@@ -4625,33 +4664,54 @@ let currentSynonymItem = null;
       globalState.grammarQuestionIndex = 0;
       globalState.grammarCorrect = 0;
       globalState.grammarWrong = 0;
-      document.getElementById('grammar-stat-correct').textContent = '0';
-      document.getElementById('grammar-stat-wrong').textContent = '0';
+      const statCorrect = document.getElementById('grammar-stat-correct');
+      const statWrong = document.getElementById('grammar-stat-wrong');
+      if (statCorrect) statCorrect.textContent = '0';
+      if (statWrong) statWrong.textContent = '0';
       renderGrammarPracticeQuestion();
       alert("🔀 Đã xáo trộn ngẫu nhiên toàn bộ câu hỏi!");
     }
 
-    // --- SUB-TAB 2: LÝ THUYẾT BÀI GIẢNG ---
-    function renderGrammarTheoryTopics() {
-      if (typeof TOEIC_GRAMMAR_DATA === 'undefined' || !TOEIC_GRAMMAR_DATA.theoryTopics) return;
-      const topics = TOEIC_GRAMMAR_DATA.theoryTopics;
+    // --- SUB-TAB 2: LÝ THUYẾT BÀI GIẢNG (ACCORDION & GOM GỌN CHUYÊN ĐỀ) ---
+    globalState.activeTheoryTopicId = 'all';
+    globalState.grammarTheorySearch = '';
+    globalState.collapsedTheoryCards = globalState.collapsedTheoryCards || {};
 
-      // Render filter tabs
+    function getGrammarTheoryTopics() {
+      let list = [];
+      if (typeof TOEIC_GRAMMAR_DATA !== 'undefined' && Array.isArray(TOEIC_GRAMMAR_DATA.theoryTopics)) {
+        list = [...TOEIC_GRAMMAR_DATA.theoryTopics];
+      }
+      const custom = localStorage.getItem('studymaster_custom_theory');
+      if (custom) {
+        try {
+          const parsed = JSON.parse(custom);
+          if (Array.isArray(parsed)) list = [...list, ...parsed];
+        } catch (e) {}
+      }
+      return list;
+    }
+
+    function renderGrammarTheoryTopics() {
+      const topics = getGrammarTheoryTopics();
+      if (topics.length === 0) return;
+
+      // 1. Render filter pill navigation
       const nav = document.getElementById('grammar-theory-topics-nav');
       if (nav) {
         nav.innerHTML = '';
         const allBtn = document.createElement('button');
         allBtn.className = (globalState.activeTheoryTopicId === 'all')
-          ? "px-3 py-1.5 rounded-xl bg-blue-600 text-white flex-shrink-0 transition text-xs font-bold"
+          ? "px-3 py-1.5 rounded-xl bg-blue-600 text-white flex-shrink-0 transition text-xs font-bold shadow-2xs"
           : "px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs font-semibold";
-        allBtn.textContent = 'Tất cả (5 Chuyên đề)';
+        allBtn.innerHTML = `<span>📑</span> <span>Tất cả (${topics.length} Chuyên đề)</span>`;
         allBtn.onclick = () => filterTheoryTopic('all');
         nav.appendChild(allBtn);
 
         topics.forEach((t, i) => {
           const btn = document.createElement('button');
           btn.className = (globalState.activeTheoryTopicId === t.id)
-            ? "px-3 py-1.5 rounded-xl bg-blue-600 text-white flex-shrink-0 transition text-xs font-bold"
+            ? "px-3 py-1.5 rounded-xl bg-blue-600 text-white flex-shrink-0 transition text-xs font-bold shadow-2xs"
             : "px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs font-semibold";
           btn.innerHTML = `<span>${t.icon || '📌'}</span> <span>Chuyên đề ${i + 1}</span>`;
           btn.onclick = () => filterTheoryTopic(t.id);
@@ -4659,32 +4719,104 @@ let currentSynonymItem = null;
         });
       }
 
-      // Render topics cards
-      const container = document.getElementById('grammar-theory-topics-container');
-      if (container) {
-        container.innerHTML = '';
-        topics.forEach(t => {
-          if (globalState.activeTheoryTopicId !== 'all' && globalState.activeTheoryTopicId !== t.id) return;
+      // 2. Filter topics based on search & active filter
+      const query = (globalState.grammarTheorySearch || '').trim().toLowerCase();
+      const filteredTopics = topics.filter(t => {
+        if (globalState.activeTheoryTopicId !== 'all' && globalState.activeTheoryTopicId !== t.id) {
+          return false;
+        }
+        if (query) {
+          const plainTitle = (t.title || '').toLowerCase();
+          const plainContent = (t.contentHtml || '').replace(/<[^>]*>/g, ' ').toLowerCase();
+          const plainBadge = (t.badge || '').toLowerCase();
+          return plainTitle.includes(query) || plainContent.includes(query) || plainBadge.includes(query);
+        }
+        return true;
+      });
 
-          const card = document.createElement('div');
-          card.className = "bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-xs space-y-3";
-          card.innerHTML = `
-            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
-              <h3 class="text-sm sm:text-base font-extrabold text-slate-900 flex items-center gap-2">
-                <span>${t.icon || '📌'}</span>
-                <span>${t.title}</span>
-              </h3>
-              <span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-[10px] font-bold rounded-lg border border-blue-100">${t.badge || 'Lý thuyết'}</span>
-            </div>
-            <div>${t.contentHtml}</div>
-          `;
-          container.appendChild(card);
-        });
+      // 3. Render accordion container
+      const container = document.getElementById('grammar-theory-topics-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      if (filteredTopics.length === 0) {
+        container.innerHTML = `
+          <div class="p-8 text-center text-slate-400 bg-white rounded-2xl border border-slate-200">
+            <span class="text-3xl block mb-2">🔍</span>
+            <div class="font-bold text-xs">Không tìm thấy nội dung lý thuyết phù hợp với "${globalState.grammarTheorySearch}".</div>
+            <button onclick="handleGrammarTheorySearch('')" class="mt-2 text-xs text-blue-600 font-bold hover:underline cursor-pointer">Xóa bộ lọc tìm kiếm</button>
+          </div>
+        `;
+        return;
       }
+
+      filteredTopics.forEach(t => {
+        const isForceOpen = Boolean(query) || (globalState.activeTheoryTopicId === t.id);
+        const isCardOpen = isForceOpen || (globalState.collapsedTheoryCards[t.id] === true);
+
+        const card = document.createElement('div');
+        card.id = `theory-card-${t.id}`;
+        card.className = "bg-white rounded-2xl border border-slate-200/90 shadow-2xs overflow-hidden transition";
+
+        card.innerHTML = `
+          <button 
+            type="button"
+            onclick="toggleGrammarTheoryCard('${t.id}')" 
+            class="w-full px-4 py-3 bg-slate-50 hover:bg-blue-50/50 flex items-center justify-between gap-3 text-left transition select-none cursor-pointer"
+          >
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="text-lg flex-shrink-0">${t.icon || '📌'}</span>
+              <div class="min-w-0">
+                <div class="text-xs sm:text-sm font-extrabold text-slate-900 truncate">${t.title}</div>
+                <div class="text-[10px] text-slate-500 font-medium">${t.badge || 'Lý thuyết bài giảng'}</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 flex-shrink-0">
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-lg border transition ${
+                isCardOpen ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-600 border-slate-200 hover:border-blue-300'
+              }">
+                ${isCardOpen ? 'Thu gọn' : 'Bấm xem'}
+              </span>
+              <span id="theory-chevron-${t.id}" class="text-xs text-slate-400 font-bold transition-transform duration-200 ${isCardOpen ? 'rotate-180' : ''}">
+                ▼
+              </span>
+            </div>
+          </button>
+          <div id="theory-body-${t.id}" class="${isCardOpen ? '' : 'hidden'} p-4 sm:p-5 border-t border-slate-100 bg-white leading-relaxed">
+            ${t.contentHtml}
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function toggleGrammarTheoryCard(topicId) {
+      const isCurrentlyOpen = globalState.collapsedTheoryCards[topicId] === true;
+      globalState.collapsedTheoryCards[topicId] = !isCurrentlyOpen;
+      renderGrammarTheoryTopics();
+    }
+
+    function toggleAllGrammarTheory(expand) {
+      const topics = getGrammarTheoryTopics();
+      topics.forEach(t => {
+        globalState.collapsedTheoryCards[t.id] = expand;
+      });
+      renderGrammarTheoryTopics();
+    }
+
+    function handleGrammarTheorySearch(val) {
+      globalState.grammarTheorySearch = val;
+      const input = document.getElementById('grammar-theory-search');
+      if (input && input.value !== val) input.value = val;
+      renderGrammarTheoryTopics();
     }
 
     function filterTheoryTopic(topicId) {
       globalState.activeTheoryTopicId = topicId;
+      if (topicId !== 'all') {
+        globalState.collapsedTheoryCards[topicId] = true;
+      }
       renderGrammarTheoryTopics();
     }
 
