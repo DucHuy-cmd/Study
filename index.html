@@ -1387,8 +1387,8 @@
 
 
   <!-- ================= JAVASCRIPT LOGIC ================= -->
-  <script src="toeic_course_data.js?v=27"></script>
-  <script src="toeic_grammar_data.js?v=27"></script>
+  <script src="toeic_course_data.js?v=28"></script>
+  <script src="toeic_grammar_data.js?v=28"></script>
   <script>
     /* =========================================================================
        1. DATASETS TOEIC (MỤC TIÊU 450+, 600+, COLLOCATIONS PART 5)
@@ -4696,33 +4696,45 @@ let currentSynonymItem = null;
       const topics = getGrammarTheoryTopics();
       if (topics.length === 0) return;
 
-      // 1. Render filter pill navigation
+      // 1. Render category pill navigation (Đổi "Tất cả" thành "Động danh từ", bỏ các nút Chuyên đề 1..5)
       const nav = document.getElementById('grammar-theory-topics-nav');
       if (nav) {
         nav.innerHTML = '';
-        const allBtn = document.createElement('button');
-        allBtn.className = (globalState.activeTheoryTopicId === 'all')
-          ? "px-3 py-1.5 rounded-xl bg-blue-600 text-white flex-shrink-0 transition text-xs font-bold shadow-2xs"
-          : "px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs font-semibold";
-        allBtn.innerHTML = `<span>📑</span> <span>Tất cả (${topics.length} Chuyên đề)</span>`;
-        allBtn.onclick = () => filterTheoryTopic('all');
-        nav.appendChild(allBtn);
 
-        topics.forEach((t, i) => {
+        // Extract categories: mặc định là 'dong_danh_tu' (Động danh từ)
+        const categoryMap = new Map();
+        categoryMap.set('dong_danh_tu', { id: 'dong_danh_tu', label: '📘 Động danh từ', count: 0 });
+
+        topics.forEach(t => {
+          const catId = t.category || 'dong_danh_tu';
+          const catLabel = t.categoryLabel || (catId === 'dong_danh_tu' ? '📘 Động danh từ' : `📑 ${catId}`);
+          if (!categoryMap.has(catId)) {
+            categoryMap.set(catId, { id: catId, label: catLabel, count: 0 });
+          }
+          categoryMap.get(catId).count++;
+        });
+
+        if (!globalState.activeTheoryCategory) {
+          globalState.activeTheoryCategory = 'dong_danh_tu';
+        }
+
+        categoryMap.forEach(cat => {
           const btn = document.createElement('button');
-          btn.className = (globalState.activeTheoryTopicId === t.id)
-            ? "px-3 py-1.5 rounded-xl bg-blue-600 text-white flex-shrink-0 transition text-xs font-bold shadow-2xs"
-            : "px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs font-semibold";
-          btn.innerHTML = `<span>${t.icon || '📌'}</span> <span>Chuyên đề ${i + 1}</span>`;
-          btn.onclick = () => filterTheoryTopic(t.id);
+          const isActive = (globalState.activeTheoryCategory === cat.id);
+          btn.className = isActive
+            ? "px-3.5 py-1.5 rounded-xl bg-blue-600 text-white flex-shrink-0 transition text-xs font-bold shadow-2xs flex items-center gap-1.5 cursor-pointer"
+            : "px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 flex-shrink-0 transition text-xs font-semibold flex items-center gap-1.5 cursor-pointer";
+          btn.innerHTML = `<span>${cat.label}</span> <span class="text-[10px] opacity-80 bg-white/20 px-1.5 py-0.2 rounded-full font-bold">(${cat.count})</span>`;
+          btn.onclick = () => filterTheoryCategory(cat.id);
           nav.appendChild(btn);
         });
       }
 
-      // 2. Filter topics based on search & active filter
+      // 2. Filter topics based on category & search
       const query = (globalState.grammarTheorySearch || '').trim().toLowerCase();
       const filteredTopics = topics.filter(t => {
-        if (globalState.activeTheoryTopicId !== 'all' && globalState.activeTheoryTopicId !== t.id) {
+        const catId = t.category || 'dong_danh_tu';
+        if (globalState.activeTheoryCategory && catId !== globalState.activeTheoryCategory) {
           return false;
         }
         if (query) {
@@ -4809,6 +4821,11 @@ let currentSynonymItem = null;
       globalState.grammarTheorySearch = val;
       const input = document.getElementById('grammar-theory-search');
       if (input && input.value !== val) input.value = val;
+      renderGrammarTheoryTopics();
+    }
+
+    function filterTheoryCategory(catId) {
+      globalState.activeTheoryCategory = catId;
       renderGrammarTheoryTopics();
     }
 

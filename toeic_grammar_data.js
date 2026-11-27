@@ -13,6 +13,8 @@ var TOEIC_GRAMMAR_DATA = {
   theoryTopics: [
     {
       id: "topic_cau_don",
+      category: "dong_danh_tu",
+      categoryLabel: "Động danh từ",
       icon: "📌",
       title: "1. Câu Đơn (Simple Sentences) & 3 Mẫu Câu Cốt Lõi",
       badge: "Mẫu câu cơ bản",
@@ -69,6 +71,8 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "topic_noi_ngoai",
+      category: "dong_danh_tu",
+      categoryLabel: "Động danh từ",
       icon: "⚡",
       title: "2. Phân Biệt Nội Động Từ & Ngoại Động Từ",
       badge: "Mẹo làm bài",
@@ -118,6 +122,8 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "topic_duoi_danh_tu",
+      category: "dong_danh_tu",
+      categoryLabel: "Động danh từ",
       icon: "📚",
       title: "3. Nhận Biết Danh Từ & Bẫy Đuôi Đặc Biệt",
       badge: "Bẫy Part 5",
@@ -185,6 +191,8 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "topic_cum_danh_tu",
+      category: "dong_danh_tu",
+      categoryLabel: "Động danh từ",
       icon: "🧩",
       title: "4. Cụm Danh Từ (Noun Phrase) & 3 Bước Dịch Câu",
       badge: "Kỹ năng dịch",
@@ -220,6 +228,8 @@ var TOEIC_GRAMMAR_DATA = {
     },
     {
       id: "topic_phan_loai_danh_tu",
+      category: "dong_danh_tu",
+      categoryLabel: "Động danh từ",
       icon: "🎯",
       title: "5. Phân Loại Danh Từ & 6 Vị Trí Vàng Trong Part 5",
       badge: "Quy tắc ngữ pháp",
